@@ -66,6 +66,10 @@ namespace Online_Store.UI
             //Product
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
+
+            //Test
+            services.AddScoped<ITestRepository, TestRepository>();
+            services.AddScoped<ITestService, TestService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
