@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Online_Store.Domain.Entities.Category3Entity>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cat3Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cat3Desc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cat3Img)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cat2ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UpdatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RowVersion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat3Code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat3Desc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat3Img)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cat2ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RowVersion)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Cat3ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Cat3ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Cat3ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

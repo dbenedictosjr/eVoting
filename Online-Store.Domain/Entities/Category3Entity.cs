@@ -22,11 +22,18 @@ namespace Online_Store.Domain.Entities
 
         public Guid Cat2ID { get; set; }
 
-        public Guid CreatedBy { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime CreatedDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public Guid UpdatedBy { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public DateTime UpdatedDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public byte[] RowVersion { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Guid CreatedBy { get; set; }
+
+        [Column(TypeName = "datetime")]
+        public DateTime CreatedDate { get; set; }
+
+        public Guid UpdatedBy { get; set; }
+
+        [Column(TypeName = "datetime")]
+        public DateTime UpdatedDate { get; set; }
+
+        [Timestamp()]
+        public byte[] RowVersion { get; set; }
 
         public virtual ICollection<ProductEntity> ProductEntity { get; set; }
         public virtual Category2Entity Category2 { get; set; }

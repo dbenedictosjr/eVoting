@@ -9,20 +9,21 @@ using AutoMapper;
 
 namespace Online_Store.Infrastructure.Services
 { }
-    public class Category1Service : ICategory1Service
-    {
-        private readonly ICategory1Repository Category1;
+public class Category1Service : ICategory1Service
+{
+    private readonly ICategory1Repository Category1;
     private readonly IMapper _mapper;
 
     public Category1Service(ICategory1Repository reposity, IMapper mapper)
     {
         Category1 = reposity;
         _mapper = mapper;
-
     }
 
     public async Task CreateAsync(Category1Model model)
     {
+        model.ID = Guid.NewGuid();
+        model.Image = "";
         Category1.Create(_mapper.Map<Category1Entity>(model));
         await Category1.SaveAsync();
     }

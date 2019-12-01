@@ -17,3 +17,4 @@ C:\Projects\GIT\Online-Store.Domain\obj\Debug\netcoreapp3.0\Online-Store.Domain.
 C:\Projects\GIT\Online-Store.Domain\obj\Debug\netcoreapp3.0\Online-Store.Domain.AssemblyInfo.cs
 C:\Projects\GIT\Online-Store.Domain\obj\Debug\netcoreapp3.0\Online-Store.Domain.dll
 C:\Projects\GIT\Online-Store.Domain\obj\Debug\netcoreapp3.0\Online-Store.Domain.pdb
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\obj\Debug\netcoreapp3.0\Online-Store.Domain.csprojAssemblyReference.cache

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\GIT\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj": {}
+    "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\GIT\\Online-Store.Domain\\Online-Store.Domain.csproj": {
+    "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Domain\\Online-Store.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\GIT\\Online-Store.Domain\\Online-Store.Domain.csproj",
+        "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Domain\\Online-Store.Domain.csproj",
         "projectName": "Online-Store.Domain",
-        "projectPath": "C:\\Projects\\GIT\\Online-Store.Domain\\Online-Store.Domain.csproj",
+        "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Domain\\Online-Store.Domain.csproj",
         "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\GIT\\Online-Store.Domain\\obj\\",
+        "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -71,14 +71,14 @@
         }
       }
     },
-    "C:\\Projects\\GIT\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj": {
+    "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\GIT\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj",
         "projectName": "Online-Store.Infrastructure",
-        "projectPath": "C:\\Projects\\GIT\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj",
+        "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\GIT\\Online-Store.Infrastructure\\obj\\",
+        "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -97,8 +97,8 @@
         "frameworks": {
           "netcoreapp3.0": {
             "projectReferences": {
-              "C:\\Projects\\GIT\\Online-Store.Domain\\Online-Store.Domain.csproj": {
-                "projectPath": "C:\\Projects\\GIT\\Online-Store.Domain\\Online-Store.Domain.csproj"
+              "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Domain\\Online-Store.Domain.csproj": {
+                "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Domain\\Online-Store.Domain.csproj"
               }
             }
           }
