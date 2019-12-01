@@ -1,0 +1,9 @@
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\bin\Debug\netcoreapp2.2\Online-Store.Domain.deps.json
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\bin\Debug\netcoreapp2.2\Online-Store.Domain.dll
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\bin\Debug\netcoreapp2.2\Online-Store.Domain.pdb
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\obj\Debug\netcoreapp2.2\Online-Store.Domain.csprojAssemblyReference.cache
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\obj\Debug\netcoreapp2.2\Online-Store.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\obj\Debug\netcoreapp2.2\Online-Store.Domain.AssemblyInfoInputs.cache
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\obj\Debug\netcoreapp2.2\Online-Store.Domain.AssemblyInfo.cs
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\obj\Debug\netcoreapp2.2\Online-Store.Domain.dll
+C:\Projects\OSPI-Integrated-Systems\Online-Store.Domain\obj\Debug\netcoreapp2.2\Online-Store.Domain.pdb
