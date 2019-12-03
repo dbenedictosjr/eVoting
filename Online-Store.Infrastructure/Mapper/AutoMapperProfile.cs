@@ -61,13 +61,6 @@ namespace Online_Store.Infrastructure.Mapper
                 .ForMember(d => d.Active, map => map.MapFrom(s => s.Active))
                 .ForMember(d => d.RowVersion, map => map.MapFrom(s => s.RowVersion))
                 .ReverseMap();
-
-            CreateMap<TestEntity, TestModel>()
-                .ForMember(d => d.ID, map => map.MapFrom(s => s.ID))
-                .ForMember(d => d.Code, map => map.MapFrom(s => s.Code))
-                .ForMember(d => d.Description, map => map.MapFrom(s => s.Desc))
-                .ForMember(d => d.RowVersion, map => map.MapFrom(s => s.RowVersion))
-                .ReverseMap();
         }
     }
 }

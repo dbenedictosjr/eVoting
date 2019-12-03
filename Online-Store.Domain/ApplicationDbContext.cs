@@ -16,9 +16,6 @@ namespace Online_Store.Domain
         public DbSet<Category3Entity> Category3s { get; set; }
         public DbSet<UOMEntity> UOMs { get; set; }
         public DbSet<ProductEntity> Products { get; set; }
-        public DbSet<TestEntity> Tests { get; set; }
-        public DbSet<Billing> Billing { get; set; }
-
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         { }

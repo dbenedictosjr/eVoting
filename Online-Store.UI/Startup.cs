@@ -56,10 +56,6 @@ namespace Online_Store.UI
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IProductService, ProductService>();
 
-            //Test
-            services.AddScoped<ITestRepository, TestRepository>();
-            services.AddScoped<ITestService, TestService>();
-
             //Billing
             services.AddScoped<IBillingRepository, BillingRepository>();
             services.AddScoped<IBillingService, BillingService>();
