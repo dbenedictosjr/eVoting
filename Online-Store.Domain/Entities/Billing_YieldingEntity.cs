@@ -3,19 +3,28 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
 
 namespace Online_Store.Domain.Entities
 {
-    public class UOMEntity : IAuditableRepository
+    public class Billing_YieldingEntity : IAuditableRepository
     {
         [Key]
-        public Guid UOMID { get; set; }
+        public Guid BillingYieldingID { get; set; }
 
-        [Column(TypeName = "varchar(10)")]
-        public string UOMCode { get; set; }
+        public Guid? BillingID { get; set; }
 
-        [Column(TypeName = "varchar(50)")]
-        public string UOMDesc { get; set; }
+        public Guid? StoreID { get; set; }
+
+        public Guid? ProductID { get; set; }
+
+        public Guid? ItemID { get; set; }
+
+        public double? Quantity { get; set; }
+
+        public double? Cost { get; set; }
+
+        public double? Price { get; set; }
 
         public Guid CreatedBy { get; set; }
 

@@ -18,6 +18,6 @@ namespace Online_Store.Infrastructure.Models
         [StringLength(50, ErrorMessage = "Limit Description to 50 characters.")]
         public string Description { get; set; }
 
-        public byte[] RowVersion { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public byte[] RowVersion { get; set; }
     }
 }

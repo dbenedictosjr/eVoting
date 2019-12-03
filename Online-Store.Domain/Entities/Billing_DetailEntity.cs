@@ -1,21 +1,34 @@
 ﻿using Online_Store.Domain.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class UOMEntity : IAuditableRepository
+    public class Billing_DetailEntity : IAuditableRepository
     {
         [Key]
-        public Guid UOMID { get; set; }
+        public Guid BillingDetailID { get; set; }
 
-        [Column(TypeName = "varchar(10)")]
-        public string UOMCode { get; set; }
+        public Guid? BillingID { get; set; }
 
-        [Column(TypeName = "varchar(50)")]
-        public string UOMDesc { get; set; }
+        public Guid? StoreID { get; set; }
+
+        public Guid? ProductID { get; set; }
+
+        public double? Quantity { get; set; }
+
+        public double? Price { get; set; }
+
+        public bool? Vatable { get; set; }
+
+        public double? Discount { get; set; }
+
+        public Guid? DiscountID { get; set; }
+
+        public double? SCDue { get; set; }
+
+        public double? Cost { get; set; }
 
         public Guid CreatedBy { get; set; }
 

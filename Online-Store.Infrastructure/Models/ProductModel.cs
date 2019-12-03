@@ -58,6 +58,6 @@ namespace Online_Store.Infrastructure.Models
         [Required]
         public bool? Active { get; set; }
 
-        public byte[] RowVersion { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public byte[] RowVersion { get; set; }
     }
 }

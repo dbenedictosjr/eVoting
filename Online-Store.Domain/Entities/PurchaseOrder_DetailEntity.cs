@@ -1,21 +1,30 @@
 ﻿using Online_Store.Domain.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class UOMEntity : IAuditableRepository
+    public class PurchaseOrder_DetailEntity : IAuditableRepository
     {
         [Key]
-        public Guid UOMID { get; set; }
+        public Guid PurchaseOrderDetailID { get; set; }
 
-        [Column(TypeName = "varchar(10)")]
-        public string UOMCode { get; set; }
+        public Guid? StoreID { get; set; }
 
-        [Column(TypeName = "varchar(50)")]
-        public string UOMDesc { get; set; }
+        public Guid? PurchaseOrderID { get; set; }
+
+        public Guid? ProductID { get; set; }
+
+        public double? Quantity { get; set; }
+
+        public double? Cost { get; set; }
+
+        public double? MaximumStock { get; set; }
+
+        public double? Stock { get; set; }
+
+        public double? DRQuantity { get; set; }
 
         public Guid CreatedBy { get; set; }
 
