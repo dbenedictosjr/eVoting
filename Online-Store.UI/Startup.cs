@@ -25,25 +25,14 @@ namespace Online_Store.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //var config = new MapperConfiguration(cfg =>
-            //{
-            //    cfg.AddProfile<AutoMapperProfile>();
-            //});
-
-            //Mapper.Initialize(cfg =>
-            //{
-            //    cfg.AddProfile<AutoMapperProfile>();
-            //});
-
-
             services.AddControllersWithViews();
+
+            services.AddAutoMapper(typeof(AutoMapperProfile));
 
             services.AddEntityFrameworkSqlServer()
             .AddDbContext<ApplicationDbContext>((serviceProvider, options) =>
             options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"],
             b => b.MigrationsAssembly("Online-Store.Domain")));
-
-            services.AddAutoMapper(typeof(Startup));
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 

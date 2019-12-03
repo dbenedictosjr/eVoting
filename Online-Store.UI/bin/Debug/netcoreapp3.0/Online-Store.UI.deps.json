@@ -24,7 +24,6 @@
     ".NETCoreApp,Version=v3.0": {
       "Online-Store.UI/1.0.0": {
         "dependencies": {
-          "AutoMapper": "9.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
           "Microsoft.EntityFrameworkCore.Design": "3.0.1",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.0.1",
@@ -2141,7 +2140,7 @@
       },
       "Online-Store.Infrastructure/1.0.0": {
         "dependencies": {
-          "AutoMapper": "9.0.0",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0",
           "Online-Store.Domain": "1.0.0"
         },
         "runtime": {
