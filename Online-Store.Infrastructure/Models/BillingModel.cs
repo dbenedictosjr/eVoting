@@ -5,7 +5,7 @@ namespace Online_Store.Infrastructure.Models
 {
     public class BillingModel
     {
-        [StringLength(30, ErrorMessage = "Limit Code to 30 characters.")]
+        [StringLength(30, ErrorMessage = "Limit InvoiceNo to 30 characters.")]
         public string InvoiceNo { get; set; }
 
         public DateTime? TranDate { get; set; }
@@ -25,16 +25,16 @@ namespace Online_Store.Infrastructure.Models
         public double? ServiceCharge { get; set; }
 
         [Required]
-        [StringLength(8000, ErrorMessage = "Limit Code to 8000 characters.")]
+        [StringLength(8000, ErrorMessage = "Limit Remarks to 8000 characters.")]
         public string Remarks { get; set; }
 
         [Required]
-        [StringLength(1, ErrorMessage = "Limit Code to 1 characters.")]
+        [StringLength(1, ErrorMessage = "Limit Table Code to 1 characters.")]
         public string TableCode { get; set; }
 
         public Guid? ServerID { get; set; }
 
-        [StringLength(20, ErrorMessage = "Limit Code to 20 characters.")]
+        [StringLength(20, ErrorMessage = "Limit Card Number to 20 characters.")]
         public string CardNumber { get; set; }
 
         public Guid CreatedBy { get; set; }

@@ -17,15 +17,15 @@ namespace Online_Store.Infrastructure.Models
 
         public double? Tendered { get; set; }
 
-        [StringLength(20, ErrorMessage = "Limit code to 20 characters.")]
+        [StringLength(20, ErrorMessage = "Limit Card Number to 20 characters.")]
         public string CardNo { get; set; }
 
-        [StringLength(20, ErrorMessage = "Limit code to 20 characters.")]
+        [StringLength(20, ErrorMessage = "Limit Reference Number to 20 characters.")]
         public string RefNo { get; set; }
 
         public DateTime? ExpiryDate { get; set; }
 
-        [StringLength(20, ErrorMessage = "Limit code to 20 characters.")]
+        [StringLength(20, ErrorMessage = "Limit Bank Name to 20 characters.")]
         public string BankName { get; set; }
 
         public double? ChargeAmount { get; set; }

@@ -1,9 +1,7 @@
 ﻿using Online_Store.Domain.Interfaces;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Online_Store.Domain.Entities
 {
@@ -22,15 +20,15 @@ namespace Online_Store.Domain.Entities
 
         public double? Tendered { get; set; }
 
-        [Column(TypeName = "varchar(20)"]
+        [Column(TypeName = "varchar(20)")]
         public string CardNo { get; set; }
 
-        [Column(TypeName = "varchar(20)"]
+        [Column(TypeName = "varchar(20)")]
         public string RefNo { get; set; }
 
         public DateTime? ExpiryDate { get; set; }
 
-        [Column(TypeName = "varchar(20)"]
+        [Column(TypeName = "varchar(20)")]
         public string BankName { get; set; }
 
         public double? ChargeAmount { get; set; }

@@ -48,15 +48,15 @@ namespace Online_Store.Domain.Entities
 
         public double? Deposit { get; set; }
 
-        [Column(TypeName = "varchar(8000)"]
+        [Column(TypeName = "varchar(8000)")]
         public string Remarks { get; set; }
 
-        [Column(TypeName = "varchar(1)"]
+        [Column(TypeName = "varchar(1)")]
         public string TableCode { get; set; }
 
         public Guid? ServerID { get; set; }
 
-        [Column(TypeName = "varchar(20)"]
+        [Column(TypeName = "varchar(20)")]
         public string CardNumber { get; set; }
 
         public Guid CreatedBy { get; set; }
