@@ -5,10 +5,10 @@ using System.Text;
 
 namespace Online_Store.Infrastructure.Models
 {
-    public class Billing_DetailModel
+    public class UOMModel
     {
         [Key]
-        public Guid BillingDetailID { get; set; }
+        public Guid BillingYieldingID { get; set; }
 
         public Guid? BillingID { get; set; }
 
@@ -16,19 +16,13 @@ namespace Online_Store.Infrastructure.Models
 
         public Guid? ProductID { get; set; }
 
+        public Guid? ItemID { get; set; }
+
         public double? Quantity { get; set; }
 
-        public double? Price { get; set; }
-
-        public bool? Vatable { get; set; }
-
-        public double? Discount { get; set; }
-
-        public Guid? DiscountID { get; set; }
-
-        public double? ServiceChargeDue { get; set; }
-
         public double? Cost { get; set; }
+
+        public double? Price { get; set; }
 
         public Guid CreatedBy { get; set; }
 

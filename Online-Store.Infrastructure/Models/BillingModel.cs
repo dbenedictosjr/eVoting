@@ -8,10 +8,9 @@ namespace Online_Store.Infrastructure.Models
 {
     public class BillingModel
     {
-        [Column(TypeName = "varchar(30)")]
+        [StringLength(30, ErrorMessage = "Limit Code to 30 characters.")]
         public string InvoiceNo { get; set; }
 
-        [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }
 
         public int? TableNo { get; set; }
@@ -36,37 +35,19 @@ namespace Online_Store.Infrastructure.Models
         [StringLength(1, ErrorMessage = "Limit Code to 1 characters.")]
         public string TableCode { get; set; }
 
-        public long? ServerID { get; set; }
+        public Guid? ServerID { get; set; }
 
-        [StringLength(20)]
+        [StringLength(20, ErrorMessage = "Limit Code to 20 characters.")]
         public string CardNumber { get; set; }
 
         public Guid CreatedBy { get; set; }
 
-        [Column(TypeName = "datetime")]
         public DateTime CreatedDate { get; set; }
 
         public Guid UpdatedBy { get; set; }
 
-        [Column(TypeName = "datetime")]
         public DateTime UpdatedDate { get; set; }
 
-        [Timestamp()]
         public byte[] RowVersion { get; set; }
-
-
-
-        [Required]
-        public Guid ID { get; set; }
-
-        [Required]
-        [StringLength(10, ErrorMessage = "Limit Code to 10 characters.")]
-        public string Code { get; set; }
-
-        [Required]
-        [StringLength(50, ErrorMessage = "Limit Description to 50 characters.")]
-        public string Description { get; set; }
-
-        public byte[] RowVersion { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
