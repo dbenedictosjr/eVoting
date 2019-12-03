@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 namespace Online_Store.Infrastructure.Models
 {
     public class Billing_PaymentModel
     {
-        [Key]
         public Guid BillingPaymentID { get; set; }
 
         public Guid? BillingID { get; set; }

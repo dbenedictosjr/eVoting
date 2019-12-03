@@ -6,16 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class UOMEntity : IAuditableRepository
+    public class ZEntity : IAuditableRepository
     {
-        [Key]
-        public Guid UOMID { get; set; }
 
-        [Column(TypeName = "varchar(10)")]
-        public string UOMCode { get; set; }
-
-        [Column(TypeName = "varchar(50)")]
-        public string UOMDesc { get; set; }
 
         public Guid CreatedBy { get; set; }
 

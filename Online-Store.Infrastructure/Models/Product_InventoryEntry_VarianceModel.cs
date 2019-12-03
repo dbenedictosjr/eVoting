@@ -2,23 +2,17 @@
 
 namespace Online_Store.Infrastructure.Models
 {
-    public class Billing_YieldingModel
+    public class Product_InventoryEntry_VarianceModel
     {
-        public Guid BillingYieldingID { get; set; }
+        public Guid ProductInventoryEntryVarianceID { get; set; }
 
-        public Guid? BillingID { get; set; }
-
-        public Guid? StoreID { get; set; }
+        public DateTime? TranDate { get; set; }
 
         public Guid? ProductID { get; set; }
 
-        public Guid? ItemID { get; set; }
+        public Guid? ProductInventoryEntryID { get; set; }
 
         public double? Quantity { get; set; }
-
-        public double? Cost { get; set; }
-
-        public double? Price { get; set; }
 
         public Guid CreatedBy { get; set; }
 

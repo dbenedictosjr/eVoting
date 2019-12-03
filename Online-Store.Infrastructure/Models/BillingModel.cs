@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace Online_Store.Infrastructure.Models
 {
@@ -19,7 +16,7 @@ namespace Online_Store.Infrastructure.Models
 
         public int? NoOfPerson { get; set; }
 
-        public int? NoOfSC { get; set; }
+        public int? NoOfSeniorCitizen { get; set; }
 
         public int? Shift { get; set; }
 

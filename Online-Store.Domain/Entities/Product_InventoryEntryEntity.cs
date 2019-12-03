@@ -1,34 +1,23 @@
 ﻿using Online_Store.Domain.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class Billing_DetailEntity : IAuditableRepository
+    public class Product_InventoryEntryEntity : IAuditableRepository
     {
         [Key]
-        public Guid BillingDetailID { get; set; }
+        public Guid ProductInventoryEntryID { get; set; }
 
-        public Guid? BillingID { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? TranDate { get; set; }
 
-        public Guid? StoreID { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? InvDate { get; set; }
 
-        public Guid? ProductID { get; set; }
-
-        public double? Quantity { get; set; }
-
-        public double? Price { get; set; }
-
-        public bool? Vatable { get; set; }
-
-        public double? Discount { get; set; }
-
-        public Guid? DiscountID { get; set; }
-
-        public double? SCDue { get; set; }
-
-        public double? Cost { get; set; }
+        public Guid? StatusID { get; set; }
 
         public Guid CreatedBy { get; set; }
 

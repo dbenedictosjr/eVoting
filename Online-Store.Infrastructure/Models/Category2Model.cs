@@ -23,6 +23,6 @@ namespace Online_Store.Infrastructure.Models
         [Required]
         public Guid Cat1ID { get; set; }
 
-        public byte[] RowVersion { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public byte[] RowVersion { get; set; }
     }
 }

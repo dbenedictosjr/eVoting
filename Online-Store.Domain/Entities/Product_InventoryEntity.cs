@@ -5,30 +5,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class Billing_DetailEntity : IAuditableRepository
+    public class Product_InventoryEntity : IAuditableRepository
     {
         [Key]
-        public Guid BillingDetailID { get; set; }
-
-        public Guid? BillingID { get; set; }
-
-        public Guid? StoreID { get; set; }
+        public Guid ProductInventoryID { get; set; }
 
         public Guid? ProductID { get; set; }
 
-        public double? Quantity { get; set; }
-
-        public double? Price { get; set; }
-
-        public bool? Vatable { get; set; }
-
-        public double? Discount { get; set; }
-
-        public Guid? DiscountID { get; set; }
-
-        public double? SCDue { get; set; }
+        [Column(TypeName = "datetime")]
+        public DateTime? TranDate { get; set; }
 
         public double? Cost { get; set; }
+
+        [Column(TypeName = "datetime")]
+        public DateTime? ExpiryDate { get; set; }
+
+        public double? Quantity { get; set; }
 
         public Guid CreatedBy { get; set; }
 

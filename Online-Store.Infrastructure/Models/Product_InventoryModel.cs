@@ -1,24 +1,23 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace Online_Store.Infrastructure.Models
 {
-    public class Billing_YieldingModel
+    public class Product_InventoryModel
     {
-        public Guid BillingYieldingID { get; set; }
-
-        public Guid? BillingID { get; set; }
-
-        public Guid? StoreID { get; set; }
+        public Guid ProductInventoryID { get; set; }
 
         public Guid? ProductID { get; set; }
 
-        public Guid? ItemID { get; set; }
-
-        public double? Quantity { get; set; }
+        public DateTime? TransactionDate { get; set; }
 
         public double? Cost { get; set; }
 
-        public double? Price { get; set; }
+        public DateTime? ExpiryDate { get; set; }
+
+        public double? Quantity { get; set; }
 
         public Guid CreatedBy { get; set; }
 
