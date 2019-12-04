@@ -6,9 +6,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class ZEntity : IAuditableRepository
+    public class SystemUser_LevelEntity : IAuditableRepository
     {
+        [Key]
+        public Guid LevelID { get; set; }
 
+        [Column(TypeName = "varchar(50)")]
+        public string LevelName { get; set; }
+
+        [Column(TypeName = "varchar(500)")]
+        public string LevelDescription { get; set; }
 
         public Guid CreatedBy { get; set; }
 

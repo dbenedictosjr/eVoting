@@ -6,9 +6,28 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class ZEntity : IAuditableRepository
+    public class SystemUserEntity : IAuditableRepository
     {
+        [Key]
+        public Guid UserID { get; set; }
 
+        [Column(TypeName = "varchar(20)")]
+        public string UserCode { get; set; }
+
+        [Column(TypeName = "varchar(100)")]
+        public string UserName { get; set; }
+
+        [Column(TypeName = "varchar(20)")]
+        public string UserPassword { get; set; }
+
+        [Column(TypeName = "datetime")]
+        public DateTime? UserValidity { get; set; }
+
+        public bool? UserLocked { get; set; }
+
+        public bool? UserReset { get; set; }
+
+        public Guid? LevelID { get; set; }
 
         public Guid CreatedBy { get; set; }
 

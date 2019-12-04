@@ -6,9 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class ZEntity : IAuditableRepository
+    public class Product_UnitEntity : IAuditableRepository
     {
+        [Key]
+        public Guid ProductUnitID { get; set; }
 
+        [Column(TypeName = "varchar(50)")]
+        public string ProductUnitDescription { get; set; }
 
         public Guid CreatedBy { get; set; }
 

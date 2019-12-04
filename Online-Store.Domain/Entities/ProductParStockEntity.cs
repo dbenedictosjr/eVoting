@@ -6,9 +6,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class ZEntity : IAuditableRepository
+    public class ProductParStockEntity : IAuditableRepository
     {
+        [Key]
+        public Guid ParStockID { get; set; }
 
+        [Column(TypeName = "datetime")]
+        public DateTime? StartDate { get; set; }
+
+        [Column(TypeName = "datetime")]
+        public DateTime? EndDate { get; set; }
+
+        public bool? Active { get; set; }
 
         public Guid CreatedBy { get; set; }
 

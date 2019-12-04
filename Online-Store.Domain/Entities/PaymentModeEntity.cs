@@ -6,9 +6,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Online_Store.Domain.Entities
 {
-    public class ZEntity : IAuditableRepository
+    public class PaymentModeEntity : IAuditableRepository
     {
+        [Key]
+        public Guid PaymentModeID { get; set; }
 
+        [Column(TypeName = "varchar(50)")]
+        public string PaymentModeDescription { get; set; }
+
+        [Column(TypeName = "varchar(50)")]
+        public string PaymentType { get; set; }
+
+        public double? BankChargeAmount { get; set; }
+
+        public double? BankChargePercent { get; set; }
+
+        public bool? Active { get; set; }
 
         public Guid CreatedBy { get; set; }
 
