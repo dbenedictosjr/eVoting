@@ -4896,8 +4896,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\wilhe\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -4905,14 +4904,11 @@
       "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj",
       "projectName": "Online-Store.Infrastructure",
       "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\wilhe\\.nuget\\packages\\",
       "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\d.t.benedictos.jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\wilhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4960,7 +4956,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
