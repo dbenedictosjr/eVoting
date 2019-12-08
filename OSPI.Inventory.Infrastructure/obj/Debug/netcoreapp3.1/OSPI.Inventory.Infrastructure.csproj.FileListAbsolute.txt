@@ -1,0 +1,11 @@
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Inventory.Infrastructure.deps.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Inventory.Infrastructure.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Inventory.Infrastructure.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Inventory.Domain.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Inventory.Domain.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Inventory.Infrastructure.csprojAssemblyReference.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Inventory.Infrastructure.AssemblyInfoInputs.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Inventory.Infrastructure.AssemblyInfo.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Inventory.Infrastructure.csproj.CopyComplete
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Inventory.Infrastructure.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Inventory.Infrastructure.pdb

@@ -2528,19 +2528,6 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
-      },
-      "Online-Store.Infrastructure/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v3.0",
-        "dependencies": {
-          "AutoMapper.Extensions.Microsoft.DependencyInjection": "7.0.0"
-        },
-        "compile": {
-          "bin/placeholder/Online-Store.Infrastructure.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Online-Store.Infrastructure.dll": {}
-        }
       }
     }
   },
@@ -8125,11 +8112,6 @@
         "system.xml.xmlserializer.4.3.0.nupkg.sha512",
         "system.xml.xmlserializer.nuspec"
       ]
-    },
-    "Online-Store.Infrastructure/1.0.0": {
-      "type": "project",
-      "path": "../Online-Store.Infrastructure/Online-Store.Infrastructure.csproj",
-      "msbuildProject": "../Online-Store.Infrastructure/Online-Store.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -8139,8 +8121,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.0.1",
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.0",
       "Microsoft.Extensions.Logging.Debug >= 3.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.0.0",
-      "Online-Store.Infrastructure >= 1.0.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.0.0"
     ]
   },
   "packageFolders": {
@@ -8172,11 +8153,7 @@
       },
       "frameworks": {
         "netcoreapp3.0": {
-          "projectReferences": {
-            "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj": {
-              "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\Online-Store.Infrastructure\\Online-Store.Infrastructure.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
