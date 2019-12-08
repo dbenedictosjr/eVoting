@@ -69,7 +69,7 @@ namespace Online_Store.Domain.Entities
         public string CardNumber { get; set; }
 
         [Column(TypeName = "datetime")]
-        public DateTime? ExpiryDate { get; set; }`
+        public DateTime? ExpiryDate { get; set; }
 
         public Guid CreatedBy { get; set; }
 
