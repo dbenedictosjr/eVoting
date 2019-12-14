@@ -4954,23 +4954,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\benedictos\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Infrastructure\\OSPI.Inventory.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\benedictos\\Source\\Repos\\OSPI-Integrated-Systems\\OSPI.Inventory.Infrastructure\\OSPI.Inventory.Infrastructure.csproj",
       "projectName": "OSPI.Inventory.Infrastructure",
-      "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Infrastructure\\OSPI.Inventory.Infrastructure.csproj",
-      "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Infrastructure\\obj\\",
+      "projectPath": "C:\\Users\\benedictos\\Source\\Repos\\OSPI-Integrated-Systems\\OSPI.Inventory.Infrastructure\\OSPI.Inventory.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\benedictos\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\benedictos\\Source\\Repos\\OSPI-Integrated-Systems\\OSPI.Inventory.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\d.t.benedictos.jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\benedictos\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4983,8 +4979,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj": {
-              "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj"
+            "C:\\Users\\benedictos\\Source\\Repos\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj": {
+              "projectPath": "C:\\Users\\benedictos\\Source\\Repos\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj"
             }
           }
         }
