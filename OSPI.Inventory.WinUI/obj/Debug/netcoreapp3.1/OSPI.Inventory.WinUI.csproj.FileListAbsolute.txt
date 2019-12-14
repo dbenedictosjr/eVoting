@@ -1,0 +1,16 @@
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\bin\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.exe
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\bin\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.deps.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\bin\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.runtimeconfig.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\bin\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.runtimeconfig.dev.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\bin\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\bin\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\MainWindow.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\App.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\OSPI.Inventory.WinUI_MarkupCompile.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\OSPI.Inventory.WinUI_MarkupCompile.lref
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\MainWindow.baml
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.g.resources
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.AssemblyInfoInputs.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.AssemblyInfo.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Inventory.WinUI\obj\Debug\netcoreapp3.1\OSPI.Inventory.WinUI.pdb

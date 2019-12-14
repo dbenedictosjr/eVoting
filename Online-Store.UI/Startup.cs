@@ -5,11 +5,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using AutoMapper;
-using Online_Store.Domain.Repositories;
-using Online_Store.Domain.Interfaces;
-using Online_Store.Domain;
-using Online_Store.Infrastructure.Mapper;
-using Online_Store.Infrastructure.Interfaces;
+using OSPI.Inventory.Infrastructure.Mapper;
+using OSPI.Inventory.Domain;
+using OSPI.Inventory.Domain.Interfaces;
+using OSPI.Inventory.Domain.Repositories;
+using OSPI.Inventory.Infrastructure.Interfaces;
 
 namespace Online_Store.UI
 {

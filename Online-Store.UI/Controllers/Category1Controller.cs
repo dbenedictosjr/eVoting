@@ -5,10 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Online_Store.Domain;
-using Online_Store.Domain.Entities;
-using Online_Store.Infrastructure.Interfaces;
-using Online_Store.Infrastructure.Models;
+using OSPI.Inventory.Infrastructure.Interfaces;
+using OSPI.Inventory.Infrastructure.Models;
 
 namespace Online_Store.UI.Controllers
 {
