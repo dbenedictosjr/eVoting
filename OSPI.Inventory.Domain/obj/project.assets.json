@@ -4949,19 +4949,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\benedictos\\.nuget\\packages\\": {}
+    "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\benedictos\\Source\\Repos\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj",
+      "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj",
       "projectName": "OSPI.Inventory.Domain",
-      "projectPath": "C:\\Users\\benedictos\\Source\\Repos\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj",
-      "packagesPath": "C:\\Users\\benedictos\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\benedictos\\Source\\Repos\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\obj\\",
+      "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj",
+      "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
+      "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\benedictos\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\d.t.benedictos.jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

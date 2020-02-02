@@ -1,48 +1,136 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Online_Store.UI</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - Accounting.Web.UI</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/jquery-ui.min.css" />
+    <link rel="stylesheet" href="~/css/responcive.css">
+    <link rel="stylesheet" href="~/css/animate.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/brands.css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700,400|Homemade+Apple" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Online_Store.UI</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    @* <img class="vegas-background" style="position: fixed; inset: -157px auto auto 0px; width: 1920px; height: 1280px;" src="images/backgrounds/bg3.jpg"> *@
+    <!-- =========================
+       PRE LOADER
+    ============================== -->
+    <div class="preloader" style="display: none;">
+        <div class="status" style="display: none;">&nbsp;</div>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2019 - Online_Store.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    <header id="home" class="header">
+        <!-- TOP BAR -->
+        <div id="main-nav" class="navbar navbar-inverse bs-docs-nav fixed" role="banner">
+            <div class="container">
+                <div class="navbar-header responsive-logo">
+                    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#bs-navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <nav class="navbar-collapse collapse" role="navigation" id="bs-navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
+                        <li class="current"><a href="/">Home</a></li>
+                        <li class=""><a href="/#aboutus">About</a></li>
+                        <li class=""><a href="/#focus">Services</a></li>
+                        <li class=""><a href="/#team">Board and Officers</a></li>
+                        @{
+                            await Html.RenderPartialAsync("_LoginPartial");
+                        }
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- / END TOP BAR -->
+    </header> <!-- / END HOME SECTION  -->
+    @*<div class="container">
+
+            <main role="main" class="pb-3">
+
+            </main>
+
+        </div>*@
+    <partial name="_CookieConsentPartial" />
+    @RenderBody()
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2019 - Accounting.Web.UI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+
+    <!-- =========================
+    FOOTER
+    ============================== -->
+
+    <footer>
+        <div class="container">
+
+            <!-- COMPANY ADDRESS-->
+            <div class="col-md-5 company-details">
+                <div class="icon-top red-text">
+                    <i class="icon-fontawesome-webfont-302"></i>
+                </div>
+                PO Box 16122 Collins Street West, Victoria 8007 Australia
+            </div>
+
+            <!-- COMPANY EMAIL-->
+            <div class="col-md-2 company-details">
+                <div class="icon-top green-text">
+                    <i class="icon-fontawesome-webfont-329"></i>
+                </div>
+                contact
+            </div>
+
+            <!-- COMPANY PHONE NUMBER -->
+            <div class="col-md-2 company-details">
+                <div class="icon-top blue-text">
+                    <i class="icon-fontawesome-webfont-101"></i>
+                </div>
+                +613 0000 0000
+            </div>
+
+            <!-- SOCIAL ICON AND COPYRIGHT -->
+            <div class="col-lg-3 col-sm-3 copyright">
+                <ul class="social">
+                    <li><a href=""><i class="icon-facebook"></i></a></li>
+                    <li><a href=""><i class="icon-twitter-alt"></i></a></li>
+                    <li><a href=""><i class="icon-linkedin"></i></a></li>
+                    <li><a href=""><i class="icon-behance"></i></a></li>
+                    <li><a href=""><i class="icon-dribbble"></i></a></li>
+                </ul>
+            </div>
+        </div> <!-- / END CONTAINER -->
+    </footer> <!-- / END FOOOTER  -->
+
+
+    <environment include="Development">
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=">
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha256-E/V4cWE4qvAeO5MOhjtGtqDzPndRO1LBk8lJ/PR7CA4=">
+        </script>
+    </environment>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/jquery-ui.min.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>

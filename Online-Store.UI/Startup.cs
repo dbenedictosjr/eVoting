@@ -1,15 +1,15 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
-using AutoMapper;
-using OSPI.Inventory.Infrastructure.Mapper;
-using OSPI.Inventory.Domain;
-using OSPI.Inventory.Domain.Interfaces;
-using OSPI.Inventory.Domain.Repositories;
-using OSPI.Inventory.Infrastructure.Interfaces;
+using OSPI.Domain;
+using OSPI.Domain.Interfaces;
+using OSPI.Domain.Repositories;
+using OSPI.Infrastructure.Interfaces;
+using OSPI.Infrastructure.Mapper;
 
 namespace Online_Store.UI
 {
@@ -36,29 +36,9 @@ namespace Online_Store.UI
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-            //Category1
-            services.AddScoped<ICategory1Repository, Category1Repository>();
-            services.AddScoped<ICategory1Service, Category1Service>();
-
-            //Category2
-            services.AddScoped<ICategory2Repository, Category2Repository>();
-            services.AddScoped<ICategory2Service, Category2Service>();
-
-            //Category3
-            services.AddScoped<ICategory3Repository, Category3Repository>();
-            services.AddScoped<ICategory3Service, Category3Service>();
-
-            //UOM
-            services.AddScoped<IUOMRepository, UOMRepository>();
-            services.AddScoped<IUOMService, UOMService>();
-
-            //Product
-            services.AddScoped<IProductRepository, ProductRepository>();
-            services.AddScoped<IProductService, ProductService>();
-
-            //Billing
-            services.AddScoped<IBillingRepository, BillingRepository>();
-            services.AddScoped<IBillingService, BillingService>();
+            //Module
+            services.AddScoped<IModuleRepository, ModuleRepository>();
+            services.AddScoped<IModuleService, ModuleService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
