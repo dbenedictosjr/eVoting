@@ -9,12 +9,12 @@ namespace OSPI.eVoting.Controllers
 {
     public class RolesController : Controller
     {
-        private readonly IRoleService _RoleService;
+        private readonly IRoleService _roleService;
 
-        public RolesController(IRoleService RoleService) => _RoleService = RoleService;
+        public RolesController(IRoleService roleService) => _roleService = roleService;
 
         // GET: Roles
-        public async Task<IActionResult> Index() => View(await _RoleService.GetAllAsync());
+        public async Task<IActionResult> Index() => View(await _roleService.GetAllAsync());
 
         // GET: Roles/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -24,7 +24,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Role = await _RoleService.GetByIDAsync(id);
+            var Role = await _roleService.GetByIDAsync(id);
             if (Role == null)
             {
                 return NotFound();
@@ -34,7 +34,10 @@ namespace OSPI.eVoting.Controllers
         }
 
         // GET: Roles/Create
-        public IActionResult Create() => View();
+        public IActionResult Create()
+        {
+            return View();
+        }
 
         // POST: Roles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
@@ -46,7 +49,7 @@ namespace OSPI.eVoting.Controllers
             if (ModelState.IsValid)
             {
                 Role.RoleID = Guid.NewGuid();
-                await _RoleService.CreateAsync(Role);
+                await _roleService.CreateAsync(Role);
                 return RedirectToAction(nameof(Index));
             }
             return View(Role);
@@ -60,7 +63,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Role = await _RoleService.GetByIDAsync(id);
+            var Role = await _roleService.GetByIDAsync(id);
             if (Role == null)
             {
                 return NotFound();
@@ -84,13 +87,13 @@ namespace OSPI.eVoting.Controllers
             {
                 try
                 {
-                    await _RoleService.UpdateAsync(Role);
-                    return RedirectToAction(nameof(Index));
+                    await _roleService.UpdateAsync(Role);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     ViewBag.Message = "Record has been modified by someone else.";
                 }
+                return RedirectToAction(nameof(Index));
             }
             return View(Role);
         }
@@ -103,7 +106,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Role = await _RoleService.GetByIDAsync(id);
+            var Role = await _roleService.GetByIDAsync(id);
             if (Role == null)
             {
                 return NotFound();
@@ -117,8 +120,8 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var Role = await _RoleService.GetByIDAsync(id);
-            await _RoleService.DeleteAsync(Role);
+            var Role = await _roleService.GetByIDAsync(id);
+            await _roleService.DeleteAsync(Role);
             return RedirectToAction(nameof(Index));
         }
     }

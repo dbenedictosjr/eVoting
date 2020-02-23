@@ -1,0 +1,41 @@
+﻿@model OSPI.Infrastructure.Models.LogInModel
+
+<style>
+
+    .form-top {
+        padding: 10px 10px 10px 0;
+        font-size: 1.5em;
+        text-align: left;
+    }
+</style>
+<div class="container body ">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="form-top">Sign In</h3>
+        </div>
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Already a member? Sign In:
+                        </div>
+                        <div class="panel-body">
+                            <form asp-controller="Members" asp-action="Login" method="post" id="loginForm">
+                                <div class="form-group">
+                                    <label asp-for="MemberNo"></label>
+                                    <input asp-for="MemberNo" class="form-control" />
+                                </div>
+                                <div class="form-group">
+                                    <label asp-for="Password">Password</label>
+                                    <input asp-for="Password" type="password" class="form-control" />
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

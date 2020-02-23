@@ -1,0 +1,61 @@
+﻿@model IEnumerable<OSPI.Infrastructure.Models.ElectionModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
+}
+
+<h1>eBallots</h1>
+
+<p>
+    <a asp-action="Create" role="button" class="btn btn-primary pull-right"><i class="fa fa-plus"> </i> Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RefCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RegEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VotingStartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VotingEndDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("" + item.RefCode + "", "Details", "Elections", new { id = item.ElectionID }, null)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RegEndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VotingStartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VotingEndDate)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

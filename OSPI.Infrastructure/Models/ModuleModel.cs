@@ -10,6 +10,7 @@ namespace OSPI.Infrastructure.Models
 
         [Required]
         [StringLength(100, ErrorMessage = "Limit Name to 100 characters.")]
+        [Display(Name = "Module")]
         public string ModuleName { get; set; }
 
         public byte[] RowVersion { get; set; }

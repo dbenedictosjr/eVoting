@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace OSPI.eVoting.Controllers
 {
@@ -12,11 +15,13 @@ namespace OSPI.eVoting.Controllers
     {
         private readonly IMemberService _memberService;
         private readonly IRoleService _roleService;
+        private readonly IRoleAccessService _roleAccessService;
 
-        public MembersController(IMemberService memberService, IRoleService roleService)
+        public MembersController(IMemberService memberService, IRoleService roleService, IRoleAccessService roleAccessService)
         {
             _memberService = memberService;
             _roleService = roleService;
+            _roleAccessService = roleAccessService;
         }
 
         // GET: Members
@@ -61,6 +66,9 @@ namespace OSPI.eVoting.Controllers
                 await _memberService.CreateAsync(Member);
                 return RedirectToAction(nameof(Index));
             }
+            ViewBag.MemberStatus = new[] { "Member", "Non Member" };
+            ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
+            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
             return View(Member);
         }
 
@@ -72,11 +80,14 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
+            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
             var Member = await _memberService.GetByIDAsync(id);
             if (Member == null)
             {
                 return NotFound();
             }
+            ViewBag.MemberStatus = new[] { "Member", "Non Member" };
+            ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
             return View(Member);
         }
 
@@ -97,13 +108,16 @@ namespace OSPI.eVoting.Controllers
                 try
                 {
                     await _memberService.UpdateAsync(Member);
-                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     ViewBag.Message = "Record has been modified by someone else.";
                 }
+                return RedirectToAction(nameof(Index));
             }
+            ViewBag.MemberStatus = new[] { "Member", "Non Member" };
+            ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
+            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
             return View(Member);
         }
 
@@ -132,6 +146,54 @@ namespace OSPI.eVoting.Controllers
             var Member = await _memberService.GetByIDAsync(id);
             await _memberService.DeleteAsync(Member);
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LogInModel model)
+        {
+            var Member = await _memberService.GetByCodeAsync(model.MemberNo);
+
+            if (Member == null || Member.Password.Trim() != model.Password.Trim())
+            {
+                ModelState.AddModelError("", "Member not found");
+                model.Password = "";
+                return View(model);
+            }
+
+            var roleAccesses = (await _roleAccessService.GetAllByRoleIDAsync(Member.RoleID));
+
+            if(roleAccesses == null)
+            {
+                ModelState.AddModelError("", "Member not found");
+                model.Password = "";
+                return View(model);
+            }
+
+            var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            identity.AddClaim(new Claim(UserClaims.UserGuid, Member.MemberID.ToString()));
+            identity.AddClaim(new Claim(ClaimTypes.Name, Member.MemberFullName));
+            identity.AddClaim(new Claim(UserClaims.Role, Member.RoleID.ToString()));
+
+            foreach (RoleAccessModel roleAccess in roleAccesses)
+            {
+                if (roleAccess.CanAdd) identity.AddClaim(new Claim(roleAccess.ModuleName + UserClaims.CanAdd, roleAccess.CanAdd.ToString()));
+                if (roleAccess.CanView) identity.AddClaim(new Claim(roleAccess.ModuleName + UserClaims.CanView, roleAccess.CanView.ToString()));
+                if (roleAccess.CanEdit) identity.AddClaim(new Claim(roleAccess.ModuleName + UserClaims.CanEdit, roleAccess.CanEdit.ToString()));
+                if (roleAccess.CanDelete) identity.AddClaim(new Claim(roleAccess.ModuleName + UserClaims.CanDelete, roleAccess.CanDelete.ToString()));
+                if (roleAccess.CanPrint) identity.AddClaim(new Claim(roleAccess.ModuleName + UserClaims.CanPrint, roleAccess.CanEdit.ToString()));
+            }
+
+            var principal = new ClaimsPrincipal(identity);
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+            return RedirectToAction("Index", "Members");
         }
     }
 }

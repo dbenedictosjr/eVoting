@@ -10,26 +10,35 @@ namespace OSPI.Infrastructure.Models
 
         public Guid RoleID { get; set; }
 
+        [Display(Name = "Role")]
+        public string RoleName { get; set; }
+
         [Required]
         public Guid ModuleID { get; set; }
 
-        [Required]
-        public string CanAdd { get; set; }
+        [Display(Name = "Module")]
+        public string ModuleName { get; set; }
 
         [Required]
-        public string CanEdit { get; set; }
+        [Display(Name = "Can Add")]
+        public bool CanAdd { get; set; }
 
         [Required]
-        public string CanDelete { get; set; }
+        [Display(Name = "Can Edit")]
+        public bool CanEdit { get; set; }
 
         [Required]
-        public string CanView { get; set; }
+        [Display(Name = "Can Delete")]
+        public bool CanDelete { get; set; }
 
         [Required]
-        public string CanPrint { get; set; }
+        [Display(Name = "Can View")]
+        public bool CanView { get; set; }
+
+        [Required]
+        [Display(Name = "Can Print")]
+        public bool CanPrint { get; set; }
 
         public byte[] RowVersion { get; set; }
-
-        public string ModuleName { get; set; }
     }
 }

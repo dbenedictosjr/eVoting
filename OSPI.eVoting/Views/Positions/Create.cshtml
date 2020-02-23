@@ -1,7 +1,8 @@
-﻿@model OSPI.Domain.Entities.PositionEntity
+﻿@model OSPI.Infrastructure.Models.PositionModel
 
 @{
     ViewData["Title"] = "Create";
+     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
 
 <h1>Create</h1>
@@ -14,8 +15,16 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+                <select asp-for="ElectionID" class="form-control"
+                        asp-items="ViewBag.Elections">
+                    <option>Select Election</option>
+                </select>
+                <span asp-validation-for="ElectionID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PositionName" class="control-label"></label>
+                <input asp-for="PositionName" class="form-control" />
+                <span asp-validation-for="PositionName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="RequiredCandidates" class="control-label"></label>
@@ -24,28 +33,8 @@
             </div>
             <div class="form-group">
                 <label asp-for="Qualifications" class="control-label"></label>
-                <input asp-for="Qualifications" class="form-control" />
+                <textarea asp-for="Qualifications" class="form-control"></textarea>
                 <span asp-validation-for="Qualifications" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedBy" class="control-label"></label>
-                <input asp-for="CreatedBy" class="form-control" />
-                <span asp-validation-for="CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedDate" class="control-label"></label>
-                <input asp-for="CreatedDate" class="form-control" />
-                <span asp-validation-for="CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedBy" class="control-label"></label>
-                <input asp-for="UpdatedBy" class="form-control" />
-                <span asp-validation-for="UpdatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedDate" class="control-label"></label>
-                <input asp-for="UpdatedDate" class="form-control" />
-                <span asp-validation-for="UpdatedDate" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -58,6 +47,3 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

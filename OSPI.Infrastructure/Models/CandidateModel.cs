@@ -5,23 +5,40 @@ namespace OSPI.Infrastructure.Models
 {
    public class CandidateModel
     {
-        [Key]
+        [Required]
         public Guid CandidateID { get; set; }
 
+        [Required]
+        public Guid PositionID { get; set; }
+
+        [Display(Name = "Position")]
+        public string PositionName { get; set; }
+
+        [Required]
         public Guid CandidateMemberID { get; set; }
 
-        public Guid BallotID { get; set; }
+        public string CandidateFirstName { get; set; }
 
+        public string CandidateLastName { get; set; }
+
+        [Display(Name = "Candidate")]
+        public string CandidateFullName { get { return this.CandidateFirstName + ' ' + this.CandidateLastName; } }
+
+        [Required]
         public Guid NomineeMemberID { get; set; }
 
+        public string NomineeFirstName { get; set; }
+
+        public string NomineeLastName { get; set; }
+
+        [Display(Name = "Nominee")]
+        public string NomineeFullName { get { return this.NomineeFirstName + ' ' + this.NomineeLastName; } }
+
+        public string Plataforma { get; set; }
+
+        [Required]
         public string Status { get; set; }
 
         public byte[] RowVersion { get; set; }
-
-        public string CandidateName { get; set; }
-
-        public string NomineeName { get; set; }
-
-        public string PositionName { get; set; }
     }
 }

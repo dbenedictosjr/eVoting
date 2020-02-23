@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
 
@@ -9,12 +10,17 @@ namespace OSPI.eVoting.Controllers
 {
     public class PositionsController : Controller
     {
-        private readonly IPositionService _PositionService;
+        private readonly IPositionService _positionService;
+        private readonly IElectionService _electionService;
 
-        public PositionsController(IPositionService PositionService) => _PositionService = PositionService;
+        public PositionsController(IPositionService positionService, IElectionService electionService)
+        {
+            _positionService = positionService;
+            _electionService = electionService;
+        }
 
         // GET: Positions
-        public async Task<IActionResult> Index() => View(await _PositionService.GetAllAsync());
+        public async Task<IActionResult> Index() => View(await _positionService.GetAllAsync());
 
         // GET: Positions/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -24,31 +30,36 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Position = await _PositionService.GetByIDAsync(id);
+            var Position = await _positionService.GetByIDAsync(id);
             if (Position == null)
             {
                 return NotFound();
             }
-
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Position);
         }
 
         // GET: Positions/Create
-        public IActionResult Create() => View();
+        public async Task<IActionResult> Create()
+        {
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
+            return View();
+        }
 
         // POST: Positions/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PositionID,Description,RequiredCandidates,Qualifications")] PositionModel Position)
+        public async Task<IActionResult> Create([Bind("PositionID,PositionName,RequiredCandidates,Qualifications,ElectionID")] PositionModel Position)
         {
             if (ModelState.IsValid)
             {
                 Position.PositionID = Guid.NewGuid();
-                await _PositionService.CreateAsync(Position);
+                await _positionService.CreateAsync(Position);
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Position);
         }
 
@@ -60,11 +71,12 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Position = await _PositionService.GetByIDAsync(id);
+            var Position = await _positionService.GetByIDAsync(id);
             if (Position == null)
             {
                 return NotFound();
             }
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Position);
         }
 
@@ -73,7 +85,7 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("PositionID,Description,RequiredCandidates,Qualifications,RowVersion")] PositionModel Position)
+        public async Task<IActionResult> Edit(Guid id, [Bind("PositionID,PositionName,RequiredCandidates,Qualifications,ElectionID,RowVersion")] PositionModel Position)
         {
             if (id != Position.PositionID)
             {
@@ -84,7 +96,7 @@ namespace OSPI.eVoting.Controllers
             {
                 try
                 {
-                    await _PositionService.UpdateAsync(Position);
+                    await _positionService.UpdateAsync(Position);
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
@@ -92,6 +104,7 @@ namespace OSPI.eVoting.Controllers
                     ViewBag.Message = "Record has been modified by someone else.";
                 }
             }
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Position);
         }
 
@@ -103,12 +116,13 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Position = await _PositionService.GetByIDAsync(id);
+            var Position = await _positionService.GetByIDAsync(id);
             if (Position == null)
             {
                 return NotFound();
             }
 
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Position);
         }
 
@@ -117,8 +131,8 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var Position = await _PositionService.GetByIDAsync(id);
-            await _PositionService.DeleteAsync(Position);
+            var Position = await _positionService.GetByIDAsync(id);
+            await _positionService.DeleteAsync(Position);
             return RedirectToAction(nameof(Index));
         }
     }

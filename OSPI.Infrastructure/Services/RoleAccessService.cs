@@ -28,7 +28,7 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(RoleAccessModel model)
         {
-            this._repository.Delete(_repository.GetByID(model.RoleID));
+            this._repository.Delete(await _repository.GetByIDAsync(model.RoleID));
             await _repository.SaveAsync();
         }
 
@@ -37,6 +37,9 @@ namespace OSPI.Infrastructure.Services
 
         public async Task<RoleAccessModel> GetByIDAsync(Guid? id)
             => _mapper.Map<RoleAccessModel>(await _repository.GetByIDAsync(id));
+
+        public async Task<IEnumerable<RoleAccessModel>> GetAllByRoleIDAsync(Guid id)
+            => _mapper.Map<IEnumerable<RoleAccessModel>>(await _repository.GetAllByRoleIDAsync(id));
 
         public async Task UpdateAsync(RoleAccessModel model)
         {

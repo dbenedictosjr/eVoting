@@ -19,15 +19,15 @@ namespace OSPI.Domain
 
         public DbSet<MemberEntity> Members { get; set; }
 
-        public DbSet<PositionEntity> Positions { get; set; }
+        public DbSet<ElectionEntity> Elections { get; set; }
 
-        public DbSet<BallotEntity> Ballots { get; set; }
+        public DbSet<PositionEntity> Positions { get; set; }
 
         public DbSet<CandidateEntity> Candidates { get; set; }
 
         public DbSet<VoteEntity> Votes { get; set; }
 
-        public DbSet<ResultEntity> Results { get; set; }
+        public DbSet<VoteDetailEntity> VoteDetails { get; set; }
 
         public ApplicationDbContext(DbContextOptions options) : base(options)
         { }

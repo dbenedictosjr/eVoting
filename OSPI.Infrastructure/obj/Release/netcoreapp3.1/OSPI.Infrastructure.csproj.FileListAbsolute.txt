@@ -1,0 +1,11 @@
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\bin\Release\netcoreapp3.1\OSPI.Infrastructure.deps.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\bin\Release\netcoreapp3.1\OSPI.Infrastructure.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\bin\Release\netcoreapp3.1\OSPI.Infrastructure.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\bin\Release\netcoreapp3.1\OSPI.Domain.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\bin\Release\netcoreapp3.1\OSPI.Domain.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\obj\Release\netcoreapp3.1\OSPI.Infrastructure.csprojAssemblyReference.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\obj\Release\netcoreapp3.1\OSPI.Infrastructure.AssemblyInfoInputs.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\obj\Release\netcoreapp3.1\OSPI.Infrastructure.AssemblyInfo.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\obj\Release\netcoreapp3.1\OSPI.Infrastructure.csproj.CopyComplete
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\obj\Release\netcoreapp3.1\OSPI.Infrastructure.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Infrastructure\obj\Release\netcoreapp3.1\OSPI.Infrastructure.pdb

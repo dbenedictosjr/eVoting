@@ -1,7 +1,8 @@
-﻿@model OSPI.Domain.Entities.VoteEntity
+﻿@model OSPI.Infrastructure.Models.VoteModel
 
 @{
     ViewData["Title"] = "Delete";
+     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
 
 <h1>Delete</h1>
@@ -11,42 +12,24 @@
     <h4>VoteEntity</h4>
     <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedBy)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedBy)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Description)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.DateVoted)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.DateVoted)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedBy)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FullName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedBy)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FullName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RowVersion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RowVersion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Candidate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Candidate.CandidateID)
-        </dd class>
     </dl>
     
     <form asp-action="Delete">

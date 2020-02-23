@@ -1,7 +1,8 @@
-﻿@model IEnumerable<OSPI.Domain.Entities.VoteEntity>
+﻿@model IEnumerable<OSPI.Infrastructure.Models.VoteModel>
 
 @{
     ViewData["Title"] = "Index";
+     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
 
 <h1>Index</h1>
@@ -13,22 +14,13 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.CreatedBy)
+                @Html.DisplayNameFor(model => model.Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CreatedDate)
+                @Html.DisplayNameFor(model => model.DateVoted)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.UpdatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RowVersion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Candidate)
+                @Html.DisplayNameFor(model => model.FullName)
             </th>
             <th></th>
         </tr>
@@ -37,22 +29,13 @@
 @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedBy)
+                @Html.DisplayFor(modelItem => item.Description)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatedDate)
+                @Html.DisplayFor(modelItem => item.DateVoted)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.UpdatedBy)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RowVersion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Candidate.CandidateID)
+                @Html.DisplayFor(modelItem => item.FullName)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.VoteID">Edit</a> |

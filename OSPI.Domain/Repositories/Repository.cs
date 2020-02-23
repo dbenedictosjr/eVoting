@@ -20,8 +20,8 @@ namespace OSPI.Domain.Repositories
         public virtual async Task<TEntity> GetByIDAsync(Guid? id)
             => await _context.Set<TEntity>().FindAsync(id);
 
-        public virtual TEntity GetByID(Guid? id)
-            => _context.Set<TEntity>().Find(id);
+        //public virtual TEntity GetByID(Guid? id)
+        //    => _context.Set<TEntity>().Find(id);
 
         public void Create(TEntity entity)
             => _context.Set<TEntity>().AddAsync(entity);

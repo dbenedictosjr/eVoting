@@ -11,6 +11,7 @@ using OSPI.Domain.Repositories;
 using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Mapper;
 using OSPI.Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace OSPI.eVoting
 {
@@ -26,6 +27,12 @@ namespace OSPI.eVoting
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Enable cookie authentication
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie();
+
+            services.AddHttpContextAccessor();
+
             services.AddControllersWithViews();
 
             services.AddAutoMapper(typeof(AutoMapperProfile));
@@ -53,13 +60,13 @@ namespace OSPI.eVoting
             services.AddScoped<IMemberRepository, MemberRepository>();
             services.AddScoped<IMemberService, MemberService>();
 
+            //Election
+            services.AddScoped<IElectionRepository, ElectionRepository>();
+            services.AddScoped<IElectionService, ElectionService>();
+
             //Position
             services.AddScoped<IPositionRepository, PositionRepository>();
             services.AddScoped<IPositionService, PositionService>();
-
-            //Ballot
-            services.AddScoped<IBallotRepository, BallotRepository>();
-            services.AddScoped<IBallotService, BallotService>();
 
             //Candidate
             services.AddScoped<ICandidateRepository, CandidateRepository>();
@@ -69,9 +76,9 @@ namespace OSPI.eVoting
             services.AddScoped<IVoteRepository, VoteRepository>();
             services.AddScoped<IVoteService, VoteService>();
 
-            //Result
-            services.AddScoped<IResultRepository, ResultRepository>();
-            services.AddScoped<IResultService, ResultService>();
+            //VoteDetail
+            services.AddScoped<IVoteDetailRepository, VoteDetailRepository>();
+            services.AddScoped<IVoteDetailService, VoteDetailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -89,6 +96,8 @@ namespace OSPI.eVoting
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseRouting();
 

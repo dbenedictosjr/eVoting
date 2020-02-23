@@ -29,7 +29,5 @@ namespace OSPI.Domain.Entities
 
         [Timestamp()]
         public byte[] RowVersion { get; set; }
-
-        public virtual ICollection<RoleAccessEntity> RoleAccesses { get; set; }
     }
 }

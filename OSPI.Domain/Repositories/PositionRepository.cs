@@ -1,5 +1,9 @@
-﻿using OSPI.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using OSPI.Domain.Entities;
 using OSPI.Domain.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace OSPI.Domain.Repositories
 {
@@ -9,5 +13,16 @@ namespace OSPI.Domain.Repositories
             : base(context)
         {           
         }
+
+        public override async Task<IEnumerable<PositionEntity>> GetAllAsync()
+        {
+            return await _context.Set<PositionEntity>()
+            .Include(a => a.Election)
+            .ToListAsync();
+        }
+
+        public override async Task<PositionEntity> GetByIDAsync(Guid? id) => await _context.Set<PositionEntity>()
+            .Include(a => a.Election)
+            .FirstOrDefaultAsync(a => a.PositionID == id);
     }
 }

@@ -10,7 +10,7 @@ namespace OSPI.Domain.Interfaces
 
         Task<TEntity> GetByIDAsync(Guid? id);
 
-        TEntity GetByID(Guid? id);
+        //TEntity GetByID(Guid? id);
 
         void Create(TEntity entity);
 

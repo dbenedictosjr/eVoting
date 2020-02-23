@@ -1,5 +1,6 @@
 ﻿using OSPI.Domain.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,7 +11,12 @@ namespace OSPI.Domain.Entities
         [Key]
         public Guid VoteID { get; set; }
 
-        public Guid CandidateID { get; set; }
+        [Column(TypeName = "DATETIME")]
+        public DateTime DateVoted { get; set; }
+        
+        public Guid MemberID { get; set; }
+
+        public Guid ElectionID { get; set; }
 
         public Guid CreatedBy { get; set; }
 
@@ -25,7 +31,10 @@ namespace OSPI.Domain.Entities
         [Timestamp()]
         public byte[] RowVersion { get; set; }
 
-        [ForeignKey("CandidateID")]
-        public virtual CandidateEntity Candidate { get; set; }
+        [ForeignKey("MemberID")]
+        public virtual MemberEntity Member { get; set; }
+
+        [ForeignKey("ElectionID")]
+        public virtual ElectionEntity Election { get; set; }
     }
 }

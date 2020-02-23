@@ -1,7 +1,8 @@
-﻿@model OSPI.Domain.Entities.VoteEntity
+﻿@model OSPI.Infrastructure.Models.VoteModel
 
 @{
     ViewData["Title"] = "Details";
+     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
 
 <h1>Details</h1>
@@ -11,40 +12,22 @@
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedBy)
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedBy)
+            @Html.DisplayFor(model => model.Description)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreatedDate)
+            @Html.DisplayNameFor(model => model.DateVoted)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreatedDate)
+            @Html.DisplayFor(model => model.DateVoted)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedBy)
+            @Html.DisplayNameFor(model => model.FullName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedBy)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.UpdatedDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.UpdatedDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RowVersion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RowVersion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Candidate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Candidate.CandidateID)
+            @Html.DisplayFor(model => model.FullName)
         </dd>
     </dl>
 </div>

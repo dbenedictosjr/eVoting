@@ -32,6 +32,8 @@ namespace OSPI.Infrastructure.Models
         [StringLength(30, ErrorMessage = "Limit Last Name to 30 characters.")]
         public string LastName { get; set; }
 
+        public string MemberFullName { get { return this.FirstName + ' ' + this.LastName; } }
+
         [Required]
         [Display(Name = "Home Address")]
         [StringLength(150, ErrorMessage = "Limit Home Address to 150 characters.")]
@@ -85,9 +87,9 @@ namespace OSPI.Infrastructure.Models
         [Required]
         public Guid RoleID { get; set; }
 
-        public byte[] RowVersion { get; set; }
-
         [Display(Name = "Role")]
-        public string Role { get; set; }
+        public string RoleName { get; set; }
+
+        public byte[] RowVersion { get; set; }
     }
 }

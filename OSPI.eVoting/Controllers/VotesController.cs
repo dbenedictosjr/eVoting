@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
 
@@ -9,12 +10,19 @@ namespace OSPI.eVoting.Controllers
 {
     public class VotesController : Controller
     {
-        private readonly IVoteService _VoteService;
+        private readonly IVoteService _voteService;
+        private readonly IMemberService _memberService;
+        private readonly IElectionService _electionService;
 
-        public VotesController(IVoteService VoteService) => _VoteService = VoteService;
+        public VotesController(IVoteService voteService, IMemberService memberService, IElectionService ElectionService)
+        {
+            _voteService = voteService;
+            _memberService = memberService;
+            _electionService = ElectionService;
+        }
 
         // GET: Votes
-        public async Task<IActionResult> Index() => View(await _VoteService.GetAllAsync());
+        public async Task<IActionResult> Index() => View(await _voteService.GetAllAsync());
 
         // GET: Votes/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -24,31 +32,40 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Vote = await _VoteService.GetByIDAsync(id);
+            var Vote = await _voteService.GetByIDAsync(id);
             if (Vote == null)
             {
                 return NotFound();
             }
 
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Vote);
         }
 
         // GET: Votes/Create
-        public IActionResult Create() => View();
+        public async Task<IActionResult> Create()
+        {
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
+            return View();
+        }
 
         // POST: Votes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VoteID,CandidateID")] VoteModel Vote)
+        public async Task<IActionResult> Create([Bind("VoteID,DateVoted,MemberID,ElectionID")] VoteModel Vote)
         {
             if (ModelState.IsValid)
             {
                 Vote.VoteID = Guid.NewGuid();
-                await _VoteService.CreateAsync(Vote);
+                await _voteService.CreateAsync(Vote);
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Vote);
         }
 
@@ -60,11 +77,13 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Vote = await _VoteService.GetByIDAsync(id);
+            var Vote = await _voteService.GetByIDAsync(id);
             if (Vote == null)
             {
                 return NotFound();
             }
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Vote);
         }
 
@@ -73,7 +92,7 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("VoteID,CandidateID,RowVersion")] VoteModel Vote)
+        public async Task<IActionResult> Edit(Guid id, [Bind("VoteID,DateVoted,MemberID,ElectionID,RowVersion")] VoteModel Vote)
         {
             if (id != Vote.VoteID)
             {
@@ -84,7 +103,7 @@ namespace OSPI.eVoting.Controllers
             {
                 try
                 {
-                    await _VoteService.UpdateAsync(Vote);
+                    await _voteService.UpdateAsync(Vote);
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
@@ -92,6 +111,8 @@ namespace OSPI.eVoting.Controllers
                     ViewBag.Message = "Record has been modified by someone else.";
                 }
             }
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Vote);
         }
 
@@ -103,12 +124,14 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Vote = await _VoteService.GetByIDAsync(id);
+            var Vote = await _voteService.GetByIDAsync(id);
             if (Vote == null)
             {
                 return NotFound();
             }
 
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
             return View(Vote);
         }
 
@@ -117,8 +140,8 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var Vote = await _VoteService.GetByIDAsync(id);
-            await _VoteService.DeleteAsync(Vote);
+            var Vote = await _voteService.GetByIDAsync(id);
+            await _voteService.DeleteAsync(Vote);
             return RedirectToAction(nameof(Index));
         }
     }

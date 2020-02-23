@@ -28,7 +28,7 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(VoteModel model)
         {
-            this._repository.Delete(_repository.GetByID(model.VoteID));
+            this._repository.Delete(await _repository.GetByIDAsync(model.VoteID));
             await _repository.SaveAsync();
         }
 

@@ -1,0 +1,10 @@
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Release\netcoreapp3.1\OSPI.Domain.deps.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Release\netcoreapp3.1\OSPI.Domain.runtimeconfig.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Release\netcoreapp3.1\OSPI.Domain.runtimeconfig.dev.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Release\netcoreapp3.1\OSPI.Domain.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Release\netcoreapp3.1\OSPI.Domain.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Release\netcoreapp3.1\OSPI.Domain.csprojAssemblyReference.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Release\netcoreapp3.1\OSPI.Domain.AssemblyInfoInputs.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Release\netcoreapp3.1\OSPI.Domain.AssemblyInfo.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Release\netcoreapp3.1\OSPI.Domain.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Release\netcoreapp3.1\OSPI.Domain.pdb

@@ -12,13 +12,15 @@ namespace OSPI.Domain.Entities
         public Guid PositionID { get; set; }
 
         [Column(TypeName = "VARCHAR(30)")]
-        public string Description { get; set; }
+        public string PositionName { get; set; }
 
         [Column(TypeName = "INT")]
         public int RequiredCandidates { get; set; }
 
         [Column(TypeName = "VARCHAR(MAX)")]
         public string Qualifications { get; set; }
+
+        public Guid ElectionID { get; set; }
 
         public Guid CreatedBy { get; set; }
 
@@ -32,5 +34,8 @@ namespace OSPI.Domain.Entities
 
         [Timestamp()]
         public byte[] RowVersion { get; set; }
+
+        [ForeignKey("ElectionID")]
+        public virtual ElectionEntity Election { get; set; }
     }
 }

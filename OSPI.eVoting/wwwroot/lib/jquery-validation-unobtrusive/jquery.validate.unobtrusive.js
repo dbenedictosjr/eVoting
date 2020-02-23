@@ -38,7 +38,7 @@
         return value.replace(/([!"#$%&'()*+,./:;<=>?@\[\\\]^`{|}~])/g, "\\$1");
     }
 
-    function getModelPrefix(fieldName) {
+    function geTPrefix(fieldName) {
         return fieldName.substr(0, fieldName.lastIndexOf(".") + 1);
     }
 
@@ -371,7 +371,7 @@
     adapters.addMinMax("length", "minlength", "maxlength", "rangelength").addMinMax("range", "min", "max", "range");
     adapters.addMinMax("minlength", "minlength").addMinMax("maxlength", "minlength", "maxlength");
     adapters.add("equalto", ["other"], function (options) {
-        var prefix = getModelPrefix(options.element.name),
+        var prefix = geTPrefix(options.element.name),
             other = options.params.other,
             fullOtherName = appendModelPrefix(other, prefix),
             element = $(options.form).find(":input").filter("[name='" + escapeAttributeValue(fullOtherName) + "']")[0];
@@ -390,7 +390,7 @@
             type: options.params.type || "GET",
             data: {}
         },
-            prefix = getModelPrefix(options.element.name);
+            prefix = geTPrefix(options.element.name);
 
         $.each(splitAndTrim(options.params.additionalfields || options.element.name), function (i, fieldName) {
             var paramName = appendModelPrefix(fieldName, prefix);
