@@ -7,20 +7,20 @@ namespace OSPI.eVoting.Helpers
 {
     public class UserClaimsHelper
     {
-        public static bool CanDoAction(ClaimsPrincipal User, string type)
+        public static bool CanDoAction(ClaimsPrincipal user, string type)
         {
-            var claim = User.Claims.FirstOrDefault(x => x.Type == type);
+            var claim = user.Claims.FirstOrDefault(x => x.Type == type);
             if (claim != null && claim.Value == Boolean.TrueString) return true;
 
             return false;
         }
-        public static bool CanDoAnyActions(ClaimsPrincipal User, string module)
+        public static bool CanDoAnyActions(ClaimsPrincipal user, string module)
         {
-            return (CanDoAction(User, module + UserClaims.CanAdd) ||
-                    CanDoAction(User, module + UserClaims.CanView) ||
-                    CanDoAction(User, module + UserClaims.CanEdit) ||
-                    CanDoAction(User, module + UserClaims.CanDelete) ||
-                    CanDoAction(User, module + UserClaims.CanPrint));
+            return (CanDoAction(user, module + UserClaims.CanAdd) ||
+                    CanDoAction(user, module + UserClaims.CanView) ||
+                    CanDoAction(user, module + UserClaims.CanEdit) ||
+                    CanDoAction(user, module + UserClaims.CanDelete) ||
+                    CanDoAction(user, module + UserClaims.CanPrint));
         }
     }
 }

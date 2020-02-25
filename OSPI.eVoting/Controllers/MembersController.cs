@@ -58,18 +58,18 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MemberID,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleID")] MemberModel Member)
+        public async Task<IActionResult> Create([Bind("MemberID,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleID")] MemberModel member)
         {
             if (ModelState.IsValid)
             {
-                Member.MemberID = Guid.NewGuid();
-                await _memberService.CreateAsync(Member);
+                member.MemberID = Guid.NewGuid();
+                await _memberService.CreateAsync(member);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.MemberStatus = new[] { "Member", "Non Member" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
             ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
-            return View(Member);
+            return View(member);
         }
 
         // GET: Members/Edit/5
@@ -96,9 +96,9 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("MemberID,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleID,RowVersion")] MemberModel Member)
+        public async Task<IActionResult> Edit(Guid id, [Bind("MemberID,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleID,RowVersion")] MemberModel member)
         {
-            if (id != Member.MemberID)
+            if (id != member.MemberID)
             {
                 return NotFound();
             }
@@ -107,7 +107,7 @@ namespace OSPI.eVoting.Controllers
             {
                 try
                 {
-                    await _memberService.UpdateAsync(Member);
+                    await _memberService.UpdateAsync(member);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -118,7 +118,7 @@ namespace OSPI.eVoting.Controllers
             ViewBag.MemberStatus = new[] { "Member", "Non Member" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
             ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
-            return View(Member);
+            return View(member);
         }
 
         // GET: Members/Delete/5
@@ -143,8 +143,8 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var Member = await _memberService.GetByIDAsync(id);
-            await _memberService.DeleteAsync(Member);
+            var member = await _memberService.GetByIDAsync(id);
+            await _memberService.DeleteAsync(member);
             return RedirectToAction(nameof(Index));
         }
 
@@ -157,16 +157,16 @@ namespace OSPI.eVoting.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(LogInModel model)
         {
-            var Member = await _memberService.GetByCodeAsync(model.MemberNo);
+            var member = await _memberService.GetByCodeAsync(model.MemberNo);
 
-            if (Member == null || Member.Password.Trim() != model.Password.Trim())
+            if (member == null || member.Password.Trim() != model.Password.Trim())
             {
                 ModelState.AddModelError("", "Member not found");
                 model.Password = "";
                 return View(model);
             }
 
-            var roleAccesses = (await _roleAccessService.GetAllByRoleIDAsync(Member.RoleID));
+            var roleAccesses = (await _roleAccessService.GetAllByRoleIDAsync(member.RoleID));
 
             if(roleAccesses == null)
             {
@@ -177,9 +177,9 @@ namespace OSPI.eVoting.Controllers
 
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            identity.AddClaim(new Claim(UserClaims.UserGuid, Member.MemberID.ToString()));
-            identity.AddClaim(new Claim(ClaimTypes.Name, Member.MemberFullName));
-            identity.AddClaim(new Claim(UserClaims.Role, Member.RoleID.ToString()));
+            identity.AddClaim(new Claim(UserClaims.UserGuid, member.MemberID.ToString()));
+            identity.AddClaim(new Claim(ClaimTypes.Name, member.MemberFullName));
+            identity.AddClaim(new Claim(UserClaims.Role, member.RoleID.ToString()));
 
             foreach (RoleAccessModel roleAccess in roleAccesses)
             {

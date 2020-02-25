@@ -44,15 +44,15 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoleID,RoleName,Description")] RoleModel Role)
+        public async Task<IActionResult> Create([Bind("RoleID,RoleName,Description")] RoleModel role)
         {
             if (ModelState.IsValid)
             {
-                Role.RoleID = Guid.NewGuid();
-                await _roleService.CreateAsync(Role);
+                role.RoleID = Guid.NewGuid();
+                await _roleService.CreateAsync(role);
                 return RedirectToAction(nameof(Index));
             }
-            return View(Role);
+            return View(role);
         }
 
         // GET: Roles/Edit/5
@@ -76,9 +76,9 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("RoleID,RoleName,Description,RowVersion")] RoleModel Role)
+        public async Task<IActionResult> Edit(Guid id, [Bind("RoleID,RoleName,Description,RowVersion")] RoleModel role)
         {
-            if (id != Role.RoleID)
+            if (id != role.RoleID)
             {
                 return NotFound();
             }
@@ -87,7 +87,7 @@ namespace OSPI.eVoting.Controllers
             {
                 try
                 {
-                    await _roleService.UpdateAsync(Role);
+                    await _roleService.UpdateAsync(role);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -95,7 +95,7 @@ namespace OSPI.eVoting.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(Role);
+            return View(role);
         }
 
         // GET: Roles/Delete/5
@@ -120,8 +120,8 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var Role = await _roleService.GetByIDAsync(id);
-            await _roleService.DeleteAsync(Role);
+            var role = await _roleService.GetByIDAsync(id);
+            await _roleService.DeleteAsync(role);
             return RedirectToAction(nameof(Index));
         }
     }

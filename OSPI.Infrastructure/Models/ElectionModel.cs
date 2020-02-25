@@ -47,8 +47,8 @@ namespace OSPI.Infrastructure.Models
 
         public byte[] RowVersion { get; set; }
 
-        public List<PositionModel> Positions { get; set; }
         [IgnoreMap]
+        public List<PositionModel> Positions { get; set; }
         public List<JPositionModel> JPositions { get; set; }
     }
 }

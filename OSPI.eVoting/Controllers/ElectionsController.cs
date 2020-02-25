@@ -39,6 +39,7 @@ namespace OSPI.eVoting.Controllers
         {
             ElectionModel Election = new ElectionModel
             {
+                ElectionID = Guid.NewGuid(),
                 RegStartDate = DateTime.Now,
                 RegEndDate = DateTime.Now,
                 VotingStartDate = DateTime.Now,
@@ -52,25 +53,20 @@ namespace OSPI.eVoting.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        public JsonResult Create([FromBody]ElectionModel model)
+        public JsonResult Create([FromBody]ElectionModel election)
         {
-            //if (ModelState.IsValid)
-            //{
-                //Election.ElectionID = Guid.NewGuid();
-                //await _electionService.CreateAsync(Election);
-                //return RedirectToAction(nameof(Index));
-            //}
-            //return View(Election);
             try
             {
-
-                //Do your insert code here.
-
-                //await _cashReceiptJournalService.CreateAsync(cashReceiptJournal);
-                //return RedirectToAction(nameof(Index));
-
-                return Json(true);
-
+                election.JournalID = Guid.NewGuid();
+                var result = _cashReceiptJournalService.CreateAsync(election);
+                if (result.Result == true)
+                {
+                    return Json(true);
+                }
+                else
+                {
+                    return Json(false);
+                }
             }
             catch (Exception ex)
             {
@@ -99,9 +95,9 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ElectionID,RefCode,Description,RegStartDate,RegEndDate,VotingStartDate,VotingEndDate,RowVersion")] ElectionModel Election)
+        public async Task<IActionResult> Edit(Guid id, [Bind("ElectionID,RefCode,Description,RegStartDate,RegEndDate,VotingStartDate,VotingEndDate,RowVersion")] ElectionModel election)
         {
-            if (id != Election.ElectionID)
+            if (id != election.ElectionID)
             {
                 return NotFound();
             }
@@ -110,7 +106,7 @@ namespace OSPI.eVoting.Controllers
             {
                 try
                 {
-                    await _electionService.UpdateAsync(Election);
+                    await _electionService.UpdateAsync(election);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -118,7 +114,7 @@ namespace OSPI.eVoting.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(Election);
+            return View(election);
         }
 
         // GET: Elections/Delete/5
@@ -143,21 +139,9 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var Election = await _electionService.GetByIDAsync(id);
-            await _electionService.DeleteAsync(Election);
+            var election = await _electionService.GetByIDAsync(id);
+            await _electionService.DeleteAsync(election);
             return RedirectToAction(nameof(Index));
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult CreatePosition([Bind("PositionID,PositionName,RequiredCandidates,Qualifications")] PositionModel Position)
-        {
-            if (ModelState.IsValid)
-            {
-                ViewData["Position"]= Position;
-                return RedirectToAction(nameof(Create));
-            }
-            return PartialView("_Create", Position);
         }
     }
 }

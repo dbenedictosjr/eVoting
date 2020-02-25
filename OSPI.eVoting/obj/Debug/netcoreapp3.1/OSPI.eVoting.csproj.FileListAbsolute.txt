@@ -160,7 +160,6 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\V
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Details.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Edit.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Index.cshtml.g.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\_Create.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Members\Create.cshtml.g.cs

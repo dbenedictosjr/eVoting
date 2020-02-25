@@ -14,11 +14,11 @@ namespace OSPI.eVoting.Controllers
         private readonly IMemberService _memberService;
         private readonly IElectionService _electionService;
 
-        public VotesController(IVoteService voteService, IMemberService memberService, IElectionService ElectionService)
+        public VotesController(IVoteService voteService, IMemberService memberService, IElectionService electionService)
         {
             _voteService = voteService;
             _memberService = memberService;
-            _electionService = ElectionService;
+            _electionService = electionService;
         }
 
         // GET: Votes
@@ -56,17 +56,17 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("VoteID,DateVoted,MemberID,ElectionID")] VoteModel Vote)
+        public async Task<IActionResult> Create([Bind("voteID,Datevoted,MemberID,ElectionID")] VoteModel vote)
         {
             if (ModelState.IsValid)
             {
-                Vote.VoteID = Guid.NewGuid();
-                await _voteService.CreateAsync(Vote);
+                vote.voteID = Guid.NewGuid();
+                await _voteService.CreateAsync(vote);
                 return RedirectToAction(nameof(Index));
             }
             ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
             ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
-            return View(Vote);
+            return View(vote);
         }
 
         // GET: Votes/Edit/5
@@ -92,9 +92,9 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("VoteID,DateVoted,MemberID,ElectionID,RowVersion")] VoteModel Vote)
+        public async Task<IActionResult> Edit(Guid id, [Bind("voteID,Datevoted,MemberID,ElectionID,RowVersion")] VoteModel vote)
         {
-            if (id != Vote.VoteID)
+            if (id != vote.VoteID)
             {
                 return NotFound();
             }
@@ -103,7 +103,7 @@ namespace OSPI.eVoting.Controllers
             {
                 try
                 {
-                    await _voteService.UpdateAsync(Vote);
+                    await _voteService.UpdateAsync(vote);
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
@@ -113,7 +113,7 @@ namespace OSPI.eVoting.Controllers
             }
             ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
             ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
-            return View(Vote);
+            return View(vote);
         }
 
         // GET: Votes/Delete/5
@@ -140,8 +140,8 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var Vote = await _voteService.GetByIDAsync(id);
-            await _voteService.DeleteAsync(Vote);
+            var vote = await _voteService.GetByIDAsync(id);
+            await _voteService.DeleteAsync(vote);
             return RedirectToAction(nameof(Index));
         }
     }
