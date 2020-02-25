@@ -46,7 +46,6 @@
         $("#txtQualifications").val('');
     })
     $("#btnsubmit").click(function () {
-        debugger
         var vRefCode = $("#RefCode").val();
         var vDescription = $("#Description").val();
         var vRegStartDate = $("#RegStartDate").datepicker("getDate");

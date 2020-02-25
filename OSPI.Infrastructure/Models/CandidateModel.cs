@@ -24,7 +24,6 @@ namespace OSPI.Infrastructure.Models
         [Display(Name = "Candidate")]
         public string CandidateFullName { get { return this.CandidateFirstName + ' ' + this.CandidateLastName; } }
 
-        [Required]
         public Guid NomineeMemberID { get; set; }
 
         public string NomineeFirstName { get; set; }
@@ -36,7 +35,6 @@ namespace OSPI.Infrastructure.Models
 
         public string Plataforma { get; set; }
 
-        [Required]
         public string Status { get; set; }
 
         public byte[] RowVersion { get; set; }

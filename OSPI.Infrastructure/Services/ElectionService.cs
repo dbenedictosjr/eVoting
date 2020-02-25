@@ -7,6 +7,7 @@ using OSPI.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace OSPI.Infrastructure.Services
 {
@@ -27,12 +28,13 @@ namespace OSPI.Infrastructure.Services
 
         public async Task CreateAsync(ElectionModel election)
         {
-            using (var transaction = _context.Database.BeginTransaction())
+            //using (var transaction = _context.Database.BeginTransaction())
+            using (var transaction = new TransactionScope())
             {
                 try
                 {
                     _electionRepository.Create(_mapper.Map<ElectionEntity>(election));
-                    await _electionRepository.SaveAsync();
+                    _electionRepository.SaveAsync().ConfigureAwait(false);
 
                     foreach (var item in election.JPositions)
                     {
@@ -46,13 +48,14 @@ namespace OSPI.Infrastructure.Services
                         };
 
                         _positionRepository.Create(positionEntity);
-                        await _positionRepository.SaveAsync();
+                        _positionRepository.SaveAsync().ConfigureAwait(false);
                     }
-                    transaction.Commit();
+                    //transaction.Commit();
+                    transaction.Complete();
                 }
                 catch (Exception)
                 {
-                    transaction.Rollback();
+                    //transaction.Rollback();
                 }
             }
         }

@@ -1,12 +1,3 @@
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.deps.json
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.runtimeconfig.json
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.runtimeconfig.dev.json
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.dll
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.pdb
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.AssemblyInfoInputs.cache
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.AssemblyInfo.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.dll
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.pdb
 G:\2020\25-02-2020 New Project\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.deps.json
 G:\2020\25-02-2020 New Project\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.runtimeconfig.json
 G:\2020\25-02-2020 New Project\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.runtimeconfig.dev.json
@@ -17,3 +8,12 @@ G:\2020\25-02-2020 New Project\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.A
 G:\2020\25-02-2020 New Project\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.AssemblyInfo.cs
 G:\2020\25-02-2020 New Project\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.dll
 G:\2020\25-02-2020 New Project\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.deps.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.runtimeconfig.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.runtimeconfig.dev.json
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\bin\Debug\netcoreapp3.1\OSPI.Domain.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.AssemblyInfoInputs.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.AssemblyInfo.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.dll
+C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.pdb

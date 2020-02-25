@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
+using System.Linq;
 
 namespace OSPI.eVoting.Controllers
 {
@@ -56,13 +57,19 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CandidateID,CandidateMemberID,PositionID,NomineeMemberID,Status")] CandidateModel candidate)
+        public async Task<IActionResult> Create([Bind("CandidateID,CandidateMemberID,PositionID")] CandidateModel candidate)
         {
             if (ModelState.IsValid)
             {
                 candidate.CandidateID = Guid.NewGuid();
+                candidate.NomineeMemberID = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value);
+                candidate.Status = "For Approval";
                 await _candidateService.CreateAsync(candidate);
                 return RedirectToAction(nameof(Index));
+            }
+            else
+            {
+                var errors = ModelState.Values.SelectMany(v => v.Errors);
             }
             ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
             ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionID", "PositionName");
