@@ -1,13 +1,8 @@
 ﻿using OSPI.Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace OSPI.Domain.Entities
 {
-   public class CandidateEntity : IAuditableEntity
+    public class CandidateEntity : IAuditableEntity
     {
         [Key]
         public Guid CandidateID { get; set; }
