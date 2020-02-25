@@ -10,14 +10,11 @@
         "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj",
         "projectName": "OSPI.Inventory.Domain",
         "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\OSPI.Inventory.Domain.csproj",
-        "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\wilhe\\.nuget\\packages\\",
         "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Inventory.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\d.t.benedictos.jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wilhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,18 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.0, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -62,12 +47,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

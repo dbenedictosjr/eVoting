@@ -1,26 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "G:\\2020\\25-02-2020 New Project\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {}
+    "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {}
   },
   "projects": {
-    "G:\\2020\\25-02-2020 New Project\\OSPI.Domain\\OSPI.Domain.csproj": {
+    "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\2020\\25-02-2020 New Project\\OSPI.Domain\\OSPI.Domain.csproj",
+        "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj",
         "projectName": "OSPI.Domain",
-        "projectPath": "G:\\2020\\25-02-2020 New Project\\OSPI.Domain\\OSPI.Domain.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "G:\\2020\\25-02-2020 New Project\\OSPI.Domain\\obj\\",
+        "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj",
+        "packagesPath": "C:\\Users\\wilhe\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\wilhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -42,18 +37,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.1, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.1, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -64,32 +47,22 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\2020\\25-02-2020 New Project\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
+    "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\2020\\25-02-2020 New Project\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
         "projectName": "OSPI.Infrastructure",
-        "projectPath": "G:\\2020\\25-02-2020 New Project\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "G:\\2020\\25-02-2020 New Project\\OSPI.Infrastructure\\obj\\",
+        "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\wilhe\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\wilhe\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -101,8 +74,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "G:\\2020\\25-02-2020 New Project\\OSPI.Domain\\OSPI.Domain.csproj": {
-                "projectPath": "G:\\2020\\25-02-2020 New Project\\OSPI.Domain\\OSPI.Domain.csproj"
+              "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj": {
+                "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj"
               }
             }
           }
@@ -115,16 +88,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
-            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
-              "target": "Package",
-              "version": "[7.0.0, )"
-            }
-          },
           "imports": [
             "net461",
             "net462",
@@ -135,12 +98,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
