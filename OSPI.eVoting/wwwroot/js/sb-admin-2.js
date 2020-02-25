@@ -2,16 +2,16 @@ $(function() {
 
     $('#side-menu').metisMenu(); 
 
-    $('#tbl_user').dataTable({
+    $('#tbl_eBallots').dataTable({
         responsive: true,
         "columnDefs": [
             { "orderable": false, "targets": 0 }
         ]
     });
-    $("#chkuser_all").click(function () {
-        $('#tbl_user tbody input[type="checkbox"]').prop('checked', this.checked);
+    $("#chkeBallots_all").click(function () {
+        $('#tbl_eBallots tbody input[type="checkbox"]').prop('checked', this.checked);
     });
-    $("#tbl_user").find("thead th").removeClass("sorting_asc");
+    $("#tbl_eBallots").find("thead th").removeClass("sorting_asc");
 
     $("#chkaccounttype_all").click(function () {
         $('#tbl_accounttype tbody input[type="checkbox"]').prop('checked', this.checked);
@@ -48,10 +48,12 @@ $(function() {
     });
     
     $('.datepicker').datepicker({
-        format: 'dd/mm/yyyy',
+        format: 'mm/dd/yyyy ',
         autoclose: true,
         startDate: '0d'
     });
+    $(".datepicker").datepicker().datepicker("setDate", new Date());
+
     $('#tbl_profitcenteraccount').dataTable({
         responsive: true,
         "columnDefs": [

@@ -11,9 +11,11 @@
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/metisMenu.min.css" rel="stylesheet" />
     <link href="~/css/sb-admin-2.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
     <script src="~/js/jquery.min.js"></script>
 </head>
 <body>
+
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -63,7 +65,7 @@
                             <!-- /input-group -->
                         </li>
                         @if (UserClaimsHelper.CanDoAnyActions(User, "Roles") ||
-                         UserClaimsHelper.CanDoAnyActions(User, "Members"))
+                        UserClaimsHelper.CanDoAnyActions(User, "Members"))
                         {
                             <li>
                                 <a href=""><i class="fa fa-dashboard fa-fw"></i>Tools <span class="fa arrow"></span></a>
@@ -131,7 +133,6 @@
         <!-- /#page-wrapper -->
 
     </div>
-    <script src="~/js/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="~/js/metisMenu.min.js"></script>
     <script src="~/js/sb-admin-2.js"></script>
@@ -141,8 +142,6 @@
     <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
 
-    @*<script src="~/js/site.js" asp-append-version="true"></script>
-        <script src="~/js/jquery-ui.min.js"></script>*@
     @RenderSection("Scripts", required: false)
 </body>
 </html>

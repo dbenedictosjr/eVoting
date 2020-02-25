@@ -25,19 +25,19 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var election = await _electionService.GetByIDAsync(id);
-            if (election == null)
+            var Election = await _electionService.GetByIDAsync(id);
+            if (Election == null)
             {
                 return NotFound();
             }
 
-            return View(election);
+            return View(Election);
         }
 
         // GET: Elections/Create
         public IActionResult Create()
         {
-            ElectionModel election = new ElectionModel
+            ElectionModel Election = new ElectionModel
             {
                 ElectionID = Guid.NewGuid(),
                 RegStartDate = DateTime.Now,
@@ -46,7 +46,7 @@ namespace OSPI.eVoting.Controllers
                 VotingEndDate = DateTime.Now
             };
 
-            return View(election);
+            return View(Election);
         }
 
         // POST: Elections/Create
@@ -57,8 +57,17 @@ namespace OSPI.eVoting.Controllers
         {
             try
             {
-                _electionService.CreateAsync(election);
                 return Json(true);
+                //election.JournalID = Guid.NewGuid();
+                //var result = _cashReceiptJournalService.CreateAsync(election);
+                //if (result.Result == true)
+                //{
+                //    return Json(true);
+                //}
+                //else
+                //{
+                //    return Json(false);
+                //}
             }
             catch (Exception ex)
             {
@@ -74,12 +83,12 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var election = await _electionService.GetByIDAsync(id);
-            if (election == null)
+            var Election = await _electionService.GetByIDAsync(id);
+            if (Election == null)
             {
                 return NotFound();
             }
-            return View(election);
+            return View(Election);
         }
 
         // POST: Elections/Edit/5
@@ -117,13 +126,13 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var election = await _electionService.GetByIDAsync(id);
-            if (election == null)
+            var Election = await _electionService.GetByIDAsync(id);
+            if (Election == null)
             {
                 return NotFound();
             }
 
-            return View(election);
+            return View(Election);
         }
 
         // POST: Elections/Delete/5

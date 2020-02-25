@@ -26,24 +26,25 @@ namespace OSPI.Infrastructure.Models
         [StringLength(30, ErrorMessage = "Limit Description to 30 characters.")]
         public string Description { get; set; }
 
-        [Required]
+
+
         [Display(Name = "Reg. Start Date")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime RegStartDate { get; set; }
 
-        [Required]
+
         [Display(Name = "Reg. End Date")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime RegEndDate { get; set; }
 
-        [Required]
+
         [Display(Name = "Voting Start Date")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime VotingStartDate { get; set; }
 
-        [Required]
+
         [Display(Name = "Voting End Date")]
-        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy}", ApplyFormatInEditMode = true)]
         public DateTime VotingEndDate { get; set; }
 
         public byte[] RowVersion { get; set; }
