@@ -57,16 +57,17 @@ namespace OSPI.eVoting.Controllers
         {
             try
             {
-                election.JournalID = Guid.NewGuid();
-                var result = _cashReceiptJournalService.CreateAsync(election);
-                if (result.Result == true)
-                {
-                    return Json(true);
-                }
-                else
-                {
-                    return Json(false);
-                }
+                return Json(true);
+                //election.JournalID = Guid.NewGuid();
+                //var result = _cashReceiptJournalService.CreateAsync(election);
+                //if (result.Result == true)
+                //{
+                //    return Json(true);
+                //}
+                //else
+                //{
+                //    return Json(false);
+                //}
             }
             catch (Exception ex)
             {

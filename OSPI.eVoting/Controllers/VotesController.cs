@@ -60,7 +60,7 @@ namespace OSPI.eVoting.Controllers
         {
             if (ModelState.IsValid)
             {
-                vote.voteID = Guid.NewGuid();
+                vote.VoteID = Guid.NewGuid();
                 await _voteService.CreateAsync(vote);
                 return RedirectToAction(nameof(Index));
             }

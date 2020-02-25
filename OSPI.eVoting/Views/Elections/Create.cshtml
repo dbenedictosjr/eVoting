@@ -5,62 +5,133 @@
     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
 
-
-<h1>Create</h1>
-
-<h4>ElectionEntity</h4>
-<hr />
-
+<br />
 <div class="row">
-    <div class="col-md-4">
-        <form id="Election">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="RefCode" class="control-label"></label>
-                <input asp-for="RefCode" class="form-control" />
-                <span asp-validation-for="RefCode" class="text-danger"></span>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-4"> <h4>Create eBallots</h4></div>
+                    <div class="col-sm-5"></div>
+
+                    <div class="col-sm-3">
+                        <div class="row">
+                            <i class="fa fa-arrow-circle-left"></i>  <a asp-action="index">  Back to eBallots List</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
+            <div class="panel-body">
+                <form id="frmCashReceiptJournal">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+
+                                <label asp-for="RefCode" class="control-label"></label>
+                                <input asp-for="RefCode" class="form-control" />
+                                <span asp-validation-for="RefCode" class="text-danger" id="spn_CashReceiptNo"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label"></label>
+                                <input asp-for="Description" class="form-control" />
+                                <span asp-validation-for="Description" class="text-danger" id="spn_Payee"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="RegStartDate" class="control-label"></label>
+                                <input type="text" asp-for="RegStartDate" class="form-control datepicker" />
+                                <span asp-validation-for="RegStartDate" class="text-danger" id="spn_TransactionDate"></span>
+                            </div>
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="RegEndDate" class="control-label"></label>
+                                <input type="text" asp-for="RegEndDate" class="form-control datepicker" />
+                                <span asp-validation-for="RegEndDate" class="text-danger" id="spn_Particular"></span>
+
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="VotingStartDate" class="control-label"></label>
+                                <input type="text" asp-for="VotingStartDate" class="form-control datepicker"/>
+                                <span asp-validation-for="VotingStartDate" class="text-danger" id="spn_MainAmount"></span>
+
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="VotingEndDate" class="control-label"></label>
+                                <input type="text" asp-for="VotingEndDate" class="form-control datepicker" />
+                                <span asp-validation-for="VotingEndDate" class="text-danger" id="spn_status"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="button" id="btnsubmit" value="Save" class="btn btn-primary pull-right" />
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                </form>
             </div>
-            <div class="form-group">
-                <label asp-for="RegStartDate" class="control-label"></label>
-                <input asp-for="RegStartDate" class="form-control" />
-                <span asp-validation-for="RegStartDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RegEndDate" class="control-label"></label>
-                <input asp-for="RegEndDate" class="form-control" />
-                <span asp-validation-for="RegEndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VotingStartDate" class="control-label"></label>
-                <input asp-for="VotingStartDate" class="form-control" />
-                <span asp-validation-for="VotingStartDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VotingEndDate" class="control-label"></label>
-                <input asp-for="VotingEndDate" class="form-control" />
-                <span asp-validation-for="VotingEndDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="button" id="btnsubmit" value="Create" class="btn btn-primary pull-left" />
-                <a asp-action="Index" class="btn btn-primary pull-left"><i class="fa fa-list" aria-hidden="true"></i> Back</a>
-            </div>
-        </form>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
     </div>
+    <!-- /.col-lg-12 -->
 </div>
+
+<br />
 
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="row">
-                    <div class="col-sm-4"> <h4> Positions</h4></div>
+                    <div class="col-sm-4"> <h4> Positions Detail List</h4></div>
                     <div class="col-sm-4"></div>
-                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2">
+
+                    </div>
                     <div class="col-sm-2">
 
                         <button data-toggle="modal" data-target="#AddPositionModal" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Create New</button>
@@ -80,19 +151,25 @@
                                 <th>
                                     @Html.DisplayNameFor(Modelitem => Model.Positions.First().RequiredCandidates)
                                 </th>
+                                <th>
+                                    @Html.DisplayNameFor(Modelitem => Model.Positions.First().Qualifications)
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model.JPositions)
+                            @foreach (var item in Model.Positions)
                             {
-                            <tr class="odd gradeX">
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.PositionName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.RequiredCandidates)
-                                </td>
-                            </tr>
+                                <tr class="odd gradeX">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PositionName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RequiredCandidates)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Qualifications)
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -103,8 +180,7 @@
         <!-- /.panel -->
     </div>
     <!-- /.col-lg-12 -->
-</div>
-
+</div> 
 <div class="modal fade" id="AddPositionModal" role="dialog">
 
     <!-- Begin Modal Dialog-->
@@ -132,8 +208,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label for="RequiredCandidates">Required Candidates</label>
-                                <input class="form-control" id="txtCandidates" placeholder="Candidates" type="number" step="0.1" min=0>
-                                <span class="text-danger" id="spn_candidates"></span>
+                                <input class="form-control" id="txtCandidates" placeholder="Candidates" type="number">
                             </div>
                         </div>
                     </div>

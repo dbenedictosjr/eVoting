@@ -1,47 +1,26 @@
 ﻿@if (User.Identity.IsAuthenticated)
 {
-    <form asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new {area = ""})" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a href="@Url.Action("Index", "Members")" title="Manage">Hello, @User.Identity.Name</a>
-            </li>
-            <li>
-                <a href="@Url.Action("Logout", "Members")">Logout</a>
-            </li>
-        </ul>
+
+    <form asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new {area = ""})" method="post" id="logoutForm" class="nav navbar-top-links navbar-right">
+
+        <li class="topmenuactive ">
+            <a href="@Url.Action("Index", "Members")" title="Manage">Hello, @User.Identity.Name</a>
+        </li>
+        <li>
+            <a href="@Url.Action("Logout", "Members")">Logout</a>
+        </li>
+        <li>
+
+        </li>
     </form>
+
+
 }
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            <a href="@Url.Action("Login", "Members")">Sign In</a>
-        </li>
-    </ul>
+    <li>
+        <a href="@Url.Action("Login", "Members")">Sign In & Sign Up</a>
+    </li>
+
 }
 
-@*@if (User.Identity.IsAuthenticated)
-    {
-
-        <form asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/Index", new {area = ""})" method="post" id="logoutForm" class="nav navbar-top-links navbar-right">
-
-            <li class="topmenuactive ">
-                <a href="@Url.Action("Index", "Users")" title="Manage">Hello, @User.Identity.Name</a>
-            </li>
-            <li>
-                <a href="@Url.Action("Logout", "Account")">Logout</a>
-            </li>
-            <li>
-
-            </li>
-        </form>
-
-
-    }
-    else
-    {
-        <li>
-            <a href="@Url.Action("Login", "Members")">Sign In</a>
-        </li>
-
-    }*@

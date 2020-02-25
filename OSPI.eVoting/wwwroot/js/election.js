@@ -46,25 +46,23 @@
         $("#txtQualifications").val('');
     })
     $("#btnsubmit").click(function () {
-
-        //bind all model value in model.
+        debugger
         var vRefCode = $("#RefCode").val();
         var vDescription = $("#Description").val();
-        var vRegStartDate = $("#RegStartDate").val();
-        var vRegEndDate = $("#RegEndDate").val();
-        var vVotingStartDate = $("#VotingStartDate").val();
-        var vVotingEndDate = $("#VotingEndDate").val();
-        
-        var model = {
-            'RefCode': vRefCode, 'Description': vDescription, 'RegStartDate': vRegStartDate, 'vRegStartDate': vRegEndDate, 'VotingStartDate': vVotingStartDate, 'VotingEndDate': vVotingEndDate, 'JPositions': _gridData
+        var vRegStartDate = $("#RegStartDate").datepicker("getDate");
+        var vRegEndDate = $("#RegEndDate").datepicker("getDate");
+        var vVotingStartDate = $("#VotingStartDate").datepicker("getDate");
+        var vVotingEndDate = $("#VotingEndDate").datepicker("getDate");
+        var election = {
+            'RefCode': vRefCode, 'Description': vDescription, 'RegStartDate': vRegStartDate, 'RegEndDate': vRegEndDate, 'VotingStartDate': vVotingStartDate, 'VotingEndDate': vVotingEndDate, 'JPositions': _gridData
         };
-        debugger;
+       
         $.ajax({
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             url: '/Elections/Create',
-            data: JSON.stringify(model),
+            data: JSON.stringify(election),
 
             success: function (data) {
                 alert("Record has been inserted successfully.");
