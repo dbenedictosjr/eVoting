@@ -11,37 +11,37 @@ namespace OSPI.Infrastructure.Services
 {
     public class VoteDetailService : IVoteDetailService
     {
-        private readonly IVoteDetailRepository _repository;
+        private readonly IVoteDetailRepository _voteDetailRepository;
         private readonly IMapper _mapper;
 
-        public VoteDetailService(IVoteDetailRepository repository, IMapper mapper)
+        public VoteDetailService(IVoteDetailRepository voteDetailRepository, IMapper mapper)
         {
-            _repository = repository;
+            _voteDetailRepository = voteDetailRepository;
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(VoteDetailModel model)
+        public async Task CreateAsync(VoteDetailModel voteDetail)
         {
-            _repository.Create(_mapper.Map<VoteDetailEntity>(model));
-            await _repository.SaveAsync();
+            _voteDetailRepository.Create(_mapper.Map<VoteDetailEntity>(voteDetail));
+            await _voteDetailRepository.SaveAsync();
         }
 
-        public async Task DeleteAsync(VoteDetailModel model)
+        public async Task DeleteAsync(VoteDetailModel voteDetail)
         {
-            this._repository.Delete(await _repository.GetByIDAsync(model.VoteDetailID));
-            await _repository.SaveAsync();
+            this._voteDetailRepository.Delete(await _voteDetailRepository.GetByIDAsync(voteDetail.VoteDetailID));
+            await _voteDetailRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<VoteDetailModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<VoteDetailModel>>(await _repository.GetAllAsync());
+            => _mapper.Map<IEnumerable<VoteDetailModel>>(await _voteDetailRepository.GetAllAsync());
 
         public async Task<VoteDetailModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<VoteDetailModel>(await _repository.GetByIDAsync(id));
+            => _mapper.Map<VoteDetailModel>(await _voteDetailRepository.GetByIDAsync(id));
 
-        public async Task UpdateAsync(VoteDetailModel model)
+        public async Task UpdateAsync(VoteDetailModel voteDetail)
         {
-            _repository.Update(_mapper.Map<VoteDetailEntity>(model));
-            await _repository.SaveAsync();
+            _voteDetailRepository.Update(_mapper.Map<VoteDetailEntity>(voteDetail));
+            await _voteDetailRepository.SaveAsync();
         }
     }
 }

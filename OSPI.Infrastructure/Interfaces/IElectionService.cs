@@ -7,14 +7,14 @@ namespace OSPI.Infrastructure.Interfaces
 {
     public interface IElectionService
     {
-        Task CreateAsync(ElectionModel model);
+        Task CreateAsync(ElectionModel election);
 
         Task<ElectionModel> GetByIDAsync(Guid? id);
         Task<IEnumerable<ElectionModel>> GetAllAsync();
 
-        Task UpdateAsync(ElectionModel model);
+        Task UpdateAsync(ElectionModel election);
 
-        Task DeleteAsync(ElectionModel model);
+        Task DeleteAsync(ElectionModel election);
 
     }
 }

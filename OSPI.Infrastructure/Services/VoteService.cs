@@ -11,37 +11,37 @@ namespace OSPI.Infrastructure.Services
 {
     public class VoteService : IVoteService
     {
-        private readonly IVoteRepository _repository;
+        private readonly IVoteRepository _voteRepository;
         private readonly IMapper _mapper;
 
-        public VoteService(IVoteRepository repository, IMapper mapper)
+        public VoteService(IVoteRepository voteRepository, IMapper mapper)
         {
-            _repository = repository;
+            _voteRepository = voteRepository;
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(VoteModel model)
+        public async Task CreateAsync(VoteModel vote)
         {
-            _repository.Create(_mapper.Map<VoteEntity>(model));
-            await _repository.SaveAsync();
+            _voteRepository.Create(_mapper.Map<VoteEntity>(vote));
+            await _voteRepository.SaveAsync();
         }
 
-        public async Task DeleteAsync(VoteModel model)
+        public async Task DeleteAsync(VoteModel vote)
         {
-            this._repository.Delete(await _repository.GetByIDAsync(model.VoteID));
-            await _repository.SaveAsync();
+            this._voteRepository.Delete(await _voteRepository.GetByIDAsync(vote.VoteID));
+            await _voteRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<VoteModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<VoteModel>>(await _repository.GetAllAsync());
+            => _mapper.Map<IEnumerable<VoteModel>>(await _voteRepository.GetAllAsync());
 
         public async Task<VoteModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<VoteModel>(await _repository.GetByIDAsync(id));
+            => _mapper.Map<VoteModel>(await _voteRepository.GetByIDAsync(id));
 
-        public async Task UpdateAsync(VoteModel model)
+        public async Task UpdateAsync(VoteModel vote)
         {
-            _repository.Update(_mapper.Map<VoteEntity>(model));
-            await _repository.SaveAsync();
+            _voteRepository.Update(_mapper.Map<VoteEntity>(vote));
+            await _voteRepository.SaveAsync();
         }
     }
 }

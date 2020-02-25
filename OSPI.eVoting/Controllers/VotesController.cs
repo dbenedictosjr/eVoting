@@ -32,15 +32,15 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Vote = await _voteService.GetByIDAsync(id);
-            if (Vote == null)
+            var vote = await _voteService.GetByIDAsync(id);
+            if (vote == null)
             {
                 return NotFound();
             }
 
             ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
             ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
-            return View(Vote);
+            return View(vote);
         }
 
         // GET: Votes/Create
@@ -60,7 +60,7 @@ namespace OSPI.eVoting.Controllers
         {
             if (ModelState.IsValid)
             {
-                vote.voteID = Guid.NewGuid();
+                vote.VoteID = Guid.NewGuid();
                 await _voteService.CreateAsync(vote);
                 return RedirectToAction(nameof(Index));
             }
@@ -77,14 +77,14 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Vote = await _voteService.GetByIDAsync(id);
-            if (Vote == null)
+            var vote = await _voteService.GetByIDAsync(id);
+            if (vote == null)
             {
                 return NotFound();
             }
             ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
             ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
-            return View(Vote);
+            return View(vote);
         }
 
         // POST: Votes/Edit/5
@@ -124,15 +124,15 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Vote = await _voteService.GetByIDAsync(id);
-            if (Vote == null)
+            var vote = await _voteService.GetByIDAsync(id);
+            if (vote == null)
             {
                 return NotFound();
             }
 
             ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
             ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
-            return View(Vote);
+            return View(vote);
         }
 
         // POST: Votes/Delete/5

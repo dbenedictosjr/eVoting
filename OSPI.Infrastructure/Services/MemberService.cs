@@ -11,39 +11,39 @@ namespace OSPI.Infrastructure.Services
 {
     public class MemberService : IMemberService
     {
-        private readonly IMemberRepository _repository;
+        private readonly IMemberRepository _memberRepository;
         private readonly IMapper _mapper;
 
-        public MemberService(IMemberRepository repository, IMapper mapper)
+        public MemberService(IMemberRepository memberRepository, IMapper mapper)
         {
-            _repository = repository;
+            _memberRepository = memberRepository;
             _mapper = mapper;
         }
 
         public async Task CreateAsync(MemberModel model)
         {
             model.MemberID = Guid.NewGuid();
-            _repository.Create(_mapper.Map<MemberEntity>(model));
-            await _repository.SaveAsync();
+            _memberRepository.Create(_mapper.Map<MemberEntity>(model));
+            await _memberRepository.SaveAsync();
         }
 
         public async Task DeleteAsync(MemberModel model)
         {
-            this._repository.Delete(await _repository.GetByIDAsync(model.MemberID));
-            await _repository.SaveAsync();
+            this._memberRepository.Delete(await _memberRepository.GetByIDAsync(model.MemberID));
+            await _memberRepository.SaveAsync();
         }
 
         public async Task<MemberModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<MemberModel>(await _repository.GetByIDAsync(id));
+            => _mapper.Map<MemberModel>(await _memberRepository.GetByIDAsync(id));
         public async Task<MemberModel> GetByCodeAsync(string code)
-            => _mapper.Map<MemberModel>(await _repository.GetByCodeAsync(code));
+            => _mapper.Map<MemberModel>(await _memberRepository.GetByCodeAsync(code));
         public async Task<IEnumerable<MemberModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<MemberModel>>(await _repository.GetAllAsync());
+            => _mapper.Map<IEnumerable<MemberModel>>(await _memberRepository.GetAllAsync());
 
         public async Task UpdateAsync(MemberModel model)
         {
-            _repository.Update(_mapper.Map<MemberEntity>(model));
-            await _repository.SaveAsync();
+            _memberRepository.Update(_mapper.Map<MemberEntity>(model));
+            await _memberRepository.SaveAsync();
         }
     }
 }

@@ -11,37 +11,37 @@ namespace OSPI.Infrastructure.Services
 {
     public class PositionService : IPositionService
     {
-        private readonly IPositionRepository _repository;
+        private readonly IPositionRepository _positionRepository;
         private readonly IMapper _mapper;
 
-        public PositionService(IPositionRepository repository, IMapper mapper)
+        public PositionService(IPositionRepository positionRepository, IMapper mapper)
         {
-            _repository = repository;
+            _positionRepository = positionRepository;
             _mapper = mapper;
         }
 
         public async Task CreateAsync(PositionModel model)
         {
-            _repository.Create(_mapper.Map<PositionEntity>(model));
-            await _repository.SaveAsync();
+            _positionRepository.Create(_mapper.Map<PositionEntity>(model));
+            await _positionRepository.SaveAsync();
         }
 
         public async Task DeleteAsync(PositionModel model)
         {
-            this._repository.Delete(await _repository.GetByIDAsync(model.PositionID));
-            await _repository.SaveAsync();
+            this._positionRepository.Delete(await _positionRepository.GetByIDAsync(model.PositionID));
+            await _positionRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<PositionModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<PositionModel>>(await _repository.GetAllAsync());
+            => _mapper.Map<IEnumerable<PositionModel>>(await _positionRepository.GetAllAsync());
 
         public async Task<PositionModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<PositionModel>(await _repository.GetByIDAsync(id));
+            => _mapper.Map<PositionModel>(await _positionRepository.GetByIDAsync(id));
 
         public async Task UpdateAsync(PositionModel model)
         {
-            _repository.Update(_mapper.Map<PositionEntity>(model));
-            await _repository.SaveAsync();
+            _positionRepository.Update(_mapper.Map<PositionEntity>(model));
+            await _positionRepository.SaveAsync();
         }
     }
 }

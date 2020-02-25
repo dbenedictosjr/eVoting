@@ -30,13 +30,13 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Position = await _positionService.GetByIDAsync(id);
-            if (Position == null)
+            var position = await _positionService.GetByIDAsync(id);
+            if (position == null)
             {
                 return NotFound();
             }
             ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
-            return View(Position);
+            return View(position);
         }
 
         // GET: Positions/Create
@@ -71,13 +71,13 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Position = await _positionService.GetByIDAsync(id);
-            if (Position == null)
+            var position = await _positionService.GetByIDAsync(id);
+            if (position == null)
             {
                 return NotFound();
             }
             ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
-            return View(Position);
+            return View(position);
         }
 
         // POST: Positions/Edit/5
@@ -116,14 +116,14 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Position = await _positionService.GetByIDAsync(id);
-            if (Position == null)
+            var position = await _positionService.GetByIDAsync(id);
+            if (position == null)
             {
                 return NotFound();
             }
 
             ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
-            return View(Position);
+            return View(position);
         }
 
         // POST: Positions/Delete/5

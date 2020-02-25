@@ -7,15 +7,15 @@ namespace OSPI.Infrastructure.Interfaces
 {
     public interface IMemberService
     {
-        Task CreateAsync(MemberModel model);
+        Task CreateAsync(MemberModel member);
 
         Task<MemberModel> GetByIDAsync(Guid? id);
         Task<MemberModel> GetByCodeAsync(string code);
         Task<IEnumerable<MemberModel>> GetAllAsync();
 
-        Task UpdateAsync(MemberModel model);
+        Task UpdateAsync(MemberModel member);
 
-        Task DeleteAsync(MemberModel model);
+        Task DeleteAsync(MemberModel member);
 
     }
 }

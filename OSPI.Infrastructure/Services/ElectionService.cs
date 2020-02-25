@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using OSPI.Domain;
 using OSPI.Domain.Entities;
 using OSPI.Domain.Interfaces;
 using OSPI.Infrastructure.Interfaces;
@@ -11,37 +12,67 @@ namespace OSPI.Infrastructure.Services
 {
     public class ElectionService : IElectionService
     {
-        private readonly IElectionRepository _repository;
+        private readonly ApplicationDbContext _context; 
+        private readonly IElectionRepository _electionRepository;
+        private readonly IPositionRepository _positionRepository;
         private readonly IMapper _mapper;
 
-        public ElectionService(IElectionRepository repository, IMapper mapper)
+        public ElectionService(ApplicationDbContext context, IElectionRepository electionRepository, IPositionRepository positionRepository, IMapper mapper)
         {
-            _repository = repository;
+            _context = context;
+            _electionRepository = electionRepository;
+            _positionRepository = positionRepository;
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(ElectionModel model)
+        public async Task CreateAsync(ElectionModel election)
         {
-            _repository.Create(_mapper.Map<ElectionEntity>(model));
-            await _repository.SaveAsync();
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    _electionRepository.Create(_mapper.Map<ElectionEntity>(election));
+                    await _electionRepository.SaveAsync();
+
+                    foreach (var item in election.JPositions)
+                    {
+                        PositionEntity positionEntity = new PositionEntity
+                        {
+                            PositionID = Guid.NewGuid(),
+                            PositionName = item.PositionName,
+                            RequiredCandidates = item.RequiredCandidates,
+                            Qualifications = item.Qualifications,
+                            ElectionID = election.ElectionID
+                        };
+
+                        _positionRepository.Create(positionEntity);
+                        await _positionRepository.SaveAsync();
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                }
+            }
         }
 
-        public async Task DeleteAsync(ElectionModel model)
+        public async Task DeleteAsync(ElectionModel election)
         {
-            this._repository.Delete(await _repository.GetByIDAsync(model.ElectionID));
-            await _repository.SaveAsync();
+            this._electionRepository.Delete(await _electionRepository.GetByIDAsync(election.ElectionID));
+            await _electionRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<ElectionModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<ElectionModel>>(await _repository.GetAllAsync());
+            => _mapper.Map<IEnumerable<ElectionModel>>(await _electionRepository.GetAllAsync());
 
         public async Task<ElectionModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<ElectionModel>(await _repository.GetByIDAsync(id));
+            => _mapper.Map<ElectionModel>(await _electionRepository.GetByIDAsync(id));
 
-        public async Task UpdateAsync(ElectionModel model)
+        public async Task UpdateAsync(ElectionModel election)
         {
-            _repository.Update(_mapper.Map<ElectionEntity>(model));
-            await _repository.SaveAsync();
+            _electionRepository.Update(_mapper.Map<ElectionEntity>(election));
+            await _electionRepository.SaveAsync();
         }
     }
 }

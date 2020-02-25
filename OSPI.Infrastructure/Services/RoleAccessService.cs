@@ -11,40 +11,40 @@ namespace OSPI.Infrastructure.Services
 {
     public class RoleAccessService : IRoleAccessService
     {
-        private readonly IRoleAccessRepository _repository;
+        private readonly IRoleAccessRepository _roleAccess;
         private readonly IMapper _mapper;
 
-        public RoleAccessService(IRoleAccessRepository repository, IMapper mapper)
+        public RoleAccessService(IRoleAccessRepository roleAccess, IMapper mapper)
         {
-            _repository = repository;
+            _roleAccess = roleAccess;
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(RoleAccessModel model)
+        public async Task CreateAsync(RoleAccessModel roleAccess)
         {
-            _repository.Create(_mapper.Map<RoleAccessEntity>(model));
-            await _repository.SaveAsync();
+            _roleAccess.Create(_mapper.Map<RoleAccessEntity>(roleAccess));
+            await _roleAccess.SaveAsync();
         }
 
-        public async Task DeleteAsync(RoleAccessModel model)
+        public async Task DeleteAsync(RoleAccessModel roleAccess)
         {
-            this._repository.Delete(await _repository.GetByIDAsync(model.RoleID));
-            await _repository.SaveAsync();
+            this._roleAccess.Delete(await _roleAccess.GetByIDAsync(roleAccess.RoleID));
+            await _roleAccess.SaveAsync();
         }
 
         public async Task<IEnumerable<RoleAccessModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<RoleAccessModel>>(await _repository.GetAllAsync());
+            => _mapper.Map<IEnumerable<RoleAccessModel>>(await _roleAccess.GetAllAsync());
 
         public async Task<RoleAccessModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<RoleAccessModel>(await _repository.GetByIDAsync(id));
+            => _mapper.Map<RoleAccessModel>(await _roleAccess.GetByIDAsync(id));
 
         public async Task<IEnumerable<RoleAccessModel>> GetAllByRoleIDAsync(Guid id)
-            => _mapper.Map<IEnumerable<RoleAccessModel>>(await _repository.GetAllByRoleIDAsync(id));
+            => _mapper.Map<IEnumerable<RoleAccessModel>>(await _roleAccess.GetAllByRoleIDAsync(id));
 
-        public async Task UpdateAsync(RoleAccessModel model)
+        public async Task UpdateAsync(RoleAccessModel roleAccess)
         {
-            _repository.Update(_mapper.Map<RoleAccessEntity>(model));
-            await _repository.SaveAsync();
+            _roleAccess.Update(_mapper.Map<RoleAccessEntity>(roleAccess));
+            await _roleAccess.SaveAsync();
         }
     }
 }

@@ -7,14 +7,14 @@ namespace OSPI.Infrastructure.Interfaces
 {
     public interface IModuleService
     {
-        Task CreateAsync(ModuleModel model);
+        Task CreateAsync(ModuleModel module);
 
         Task<ModuleModel> GetByIDAsync(Guid? id);
         Task<IEnumerable<ModuleModel>> GetAllAsync();
 
-        Task UpdateAsync(ModuleModel model);
+        Task UpdateAsync(ModuleModel module);
 
-        Task DeleteAsync(ModuleModel model);
+        Task DeleteAsync(ModuleModel module);
 
     }
 }

@@ -7,14 +7,14 @@ namespace OSPI.Infrastructure.Interfaces
 {
     public interface IRoleService
     {
-        Task CreateAsync(RoleModel model);
+        Task CreateAsync(RoleModel role);
 
         Task<RoleModel> GetByIDAsync(Guid? id);
         Task<IEnumerable<RoleModel>> GetAllAsync();
 
-        Task UpdateAsync(RoleModel model);
+        Task UpdateAsync(RoleModel role);
 
-        Task DeleteAsync(RoleModel model);
+        Task DeleteAsync(RoleModel role);
 
     }
 }

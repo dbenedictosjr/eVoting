@@ -35,13 +35,13 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Member = await _memberService.GetByIDAsync(id);
-            if (Member == null)
+            var member = await _memberService.GetByIDAsync(id);
+            if (member == null)
             {
                 return NotFound();
             }
 
-            return View(Member);
+            return View(member);
         }
 
         // GET: Members/Create
@@ -81,14 +81,14 @@ namespace OSPI.eVoting.Controllers
             }
 
             ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
-            var Member = await _memberService.GetByIDAsync(id);
-            if (Member == null)
+            var member = await _memberService.GetByIDAsync(id);
+            if (member == null)
             {
                 return NotFound();
             }
             ViewBag.MemberStatus = new[] { "Member", "Non Member" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
-            return View(Member);
+            return View(member);
         }
 
         // POST: Members/Edit/5
@@ -129,13 +129,13 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Member = await _memberService.GetByIDAsync(id);
-            if (Member == null)
+            var member = await _memberService.GetByIDAsync(id);
+            if (member == null)
             {
                 return NotFound();
             }
 
-            return View(Member);
+            return View(member);
         }
 
         // POST: Members/Delete/5

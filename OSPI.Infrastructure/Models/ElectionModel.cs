@@ -9,6 +9,7 @@ namespace OSPI.Infrastructure.Models
     {
         public ElectionModel()
         {
+            this.ElectionID = Guid.NewGuid();
             this.Positions = new List<PositionModel>();
             this.JPositions = new List<JPositionModel>();
         }

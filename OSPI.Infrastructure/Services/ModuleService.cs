@@ -11,37 +11,37 @@ namespace OSPI.Infrastructure.Services
 {
     public class ModuleService : IModuleService
     {
-        private readonly IModuleRepository _repository;
+        private readonly IModuleRepository _moduleRepository;
         private readonly IMapper _mapper;
 
-        public ModuleService(IModuleRepository repository, IMapper mapper)
+        public ModuleService(IModuleRepository moduleRepository, IMapper mapper)
         {
-            _repository = repository;
+            _moduleRepository = moduleRepository;
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(ModuleModel model)
+        public async Task CreateAsync(ModuleModel module)
         {
-            _repository.Create(_mapper.Map<ModuleEntity>(model));
-            await _repository.SaveAsync();
+            _moduleRepository.Create(_mapper.Map<ModuleEntity>(module));
+            await _moduleRepository.SaveAsync();
         }
 
-        public async Task DeleteAsync(ModuleModel model)
+        public async Task DeleteAsync(ModuleModel module)
         {
-            this._repository.Delete(await _repository.GetByIDAsync(model.ModuleID));
-            await _repository.SaveAsync();
+            this._moduleRepository.Delete(await _moduleRepository.GetByIDAsync(module.ModuleID));
+            await _moduleRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<ModuleModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<ModuleModel>>(await _repository.GetAllAsync());
+            => _mapper.Map<IEnumerable<ModuleModel>>(await _moduleRepository.GetAllAsync());
 
         public async Task<ModuleModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<ModuleModel>(await _repository.GetByIDAsync(id));
+            => _mapper.Map<ModuleModel>(await _moduleRepository.GetByIDAsync(id));
 
-        public async Task UpdateAsync(ModuleModel model)
+        public async Task UpdateAsync(ModuleModel module)
         {
-            _repository.Update(_mapper.Map<ModuleEntity>(model));
-            await _repository.SaveAsync();
+            _moduleRepository.Update(_mapper.Map<ModuleEntity>(module));
+            await _moduleRepository.SaveAsync();
         }
     }
 }

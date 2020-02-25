@@ -11,37 +11,37 @@ namespace OSPI.Infrastructure.Services
 {
     public class RoleService : IRoleService
     {
-        private readonly IRoleRepository _repository;
+        private readonly IRoleRepository _roleRepository;
         private readonly IMapper _mapper;
 
-        public RoleService(IRoleRepository repository, IMapper mapper)
+        public RoleService(IRoleRepository roleRepository, IMapper mapper)
         {
-            _repository = repository;
+            _roleRepository = roleRepository;
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(RoleModel model)
+        public async Task CreateAsync(RoleModel role)
         {
-            _repository.Create(_mapper.Map<RoleEntity>(model));
-            await _repository.SaveAsync();
+            _roleRepository.Create(_mapper.Map<RoleEntity>(role));
+            await _roleRepository.SaveAsync();
         }
 
-        public async Task DeleteAsync(RoleModel model)
+        public async Task DeleteAsync(RoleModel role)
         {
-            this._repository.Delete(await _repository.GetByIDAsync(model.RoleID));
-            await _repository.SaveAsync();
+            this._roleRepository.Delete(await _roleRepository.GetByIDAsync(role.RoleID));
+            await _roleRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<RoleModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<RoleModel>>(await _repository.GetAllAsync());
+            => _mapper.Map<IEnumerable<RoleModel>>(await _roleRepository.GetAllAsync());
 
         public async Task<RoleModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<RoleModel>(await _repository.GetByIDAsync(id));
+            => _mapper.Map<RoleModel>(await _roleRepository.GetByIDAsync(id));
 
-        public async Task UpdateAsync(RoleModel model)
+        public async Task UpdateAsync(RoleModel role)
         {
-            _repository.Update(_mapper.Map<RoleEntity>(model));
-            await _repository.SaveAsync();
+            _roleRepository.Update(_mapper.Map<RoleEntity>(role));
+            await _roleRepository.SaveAsync();
         }
     }
 }

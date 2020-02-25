@@ -7,14 +7,14 @@ namespace OSPI.Infrastructure.Interfaces
 {
     public interface IPositionService
     {
-        Task CreateAsync(PositionModel model);
+        Task CreateAsync(PositionModel position);
 
         Task<PositionModel> GetByIDAsync(Guid? id);
         Task<IEnumerable<PositionModel>> GetAllAsync();
 
-        Task UpdateAsync(PositionModel model);
+        Task UpdateAsync(PositionModel position);
 
-        Task DeleteAsync(PositionModel model);
+        Task DeleteAsync(PositionModel position);
 
     }
 }

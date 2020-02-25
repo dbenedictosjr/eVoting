@@ -24,13 +24,13 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Role = await _roleService.GetByIDAsync(id);
-            if (Role == null)
+            var role = await _roleService.GetByIDAsync(id);
+            if (role == null)
             {
                 return NotFound();
             }
 
-            return View(Role);
+            return View(role);
         }
 
         // GET: Roles/Create
@@ -63,12 +63,12 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Role = await _roleService.GetByIDAsync(id);
-            if (Role == null)
+            var role = await _roleService.GetByIDAsync(id);
+            if (role == null)
             {
                 return NotFound();
             }
-            return View(Role);
+            return View(role);
         }
 
         // POST: Roles/Edit/5
@@ -106,13 +106,13 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var Role = await _roleService.GetByIDAsync(id);
-            if (Role == null)
+            var role = await _roleService.GetByIDAsync(id);
+            if (role == null)
             {
                 return NotFound();
             }
 
-            return View(Role);
+            return View(role);
         }
 
         // POST: Roles/Delete/5

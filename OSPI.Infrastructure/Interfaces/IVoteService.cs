@@ -7,14 +7,14 @@ namespace OSPI.Infrastructure.Interfaces
 {
     public interface IVoteService
     {
-        Task CreateAsync(VoteModel model);
+        Task CreateAsync(VoteModel vote);
 
         Task<VoteModel> GetByIDAsync(Guid? id);
         Task<IEnumerable<VoteModel>> GetAllAsync();
 
-        Task UpdateAsync(VoteModel model);
+        Task UpdateAsync(VoteModel vote);
 
-        Task DeleteAsync(VoteModel model);
+        Task DeleteAsync(VoteModel vote);
 
     }
 }

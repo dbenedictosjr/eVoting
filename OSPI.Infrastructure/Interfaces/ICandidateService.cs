@@ -7,14 +7,14 @@ namespace OSPI.Infrastructure.Interfaces
 {
     public interface ICandidateService
     {
-        Task CreateAsync(CandidateModel model);
+        Task CreateAsync(CandidateModel candidate);
 
         Task<CandidateModel> GetByIDAsync(Guid? id);
         Task<IEnumerable<CandidateModel>> GetAllAsync();
 
-        Task UpdateAsync(CandidateModel model);
+        Task UpdateAsync(CandidateModel candidate);
 
-        Task DeleteAsync(CandidateModel model);
+        Task DeleteAsync(CandidateModel candidate);
 
     }
 }
