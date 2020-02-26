@@ -23,7 +23,7 @@ namespace OSPI.eVoting.Controllers
         }
 
         // GET: Candidates
-        public async Task<IActionResult> Index() => View(await _candidateService.GetAllAsync());
+        public async Task<IActionResult> Index() => View(await _candidateService.GetAllByNomineeIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value)));
 
         // GET: Candidates/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -33,7 +33,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var candidate = await _candidateService.GetByIDAsync(id);
+            var candidate = await _candidateService.GetByIdAsync(id);
             if (candidate == null)
             {
                 return NotFound();
@@ -84,7 +84,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var candidate = await _candidateService.GetByIDAsync(id);
+            var candidate = await _candidateService.GetByIdAsync(id);
             if (candidate == null)
             {
                 return NotFound();
@@ -131,7 +131,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var candidate = await _candidateService.GetByIDAsync(id);
+            var candidate = await _candidateService.GetByIdAsync(id);
             if (candidate == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var candidate = await _candidateService.GetByIDAsync(id);
+            var candidate = await _candidateService.GetByIdAsync(id);
             await _candidateService.DeleteAsync(candidate);
             return RedirectToAction(nameof(Index));
         }

@@ -28,15 +28,15 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(PositionModel model)
         {
-            this._positionRepository.Delete(await _positionRepository.GetByIDAsync(model.PositionID));
+            this._positionRepository.Delete(await _positionRepository.GetByIdAsync(model.PositionID));
             await _positionRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<PositionModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<PositionModel>>(await _positionRepository.GetAllAsync());
 
-        public async Task<PositionModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<PositionModel>(await _positionRepository.GetByIDAsync(id));
+        public async Task<PositionModel> GetByIdAsync(Guid? id)
+            => _mapper.Map<PositionModel>(await _positionRepository.GetByIdAsync(id));
 
         public async Task UpdateAsync(PositionModel model)
         {

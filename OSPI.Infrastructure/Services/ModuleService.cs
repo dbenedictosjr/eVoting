@@ -28,15 +28,15 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(ModuleModel module)
         {
-            this._moduleRepository.Delete(await _moduleRepository.GetByIDAsync(module.ModuleID));
+            this._moduleRepository.Delete(await _moduleRepository.GetByIdAsync(module.ModuleID));
             await _moduleRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<ModuleModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<ModuleModel>>(await _moduleRepository.GetAllAsync());
 
-        public async Task<ModuleModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<ModuleModel>(await _moduleRepository.GetByIDAsync(id));
+        public async Task<ModuleModel> GetByIdAsync(Guid? id)
+            => _mapper.Map<ModuleModel>(await _moduleRepository.GetByIdAsync(id));
 
         public async Task UpdateAsync(ModuleModel module)
         {

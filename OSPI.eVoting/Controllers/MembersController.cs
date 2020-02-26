@@ -35,7 +35,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var member = await _memberService.GetByIDAsync(id);
+            var member = await _memberService.GetByIdAsync(id);
             if (member == null)
             {
                 return NotFound();
@@ -81,7 +81,7 @@ namespace OSPI.eVoting.Controllers
             }
 
             ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
-            var member = await _memberService.GetByIDAsync(id);
+            var member = await _memberService.GetByIdAsync(id);
             if (member == null)
             {
                 return NotFound();
@@ -129,7 +129,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var member = await _memberService.GetByIDAsync(id);
+            var member = await _memberService.GetByIdAsync(id);
             if (member == null)
             {
                 return NotFound();
@@ -143,7 +143,7 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var member = await _memberService.GetByIDAsync(id);
+            var member = await _memberService.GetByIdAsync(id);
             await _memberService.DeleteAsync(member);
             return RedirectToAction(nameof(Index));
         }

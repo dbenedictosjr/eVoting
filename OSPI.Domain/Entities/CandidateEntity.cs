@@ -1,4 +1,7 @@
 ﻿using OSPI.Domain.Interfaces;
+using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OSPI.Domain.Entities
 {

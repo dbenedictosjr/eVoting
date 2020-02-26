@@ -8,9 +8,9 @@ namespace OSPI.Domain.Interfaces
     {
         Task<IEnumerable<TEntity>> GetAllAsync();
 
-        Task<TEntity> GetByIDAsync(Guid? id);
+        Task<TEntity> GetByIdAsync(Guid? id);
 
-        //TEntity GetByID(Guid? id);
+        //TEntity GetById(Guid? id);
 
         void Create(TEntity entity);
 

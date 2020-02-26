@@ -24,7 +24,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var role = await _roleService.GetByIDAsync(id);
+            var role = await _roleService.GetByIdAsync(id);
             if (role == null)
             {
                 return NotFound();
@@ -63,7 +63,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var role = await _roleService.GetByIDAsync(id);
+            var role = await _roleService.GetByIdAsync(id);
             if (role == null)
             {
                 return NotFound();
@@ -88,12 +88,12 @@ namespace OSPI.eVoting.Controllers
                 try
                 {
                     await _roleService.UpdateAsync(role);
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     ViewBag.Message = "Record has been modified by someone else.";
                 }
-                return RedirectToAction(nameof(Index));
             }
             return View(role);
         }
@@ -106,7 +106,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var role = await _roleService.GetByIDAsync(id);
+            var role = await _roleService.GetByIdAsync(id);
             if (role == null)
             {
                 return NotFound();
@@ -120,7 +120,7 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var role = await _roleService.GetByIDAsync(id);
+            var role = await _roleService.GetByIdAsync(id);
             await _roleService.DeleteAsync(role);
             return RedirectToAction(nameof(Index));
         }

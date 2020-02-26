@@ -3,6 +3,7 @@ using OSPI.Domain.Entities;
 using OSPI.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OSPI.Domain.Repositories
@@ -22,11 +23,20 @@ namespace OSPI.Domain.Repositories
             .ToListAsync();
         }
 
-        public override async Task<CandidateEntity> GetByIDAsync(Guid? id) => await _context.Set<CandidateEntity>()
+        public override async Task<CandidateEntity> GetByIdAsync(Guid? id) => await _context.Set<CandidateEntity>()
             .Include(a => a.Position)
             .Include(a => a.CandidateMember)
             .Include(a => a.NomineeMember)
             .FirstOrDefaultAsync(a => a.CandidateID == id);
 
+        public async Task<IEnumerable<CandidateEntity>> GetAllByNomineeIdAsync(Guid? id)
+        {
+            return await _context.Set<CandidateEntity>()
+            .Include(a => a.Position)
+            .Include(a => a.CandidateMember)
+            .Include(a => a.NomineeMember)
+            .Where(a => a.NomineeMemberID == id)
+            .ToListAsync();
+        }
     }
 }

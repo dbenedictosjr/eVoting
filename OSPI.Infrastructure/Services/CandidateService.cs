@@ -28,15 +28,16 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(CandidateModel candidate)
         {
-            this._candidateRepository.Delete(await _candidateRepository.GetByIDAsync(candidate.CandidateID));
+            this._candidateRepository.Delete(await _candidateRepository.GetByIdAsync(candidate.CandidateID));
             await _candidateRepository.SaveAsync();
         }
 
+        public async Task<CandidateModel> GetByIdAsync(Guid? id)
+            => _mapper.Map<CandidateModel>(await _candidateRepository.GetByIdAsync(id));
+        public async Task<IEnumerable<CandidateModel>> GetAllByNomineeIdAsync(Guid? id)
+            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByNomineeIdAsync(id));
         public async Task<IEnumerable<CandidateModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllAsync());
-
-        public async Task<CandidateModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<CandidateModel>(await _candidateRepository.GetByIDAsync(id));
 
         public async Task UpdateAsync(CandidateModel candidate)
         {

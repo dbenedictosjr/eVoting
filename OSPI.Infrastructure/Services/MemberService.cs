@@ -29,12 +29,12 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(MemberModel model)
         {
-            this._memberRepository.Delete(await _memberRepository.GetByIDAsync(model.MemberID));
+            this._memberRepository.Delete(await _memberRepository.GetByIdAsync(model.MemberID));
             await _memberRepository.SaveAsync();
         }
 
-        public async Task<MemberModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<MemberModel>(await _memberRepository.GetByIDAsync(id));
+        public async Task<MemberModel> GetByIdAsync(Guid? id)
+            => _mapper.Map<MemberModel>(await _memberRepository.GetByIdAsync(id));
         public async Task<MemberModel> GetByCodeAsync(string code)
             => _mapper.Map<MemberModel>(await _memberRepository.GetByCodeAsync(code));
         public async Task<IEnumerable<MemberModel>> GetAllAsync()

@@ -9,7 +9,7 @@ namespace OSPI.Infrastructure.Interfaces
     {
         Task CreateAsync(VoteModel vote);
 
-        Task<VoteModel> GetByIDAsync(Guid? id);
+        Task<VoteModel> GetByIdAsync(Guid? id);
         Task<IEnumerable<VoteModel>> GetAllAsync();
 
         Task UpdateAsync(VoteModel vote);

@@ -9,8 +9,8 @@ namespace OSPI.Infrastructure.Interfaces
     {
         Task CreateAsync(CandidateModel candidate);
 
-        Task<CandidateModel> GetByIDAsync(Guid? id);
-        Task<IEnumerable<RoleAccessModel>> GetAllByNomeneeIdAsync(Guid id);
+        Task<CandidateModel> GetByIdAsync(Guid? id);
+        Task<IEnumerable<CandidateModel>> GetAllByNomineeIdAsync(Guid? id);
 
         Task<IEnumerable<CandidateModel>> GetAllAsync();
 

@@ -62,20 +62,47 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(ElectionModel election)
         {
-            this._electionRepository.Delete(await _electionRepository.GetByIDAsync(election.ElectionID));
+            this._electionRepository.Delete(await _electionRepository.GetByIdAsync(election.ElectionID));
             await _electionRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<ElectionModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<ElectionModel>>(await _electionRepository.GetAllAsync());
 
-        public async Task<ElectionModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<ElectionModel>(await _electionRepository.GetByIDAsync(id));
+        public async Task<ElectionModel> GetByIdAsync(Guid? id)
+            => _mapper.Map<ElectionModel>(await _electionRepository.GetByIdAsync(id));
 
         public async Task UpdateAsync(ElectionModel election)
         {
-            _electionRepository.Update(_mapper.Map<ElectionEntity>(election));
-            await _electionRepository.SaveAsync();
+            using (var transaction = new TransactionScope())
+            {
+                try
+                {
+                    _electionRepository.Update(_mapper.Map<ElectionEntity>(election));
+                    _electionRepository.SaveAsync();
+
+                    foreach (var item in election.JPositions)
+                    {
+                        PositionEntity positionEntity = new PositionEntity
+                        {
+                            PositionID = Guid.NewGuid(),
+                            PositionName = item.PositionName,
+                            RequiredCandidates = item.RequiredCandidates,
+                            Qualifications = item.Qualifications,
+                            ElectionID = election.ElectionID
+                        };
+
+                        _positionRepository.Create(positionEntity);
+                        _positionRepository.SaveAsync().ConfigureAwait(false);
+                    }
+                    //transaction.Commit();
+                    transaction.Complete();
+                }
+                catch (Exception)
+                {
+                    //transaction.Rollback();
+                }
+            }
         }
     }
 }

@@ -28,15 +28,15 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(VoteModel vote)
         {
-            this._voteRepository.Delete(await _voteRepository.GetByIDAsync(vote.VoteID));
+            this._voteRepository.Delete(await _voteRepository.GetByIdAsync(vote.VoteID));
             await _voteRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<VoteModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<VoteModel>>(await _voteRepository.GetAllAsync());
 
-        public async Task<VoteModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<VoteModel>(await _voteRepository.GetByIDAsync(id));
+        public async Task<VoteModel> GetByIdAsync(Guid? id)
+            => _mapper.Map<VoteModel>(await _voteRepository.GetByIdAsync(id));
 
         public async Task UpdateAsync(VoteModel vote)
         {

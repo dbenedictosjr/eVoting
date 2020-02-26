@@ -32,7 +32,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var vote = await _voteService.GetByIDAsync(id);
+            var vote = await _voteService.GetByIdAsync(id);
             if (vote == null)
             {
                 return NotFound();
@@ -77,7 +77,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var vote = await _voteService.GetByIDAsync(id);
+            var vote = await _voteService.GetByIdAsync(id);
             if (vote == null)
             {
                 return NotFound();
@@ -124,7 +124,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var vote = await _voteService.GetByIDAsync(id);
+            var vote = await _voteService.GetByIdAsync(id);
             if (vote == null)
             {
                 return NotFound();
@@ -140,7 +140,7 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var vote = await _voteService.GetByIDAsync(id);
+            var vote = await _voteService.GetByIdAsync(id);
             await _voteService.DeleteAsync(vote);
             return RedirectToAction(nameof(Index));
         }

@@ -9,7 +9,7 @@ namespace OSPI.Infrastructure.Interfaces
     {
         Task CreateAsync(ModuleModel module);
 
-        Task<ModuleModel> GetByIDAsync(Guid? id);
+        Task<ModuleModel> GetByIdAsync(Guid? id);
         Task<IEnumerable<ModuleModel>> GetAllAsync();
 
         Task UpdateAsync(ModuleModel module);

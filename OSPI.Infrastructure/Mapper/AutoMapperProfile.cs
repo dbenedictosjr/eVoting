@@ -71,7 +71,9 @@ namespace OSPI.Infrastructure.Mapper
                 .ForMember(d => d.VotingStartDate, map => map.MapFrom(s => s.VotingStartDate))
                 .ForMember(d => d.VotingEndDate, map => map.MapFrom(s => s.VotingEndDate))
                 .ForMember(d => d.RowVersion, map => map.MapFrom(s => s.RowVersion))
-                .ReverseMap();
+                .ForMember(d => d.Positions, map => map.MapFrom(s => s.Positions))
+                .ReverseMap()
+                .ForPath(s => s.Positions, map => map.Ignore());
 
             CreateMap<PositionEntity, PositionModel>()
                 .ForMember(d => d.PositionID, map => map.MapFrom(s => s.PositionID))

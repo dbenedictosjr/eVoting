@@ -9,7 +9,7 @@ namespace OSPI.Infrastructure.Interfaces
     {
         Task CreateAsync(MemberModel member);
 
-        Task<MemberModel> GetByIDAsync(Guid? id);
+        Task<MemberModel> GetByIdAsync(Guid? id);
         Task<MemberModel> GetByCodeAsync(string code);
         Task<IEnumerable<MemberModel>> GetAllAsync();
 

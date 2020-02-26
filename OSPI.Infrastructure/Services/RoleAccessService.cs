@@ -28,15 +28,15 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(RoleAccessModel roleAccess)
         {
-            this._roleAccess.Delete(await _roleAccess.GetByIDAsync(roleAccess.RoleID));
+            this._roleAccess.Delete(await _roleAccess.GetByIdAsync(roleAccess.RoleID));
             await _roleAccess.SaveAsync();
         }
 
         public async Task<IEnumerable<RoleAccessModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<RoleAccessModel>>(await _roleAccess.GetAllAsync());
 
-        public async Task<RoleAccessModel> GetByIDAsync(Guid? id)
-            => _mapper.Map<RoleAccessModel>(await _roleAccess.GetByIDAsync(id));
+        public async Task<RoleAccessModel> GetByIdAsync(Guid? id)
+            => _mapper.Map<RoleAccessModel>(await _roleAccess.GetByIdAsync(id));
 
         public async Task<IEnumerable<RoleAccessModel>> GetAllByRoleIDAsync(Guid id)
             => _mapper.Map<IEnumerable<RoleAccessModel>>(await _roleAccess.GetAllByRoleIDAsync(id));

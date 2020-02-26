@@ -188,3 +188,12 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\OSPI.
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\OSPI.eVoting.csproj.CopyComplete
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\OSPI.eVoting.dll
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\OSPI.eVoting.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\Razor\Views\Members\LogIn.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\Razor\Views\Shared\_CookieConsentPartial.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\Razor\Views\Shared\_Layout_User_loggedIn.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\Razor\Views\Votes\Create.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\Razor\Views\Votes\Delete.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\Razor\Views\Votes\Details.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\Razor\Views\Votes\Edit.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Release\netcoreapp3.1\Razor\Views\Votes\Index.cshtml.g.cs

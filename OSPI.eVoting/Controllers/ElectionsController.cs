@@ -11,8 +11,13 @@ namespace OSPI.eVoting.Controllers
     public class ElectionsController : Controller
     {
         private readonly IElectionService _electionService;
+        private readonly IPositionService _positionService;
 
-        public ElectionsController(IElectionService electionService) => _electionService = electionService;
+        public ElectionsController(IElectionService electionService, IPositionService positionService)
+        {
+            _electionService = electionService;
+            _positionService = positionService;
+        }
 
         // GET: Elections
         public async Task<IActionResult> Index() => View(await _electionService.GetAllAsync());
@@ -25,7 +30,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var election = await _electionService.GetByIDAsync(id);
+            var election = await _electionService.GetByIdAsync(id);
             if (election == null)
             {
                 return NotFound();
@@ -74,7 +79,8 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var election = await _electionService.GetByIDAsync(id);
+            var election = await _electionService.GetByIdAsync(id);
+            //election.Positions = _positionService.GetAllAsync();
             if (election == null)
             {
                 return NotFound();
@@ -86,27 +92,18 @@ namespace OSPI.eVoting.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("ElectionID,RefCode,Description,RegStartDate,RegEndDate,VotingStartDate,VotingEndDate,RowVersion")] ElectionModel election)
+        public JsonResult Edit([FromBody]ElectionModel election)
         {
-            if (id != election.ElectionID)
+            try
             {
-                return NotFound();
+                _electionService.UpdateAsync(election);
+                return Json(true);
             }
-
-            if (ModelState.IsValid)
+            catch (DbUpdateConcurrencyException)
             {
-                try
-                {
-                    await _electionService.UpdateAsync(election);
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    ViewBag.Message = "Record has been modified by someone else.";
-                }
-                return RedirectToAction(nameof(Index));
+                ViewBag.Message = "Record has been modified by someone else.";
             }
-            return View(election);
+            return Json(false);
         }
 
         // GET: Elections/Delete/5
@@ -117,7 +114,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var election = await _electionService.GetByIDAsync(id);
+            var election = await _electionService.GetByIdAsync(id);
             if (election == null)
             {
                 return NotFound();
@@ -131,7 +128,7 @@ namespace OSPI.eVoting.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
         {
-            var election = await _electionService.GetByIDAsync(id);
+            var election = await _electionService.GetByIdAsync(id);
             await _electionService.DeleteAsync(election);
             return RedirectToAction(nameof(Index));
         }
