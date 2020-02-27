@@ -74,7 +74,8 @@ namespace OSPI.Infrastructure.Services
 
         public async Task UpdateAsync(ElectionModel election)
         {
-            using (var transaction = new TransactionScope())
+            using (var transaction = _context.Database.BeginTransaction())
+            //using (var transaction = new TransactionScope())
             {
                 try
                 {
@@ -95,12 +96,12 @@ namespace OSPI.Infrastructure.Services
                         _positionRepository.Create(positionEntity);
                         _positionRepository.SaveAsync().ConfigureAwait(false);
                     }
-                    //transaction.Commit();
-                    transaction.Complete();
+                    transaction.Commit();
+                    //transaction.Complete();
                 }
                 catch (Exception)
                 {
-                    //transaction.Rollback();
+                    transaction.Rollback();
                 }
             }
         }
