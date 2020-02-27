@@ -36,7 +36,7 @@
         _gridData.push({
             'PositionName': positionname, 'RequiredCandidates': parseInt(candidates), 'Qualifications': qualifications
         })
-        _data.row.add([positionname, candidates, qualifications,'<a onclick="Delete(this)" data-id="new">Delete</a>'])
+        _data.row.add([positionname, candidates, qualifications,'<a onclick="Delete(this)" data-id="new"> <i class="fa fa-trash" aria-hidden="true"></i></a>'])
             .draw()
             .node();
         $("#AddPositionModal").modal("hide");
