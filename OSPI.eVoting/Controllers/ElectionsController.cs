@@ -114,13 +114,17 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            var election = await _electionService.GetByIdAsync(id);
+            var election = await _positionService.GetByIdAsync(id);
             if (election == null)
             {
-                return NotFound();
+                return Json(false);
+            }
+            else
+            {
+              //  await _positionService.DeleteAsync(election);
             }
 
-            return View(election);
+            return Json(true);
         }
 
         // POST: Elections/Delete/5

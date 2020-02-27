@@ -13,12 +13,13 @@
             <div class="panel-heading">
                 <div class="row">
                     <div class="col-sm-4"> <h4>Modify eBallot</h4></div>
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-2"></div>
+                    <div class="col-sm-6"></div>
+
                     <div class="col-sm-2">
-                        @*                        <div class="row">*@
-                        <a asp-action="index" class="pull-right"><i class="fa fa-arrow-circle-left"></i> Back to eBallots List</a>
-                        @*                         </div> *@
+                        <div class="row">
+
+                            <i class="fa fa-arrow-circle-left"></i>  <a asp-action="index">Back to  eBallots List</a>
+                        </div>
                     </div>
                 </div>
 
@@ -153,22 +154,29 @@
                                 <th>
                                     @Html.DisplayNameFor(Modelitem => Model.Positions.First().Qualifications)
                                 </th>
+                                <th>
+                                  Action
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach (var item in Model.Positions)
                             {
-                                <tr class="odd gradeX">
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PositionName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.RequiredCandidates)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Qualifications)
-                                    </td>
-                                </tr>
+                            <tr class="odd gradeX">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.PositionName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RequiredCandidates)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Qualifications)
+                                </td>
+                                <td>
+                                    <a class="btn_Delete" onclick="Delete(this)" data-id="@item.PositionID">Delete</a>
+                                </td>
+                               
+                            </tr>
                             }
                         </tbody>
                     </table>

@@ -13,38 +13,19 @@ $(function() {
     });
     $("#tbl_eBallots").find("thead th").removeClass("sorting_asc");
 
-    $("#chkaccounttype_all").click(function () {
-        $('#tbl_accounttype tbody input[type="checkbox"]').prop('checked', this.checked);
-    });
-    $('#tbl_accounttype').dataTable({
+    
+
+    $('#tbl_Members').dataTable({
         responsive: true,
         "columnDefs": [
             { "orderable": false, "targets": 0 }
         ]
     });
-    $("#tbl_accounttype").find("thead th").removeClass("sorting_asc");
+  
+    $("#tbl_Members").find("thead th").removeClass("sorting_asc");
 
-    $('#tbl_company').dataTable({
-        responsive: true,
-        "columnDefs": [
-            { "orderable": false, "targets": 0 }
-        ]
-    });
-    $("#tbl_company").find("thead th").removeClass("sorting_asc");
-
-    $('#tbl_CofAccount').dataTable({
-        responsive: true,
-        "columnDefs": [
-            { "orderable": false, "targets": 0 }
-        ]
-    });
-    $("#tbl_CofAccount").find("thead th").removeClass("sorting_asc");
-
-    $("#chkcompany_all").click(function () {
-        $('#tbl_company tbody input[type="checkbox"]').prop('checked', this.checked);
-    });
-    $("#chkCofAccount_all").click(function () {
-        $('#tbl_CofAccount tbody input[type="checkbox"]').prop('checked', this.checked);
+    $("#chkMembers_all").click(function () {
+        $('#tbl_Members tbody input[type="checkbox"]').prop('checked', this.checked);
     });
     
     $('.datepicker').datepicker({
@@ -53,18 +34,7 @@ $(function() {
         startDate: '0d'
     });
     $(".datepicker").datepicker().datepicker("setDate", new Date());
-
-    $('#tbl_profitcenteraccount').dataTable({
-        responsive: true,
-        "columnDefs": [
-            { "orderable": false, "targets": 0 }
-        ]
-    });
-    $("#tbl_profitcenteraccount").find("thead th").removeClass("sorting_asc");
-    $("#chkprofitcenteraccount_all").click(function () {
-        $('#tbl_profitcenteraccount tbody input[type="checkbox"]').prop('checked', this.checked);
-    });
-
+ 
     $("#tbl_Positions").find("thead th").removeClass("sorting_asc");
 
     $("#chktbl_Positions_all").click(function () {

@@ -1,5 +1,4 @@
-﻿@model OSPI.Infrastructure.Models.ElectionModel
-
+﻿@model OSPI.Infrastructure.Models.ElectionModel 
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
@@ -16,9 +15,10 @@
                     <div class="col-sm-4"></div>
                     <div class="col-sm-2"></div>
                     <div class="col-sm-2">
-@*                        <div class="row">*@
-                             <a asp-action="index" class="pull-right"><i class="fa fa-arrow-circle-left"></i> Back to eBallots List</a>
-@*                         </div> *@
+                        <div class="row">
+
+                            <i class="fa fa-arrow-circle-left"></i>  <a asp-action="index">Back to  eBallots List</a>
+                        </div>
                     </div>
                 </div>
 

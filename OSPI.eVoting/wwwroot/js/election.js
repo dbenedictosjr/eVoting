@@ -36,7 +36,7 @@
         _gridData.push({
             'PositionName': positionname, 'RequiredCandidates': parseInt(candidates), 'Qualifications': qualifications
         })
-        _data.row.add([positionname, candidates, qualifications])
+        _data.row.add([positionname, candidates, qualifications,'<a onclick="Delete(this)" data-id="new">Delete</a>'])
             .draw()
             .node();
         $("#AddPositionModal").modal("hide");
@@ -88,7 +88,7 @@
         var election = {
             'ElectionID': vElectionID, 'RefCode': vRefCode, 'Description': vDescription, 'RegStartDate': vRegStartDate, 'RegEndDate': vRegEndDate, 'VotingStartDate': vVotingStartDate, 'VotingEndDate': vVotingEndDate, 'RowVersion': vRowVersion, 'JPositions': _gridData
         };
-        debugger;
+         
         $.ajax({
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
@@ -110,4 +110,44 @@
             },
         });
     })
+
+ 
+
+
 });
+function Delete(e) {  
+    var row = e.closest("tr");
+    var id = e.dataset.id;
+    if (id != "new") {
+        if (confirm('Are you sure you want to delete this?')) {
+
+            $.ajax({
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                url: '/Elections/Delete',
+                data: { 'id': id },
+
+                success: function (data) {
+                    row.remove();
+                    alert("Record has been deleted successfully."); 
+                },
+                error: function (data) {
+
+                    alert(data.responseText);
+                },
+                failure: function (data) {
+
+                    alert(data.responseText);
+                },
+            });
+
+        }
+    }
+    else
+    {
+        row.remove();
+        alert("Record has been deleted successfully.");
+    }
+
+} 

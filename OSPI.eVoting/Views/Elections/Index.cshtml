@@ -61,19 +61,19 @@
                                     @Html.ActionLink("" + item.RefCode + "", "Details", "Elections", new { id = item.ElectionID }, null)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.Description)
+                                    @Html.DisplayFor(modelItem => item.Description)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.RegStartDate)
+                                    @Html.DisplayFor(modelItem => item.RegStartDate)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.RegEndDate)
+                                    @Html.DisplayFor(modelItem => item.RegEndDate)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.VotingStartDate)
+                                    @Html.DisplayFor(modelItem => item.VotingStartDate)
                                 </th>
                                 <th>
-                                    @Html.DisplayNameFor(model => model.VotingEndDate)
+                                    @Html.DisplayFor(modelItem => item.VotingEndDate)
                                 </th>
 
                             </tr>
