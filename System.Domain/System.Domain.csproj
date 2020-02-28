@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9752526-CDB5-41A4-83A1-314B5D709012}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>System.Domain</RootNamespace>
+    <AssemblyName>System.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.7.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationDbContext.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="Entities\BillingDetailEntity.cs" />
+    <Compile Include="Entities\BillingEntity.cs" />
+    <Compile Include="Entities\BillingPaymentEntity.cs" />
+    <Compile Include="Entities\BillingYieldingEntity.cs" />
+    <Compile Include="Entities\CandidateEntity.cs" />
+    <Compile Include="Entities\Category1Entity.cs" />
+    <Compile Include="Entities\Category2Entity.cs" />
+    <Compile Include="Entities\Category3Entity.cs" />
+    <Compile Include="Entities\CurrencyEntity.cs" />
+    <Compile Include="Entities\CustomerEntity.cs" />
+    <Compile Include="Entities\DeletedRecordsEntity.cs" />
+    <Compile Include="Entities\DiscountCardEntity.cs" />
+    <Compile Include="Entities\DiscountEntity.cs" />
+    <Compile Include="Entities\ElectionEntity.cs" />
+    <Compile Include="Entities\EmployeeEntity.cs" />
+    <Compile Include="Entities\GiftCheckEntity.cs" />
+    <Compile Include="Entities\MemberEntity.cs" />
+    <Compile Include="Entities\ModuleEntity.cs" />
+    <Compile Include="Entities\PaymentModeEntity.cs" />
+    <Compile Include="Entities\PositionEntity.cs" />
+    <Compile Include="Entities\ProductEntity.cs" />
+    <Compile Include="Entities\ProductInventoryEntity.cs" />
+    <Compile Include="Entities\ProductInventoryEntryDetailEntity.cs" />
+    <Compile Include="Entities\ProductInventoryEntryEntity.cs" />
+    <Compile Include="Entities\ProductInventoryEntryVarianceEntity.cs" />
+    <Compile Include="Entities\ProductParStockDetailEntity.cs" />
+    <Compile Include="Entities\ProductParStockEntity.cs" />
+    <Compile Include="Entities\ProductUnitEntity.cs" />
+    <Compile Include="Entities\ProductYieldingEntity.cs" />
+    <Compile Include="Entities\PromoEntity.cs" />
+    <Compile Include="Entities\PurchaseOrderDetailEntity.cs" />
+    <Compile Include="Entities\PurchaseOrderEntity.cs" />
+    <Compile Include="Entities\PurchaseReturnDetailEntity.cs" />
+    <Compile Include="Entities\PurchaseReturnEntity.cs" />
+    <Compile Include="Entities\ReceivedOrderDetailEntity.cs" />
+    <Compile Include="Entities\ReceivedOrderEntity.cs" />
+    <Compile Include="Entities\ReferencesEntity.cs" />
+    <Compile Include="Entities\RoleAccessEntity.cs" />
+    <Compile Include="Entities\RoleEntity.cs" />
+    <Compile Include="Entities\RTPDetailEntity.cs" />
+    <Compile Include="Entities\RTPEntity.cs" />
+    <Compile Include="Entities\SalesOrderDetailEntity.cs" />
+    <Compile Include="Entities\SalesOrderEntity.cs" />
+    <Compile Include="Entities\SalesOrderSlipEntity.cs" />
+    <Compile Include="Entities\SalesReturnDetailEntity.cs" />
+    <Compile Include="Entities\SalesReturnEntity.cs" />
+    <Compile Include="Entities\SalesReturnYieldingEntity.cs" />
+    <Compile Include="Entities\ShiftEntity.cs" />
+    <Compile Include="Entities\StatusEntity.cs" />
+    <Compile Include="Entities\StoreEntity.cs" />
+    <Compile Include="Entities\SupplierEntity.cs" />
+    <Compile Include="Entities\SupplierProductEntity.cs" />
+    <Compile Include="Entities\SystemParameterEntity.cs" />
+    <Compile Include="Entities\SystemUserAccessEntity.cs" />
+    <Compile Include="Entities\SystemUserEntity.cs" />
+    <Compile Include="Entities\SystemUserLevelEntity.cs" />
+    <Compile Include="Entities\TotalSalesEntity.cs" />
+    <Compile Include="Entities\UOMEntity.cs" />
+    <Compile Include="Entities\VoteDetailEntity.cs" />
+    <Compile Include="Entities\VoteEntity.cs" />
+    <Compile Include="Interfaces\IAuditableEntity.cs" />
+    <Compile Include="Interfaces\IBillingDetailRepository.cs" />
+    <Compile Include="Interfaces\IBillingPaymentRepository.cs" />
+    <Compile Include="Interfaces\IBillingRepository.cs" />
+    <Compile Include="Interfaces\IBillingYieldingRepository.cs" />
+    <Compile Include="Interfaces\ICandidateRepository.cs" />
+    <Compile Include="Interfaces\ICategory1Repository.cs" />
+    <Compile Include="Interfaces\ICategory2Repository.cs" />
+    <Compile Include="Interfaces\ICategory3Repository.cs" />
+    <Compile Include="Interfaces\ICurrencyRepository.cs" />
+    <Compile Include="Interfaces\ICustomerRepository.cs" />
+    <Compile Include="Interfaces\IDeletedRecordsRepository.cs" />
+    <Compile Include="Interfaces\IDiscountCardRepository.cs" />
+    <Compile Include="Interfaces\IDiscountRepository.cs" />
+    <Compile Include="Interfaces\IElectionRepository.cs" />
+    <Compile Include="Interfaces\IEmployeeRepository.cs" />
+    <Compile Include="Interfaces\IGiftCheckRepository.cs" />
+    <Compile Include="Interfaces\IMemberRepository.cs" />
+    <Compile Include="Interfaces\IModuleRepository.cs" />
+    <Compile Include="Interfaces\IPaymentModeRepository.cs" />
+    <Compile Include="Interfaces\IPositionRepository.cs" />
+    <Compile Include="Interfaces\IProductInventoryEntryDetailRepository.cs" />
+    <Compile Include="Interfaces\IProductInventoryEntryRepository.cs" />
+    <Compile Include="Interfaces\IProductInventoryEntryVarianceRepository.cs" />
+    <Compile Include="Interfaces\IProductInventoryRepository.cs" />
+    <Compile Include="Interfaces\IProductParStockRepository.cs" />
+    <Compile Include="Interfaces\IProductParStock_DetailRepository.cs" />
+    <Compile Include="Interfaces\IProductRepository.cs" />
+    <Compile Include="Interfaces\IProductUnitRepository.cs" />
+    <Compile Include="Interfaces\IProductYieldingRepository.cs" />
+    <Compile Include="Interfaces\IPromoRepository.cs" />
+    <Compile Include="Interfaces\IPurchaseOrderDetailRepository.cs" />
+    <Compile Include="Interfaces\IPurchaseOrderRepository.cs" />
+    <Compile Include="Interfaces\IPurchaseReturnDetailRepository.cs" />
+    <Compile Include="Interfaces\IPurchaseReturnRepository.cs" />
+    <Compile Include="Interfaces\IReceivedOrderDetailRepository.cs" />
+    <Compile Include="Interfaces\IReceivedOrderRepository.cs" />
+    <Compile Include="Interfaces\IReferencesRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IRoleAccessRepository.cs" />
+    <Compile Include="Interfaces\IRoleRepository.cs" />
+    <Compile Include="Interfaces\IRTPDetailRepository.cs" />
+    <Compile Include="Interfaces\IRTPRepository.cs" />
+    <Compile Include="Interfaces\ISalesOrderDetailRepository.cs" />
+    <Compile Include="Interfaces\ISalesOrderRepository.cs" />
+    <Compile Include="Interfaces\ISalesOrderSlipRepository.cs" />
+    <Compile Include="Interfaces\ISalesReturnDetailRepository.cs" />
+    <Compile Include="Interfaces\ISalesReturnRepository.cs" />
+    <Compile Include="Interfaces\ISalesReturnYieldingRepository.cs" />
+    <Compile Include="Interfaces\IShiftRepository.cs" />
+    <Compile Include="Interfaces\IStatusRepository.cs" />
+    <Compile Include="Interfaces\IStoreRepository.cs" />
+    <Compile Include="Interfaces\ISupplierProductRepository.cs" />
+    <Compile Include="Interfaces\ISupplierRepository.cs" />
+    <Compile Include="Interfaces\ISystemParameterRepository.cs" />
+    <Compile Include="Interfaces\ISystemUserAccessRepository.cs" />
+    <Compile Include="Interfaces\ISystemUserLevelRepository.cs" />
+    <Compile Include="Interfaces\ISystemUserRepository.cs" />
+    <Compile Include="Interfaces\ITotalSalesRepository.cs" />
+    <Compile Include="Interfaces\IUOMRepository.cs" />
+    <Compile Include="Interfaces\IVoteDetailRepository.cs" />
+    <Compile Include="Interfaces\IVoteRepository.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\BillingDetailRepository.cs" />
+    <Compile Include="Repositories\BillingPaymentRepository.cs" />
+    <Compile Include="Repositories\BillingRepository.cs" />
+    <Compile Include="Repositories\BillingYieldingRepository.cs" />
+    <Compile Include="Repositories\CandidateRepository.cs" />
+    <Compile Include="Repositories\Category1Repository.cs" />
+    <Compile Include="Repositories\Category2Repository.cs" />
+    <Compile Include="Repositories\Category3Repository.cs" />
+    <Compile Include="Repositories\CurrencyRepository.cs" />
+    <Compile Include="Repositories\CustomerRepository.cs" />
+    <Compile Include="Repositories\DeletedRecordsRepository.cs" />
+    <Compile Include="Repositories\DiscountCardRepository.cs" />
+    <Compile Include="Repositories\DiscountRepository.cs" />
+    <Compile Include="Repositories\ElectionRepository.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\GiftCheckRepository.cs" />
+    <Compile Include="Repositories\MemberRepository.cs" />
+    <Compile Include="Repositories\ModuleRepository.cs" />
+    <Compile Include="Repositories\PaymentModeRepository.cs" />
+    <Compile Include="Repositories\PositionRepository.cs" />
+    <Compile Include="Repositories\ProductInventoryEntryRepository.cs" />
+    <Compile Include="Repositories\ProductInventoryEntry_DetailRepository.cs" />
+    <Compile Include="Repositories\ProductInventoryEntry_VarianceRepository.cs" />
+    <Compile Include="Repositories\ProductInventoryRepository.cs" />
+    <Compile Include="Repositories\ProductParStockRepository.cs" />
+    <Compile Include="Repositories\ProductParStock_DetailRepository.cs" />
+    <Compile Include="Repositories\ProductRepository.cs" />
+    <Compile Include="Repositories\ProductUnitRepository.cs" />
+    <Compile Include="Repositories\ProductYieldingRepository.cs" />
+    <Compile Include="Repositories\PromoRepository.cs" />
+    <Compile Include="Repositories\PurchaseOrderDetailRepository.cs" />
+    <Compile Include="Repositories\PurchaseOrderRepository.cs" />
+    <Compile Include="Repositories\PurchaseReturnDetailRepository.cs" />
+    <Compile Include="Repositories\PurchaseReturnRepository.cs" />
+    <Compile Include="Repositories\ReceivedOrderDetailRepository.cs" />
+    <Compile Include="Repositories\ReceivedOrderRepository.cs" />
+    <Compile Include="Repositories\ReferencesRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\RoleAccessRepository.cs" />
+    <Compile Include="Repositories\RoleRepository.cs" />
+    <Compile Include="Repositories\RTPDetailRepository.cs" />
+    <Compile Include="Repositories\RTPRepository.cs" />
+    <Compile Include="Repositories\SalesOrderDetailRepository.cs" />
+    <Compile Include="Repositories\SalesOrderRepository.cs" />
+    <Compile Include="Repositories\SalesOrderSlipRepository.cs" />
+    <Compile Include="Repositories\SalesReturnDetailRepository.cs" />
+    <Compile Include="Repositories\SalesReturnRepository.cs" />
+    <Compile Include="Repositories\SalesReturnYieldingRepository.cs" />
+    <Compile Include="Repositories\ShiftRepository.cs" />
+    <Compile Include="Repositories\StatusRepository.cs" />
+    <Compile Include="Repositories\StoreRepository.cs" />
+    <Compile Include="Repositories\SupplierProductRepository.cs" />
+    <Compile Include="Repositories\SupplierRepository.cs" />
+    <Compile Include="Repositories\SystemParameterRepository.cs" />
+    <Compile Include="Repositories\SystemUserAccessRepository.cs" />
+    <Compile Include="Repositories\SystemUserLevelRepository.cs" />
+    <Compile Include="Repositories\SystemUserRepository.cs" />
+    <Compile Include="Repositories\TotalSalesRepository.cs" />
+    <Compile Include="Repositories\UOMRepository.cs" />
+    <Compile Include="Repositories\VoteDetailRepository.cs" />
+    <Compile Include="Repositories\VoteRepository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>
