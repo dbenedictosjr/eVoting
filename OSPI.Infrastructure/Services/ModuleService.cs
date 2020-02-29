@@ -28,7 +28,7 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(ModuleModel module)
         {
-            this._moduleRepository.Delete(await _moduleRepository.GetByIdAsync(module.ModuleID));
+            this._moduleRepository.Delete(await _moduleRepository.GetByIdAsync(module.ModuleId));
             await _moduleRepository.SaveAsync();
         }
 

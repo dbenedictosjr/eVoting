@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class ShiftEntity : IAuditableEntity
     {
         [Key]
-        public Guid ShiftID { get; set; }
+        public Guid ShiftId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? Shift_Start { get; set; }
@@ -30,7 +30,7 @@ namespace OSPI.Domain.Entities
 
         public int? OpenDrawer { get; set; }
 
-        public Guid? UserID { get; set; }
+        public Guid? UserId { get; set; }
 
         public int? Shift { get; set; }
 

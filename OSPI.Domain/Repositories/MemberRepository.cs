@@ -23,7 +23,7 @@ namespace OSPI.Domain.Repositories
 
         public override async Task<MemberEntity> GetByIdAsync(Guid? id) => await _context.Set<MemberEntity>()
             .Include(a => a.Role)
-            .FirstOrDefaultAsync(a => a.MemberID == id);
+            .FirstOrDefaultAsync(a => a.MemberId == id);
 
         public async Task<MemberEntity> GetByCodeAsync(string code) => await _context.Set<MemberEntity>()
             .Include(a => a.Role)

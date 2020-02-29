@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class ProductUnitEntity : IAuditableEntity
     {
         [Key]
-        public Guid ProductUnitID { get; set; }
+        public Guid ProductUnitId { get; set; }
 
         [Column(TypeName = "varchar(50)")]
         public string ProductUnitDescription { get; set; }

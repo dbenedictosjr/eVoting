@@ -6,15 +6,15 @@ namespace OSPI.Infrastructure.Models
     public class RoleAccessModel
     {
         [Required]
-        public Guid RoleAccessID { get; set; }
+        public Guid RoleAccessId { get; set; }
 
-        public Guid RoleID { get; set; }
+        public Guid RoleId { get; set; }
 
         [Display(Name = "Role")]
         public string RoleName { get; set; }
 
         [Required]
-        public Guid ModuleID { get; set; }
+        public Guid ModuleId { get; set; }
 
         [Display(Name = "Module")]
         public string ModuleName { get; set; }

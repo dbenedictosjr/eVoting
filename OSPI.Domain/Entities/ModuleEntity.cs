@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class ModuleEntity : IAuditableEntity
     {
         [Key]
-        public Guid ModuleID { get; set; }
+        public Guid ModuleId { get; set; }
 
         [Column(TypeName = "VARCHAR(100)")]
         public string ModuleName { get; set; }

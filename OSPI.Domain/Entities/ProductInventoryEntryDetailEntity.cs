@@ -8,11 +8,11 @@ namespace OSPI.Domain.Entities
     public class ProductInventoryEntryDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid ProductInventoryEntryDetailID { get; set; }
+        public Guid ProductInventoryEntryDetailId { get; set; }
 
-        public Guid? ProductInventoryEntryID { get; set; }
+        public Guid? ProductInventoryEntryId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? Cost { get; set; }
 
@@ -25,7 +25,7 @@ namespace OSPI.Domain.Entities
 
         public bool? Edited { get; set; }
 
-        public Guid? ProductUnitID { get; set; }
+        public Guid? ProductUnitId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class TotalSalesEntity : IAuditableEntity
     {
         [Key]
-        public Guid TSID { get; set; }
+        public Guid TSId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }

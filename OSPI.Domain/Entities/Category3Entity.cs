@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class Category3Entity : IAuditableEntity
     {
         [Key]
-        public Guid Cat3ID { get; set; }
+        public Guid Cat3Id { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string Cat3Code { get; set; }
@@ -20,7 +20,7 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "varchar(max)")]
         public string Cat3Img { get; set; }
 
-        public Guid Cat2ID { get; set; }
+        public Guid Cat2Id { get; set; }
 
         public Guid CreatedBy { get; set; }
 

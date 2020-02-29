@@ -9,9 +9,9 @@ namespace OSPI.Domain.Entities
     public class DeletedRecordsEntity : IAuditableEntity
     {
         [Key]
-        public Guid DeletedID { get; set; }
+        public Guid DeletedId { get; set; }
 
-        public Guid? PrimaryID { get; set; }
+        public Guid? PrimaryId { get; set; }
 
         [Column(TypeName = "varchar(255)")]
         public string SourceTable { get; set; }

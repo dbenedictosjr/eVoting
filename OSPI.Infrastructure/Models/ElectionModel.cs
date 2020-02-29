@@ -9,13 +9,13 @@ namespace OSPI.Infrastructure.Models
     {
         public ElectionModel()
         {
-            this.ElectionID = Guid.NewGuid();
+            this.ElectionId = Guid.NewGuid();
             this.Positions = new List<PositionModel>();
             this.JPositions = new List<JPositionModel>();
         }
 
         [Required]
-        public Guid ElectionID { get; set; }
+        public Guid ElectionId { get; set; }
 
         [Required]
         [StringLength(10, ErrorMessage = "Limit Ref. No. to 10 characters.")]

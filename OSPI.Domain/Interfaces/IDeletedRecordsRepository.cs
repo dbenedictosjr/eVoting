@@ -2,7 +2,7 @@
 
 namespace OSPI.Domain.Interfaces
 {
-    public interface IDeletedRecordsRepository : IRepository<DeletedRecordsEntity>
+    public interface IdeletedRecordsRepository : IRepository<DeletedRecordsEntity>
     {
     }
 }

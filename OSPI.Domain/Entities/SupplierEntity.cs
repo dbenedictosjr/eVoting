@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class SupplierEntity : IAuditableEntity
     {
         [Key]
-        public Guid SupplierID { get; set; }
+        public Guid SupplierId { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string SupplierCode { get; set; }

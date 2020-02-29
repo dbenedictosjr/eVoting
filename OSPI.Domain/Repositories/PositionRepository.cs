@@ -25,12 +25,12 @@ namespace OSPI.Domain.Repositories
         public async Task<IEnumerable<PositionEntity>> GetAllByElectionIdAsync(Guid? id)
         {
             return await _context.Set<PositionEntity>()
-            .Where(a => a.ElectionID == id)
+            .Where(a => a.ElectionId == id)
             .ToListAsync();
         }
 
         public override async Task<PositionEntity> GetByIdAsync(Guid? id) => await _context.Set<PositionEntity>()
             .Include(a => a.Election)
-            .FirstOrDefaultAsync(a => a.PositionID == id);
+            .FirstOrDefaultAsync(a => a.PositionId == id);
     }
 }

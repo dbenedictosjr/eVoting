@@ -10,7 +10,7 @@ namespace OSPI.Domain.Entities
     public class ElectionEntity : IAuditableEntity
     {
         [Key]
-        public Guid ElectionID { get; set; }
+        public Guid ElectionId { get; set; }
 
         [Column(TypeName = "VARCHAR(10)")]
         public string RefCode { get; set; }

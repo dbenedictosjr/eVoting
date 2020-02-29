@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class RoleEntity : IAuditableEntity
     {
         [Key]
-        public Guid RoleID { get; set; }
+        public Guid RoleId { get; set; }
 
         [Column(TypeName = "VARCHAR(50)")]
         public string RoleName { get; set; }

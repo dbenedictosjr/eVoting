@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class CurrencyEntity : IAuditableEntity
     {
         [Key]
-        public Guid CurrencyID { get; set; }
+        public Guid CurrencyId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string CurrecyDescription { get; set; }

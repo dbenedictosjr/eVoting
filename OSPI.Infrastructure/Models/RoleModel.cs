@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace OSPI.Infrastructure.Models
@@ -6,7 +7,7 @@ namespace OSPI.Infrastructure.Models
     public class RoleModel
     {
         [Required]
-        public Guid RoleID { get; set; }
+        public Guid RoleId { get; set; }
 
         [Required]
         [StringLength(50, ErrorMessage = "Limit Code to 50 characters.")]
@@ -19,5 +20,7 @@ namespace OSPI.Infrastructure.Models
         public string Description { get; set; }
 
         public byte[] RowVersion { get; set; }
+
+        public ICollection<RoleAccessModel> RoleAccesses { get; set; }
     }
 }

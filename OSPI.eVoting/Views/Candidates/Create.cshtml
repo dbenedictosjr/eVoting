@@ -15,19 +15,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="PositionName" class="control-label"></label>
-                <select asp-for="PositionID" class="form-control"
+                <select asp-for="PositionId" class="form-control"
                         asp-items="ViewBag.Positions">
                     <option>Select Position</option>
                 </select>
-                <span asp-validation-for="PositionID" class="text-danger"></span>
+                <span asp-validation-for="PositionId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CandidateFullName" class="control-label"></label>
-                <select asp-for="CandidateMemberID" class="form-control"
+                <select asp-for="CandidateMemberId" class="form-control"
                         asp-items="ViewBag.Members">
                     <option>Select Candidate</option>
                 </select>
-                <span asp-validation-for="CandidateMemberID" class="text-danger"></span>
+                <span asp-validation-for="CandidateMemberId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />

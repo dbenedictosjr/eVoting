@@ -13,30 +13,30 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CandidateID" />
+            <input type="hidden" asp-for="CandidateId" />
             <div class="form-group">
                 <label asp-for="PositionName" class="control-label"></label>
-                <select asp-for="PositionID" class="form-control"
+                <select asp-for="PositionId" class="form-control"
                         asp-items="ViewBag.Positions">
                     <option>Select Position</option>
                 </select>
-                <span asp-validation-for="PositionID" class="text-danger"></span>
+                <span asp-validation-for="PositionId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CandidateFullName" class="control-label"></label>
-                <select asp-for="CandidateMemberID" class="form-control"
+                <select asp-for="CandidateMemberId" class="form-control"
                         asp-items="ViewBag.Members">
                     <option>Select Candidate</option>
                 </select>
-                <span asp-validation-for="CandidateMemberID" class="text-danger"></span>
+                <span asp-validation-for="CandidateMemberId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="NomineeFullName" class="control-label"></label>
-                <select asp-for="NomineeMemberID" class="form-control"
+                <select asp-for="NomineeMemberId" class="form-control"
                         asp-items="ViewBag.Members">
                     <option>Select Nominee</option>
                 </select>
-                <span asp-validation-for="NomineeMemberID" class="text-danger"></span>
+                <span asp-validation-for="NomineeMemberId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>

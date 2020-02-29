@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class ProductInventoryEntryEntity : IAuditableEntity
     {
         [Key]
-        public Guid ProductInventoryEntryID { get; set; }
+        public Guid ProductInventoryEntryId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }
@@ -17,7 +17,7 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "datetime")]
         public DateTime? InvDate { get; set; }
 
-        public Guid? StatusID { get; set; }
+        public Guid? StatusId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

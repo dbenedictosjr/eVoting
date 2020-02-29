@@ -9,12 +9,12 @@ namespace OSPI.Domain.Entities
     public class SalesReturnEntity : IAuditableEntity
     {
         [Key]
-        public Guid SalesReturnID { get; set; }
+        public Guid SalesReturnId { get; set; }
 
         [Column(TypeName = "varchar(30)")]
         public string SalesReturnNo { get; set; }
 
-        public Guid? BillingID { get; set; }
+        public Guid? BillingId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }
@@ -25,14 +25,14 @@ namespace OSPI.Domain.Entities
 
         public int? Workstation { get; set; }
 
-        public Guid? PayeeReferenceID { get; set; }
+        public Guid? PayeeReferenceId { get; set; }
 
         public double? Deposit { get; set; }
 
         [Column(TypeName = "varchar(8000)")]
         public string Remarks { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

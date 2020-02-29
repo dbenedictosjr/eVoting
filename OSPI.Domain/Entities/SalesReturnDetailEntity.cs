@@ -9,13 +9,13 @@ namespace OSPI.Domain.Entities
     public class SalesReturnDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid SalesReturnDetailID { get; set; }
+        public Guid SalesReturnDetailId { get; set; }
 
-        public Guid? SalesReturnID { get; set; }
+        public Guid? SalesReturnId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
-        public Guid? ProductUnitID { get; set; }
+        public Guid? ProductUnitId { get; set; }
 
         public double? Quantity { get; set; }
 
@@ -23,7 +23,7 @@ namespace OSPI.Domain.Entities
 
         public double? Discount { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

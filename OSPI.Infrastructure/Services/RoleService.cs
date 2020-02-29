@@ -28,7 +28,7 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(RoleModel role)
         {
-            this._roleRepository.Delete(await _roleRepository.GetByIdAsync(role.RoleID));
+            this._roleRepository.Delete(await _roleRepository.GetByIdAsync(role.RoleId));
             await _roleRepository.SaveAsync();
         }
 

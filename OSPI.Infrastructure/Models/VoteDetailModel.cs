@@ -6,14 +6,14 @@ namespace OSPI.Infrastructure.Models
    public class VoteDetailModel
     {
         [Required]
-        public Guid VoteDetailID { get; set; }
+        public Guid VoteDetailId { get; set; }
 
-        public Guid VoteID { get; set; }
+        public Guid VoteId { get; set; }
 
         [Display(Name = "Election")]
         public string Description { get; set; }
 
-        public Guid CandidateID { get; set; }
+        public Guid CandidateId { get; set; }
 
         [Display(Name = "Position")]
         public string PositionName { get; set; }

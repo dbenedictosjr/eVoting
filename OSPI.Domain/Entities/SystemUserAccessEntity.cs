@@ -9,11 +9,11 @@ namespace OSPI.Domain.Entities
     public class SystemUserAccessEntity : IAuditableEntity
     {
         [Key]
-        public Guid UAID { get; set; }
+        public Guid UAId { get; set; }
 
-        public Guid? LevelID { get; set; }
+        public Guid? LevelId { get; set; }
 
-        public Guid? ModuleID { get; set; }
+        public Guid? ModuleId { get; set; }
 
         public bool? CanAdd { get; set; }
 

@@ -9,9 +9,9 @@ namespace OSPI.Domain.Entities
     public class CustomerEntity : IAuditableEntity
     {
         [Key]
-        public Guid CustomerID { get; set; }
+        public Guid CustomerId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string CustomerNo { get; set; }

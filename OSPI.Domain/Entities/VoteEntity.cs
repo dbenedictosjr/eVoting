@@ -9,14 +9,14 @@ namespace OSPI.Domain.Entities
     public class VoteEntity : IAuditableEntity
     {
         [Key]
-        public Guid VoteID { get; set; }
+        public Guid VoteId { get; set; }
 
         [Column(TypeName = "DATETIME")]
         public DateTime DateVoted { get; set; }
         
-        public Guid MemberID { get; set; }
+        public Guid MemberId { get; set; }
 
-        public Guid ElectionID { get; set; }
+        public Guid ElectionId { get; set; }
 
         public Guid CreatedBy { get; set; }
 
@@ -31,10 +31,10 @@ namespace OSPI.Domain.Entities
         [Timestamp()]
         public byte[] RowVersion { get; set; }
 
-        [ForeignKey("MemberID")]
+        [ForeignKey("MemberId")]
         public virtual MemberEntity Member { get; set; }
 
-        [ForeignKey("ElectionID")]
+        [ForeignKey("ElectionId")]
         public virtual ElectionEntity Election { get; set; }
     }
 }

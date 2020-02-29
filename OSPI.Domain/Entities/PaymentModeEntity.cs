@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class PaymentModeEntity : IAuditableEntity
     {
         [Key]
-        public Guid PaymentModeID { get; set; }
+        public Guid PaymentModeId { get; set; }
 
         [Column(TypeName = "varchar(50)")]
         public string PaymentModeDescription { get; set; }

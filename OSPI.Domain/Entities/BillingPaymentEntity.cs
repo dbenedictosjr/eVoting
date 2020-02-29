@@ -8,13 +8,13 @@ namespace OSPI.Domain.Entities
     public class BillingPaymentEntity : IAuditableEntity
     {
         [Key]
-        public Guid BillingPaymentID { get; set; }
+        public Guid BillingPaymentId { get; set; }
 
-        public Guid? BillingID { get; set; }
+        public Guid? BillingId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
-        public Guid? PaymentModeID { get; set; }
+        public Guid? PaymentModeId { get; set; }
 
         public double? Amount { get; set; }
 

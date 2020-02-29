@@ -83,10 +83,10 @@
         var vRegEndDate = $("#RegEndDate").datepicker("getDate");
         var vVotingStartDate = $("#VotingStartDate").datepicker("getDate");
         var vVotingEndDate = $("#VotingEndDate").datepicker("getDate");
-        var vElectionID = $("#ElectionID").val();
+        var vElectionId = $("#ElectionId").val();
         var vRowVersion = $("#RowVersion").val();
         var election = {
-            'ElectionID': vElectionID, 'RefCode': vRefCode, 'Description': vDescription, 'RegStartDate': vRegStartDate, 'RegEndDate': vRegEndDate, 'VotingStartDate': vVotingStartDate, 'VotingEndDate': vVotingEndDate, 'RowVersion': vRowVersion, 'JPositions': _gridData
+            'ElectionId': vElectionId, 'RefCode': vRefCode, 'Description': vDescription, 'RegStartDate': vRegStartDate, 'RegEndDate': vRegEndDate, 'VotingStartDate': vVotingStartDate, 'VotingEndDate': vVotingEndDate, 'RowVersion': vRowVersion, 'JPositions': _gridData
         };
          
         $.ajax({

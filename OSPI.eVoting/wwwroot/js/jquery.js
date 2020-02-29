@@ -486,7 +486,7 @@ jQuery.extend({
 		return concat.apply( [], ret );
 	},
 
-	// A global GUID counter for objects
+	// A global GUId counter for objects
 	guid: 1,
 
 	// Bind a function to a context, optionally partially applying any
@@ -663,7 +663,7 @@ var i,
 	ridentifier = new RegExp( "^" + identifier + "$" ),
 
 	matchExpr = {
-		"ID": new RegExp( "^#(" + characterEncoding + ")" ),
+		"Id": new RegExp( "^#(" + characterEncoding + ")" ),
 		"CLASS": new RegExp( "^\\.(" + characterEncoding + ")" ),
 		"TAG": new RegExp( "^(" + characterEncoding.replace( "w", "w*" ) + ")" ),
 		"ATTR": new RegExp( "^" + attributes ),
@@ -683,7 +683,7 @@ var i,
 
 	rnative = /^[^{]+\{\s*\[native \w/,
 
-	// Easily-parseable/retrievable ID or TAG or CLASS selectors
+	// Easily-parseable/retrievable Id or TAG or CLASS selectors
 	rquickExpr = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/,
 
 	rsibling = /[+~]/,
@@ -765,7 +765,7 @@ function Sizzle( selector, context, results, seed ) {
 
 		// Try to shortcut find operations when possible (e.g., not under DocumentFragment)
 		if ( nodeType !== 11 && (match = rquickExpr.exec( selector )) ) {
-			// Speed-up: Sizzle("#ID")
+			// Speed-up: Sizzle("#Id")
 			if ( (m = match[1]) ) {
 				if ( nodeType === 9 ) {
 					elem = context.getElementById( m );
@@ -773,7 +773,7 @@ function Sizzle( selector, context, results, seed ) {
 					// nodes that are no longer in the document (jQuery #6963)
 					if ( elem && elem.parentNode ) {
 						// Handle the case where IE, Opera, and Webkit return items
-						// by name instead of ID
+						// by name instead of Id
 						if ( elem.id === m ) {
 							results.push( elem );
 							return results;
@@ -809,7 +809,7 @@ function Sizzle( selector, context, results, seed ) {
 			newSelector = nodeType !== 1 && selector;
 
 			// qSA works strangely on Element-rooted queries
-			// We can work around this by specifying an extra ID on the root
+			// We can work around this by specifying an extra Id on the root
 			// and working up from there (Thanks to Andrew Dupont for the technique)
 			// IE 8 doesn't work on object elements
 			if ( nodeType === 1 && context.nodeName.toLowerCase() !== "object" ) {
@@ -1079,9 +1079,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 		return !doc.getElementsByName || !doc.getElementsByName( expando ).length;
 	});
 
-	// ID find and filter
+	// Id find and filter
 	if ( support.getById ) {
-		Expr.find["ID"] = function( id, context ) {
+		Expr.find["Id"] = function( id, context ) {
 			if ( typeof context.getElementById !== "undefined" && documentIsHTML ) {
 				var m = context.getElementById( id );
 				// Check parentNode to catch when Blackberry 4.6 returns
@@ -1089,7 +1089,7 @@ setDocument = Sizzle.setDocument = function( node ) {
 				return m && m.parentNode ? [ m ] : [];
 			}
 		};
-		Expr.filter["ID"] = function( id ) {
+		Expr.filter["Id"] = function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
 				return elem.getAttribute("id") === attrId;
@@ -1098,9 +1098,9 @@ setDocument = Sizzle.setDocument = function( node ) {
 	} else {
 		// Support: IE6/7
 		// getElementById is not reliable as a find shortcut
-		delete Expr.find["ID"];
+		delete Expr.find["Id"];
 
-		Expr.filter["ID"] =  function( id ) {
+		Expr.filter["Id"] =  function( id ) {
 			var attrId = id.replace( runescape, funescape );
 			return function( elem ) {
 				var node = typeof elem.getAttributeNode !== "undefined" && elem.getAttributeNode("id");
@@ -2478,13 +2478,13 @@ select = Sizzle.select = function( selector, context, results, seed ) {
 	// Try to minimize operations if there is no seed and only one group
 	if ( match.length === 1 ) {
 
-		// Take a shortcut and set the context if the root selector is an ID
+		// Take a shortcut and set the context if the root selector is an Id
 		tokens = match[0] = match[0].slice( 0 );
-		if ( tokens.length > 2 && (token = tokens[0]).type === "ID" &&
+		if ( tokens.length > 2 && (token = tokens[0]).type === "Id" &&
 				support.getById && context.nodeType === 9 && documentIsHTML &&
 				Expr.relative[ tokens[1].type ] ) {
 
-			context = ( Expr.find["ID"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
+			context = ( Expr.find["Id"]( token.matches[0].replace(runescape, funescape), context ) || [] )[0];
 			if ( !context ) {
 				return results;
 
@@ -2781,7 +2781,7 @@ var rootjQuery,
 					elem = document.getElementById( match[2] );
 
 					// Support: Blackberry 4.6
-					// gEBID returns nodes no longer in the document (#6963)
+					// gEBId returns nodes no longer in the document (#6963)
 					if ( elem && elem.parentNode ) {
 						// Inject the element directly into the jQuery object
 						this.length = 1;
@@ -4099,7 +4099,7 @@ jQuery.event = {
 			selector = handleObjIn.selector;
 		}
 
-		// Make sure that the handler has a unique ID, used to find/remove it later
+		// Make sure that the handler has a unique Id, used to find/remove it later
 		if ( !handler.guid ) {
 			handler.guid = jQuery.guid++;
 		}

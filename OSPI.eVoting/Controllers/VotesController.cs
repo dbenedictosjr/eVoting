@@ -29,7 +29,7 @@ namespace OSPI.eVoting.Controllers
         // GET: Votes
         public async Task<IActionResult> Vote()
         {
-            return View(await _positionService.GetByAllByElectionIdAsync(Guid.Parse(_configuration["ElectionID"])));
+            return View(await _positionService.GetByAllByElectionIdAsync(Guid.Parse(_configuration["ElectionId"])));
         }
 
         // GET: Votes
@@ -49,16 +49,16 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionId", "Description");
             return View(vote);
         }
 
         // GET: Votes/Create
         public async Task<IActionResult> Create()
         {
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionId", "Description");
             return View();
         }
 
@@ -67,16 +67,16 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("voteID,Datevoted,MemberID,ElectionID")] VoteModel vote)
+        public async Task<IActionResult> Create([Bind("voteId,Datevoted,MemberId,ElectionId")] VoteModel vote)
         {
             if (ModelState.IsValid)
             {
-                vote.VoteID = Guid.NewGuid();
+                vote.VoteId = Guid.NewGuid();
                 await _voteService.CreateAsync(vote);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionId", "Description");
             return View(vote);
         }
 
@@ -93,8 +93,8 @@ namespace OSPI.eVoting.Controllers
             {
                 return NotFound();
             }
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionId", "Description");
             return View(vote);
         }
 
@@ -103,9 +103,9 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("voteID,Datevoted,MemberID,ElectionID,RowVersion")] VoteModel vote)
+        public async Task<IActionResult> Edit(Guid id, [Bind("voteId,Datevoted,MemberId,ElectionId,RowVersion")] VoteModel vote)
         {
-            if (id != vote.VoteID)
+            if (id != vote.VoteId)
             {
                 return NotFound();
             }
@@ -122,8 +122,8 @@ namespace OSPI.eVoting.Controllers
                     ViewBag.Message = "Record has been modified by someone else.";
                 }
             }
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionId", "Description");
             return View(vote);
         }
 
@@ -141,8 +141,8 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionID", "Description");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Elections"] = new SelectList(await _electionService.GetAllAsync(), "ElectionId", "Description");
             return View(vote);
         }
 

@@ -10,15 +10,15 @@ namespace OSPI.Domain.Entities
     public class BillingYieldingEntity : IAuditableEntity
     {
         [Key]
-        public Guid BillingYieldingID { get; set; }
+        public Guid BillingYieldingId { get; set; }
 
-        public Guid? BillingID { get; set; }
+        public Guid? BillingId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
-        public Guid? ItemID { get; set; }
+        public Guid? ItemId { get; set; }
 
         public double? Quantity { get; set; }
 

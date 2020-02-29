@@ -6,7 +6,7 @@ namespace OSPI.Infrastructure.Models
     public class PositionModel
     {
         [Required]
-        public Guid PositionID { get; set; }
+        public Guid PositionId { get; set; }
 
         [Required]
         [StringLength(30, ErrorMessage = "Limit Description to 30 characters.")]
@@ -22,7 +22,7 @@ namespace OSPI.Infrastructure.Models
         public string Qualifications { get; set; }
 
         [Required]
-        public Guid ElectionID { get; set; }
+        public Guid ElectionId { get; set; }
 
         [Display(Name = "Ref. No.")]
         public string RefCode { get; set; }

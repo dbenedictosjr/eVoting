@@ -11,7 +11,7 @@ namespace OSPI.Domain.Migrations
                 name: "Elections",
                 columns: table => new
                 {
-                    ElectionID = table.Column<Guid>(nullable: false),
+                    ElectionId = table.Column<Guid>(nullable: false),
                     RefCode = table.Column<string>(type: "VARCHAR(10)", nullable: true),
                     Description = table.Column<string>(type: "VARCHAR(30)", nullable: true),
                     RegStartDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
@@ -26,14 +26,14 @@ namespace OSPI.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Elections", x => x.ElectionID);
+                    table.PrimaryKey("PK_Elections", x => x.ElectionId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Modules",
                 columns: table => new
                 {
-                    ModuleID = table.Column<Guid>(nullable: false),
+                    ModuleId = table.Column<Guid>(nullable: false),
                     ModuleName = table.Column<string>(type: "VARCHAR(100)", nullable: true),
                     CreatedBy = table.Column<Guid>(nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
@@ -43,14 +43,14 @@ namespace OSPI.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Modules", x => x.ModuleID);
+                    table.PrimaryKey("PK_Modules", x => x.ModuleId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
-                    RoleID = table.Column<Guid>(nullable: false),
+                    RoleId = table.Column<Guid>(nullable: false),
                     RoleName = table.Column<string>(type: "VARCHAR(50)", nullable: true),
                     Description = table.Column<string>(type: "VARCHAR(250)", nullable: true),
                     CreatedBy = table.Column<Guid>(nullable: false),
@@ -61,18 +61,18 @@ namespace OSPI.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Roles", x => x.RoleID);
+                    table.PrimaryKey("PK_Roles", x => x.RoleId);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Positions",
                 columns: table => new
                 {
-                    PositionID = table.Column<Guid>(nullable: false),
+                    PositionId = table.Column<Guid>(nullable: false),
                     PositionName = table.Column<string>(type: "VARCHAR(30)", nullable: true),
                     RequiredCandidates = table.Column<int>(type: "INT", nullable: false),
                     Qualifications = table.Column<string>(type: "VARCHAR(MAX)", nullable: true),
-                    ElectionID = table.Column<Guid>(nullable: false),
+                    ElectionId = table.Column<Guid>(nullable: false),
                     CreatedBy = table.Column<Guid>(nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     UpdatedBy = table.Column<Guid>(nullable: false),
@@ -81,12 +81,12 @@ namespace OSPI.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Positions", x => x.PositionID);
+                    table.PrimaryKey("PK_Positions", x => x.PositionId);
                     table.ForeignKey(
-                        name: "FK_Positions_Elections_ElectionID",
-                        column: x => x.ElectionID,
+                        name: "FK_Positions_Elections_ElectionId",
+                        column: x => x.ElectionId,
                         principalTable: "Elections",
-                        principalColumn: "ElectionID",
+                        principalColumn: "ElectionId",
                         onDelete: ReferentialAction.NoAction);
                 });
 
@@ -94,7 +94,7 @@ namespace OSPI.Domain.Migrations
                 name: "Members",
                 columns: table => new
                 {
-                    MemberID = table.Column<Guid>(nullable: false),
+                    MemberId = table.Column<Guid>(nullable: false),
                     MemberNo = table.Column<string>(type: "CHAR(8)", nullable: true),
                     RegistrationDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     FirstName = table.Column<string>(type: "CHAR(30)", nullable: true),
@@ -112,7 +112,7 @@ namespace OSPI.Domain.Migrations
                     DateHired = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     Salary = table.Column<double>(type: "FLOAT", nullable: false),
                     AccountNo = table.Column<string>(type: "CHAR(30)", nullable: true),
-                    RoleID = table.Column<Guid>(nullable: false),
+                    RoleId = table.Column<Guid>(nullable: false),
                     CreatedBy = table.Column<Guid>(nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     UpdatedBy = table.Column<Guid>(nullable: false),
@@ -121,12 +121,12 @@ namespace OSPI.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Members", x => x.MemberID);
+                    table.PrimaryKey("PK_Members", x => x.MemberId);
                     table.ForeignKey(
-                        name: "FK_Members_Roles_RoleID",
-                        column: x => x.RoleID,
+                        name: "FK_Members_Roles_RoleId",
+                        column: x => x.RoleId,
                         principalTable: "Roles",
-                        principalColumn: "RoleID",
+                        principalColumn: "RoleId",
                         onDelete: ReferentialAction.NoAction);
                 });
 
@@ -134,9 +134,9 @@ namespace OSPI.Domain.Migrations
                 name: "RoleAccesses",
                 columns: table => new
                 {
-                    RoleAccessID = table.Column<Guid>(nullable: false),
-                    RoleID = table.Column<Guid>(nullable: false),
-                    ModuleID = table.Column<Guid>(nullable: false),
+                    RoleAccessId = table.Column<Guid>(nullable: false),
+                    RoleId = table.Column<Guid>(nullable: false),
+                    ModuleId = table.Column<Guid>(nullable: false),
                     CanAdd = table.Column<bool>(nullable: false),
                     CanEdit = table.Column<bool>(nullable: false),
                     CanDelete = table.Column<bool>(nullable: false),
@@ -150,18 +150,18 @@ namespace OSPI.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RoleAccesses", x => x.RoleAccessID);
+                    table.PrimaryKey("PK_RoleAccesses", x => x.RoleAccessId);
                     table.ForeignKey(
-                        name: "FK_RoleAccesses_Modules_ModuleID",
-                        column: x => x.ModuleID,
+                        name: "FK_RoleAccesses_Modules_ModuleId",
+                        column: x => x.ModuleId,
                         principalTable: "Modules",
-                        principalColumn: "ModuleID",
+                        principalColumn: "ModuleId",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_RoleAccesses_Roles_RoleID",
-                        column: x => x.RoleID,
+                        name: "FK_RoleAccesses_Roles_RoleId",
+                        column: x => x.RoleId,
                         principalTable: "Roles",
-                        principalColumn: "RoleID",
+                        principalColumn: "RoleId",
                         onDelete: ReferentialAction.NoAction);
                 });
 
@@ -169,10 +169,10 @@ namespace OSPI.Domain.Migrations
                 name: "Candidates",
                 columns: table => new
                 {
-                    CandidateID = table.Column<Guid>(nullable: false),
-                    PositionID = table.Column<Guid>(nullable: false),
-                    CandidateMemberID = table.Column<Guid>(nullable: false),
-                    NomineeMemberID = table.Column<Guid>(nullable: false),
+                    CandidateId = table.Column<Guid>(nullable: false),
+                    PositionId = table.Column<Guid>(nullable: false),
+                    CandidateMemberId = table.Column<Guid>(nullable: false),
+                    NomineeMemberId = table.Column<Guid>(nullable: false),
                     Plataforma = table.Column<string>(type: "varchar(1000)", nullable: true),
                     Status = table.Column<string>(type: "char(30)", nullable: true),
                     CreatedBy = table.Column<Guid>(nullable: false),
@@ -183,61 +183,61 @@ namespace OSPI.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Candidates", x => x.CandidateID);
+                    table.PrimaryKey("PK_Candidates", x => x.CandidateId);
                     table.ForeignKey(
-                        name: "FK_Candidates_Members_CandidateMemberID",
-                        column: x => x.CandidateMemberID,
+                        name: "FK_Candidates_Members_CandidateMemberId",
+                        column: x => x.CandidateMemberId,
                         principalTable: "Members",
-                        principalColumn: "MemberID",
+                        principalColumn: "MemberId",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_Candidates_Members_NomineeMemberID",
-                        column: x => x.NomineeMemberID,
+                        name: "FK_Candidates_Members_NomineeMemberId",
+                        column: x => x.NomineeMemberId,
                         principalTable: "Members",
-                        principalColumn: "MemberID",
+                        principalColumn: "MemberId",
                         onDelete: ReferentialAction.NoAction);
                     table.ForeignKey(
-                        name: "FK_Candidates_Positions_PositionID",
-                        column: x => x.PositionID,
+                        name: "FK_Candidates_Positions_PositionId",
+                        column: x => x.PositionId,
                         principalTable: "Positions",
-                        principalColumn: "PositionID",
+                        principalColumn: "PositionId",
                         onDelete: ReferentialAction.NoAction);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Candidates_CandidateMemberID",
+                name: "IX_Candidates_CandidateMemberId",
                 table: "Candidates",
-                column: "CandidateMemberID");
+                column: "CandidateMemberId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Candidates_NomineeMemberID",
+                name: "IX_Candidates_NomineeMemberId",
                 table: "Candidates",
-                column: "NomineeMemberID");
+                column: "NomineeMemberId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Candidates_PositionID",
+                name: "IX_Candidates_PositionId",
                 table: "Candidates",
-                column: "PositionID");
+                column: "PositionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Members_RoleID",
+                name: "IX_Members_RoleId",
                 table: "Members",
-                column: "RoleID");
+                column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Positions_ElectionID",
+                name: "IX_Positions_ElectionId",
                 table: "Positions",
-                column: "ElectionID");
+                column: "ElectionId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RoleAccesses_ModuleID",
+                name: "IX_RoleAccesses_ModuleId",
                 table: "RoleAccesses",
-                column: "ModuleID");
+                column: "ModuleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RoleAccesses_RoleID",
+                name: "IX_RoleAccesses_RoleId",
                 table: "RoleAccesses",
-                column: "RoleID");
+                column: "RoleId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

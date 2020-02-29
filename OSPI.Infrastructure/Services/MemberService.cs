@@ -22,14 +22,14 @@ namespace OSPI.Infrastructure.Services
 
         public async Task CreateAsync(MemberModel model)
         {
-            model.MemberID = Guid.NewGuid();
+            model.MemberId = Guid.NewGuid();
             _memberRepository.Create(_mapper.Map<MemberEntity>(model));
             await _memberRepository.SaveAsync();
         }
 
         public async Task DeleteAsync(MemberModel model)
         {
-            this._memberRepository.Delete(await _memberRepository.GetByIdAsync(model.MemberID));
+            this._memberRepository.Delete(await _memberRepository.GetByIdAsync(model.MemberId));
             await _memberRepository.SaveAsync();
         }
 

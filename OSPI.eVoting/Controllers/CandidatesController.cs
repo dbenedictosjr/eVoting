@@ -39,16 +39,16 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionID", "PositionName");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
             return View(candidate);
         }
 
         // GET: Candidates/Create
         public async Task<IActionResult> Create()
         {
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionID", "PositionName");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
             return View();
         }
 
@@ -57,12 +57,12 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CandidateID,CandidateMemberID,PositionID")] CandidateModel candidate)
+        public async Task<IActionResult> Create([Bind("CandidateId,CandidateMemberId,PositionId")] CandidateModel candidate)
         {
             if (ModelState.IsValid)
             {
-                candidate.CandidateID = Guid.NewGuid();
-                candidate.NomineeMemberID = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value);
+                candidate.CandidateId = Guid.NewGuid();
+                candidate.NomineeMemberId = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value);
                 candidate.Status = "For Approval";
                 await _candidateService.CreateAsync(candidate);
                 return RedirectToAction(nameof(Index));
@@ -71,8 +71,8 @@ namespace OSPI.eVoting.Controllers
             {
                 var errors = ModelState.Values.SelectMany(v => v.Errors);
             }
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionID", "PositionName");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
             return View(candidate);
         }
 
@@ -89,8 +89,8 @@ namespace OSPI.eVoting.Controllers
             {
                 return NotFound();
             }
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionID", "PositionName");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
             return View(candidate);
         }
 
@@ -99,9 +99,9 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("CandidateID,CandidateMemberID,PositionID,NomineeMemberID,Status,RowVersion")] CandidateModel candidate)
+        public async Task<IActionResult> Edit(Guid id, [Bind("CandidateId,CandidateMemberId,PositionId,NomineeMemberId,Status,RowVersion")] CandidateModel candidate)
         {
-            if (id != candidate.CandidateID)
+            if (id != candidate.CandidateId)
             {
                 return NotFound();
             }
@@ -118,8 +118,8 @@ namespace OSPI.eVoting.Controllers
                     ViewBag.Message = "Record has been modified by someone else.";
                 }
             }
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionID", "PositionName");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
             return View(candidate);
         }
 
@@ -137,8 +137,8 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberID", "MemberFullName");
-            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionID", "PositionName");
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
             return View(candidate);
         }
 

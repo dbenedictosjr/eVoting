@@ -8,14 +8,14 @@ namespace OSPI.Domain.Entities
     public class ProductInventoryEntryVarianceEntity : IAuditableEntity
     {
         [Key]
-        public Guid ProductInventoryEntryVarianceID { get; set; }
+        public Guid ProductInventoryEntryVarianceId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
-        public Guid? ProductInventoryEntryID { get; set; }
+        public Guid? ProductInventoryEntryId { get; set; }
 
         public double? Quantity { get; set; }
 

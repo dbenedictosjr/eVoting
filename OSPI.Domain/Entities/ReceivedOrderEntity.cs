@@ -9,9 +9,9 @@ namespace OSPI.Domain.Entities
     {
 
         [Key]
-        public Guid ReceivedOrderID { get; set; }
+        public Guid ReceivedOrderId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
         [Column(TypeName = "varchar(30)")]
         public string ReceivedOrderNo { get; set; }
@@ -22,9 +22,9 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }
 
-        public Guid? PurchaseOrderID { get; set; }
+        public Guid? PurchaseOrderId { get; set; }
 
-        public Guid? SupplierID { get; set; }
+        public Guid? SupplierId { get; set; }
 
         [Column(TypeName = "varchar(500)")]
         public string Remarks { get; set; }
@@ -33,7 +33,7 @@ namespace OSPI.Domain.Entities
 
         public double? Discount { get; set; }
 
-        public Guid? StatusID { get; set; }
+        public Guid? StatusId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

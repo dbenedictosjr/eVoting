@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class RTPEntity : IAuditableEntity
     {
         [Key]
-        public Guid RTPID { get; set; }
+        public Guid RTPId { get; set; }
 
         [Column(TypeName = "varchar(30)")]
         public string RTPNo { get; set; }
@@ -16,12 +16,12 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }
 
-        public Guid? SupplierID { get; set; }
+        public Guid? SupplierId { get; set; }
 
         [Column(TypeName = "varchar(500")]
         public string Remarks { get; set; }
 
-        public Guid? StatusID { get; set; }
+        public Guid? StatusId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

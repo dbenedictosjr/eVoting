@@ -2,7 +2,7 @@
 
 namespace OSPI.Domain.Interfaces
 {
-    public interface IDiscountCardRepository : IRepository<DiscountCardEntity>
+    public interface IdiscountCardRepository : IRepository<DiscountCardEntity>
     {
     }
 }

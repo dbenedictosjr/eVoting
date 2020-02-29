@@ -6,7 +6,7 @@ namespace OSPI.Infrastructure.Models
     public class ModuleModel
     {
         [Required]
-        public Guid ModuleID { get; set; }
+        public Guid ModuleId { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "Limit Name to 100 characters.")]

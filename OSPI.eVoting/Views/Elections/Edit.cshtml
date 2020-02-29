@@ -27,7 +27,7 @@
             <div class="panel-body">
                 <form id="frmCashReceiptJournal">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <input type="hidden" asp-for="ElectionID" />
+                    <input type="hidden" asp-for="ElectionId" />
                     <input type="hidden" asp-for="RowVersion" />
 
                     <div class="row">
@@ -173,7 +173,7 @@
                                     @Html.DisplayFor(modelItem => item.Qualifications)
                                 </td>
                                 <td>
-                                    <a class="btn_Delete" onclick="Delete(this)" data-id="@item.PositionID">   <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    <a class="btn_Delete" onclick="Delete(this)" data-id="@item.PositionId">   <i class="fa fa-trash" aria-hidden="true"></i></a>
                                 </td>
                                
                             </tr>

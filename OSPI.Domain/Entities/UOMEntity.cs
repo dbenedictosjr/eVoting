@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class UOMEntity : IAuditableEntity
     {
         [Key]
-        public Guid UOMID { get; set; }
+        public Guid UOMId { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string UOMCode { get; set; }

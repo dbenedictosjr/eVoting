@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class SalesOrderEntity : IAuditableEntity
     {
         [Key]
-        public Guid SalesOrderID { get; set; }
+        public Guid SalesOrderId { get; set; }
 
         [Column(TypeName = "varchar(30)")]
         public string SalesOrderNo { get; set; }
@@ -30,26 +30,26 @@ namespace OSPI.Domain.Entities
 
         public double? ServiceCharge { get; set; }
 
-        public Guid? PayeeReferenceID { get; set; }
+        public Guid? PayeeReferenceId { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string SalesCategory { get; set; }
 
-        public Guid? StatusID { get; set; }
+        public Guid? StatusId { get; set; }
 
-        public Guid? DiscountID { get; set; }
+        public Guid? DiscountId { get; set; }
 
         [Column(TypeName = "varchar(500)")]
         public string Remarks { get; set; }
 
         public double? Deposit { get; set; }
 
-        public Guid? BillingID { get; set; }
+        public Guid? BillingId { get; set; }
 
         [Column(TypeName = "varchar(1)")]
         public string TableCode { get; set; }
 
-        public Guid? ServerID { get; set; }
+        public Guid? ServerId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string CardNumber { get; set; }

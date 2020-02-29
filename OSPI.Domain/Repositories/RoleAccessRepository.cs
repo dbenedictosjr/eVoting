@@ -15,12 +15,12 @@ namespace OSPI.Domain.Repositories
         {
         }
 
-        public async Task<IEnumerable<RoleAccessEntity>> GetAllByRoleIDAsync(Guid id)
+        public async Task<IEnumerable<RoleAccessEntity>> GetAllByRoleIdAsync(Guid id)
         {
             return await _context.Set<RoleAccessEntity>()
             .Include(a => a.Role)
             .Include(a => a.Module)
-            .Where(a => a.RoleID == id)
+            .Where(a => a.RoleId == id)
             .ToListAsync();
         }
     }

@@ -7,6 +7,6 @@ namespace OSPI.Domain.Interfaces
 {
     public interface IRoleAccessRepository : IRepository<RoleAccessEntity>
     {
-        Task<IEnumerable<RoleAccessEntity>> GetAllByRoleIDAsync(Guid id);
+        Task<IEnumerable<RoleAccessEntity>> GetAllByRoleIdAsync(Guid id);
     }
 }

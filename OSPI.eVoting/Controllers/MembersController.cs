@@ -49,7 +49,7 @@ namespace OSPI.eVoting.Controllers
         {
             ViewBag.MemberStatus = new[] { "Member", "Non Member" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
-            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
+            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleId", "RoleName");
             return View();
         }
 
@@ -58,17 +58,17 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MemberID,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleID")] MemberModel member)
+        public async Task<IActionResult> Create([Bind("MemberId,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleId")] MemberModel member)
         {
             if (ModelState.IsValid)
             {
-                member.MemberID = Guid.NewGuid();
+                member.MemberId = Guid.NewGuid();
                 await _memberService.CreateAsync(member);
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.MemberStatus = new[] { "Member", "Non Member" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
-            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
+            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleId", "RoleName");
             return View(member);
         }
 
@@ -80,7 +80,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
+            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleId", "RoleName");
             var member = await _memberService.GetByIdAsync(id);
             if (member == null)
             {
@@ -96,9 +96,9 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("MemberID,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleID,RowVersion")] MemberModel member)
+        public async Task<IActionResult> Edit(Guid id, [Bind("MemberId,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleId,RowVersion")] MemberModel member)
         {
-            if (id != member.MemberID)
+            if (id != member.MemberId)
             {
                 return NotFound();
             }
@@ -117,7 +117,7 @@ namespace OSPI.eVoting.Controllers
             }
             ViewBag.MemberStatus = new[] { "Member", "Non Member" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
-            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleID", "RoleName");
+            ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleId", "RoleName");
             return View(member);
         }
 
@@ -166,7 +166,7 @@ namespace OSPI.eVoting.Controllers
                 return View(model);
             }
 
-            var roleAccesses = (await _roleAccessService.GetAllByRoleIDAsync(member.RoleID));
+            var roleAccesses = (await _roleAccessService.GetAllByRoleIdAsync(member.RoleId));
 
             if(roleAccesses == null)
             {
@@ -177,9 +177,9 @@ namespace OSPI.eVoting.Controllers
 
             var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            identity.AddClaim(new Claim(UserClaims.UserGuid, member.MemberID.ToString()));
+            identity.AddClaim(new Claim(UserClaims.UserGuid, member.MemberId.ToString()));
             identity.AddClaim(new Claim(ClaimTypes.Name, member.MemberFullName));
-            identity.AddClaim(new Claim(UserClaims.Role, member.RoleID.ToString()));
+            identity.AddClaim(new Claim(UserClaims.Role, member.RoleId.ToString()));
 
             foreach (RoleAccessModel roleAccess in roleAccesses)
             {

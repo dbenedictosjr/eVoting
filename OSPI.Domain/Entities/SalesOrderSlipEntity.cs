@@ -8,11 +8,11 @@ namespace OSPI.Domain.Entities
     public class SalesOrderSlipEntity : IAuditableEntity
     {
         [Key]
-        public Guid SalesOrderSlipID { get; set; }
+        public Guid SalesOrderSlipId { get; set; }
 
-        public Guid? SalesOrderID { get; set; }
+        public Guid? SalesOrderId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? Quantity { get; set; }
 
@@ -20,7 +20,7 @@ namespace OSPI.Domain.Entities
 
         public double? Discount { get; set; }
 
-        public Guid? DiscountID { get; set; }
+        public Guid? DiscountId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }

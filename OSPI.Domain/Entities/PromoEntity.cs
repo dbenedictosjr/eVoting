@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class PromoEntity : IAuditableEntity
     {
         [Key]
-        public Guid PromoID { get; set; }
+        public Guid PromoId { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string SalesCategory { get; set; }
@@ -16,7 +16,7 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "varchar(50)")]
         public string CustomerType { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? StartDate { get; set; }

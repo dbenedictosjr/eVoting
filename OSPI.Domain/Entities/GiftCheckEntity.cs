@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class GiftCheckEntity : IAuditableEntity
     {
         [Key]
-        public Guid GCID { get; set; }
+        public Guid GCId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string GC_No { get; set; }
@@ -22,12 +22,12 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "datetime")]
         public DateTime? GC_To { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }
 
-        public Guid? PayeeReferenceID { get; set; }
+        public Guid? PayeeReferenceId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

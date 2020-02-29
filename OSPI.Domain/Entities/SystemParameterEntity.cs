@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class SystemParameterEntity : IAuditableEntity
     {
         [Key]
-        public Guid SysID { get; set; }
+        public Guid SysId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string SysCode { get; set; }
@@ -51,7 +51,7 @@ namespace OSPI.Domain.Entities
 
         public bool? SysList { get; set; }
 
-        public Guid? CentreID { get; set; }
+        public Guid? CentreId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

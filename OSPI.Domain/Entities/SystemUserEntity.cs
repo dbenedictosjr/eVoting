@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class SystemUserEntity : IAuditableEntity
     {
         [Key]
-        public Guid UserID { get; set; }
+        public Guid UserId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string UserCode { get; set; }
@@ -27,7 +27,7 @@ namespace OSPI.Domain.Entities
 
         public bool? UserReset { get; set; }
 
-        public Guid? LevelID { get; set; }
+        public Guid? LevelId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

@@ -6,16 +6,16 @@ namespace OSPI.Infrastructure.Models
    public class CandidateModel
     {
         [Required]
-        public Guid CandidateID { get; set; }
+        public Guid CandidateId { get; set; }
 
         [Required]
-        public Guid PositionID { get; set; }
+        public Guid PositionId { get; set; }
 
         [Display(Name = "Position")]
         public string PositionName { get; set; }
 
         [Required]
-        public Guid CandidateMemberID { get; set; }
+        public Guid CandidateMemberId { get; set; }
 
         public string CandidateFirstName { get; set; }
 
@@ -24,7 +24,7 @@ namespace OSPI.Infrastructure.Models
         [Display(Name = "Candidate")]
         public string CandidateFullName { get { return this.CandidateFirstName + ' ' + this.CandidateLastName; } }
 
-        public Guid NomineeMemberID { get; set; }
+        public Guid NomineeMemberId { get; set; }
 
         public string NomineeFirstName { get; set; }
 

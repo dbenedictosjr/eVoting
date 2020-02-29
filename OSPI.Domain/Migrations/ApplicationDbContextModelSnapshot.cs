@@ -21,11 +21,11 @@ namespace OSPI.Domain.Migrations
 
             modelBuilder.Entity("OSPI.Domain.Entities.CandidateEntity", b =>
                 {
-                    b.Property<Guid>("CandidateID")
+                    b.Property<Guid>("CandidateId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CandidateMemberID")
+                    b.Property<Guid>("CandidateMemberId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CreatedBy")
@@ -34,13 +34,13 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.Property<Guid>("NomineeMemberID")
+                    b.Property<Guid>("NomineeMemberId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Plataforma")
                         .HasColumnType("varchar(1000)");
 
-                    b.Property<Guid>("PositionID")
+                    b.Property<Guid>("PositionId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<byte[]>("RowVersion")
@@ -57,20 +57,20 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.HasKey("CandidateID");
+                    b.HasKey("CandidateId");
 
-                    b.HasIndex("CandidateMemberID");
+                    b.HasIndex("CandidateMemberId");
 
-                    b.HasIndex("NomineeMemberID");
+                    b.HasIndex("NomineeMemberId");
 
-                    b.HasIndex("PositionID");
+                    b.HasIndex("PositionId");
 
                     b.ToTable("Candidates");
                 });
 
             modelBuilder.Entity("OSPI.Domain.Entities.ElectionEntity", b =>
                 {
-                    b.Property<Guid>("ElectionID")
+                    b.Property<Guid>("ElectionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -109,14 +109,14 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("VotingStartDate")
                         .HasColumnType("DATETIME");
 
-                    b.HasKey("ElectionID");
+                    b.HasKey("ElectionId");
 
                     b.ToTable("Elections");
                 });
 
             modelBuilder.Entity("OSPI.Domain.Entities.MemberEntity", b =>
                 {
-                    b.Property<Guid>("MemberID")
+                    b.Property<Guid>("MemberId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -174,7 +174,7 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("DATETIME");
 
-                    b.Property<Guid>("RoleID")
+                    b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<byte[]>("RowVersion")
@@ -191,16 +191,16 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.HasKey("MemberID");
+                    b.HasKey("MemberId");
 
-                    b.HasIndex("RoleID");
+                    b.HasIndex("RoleId");
 
                     b.ToTable("Members");
                 });
 
             modelBuilder.Entity("OSPI.Domain.Entities.ModuleEntity", b =>
                 {
-                    b.Property<Guid>("ModuleID")
+                    b.Property<Guid>("ModuleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -224,14 +224,14 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.HasKey("ModuleID");
+                    b.HasKey("ModuleId");
 
                     b.ToTable("Modules");
                 });
 
             modelBuilder.Entity("OSPI.Domain.Entities.PositionEntity", b =>
                 {
-                    b.Property<Guid>("PositionID")
+                    b.Property<Guid>("PositionId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -241,7 +241,7 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.Property<Guid>("ElectionID")
+                    b.Property<Guid>("ElectionId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("PositionName")
@@ -264,16 +264,16 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.HasKey("PositionID");
+                    b.HasKey("PositionId");
 
-                    b.HasIndex("ElectionID");
+                    b.HasIndex("ElectionId");
 
                     b.ToTable("Positions");
                 });
 
             modelBuilder.Entity("OSPI.Domain.Entities.RoleAccessEntity", b =>
                 {
-                    b.Property<Guid>("RoleAccessID")
+                    b.Property<Guid>("RoleAccessId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -298,10 +298,10 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.Property<Guid>("ModuleID")
+                    b.Property<Guid>("ModuleId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RoleID")
+                    b.Property<Guid>("RoleId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<byte[]>("RowVersion")
@@ -315,18 +315,18 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.HasKey("RoleAccessID");
+                    b.HasKey("RoleAccessId");
 
-                    b.HasIndex("ModuleID");
+                    b.HasIndex("ModuleId");
 
-                    b.HasIndex("RoleID");
+                    b.HasIndex("RoleId");
 
                     b.ToTable("RoleAccesses");
                 });
 
             modelBuilder.Entity("OSPI.Domain.Entities.RoleEntity", b =>
                 {
-                    b.Property<Guid>("RoleID")
+                    b.Property<Guid>("RoleId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -353,18 +353,18 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.HasKey("RoleID");
+                    b.HasKey("RoleId");
 
                     b.ToTable("Roles");
                 });
 
             modelBuilder.Entity("OSPI.Domain.Entities.VoteDetailEntity", b =>
                 {
-                    b.Property<Guid>("VoteDetailID")
+                    b.Property<Guid>("VoteDetailId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("CandidateID")
+                    b.Property<Guid>("CandidateId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid>("CreatedBy")
@@ -384,21 +384,21 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.Property<Guid>("VoteID")
+                    b.Property<Guid>("VoteId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("VoteDetailID");
+                    b.HasKey("VoteDetailId");
 
-                    b.HasIndex("CandidateID");
+                    b.HasIndex("CandidateId");
 
-                    b.HasIndex("VoteID");
+                    b.HasIndex("VoteId");
 
                     b.ToTable("VoteDetails");
                 });
 
             modelBuilder.Entity("OSPI.Domain.Entities.VoteEntity", b =>
                 {
-                    b.Property<Guid>("VoteID")
+                    b.Property<Guid>("VoteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -411,10 +411,10 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("DateVoted")
                         .HasColumnType("DATETIME");
 
-                    b.Property<Guid>("ElectionID")
+                    b.Property<Guid>("ElectionId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("MemberID")
+                    b.Property<Guid>("MemberId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<byte[]>("RowVersion")
@@ -428,11 +428,11 @@ namespace OSPI.Domain.Migrations
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("DATETIME");
 
-                    b.HasKey("VoteID");
+                    b.HasKey("VoteId");
 
-                    b.HasIndex("ElectionID");
+                    b.HasIndex("ElectionId");
 
-                    b.HasIndex("MemberID");
+                    b.HasIndex("MemberId");
 
                     b.ToTable("Votes");
                 });
@@ -441,19 +441,19 @@ namespace OSPI.Domain.Migrations
                 {
                     b.HasOne("OSPI.Domain.Entities.MemberEntity", "CandidateMember")
                         .WithMany()
-                        .HasForeignKey("CandidateMemberID")
+                        .HasForeignKey("CandidateMemberId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("OSPI.Domain.Entities.MemberEntity", "NomineeMember")
                         .WithMany()
-                        .HasForeignKey("NomineeMemberID")
+                        .HasForeignKey("NomineeMemberId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("OSPI.Domain.Entities.PositionEntity", "Position")
                         .WithMany()
-                        .HasForeignKey("PositionID")
+                        .HasForeignKey("PositionId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
@@ -462,7 +462,7 @@ namespace OSPI.Domain.Migrations
                 {
                     b.HasOne("OSPI.Domain.Entities.RoleEntity", "Role")
                         .WithMany()
-                        .HasForeignKey("RoleID")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
@@ -470,8 +470,8 @@ namespace OSPI.Domain.Migrations
             modelBuilder.Entity("OSPI.Domain.Entities.PositionEntity", b =>
                 {
                     b.HasOne("OSPI.Domain.Entities.ElectionEntity", "Election")
-                        .WithMany()
-                        .HasForeignKey("ElectionID")
+                        .WithMany("Positions")
+                        .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
@@ -480,13 +480,13 @@ namespace OSPI.Domain.Migrations
                 {
                     b.HasOne("OSPI.Domain.Entities.ModuleEntity", "Module")
                         .WithMany()
-                        .HasForeignKey("ModuleID")
+                        .HasForeignKey("ModuleId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("OSPI.Domain.Entities.RoleEntity", "Role")
                         .WithMany()
-                        .HasForeignKey("RoleID")
+                        .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
@@ -495,13 +495,13 @@ namespace OSPI.Domain.Migrations
                 {
                     b.HasOne("OSPI.Domain.Entities.CandidateEntity", "Candidate")
                         .WithMany()
-                        .HasForeignKey("CandidateID")
+                        .HasForeignKey("CandidateId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("OSPI.Domain.Entities.VoteEntity", "Vote")
                         .WithMany()
-                        .HasForeignKey("VoteID")
+                        .HasForeignKey("VoteId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });
@@ -510,13 +510,13 @@ namespace OSPI.Domain.Migrations
                 {
                     b.HasOne("OSPI.Domain.Entities.ElectionEntity", "Election")
                         .WithMany()
-                        .HasForeignKey("ElectionID")
+                        .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("OSPI.Domain.Entities.MemberEntity", "Member")
                         .WithMany()
-                        .HasForeignKey("MemberID")
+                        .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });

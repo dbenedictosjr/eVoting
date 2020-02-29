@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class ReferencesEntity : IAuditableEntity
     {
         [Key]
-        public Guid RefID { get; set; }
+        public Guid RefId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string RefType { get; set; }

@@ -8,19 +8,19 @@ namespace OSPI.Domain.Entities
     public class PurchaseReturnDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid PurchaseReturnDetailID { get; set; }
+        public Guid PurchaseReturnDetailId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
-        public Guid? PurchaseReturnID { get; set; }
+        public Guid? PurchaseReturnId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? Quantity { get; set; }
 
         public double? Cost { get; set; }
 
-        public Guid? ProductUnitID { get; set; }
+        public Guid? ProductUnitId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

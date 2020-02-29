@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class StoreEntity : IAuditableEntity
     {
         [Key]
-        public Guid StoreID { get; set; }
+        public Guid StoreId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string StoreCode { get; set; }

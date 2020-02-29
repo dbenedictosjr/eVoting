@@ -8,9 +8,9 @@ namespace OSPI.Domain.Entities
     public class ProductInventoryEntity : IAuditableEntity
     {
         [Key]
-        public Guid ProductInventoryID { get; set; }
+        public Guid ProductInventoryId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }

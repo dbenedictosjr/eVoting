@@ -6,8 +6,8 @@ namespace OSPI.Infrastructure.Models
     public class LogInModel
     {
         [Required]
-        [StringLength(8, ErrorMessage = "Limit User ID to 8 characters.")]
-        [Display(Name = "User ID")]
+        [StringLength(8, ErrorMessage = "Limit User Id to 8 characters.")]
+        [Display(Name = "User Id")]
         public string MemberNo { get; set; }
 
         [Required]

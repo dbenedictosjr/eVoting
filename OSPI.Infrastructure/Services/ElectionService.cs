@@ -40,11 +40,11 @@ namespace OSPI.Infrastructure.Services
                     {
                         PositionEntity positionEntity = new PositionEntity
                         {
-                            PositionID = Guid.NewGuid(),
+                            PositionId = Guid.NewGuid(),
                             PositionName = item.PositionName,
                             RequiredCandidates = item.RequiredCandidates,
                             Qualifications = item.Qualifications,
-                            ElectionID = election.ElectionID
+                            ElectionId = election.ElectionId
                         };
 
                         _positionRepository.Create(positionEntity);
@@ -62,7 +62,7 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(ElectionModel election)
         {
-            this._electionRepository.Delete(await _electionRepository.GetByIdAsync(election.ElectionID));
+            this._electionRepository.Delete(await _electionRepository.GetByIdAsync(election.ElectionId));
             await _electionRepository.SaveAsync();
         }
 
@@ -86,11 +86,11 @@ namespace OSPI.Infrastructure.Services
                     {
                         PositionEntity positionEntity = new PositionEntity
                         {
-                            PositionID = Guid.NewGuid(),
+                            PositionId = Guid.NewGuid(),
                             PositionName = item.PositionName,
                             RequiredCandidates = item.RequiredCandidates,
                             Qualifications = item.Qualifications,
-                            ElectionID = election.ElectionID
+                            ElectionId = election.ElectionId
                         };
 
                         _positionRepository.Create(positionEntity);

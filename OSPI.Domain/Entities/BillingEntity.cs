@@ -10,9 +10,9 @@ namespace OSPI.Domain.Entities
     public class BillingEntity : IAuditableEntity
     {
         [Key]
-        public Guid BillingID { get; set; }
+        public Guid BillingId { get; set; }
 
-        public Guid StoreID { get; set; }
+        public Guid StoreId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? ActualDate { get; set; }
@@ -37,14 +37,14 @@ namespace OSPI.Domain.Entities
 
         public double? ServiceCharge { get; set; }
 
-        public Guid PayeeReferenceID { get; set; }
+        public Guid PayeeReferenceId { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string SalesCategory { get; set; }
 
-        public Guid StatusID { get; set; }
+        public Guid StatusId { get; set; }
 
-        public Guid DiscountID { get; set; }
+        public Guid DiscountId { get; set; }
 
         public double? Deposit { get; set; }
 
@@ -54,7 +54,7 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "varchar(1)")]
         public string TableCode { get; set; }
 
-        public Guid? ServerID { get; set; }
+        public Guid? ServerId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string CardNumber { get; set; }

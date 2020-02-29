@@ -24,7 +24,7 @@ namespace OSPI.Domain.Repositories
         public override async Task<VoteDetailEntity> GetByIdAsync(Guid? id) => await _context.Set<VoteDetailEntity>()
             .Include(a => a.Vote)
             .Include(a => a.Candidate)
-            .FirstOrDefaultAsync(a => a.VoteDetailID == id);
+            .FirstOrDefaultAsync(a => a.VoteDetailId == id);
 
     }
 }

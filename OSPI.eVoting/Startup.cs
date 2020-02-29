@@ -40,7 +40,8 @@ namespace OSPI.eVoting
             services.AddEntityFrameworkSqlServer()
             .AddDbContext<ApplicationDbContext>((serviceProvider, options) =>
             options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"],
-            b => b.MigrationsAssembly("OSPI.Domain")));
+            b => b.MigrationsAssembly("OSPI.Domain"))
+            .UseInternalServiceProvider(serviceProvider));
 
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 

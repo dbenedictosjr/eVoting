@@ -44,11 +44,11 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoleID,RoleName,Description")] RoleModel role)
+        public async Task<IActionResult> Create([Bind("RoleId,RoleName,Description")] RoleModel role)
         {
             if (ModelState.IsValid)
             {
-                role.RoleID = Guid.NewGuid();
+                role.RoleId = Guid.NewGuid();
                 await _roleService.CreateAsync(role);
                 return RedirectToAction(nameof(Index));
             }
@@ -76,9 +76,9 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("RoleID,RoleName,Description,RowVersion")] RoleModel role)
+        public async Task<IActionResult> Edit(Guid id, [Bind("RoleId,RoleName,Description,RowVersion")] RoleModel role)
         {
-            if (id != role.RoleID)
+            if (id != role.RoleId)
             {
                 return NotFound();
             }

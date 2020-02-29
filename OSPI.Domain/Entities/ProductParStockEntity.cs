@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class ProductParStockEntity : IAuditableEntity
     {
         [Key]
-        public Guid ParStockID { get; set; }
+        public Guid ParStockId { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? StartDate { get; set; }

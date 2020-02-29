@@ -19,7 +19,7 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="MemberID" />
+            <input type="hidden" asp-for="MemberId" />
             <input type="hidden" asp-for="RowVersion" />
             <div class="form-group">
                 <label asp-for="MemberNo" class="control-label"></label>
@@ -108,11 +108,11 @@
             </div>
             <div class="form-group">
                 <label asp-for="RoleName" class="control-label"></label>
-                <select asp-for="RoleID" class="form-control"
+                <select asp-for="RoleId" class="form-control"
                         asp-items="ViewBag.Roles">
                     <option>Select Role</option>
                 </select>
-                <span asp-validation-for="RoleID" class="text-danger"></span>
+                <span asp-validation-for="RoleId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

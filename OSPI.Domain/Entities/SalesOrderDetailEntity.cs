@@ -8,11 +8,11 @@ namespace OSPI.Domain.Entities
     public class SalesOrderDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid SalesOrderDetailID { get; set; }
+        public Guid SalesOrderDetailId { get; set; }
 
         public Guid? SalesOrder { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? Quantity { get; set; }
 
@@ -20,7 +20,7 @@ namespace OSPI.Domain.Entities
 
         public double? Discount { get; set; }
 
-        public Guid? DiscountID { get; set; }
+        public Guid? DiscountId { get; set; }
 
         public double? SCDue { get; set; }
 

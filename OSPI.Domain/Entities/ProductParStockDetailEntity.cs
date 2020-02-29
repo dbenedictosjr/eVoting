@@ -8,11 +8,11 @@ namespace OSPI.Domain.Entities
     public class ProductParStockDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid ParStockDetailID { get; set; }
+        public Guid ParStockDetailId { get; set; }
 
-        public Guid? ParStockID { get; set; }
+        public Guid? ParStockId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? MaximumStock { get; set; }
 

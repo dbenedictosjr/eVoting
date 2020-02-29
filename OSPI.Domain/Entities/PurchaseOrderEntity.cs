@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class PurchaseOrderEntity : IAuditableEntity
     {
         [Key]
-        public Guid PurchaseOrderID { get; set; }
+        public Guid PurchaseOrderId { get; set; }
 
         [Column(TypeName = "varchar(30")]
         public string PurchaseOrderNo { get; set; }
@@ -19,9 +19,9 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "datetime")]
         public DateTime? DeliveryDate { get; set; }
 
-        public Guid? RTPID { get; set; }
+        public Guid? RTPId { get; set; }
 
-        public Guid? SupplierID { get; set; }
+        public Guid? SupplierId { get; set; }
 
         [Column(TypeName = "varchar(500")]
         public string Remarks { get; set; }
@@ -30,7 +30,7 @@ namespace OSPI.Domain.Entities
 
         public double? Discount { get; set; }
 
-        public Guid? StatusID { get; set; }
+        public Guid? StatusId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

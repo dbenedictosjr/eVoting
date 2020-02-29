@@ -8,9 +8,9 @@ namespace OSPI.Domain.Entities
     public class EmployeeEntity : IAuditableEntity
     {
         [Key]
-        public Guid EmployeeID { get; set; }
+        public Guid EmployeeId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
         [Column(TypeName = "varchar(100)")]
         public string EmployeeName { get; set; }

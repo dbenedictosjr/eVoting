@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class DiscountEntity : IAuditableEntity
     {
         [Key]
-        public Guid DiscountID { get; set; }
+        public Guid DiscountId { get; set; }
 
         [Column(TypeName = "varchar50")]
         public string DiscountDescription { get; set; }

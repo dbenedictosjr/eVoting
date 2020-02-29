@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class PositionEntity : IAuditableEntity
     {
         [Key]
-        public Guid PositionID { get; set; }
+        public Guid PositionId { get; set; }
 
         [Column(TypeName = "VARCHAR(30)")]
         public string PositionName { get; set; }
@@ -20,7 +20,7 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "VARCHAR(MAX)")]
         public string Qualifications { get; set; }
 
-        public Guid ElectionID { get; set; }
+        public Guid ElectionId { get; set; }
 
         public Guid CreatedBy { get; set; }
 
@@ -35,7 +35,7 @@ namespace OSPI.Domain.Entities
         [Timestamp()]
         public byte[] RowVersion { get; set; }
 
-        [ForeignKey("ElectionID")]
+        [ForeignKey("ElectionId")]
         public virtual ElectionEntity Election { get; set; }
     }
 }

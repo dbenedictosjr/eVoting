@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class ProductEntity : IAuditableEntity
     {
         [Key]
-        public Guid ProdID { get; set; }
+        public Guid ProdId { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string ProdCode { get; set; }
@@ -19,9 +19,9 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "varchar(100)")]
         public string LongDesc { get; set; }
 
-        public Guid Cat3ID { get; set; }
+        public Guid Cat3Id { get; set; }
 
-        public long UOMID { get; set; }
+        public long UOMId { get; set; }
 
         public double UnitQty { get; set; }
 

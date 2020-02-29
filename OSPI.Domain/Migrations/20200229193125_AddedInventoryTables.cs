@@ -1,9 +1,8 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OSPI.Domain.Migrations
 {
-    public partial class AddedVoteEntities : Migration
+    public partial class AddedInventoryTables : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -35,86 +34,21 @@ namespace OSPI.Domain.Migrations
                 name: "FK_RoleAccesses_Roles_RoleId",
                 table: "RoleAccesses");
 
-            migrationBuilder.CreateTable(
-                name: "Votes",
-                columns: table => new
-                {
-                    VoteId = table.Column<Guid>(nullable: false),
-                    MemberId = table.Column<Guid>(nullable: false),
-                    DateVoted = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    ElectionId = table.Column<Guid>(nullable: false),
-                    CreatedBy = table.Column<Guid>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    UpdatedBy = table.Column<Guid>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Votes", x => x.VoteId);
-                    table.ForeignKey(
-                        name: "FK_Votes_Elections_ElectionId",
-                        column: x => x.ElectionId,
-                        principalTable: "Elections",
-                        principalColumn: "ElectionId",
-                        onDelete: ReferentialAction.NoAction);
-                    table.ForeignKey(
-                        name: "FK_Votes_Members_MemberId",
-                        column: x => x.MemberId,
-                        principalTable: "Members",
-                        principalColumn: "MemberId",
-                        onDelete: ReferentialAction.NoAction);
-                });
+            migrationBuilder.DropForeignKey(
+                name: "FK_VoteDetails_Candidates_CandidateId",
+                table: "VoteDetails");
 
-            migrationBuilder.CreateTable(
-                name: "VoteDetails",
-                columns: table => new
-                {
-                    VoteDetailId = table.Column<Guid>(nullable: false),
-                    VoteId = table.Column<Guid>(nullable: false),
-                    CandidateId = table.Column<Guid>(nullable: false),
-                    CreatedBy = table.Column<Guid>(nullable: false),
-                    CreatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    UpdatedBy = table.Column<Guid>(nullable: false),
-                    UpdatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
-                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_VoteDetails", x => x.VoteDetailId);
-                    table.ForeignKey(
-                        name: "FK_VoteDetails_Candidates_CandidateId",
-                        column: x => x.CandidateId,
-                        principalTable: "Candidates",
-                        principalColumn: "CandidateId",
-                        onDelete: ReferentialAction.NoAction);
-                    table.ForeignKey(
-                        name: "FK_VoteDetails_Votes_VoteId",
-                        column: x => x.VoteId,
-                        principalTable: "Votes",
-                        principalColumn: "VoteId",
-                        onDelete: ReferentialAction.NoAction);
-                });
+            migrationBuilder.DropForeignKey(
+                name: "FK_VoteDetails_Votes_VoteId",
+                table: "VoteDetails");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_VoteDetails_CandidateId",
-                table: "VoteDetails",
-                column: "CandidateId");
+            migrationBuilder.DropForeignKey(
+                name: "FK_Votes_Elections_ElectionId",
+                table: "Votes");
 
-            migrationBuilder.CreateIndex(
-                name: "IX_VoteDetails_VoteId",
-                table: "VoteDetails",
-                column: "VoteId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Votes_ElectionId",
-                table: "Votes",
-                column: "ElectionId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Votes_MemberId",
-                table: "Votes",
-                column: "MemberId");
+            migrationBuilder.DropForeignKey(
+                name: "FK_Votes_Members_MemberId",
+                table: "Votes");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Candidates_Members_CandidateMemberId",
@@ -171,6 +105,38 @@ namespace OSPI.Domain.Migrations
                 principalTable: "Roles",
                 principalColumn: "RoleId",
                 onDelete: ReferentialAction.NoAction);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_VoteDetails_Candidates_CandidateId",
+                table: "VoteDetails",
+                column: "CandidateId",
+                principalTable: "Candidates",
+                principalColumn: "CandidateId",
+                onDelete: ReferentialAction.NoAction);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_VoteDetails_Votes_VoteId",
+                table: "VoteDetails",
+                column: "VoteId",
+                principalTable: "Votes",
+                principalColumn: "VoteId",
+                onDelete: ReferentialAction.NoAction);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Votes_Elections_ElectionId",
+                table: "Votes",
+                column: "ElectionId",
+                principalTable: "Elections",
+                principalColumn: "ElectionId",
+                onDelete: ReferentialAction.NoAction);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Votes_Members_MemberId",
+                table: "Votes",
+                column: "MemberId",
+                principalTable: "Members",
+                principalColumn: "MemberId",
+                onDelete: ReferentialAction.NoAction);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -203,11 +169,21 @@ namespace OSPI.Domain.Migrations
                 name: "FK_RoleAccesses_Roles_RoleId",
                 table: "RoleAccesses");
 
-            migrationBuilder.DropTable(
-                name: "VoteDetails");
+            migrationBuilder.DropForeignKey(
+                name: "FK_VoteDetails_Candidates_CandidateId",
+                table: "VoteDetails");
 
-            migrationBuilder.DropTable(
-                name: "Votes");
+            migrationBuilder.DropForeignKey(
+                name: "FK_VoteDetails_Votes_VoteId",
+                table: "VoteDetails");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Votes_Elections_ElectionId",
+                table: "Votes");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_Votes_Members_MemberId",
+                table: "Votes");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Candidates_Members_CandidateMemberId",
@@ -257,6 +233,34 @@ namespace OSPI.Domain.Migrations
                 column: "RoleId",
                 principalTable: "Roles",
                 principalColumn: "RoleId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_VoteDetails_Candidates_CandidateId",
+                table: "VoteDetails",
+                column: "CandidateId",
+                principalTable: "Candidates",
+                principalColumn: "CandidateId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_VoteDetails_Votes_VoteId",
+                table: "VoteDetails",
+                column: "VoteId",
+                principalTable: "Votes",
+                principalColumn: "VoteId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Votes_Elections_ElectionId",
+                table: "Votes",
+                column: "ElectionId",
+                principalTable: "Elections",
+                principalColumn: "ElectionId");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_Votes_Members_MemberId",
+                table: "Votes",
+                column: "MemberId",
+                principalTable: "Members",
+                principalColumn: "MemberId");
         }
     }
 }

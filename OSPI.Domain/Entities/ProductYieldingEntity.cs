@@ -9,15 +9,15 @@ namespace OSPI.Domain.Entities
     public class ProductYieldingEntity : IAuditableEntity
     {
         [Key]
-        public Guid ProductYieldingID { get; set; }
+        public Guid ProductYieldingId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
-        public Guid? ItemID { get; set; }
+        public Guid? ItemId { get; set; }
 
         public double? Quantity { get; set; }
 
-        public Guid? ProductUnitID { get; set; }
+        public Guid? ProductUnitId { get; set; }
 
         [Column(TypeName = "varchar(10)")]
         public string SalesCategory { get; set; }

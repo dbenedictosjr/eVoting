@@ -10,7 +10,7 @@ namespace OSPI.Infrastructure.Interfaces
         Task CreateAsync(RoleAccessModel roleAccess);
 
         Task<RoleAccessModel> GetByIdAsync(Guid? id);
-        Task<IEnumerable<RoleAccessModel>> GetAllByRoleIDAsync(Guid id);
+        Task<IEnumerable<RoleAccessModel>> GetAllByRoleIdAsync(Guid id);
         Task<IEnumerable<RoleAccessModel>> GetAllAsync();
 
         Task UpdateAsync(RoleAccessModel roleAccess);

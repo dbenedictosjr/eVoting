@@ -8,26 +8,26 @@ namespace OSPI.Domain.Entities
     public class ReceivedOrderDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid ReceivedOrderDetailID { get; set; }
+        public Guid ReceivedOrderDetailId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
-        public Guid? ReceivedOrderID { get; set; }
+        public Guid? ReceivedOrderId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? Quantity { get; set; }
 
         public double? Cost { get; set; }
 
-        public Guid? ProductUnitID { get; set; }
+        public Guid? ProductUnitId { get; set; }
 
         public double? UnitQuantity { get; set; }
 
         [Column(TypeName = "datetime")]
         public DateTime? ExpiryDate { get; set; }
 
-        public Guid? PurchaseOrderDetailID { get; set; }
+        public Guid? PurchaseOrderDetailId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

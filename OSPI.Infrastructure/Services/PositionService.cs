@@ -28,7 +28,7 @@ namespace OSPI.Infrastructure.Services
 
         public async Task DeleteAsync(PositionModel model)
         {
-            this._positionRepository.Delete(await _positionRepository.GetByIdAsync(model.PositionID));
+            this._positionRepository.Delete(await _positionRepository.GetByIdAsync(model.PositionId));
             await _positionRepository.SaveAsync();
         }
 

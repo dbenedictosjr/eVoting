@@ -9,11 +9,11 @@ namespace OSPI.Domain.Entities
     public class SupplierProductEntity : IAuditableEntity
     {
         [Key]
-        public Guid SupplierProductID { get; set; }
+        public Guid SupplierProductId { get; set; }
 
-        public Guid? SupplierID { get; set; }
+        public Guid? SupplierId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? Cost { get; set; }
 

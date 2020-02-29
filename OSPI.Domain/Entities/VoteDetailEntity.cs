@@ -9,11 +9,11 @@ namespace OSPI.Domain.Entities
     public class VoteDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid VoteDetailID { get; set; }
+        public Guid VoteDetailId { get; set; }
 
-        public Guid VoteID { get; set; }
+        public Guid VoteId { get; set; }
 
-        public Guid CandidateID { get; set; }
+        public Guid CandidateId { get; set; }
 
         public Guid CreatedBy { get; set; }
 
@@ -28,10 +28,10 @@ namespace OSPI.Domain.Entities
         [Timestamp()]
         public byte[] RowVersion { get; set; }
 
-        [ForeignKey("VoteID")]
+        [ForeignKey("VoteId")]
         public virtual VoteEntity Vote { get; set; }
 
-        [ForeignKey("CandidateID")]
+        [ForeignKey("CandidateId")]
         public virtual CandidateEntity Candidate { get; set; }
     }
 }

@@ -6,7 +6,7 @@ namespace OSPI.Infrastructure.Models
 {
    public class VoteModel
     {
-        public Guid VoteID { get; set; }
+        public Guid VoteId { get; set; }
 
         [Required]
         [Display(Name = "Date Voted")]
@@ -14,7 +14,7 @@ namespace OSPI.Infrastructure.Models
         public DateTime DateVoted { get; set; }
 
         [Required]
-        public Guid MemberID { get; set; }
+        public Guid MemberId { get; set; }
 
         public string FirstName { get; set; }
 
@@ -24,7 +24,7 @@ namespace OSPI.Infrastructure.Models
         public string FullName { get { return this.FirstName + ' ' + this.LastName; } }
 
         [Required]
-        public Guid ElectionID { get; set; }
+        public Guid ElectionId { get; set; }
 
         [Display(Name = "Election")]
         public string Description { get; set; }

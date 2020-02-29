@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class DiscountCardEntity : IAuditableEntity
     {
         [Key]
-        public Guid CardID { get; set; }
+        public Guid CardId { get; set; }
 
         [Column(TypeName = "varchar(20)")]
         public string CardNo { get; set; }

@@ -44,7 +44,7 @@ namespace OSPI.eVoting.Controllers
         {
             ElectionModel election = new ElectionModel
             {
-                ElectionID = Guid.NewGuid(),
+                ElectionId = Guid.NewGuid(),
                 RegStartDate = DateTime.Now,
                 RegEndDate = DateTime.Now,
                 VotingStartDate = DateTime.Now,

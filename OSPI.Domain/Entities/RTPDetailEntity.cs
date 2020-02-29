@@ -8,11 +8,11 @@ namespace OSPI.Domain.Entities
     public class RTPDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid RTPDetailID { get; set; }
+        public Guid RTPDetailId { get; set; }
 
-        public Guid? RTPID { get; set; }
+        public Guid? RTPId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? Quantity { get; set; }
 

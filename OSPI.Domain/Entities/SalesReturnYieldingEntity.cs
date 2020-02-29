@@ -8,13 +8,13 @@ namespace OSPI.Domain.Entities
     public class SalesReturnYieldingEntity : IAuditableEntity
     {
         [Key]
-        public Guid SalesReturnYieldingID { get; set; }
+        public Guid SalesReturnYieldingId { get; set; }
 
-        public Guid? SalesReturnID { get; set; }
+        public Guid? SalesReturnId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
-        public Guid? ItemID { get; set; }
+        public Guid? ItemId { get; set; }
 
         public double? Quantity { get; set; }
 

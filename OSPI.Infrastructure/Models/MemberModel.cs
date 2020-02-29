@@ -6,11 +6,11 @@ namespace OSPI.Infrastructure.Models
     public class MemberModel
     {
         [Required]
-        public Guid MemberID { get; set; }
+        public Guid MemberId { get; set; }
 
         [Required]
-        [Display(Name = "CID No")]
-        [StringLength(8, ErrorMessage = "Limit CID No to 8 characters.")]
+        [Display(Name = "CId No")]
+        [StringLength(8, ErrorMessage = "Limit CId No to 8 characters.")]
         public string MemberNo { get; set; }
 
         [Required]
@@ -85,7 +85,7 @@ namespace OSPI.Infrastructure.Models
         public string AccountNo { get; set; }
 
         [Required]
-        public Guid RoleID { get; set; }
+        public Guid RoleId { get; set; }
 
         [Display(Name = "Role")]
         public string RoleName { get; set; }

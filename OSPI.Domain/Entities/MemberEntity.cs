@@ -10,7 +10,7 @@ namespace OSPI.Domain.Entities
     public class MemberEntity : IAuditableEntity
     {
         [Key]
-        public Guid MemberID { get; set; }
+        public Guid MemberId { get; set; }
 
         [Column(TypeName = "CHAR(8)")]
         public string MemberNo { get; set; }
@@ -63,7 +63,7 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "CHAR(30)")]
         public string AccountNo { get; set; }
 
-        public Guid RoleID { get; set; }
+        public Guid RoleId { get; set; }
 
         public Guid CreatedBy { get; set; }
 
@@ -78,7 +78,7 @@ namespace OSPI.Domain.Entities
         [Timestamp()]
         public byte[] RowVersion { get; set; }
 
-        [ForeignKey("RoleID")]
+        [ForeignKey("RoleId")]
         public virtual RoleEntity Role { get; set; }
     }
 }

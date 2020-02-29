@@ -9,7 +9,7 @@ namespace OSPI.Domain.Entities
     public class SystemUserLevelEntity : IAuditableEntity
     {
         [Key]
-        public Guid LevelID { get; set; }
+        public Guid LevelId { get; set; }
 
         [Column(TypeName = "varchar(50)")]
         public string LevelName { get; set; }

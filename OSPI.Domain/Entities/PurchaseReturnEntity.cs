@@ -8,9 +8,9 @@ namespace OSPI.Domain.Entities
     public class PurchaseReturnEntity : IAuditableEntity
     {
         [Key]
-        public Guid PurchaseReturnID { get; set; }
+        public Guid PurchaseReturnId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
         [Column(TypeName = "varchar(20")]
         public string PurchaseReturnNo { get; set; }
@@ -18,12 +18,12 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "datetime")]
         public DateTime? TranDate { get; set; }
 
-        public Guid? SupplierID { get; set; }
+        public Guid? SupplierId { get; set; }
 
         [Column(TypeName = "varchar(500)")]
         public string Remarks { get; set; }
 
-        public Guid? StatusID { get; set; }
+        public Guid? StatusId { get; set; }
 
         public Guid CreatedBy { get; set; }
 

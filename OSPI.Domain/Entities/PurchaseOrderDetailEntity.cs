@@ -8,13 +8,13 @@ namespace OSPI.Domain.Entities
     public class PurchaseOrderDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid PurchaseOrderDetailID { get; set; }
+        public Guid PurchaseOrderDetailId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
-        public Guid? PurchaseOrderID { get; set; }
+        public Guid? PurchaseOrderId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? Quantity { get; set; }
 

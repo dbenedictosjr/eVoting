@@ -8,13 +8,13 @@ namespace OSPI.Domain.Entities
     public class BillingDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid BillingDetailID { get; set; }
+        public Guid BillingDetailId { get; set; }
 
-        public Guid? BillingID { get; set; }
+        public Guid? BillingId { get; set; }
 
-        public Guid? StoreID { get; set; }
+        public Guid? StoreId { get; set; }
 
-        public Guid? ProductID { get; set; }
+        public Guid? ProductId { get; set; }
 
         public double? Quantity { get; set; }
 
@@ -24,7 +24,7 @@ namespace OSPI.Domain.Entities
 
         public double? Discount { get; set; }
 
-        public Guid? DiscountID { get; set; }
+        public Guid? DiscountId { get; set; }
 
         public double? SCDue { get; set; }
 

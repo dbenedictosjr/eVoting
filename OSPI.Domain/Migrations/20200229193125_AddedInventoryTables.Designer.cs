@@ -10,8 +10,8 @@ using OSPI.Domain;
 namespace OSPI.Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200204215402_InitialDBEntities")]
-    partial class InitialDBEntities
+    [Migration("20200229193125_AddedInventoryTables")]
+    partial class AddedInventoryTables
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -360,6 +360,85 @@ namespace OSPI.Domain.Migrations
                     b.ToTable("Roles");
                 });
 
+            modelBuilder.Entity("OSPI.Domain.Entities.VoteDetailEntity", b =>
+                {
+                    b.Property<Guid>("VoteDetailId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CandidateId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("DATETIME");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.Property<Guid>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("DATETIME");
+
+                    b.Property<Guid>("VoteId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("VoteDetailId");
+
+                    b.HasIndex("CandidateId");
+
+                    b.HasIndex("VoteId");
+
+                    b.ToTable("VoteDetails");
+                });
+
+            modelBuilder.Entity("OSPI.Domain.Entities.VoteEntity", b =>
+                {
+                    b.Property<Guid>("VoteId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("DATETIME");
+
+                    b.Property<DateTime>("DateVoted")
+                        .HasColumnType("DATETIME");
+
+                    b.Property<Guid>("ElectionId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.Property<Guid>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("DATETIME");
+
+                    b.HasKey("VoteId");
+
+                    b.HasIndex("ElectionId");
+
+                    b.HasIndex("MemberId");
+
+                    b.ToTable("Votes");
+                });
+
             modelBuilder.Entity("OSPI.Domain.Entities.CandidateEntity", b =>
                 {
                     b.HasOne("OSPI.Domain.Entities.MemberEntity", "CandidateMember")
@@ -393,7 +472,7 @@ namespace OSPI.Domain.Migrations
             modelBuilder.Entity("OSPI.Domain.Entities.PositionEntity", b =>
                 {
                     b.HasOne("OSPI.Domain.Entities.ElectionEntity", "Election")
-                        .WithMany()
+                        .WithMany("Positions")
                         .HasForeignKey("ElectionId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -410,6 +489,36 @@ namespace OSPI.Domain.Migrations
                     b.HasOne("OSPI.Domain.Entities.RoleEntity", "Role")
                         .WithMany()
                         .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("OSPI.Domain.Entities.VoteDetailEntity", b =>
+                {
+                    b.HasOne("OSPI.Domain.Entities.CandidateEntity", "Candidate")
+                        .WithMany()
+                        .HasForeignKey("CandidateId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("OSPI.Domain.Entities.VoteEntity", "Vote")
+                        .WithMany()
+                        .HasForeignKey("VoteId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("OSPI.Domain.Entities.VoteEntity", b =>
+                {
+                    b.HasOne("OSPI.Domain.Entities.ElectionEntity", "Election")
+                        .WithMany()
+                        .HasForeignKey("ElectionId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("OSPI.Domain.Entities.MemberEntity", "Member")
+                        .WithMany()
+                        .HasForeignKey("MemberId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
                 });

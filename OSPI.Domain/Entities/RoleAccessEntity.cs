@@ -8,11 +8,11 @@ namespace OSPI.Domain.Entities
     public class RoleAccessEntity : IAuditableEntity
     {
         [Key]
-        public Guid RoleAccessID { get; set; }
+        public Guid RoleAccessId { get; set; }
 
-        public Guid RoleID { get; set; }
+        public Guid RoleId { get; set; }
 
-        public Guid ModuleID { get; set; }
+        public Guid ModuleId { get; set; }
 
         public bool CanAdd { get; set; }
 
@@ -37,10 +37,10 @@ namespace OSPI.Domain.Entities
         [Timestamp()]
         public byte[] RowVersion { get; set; }
 
-        [ForeignKey("ModuleID")]
+        [ForeignKey("ModuleId")]
         public virtual ModuleEntity Module { get; set; }
 
-        [ForeignKey("RoleID")]
+        [ForeignKey("RoleId")]
         public virtual RoleEntity Role { get; set; }
     }
 }

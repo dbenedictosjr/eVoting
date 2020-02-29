@@ -8,7 +8,7 @@ namespace OSPI.Domain.Entities
     public class StatusEntity : IAuditableEntity
     {
         [Key]
-        public Guid StatusID { get; set; }
+        public Guid StatusId { get; set; }
 
         [Column(TypeName = "varchar(25)")]
         public string StatusDescription { get; set; }
