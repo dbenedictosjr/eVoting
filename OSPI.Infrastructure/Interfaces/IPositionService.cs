@@ -10,6 +10,7 @@ namespace OSPI.Infrastructure.Interfaces
         Task CreateAsync(PositionModel position);
 
         Task<PositionModel> GetByIdAsync(Guid? id);
+        Task<IEnumerable<PositionModel>> GetByAllByElectionIdAsync(Guid? id);
         Task<IEnumerable<PositionModel>> GetAllAsync();
 
         Task UpdateAsync(PositionModel position);

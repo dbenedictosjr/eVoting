@@ -396,3 +396,4 @@ G:\2020\25-02-2020 New Project\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting
 G:\2020\25-02-2020 New Project\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.csproj.CopyComplete
 G:\2020\25-02-2020 New Project\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.dll
 G:\2020\25-02-2020 New Project\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Votes\Vote.cshtml.g.cs

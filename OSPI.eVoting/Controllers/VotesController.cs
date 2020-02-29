@@ -5,20 +5,31 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace OSPI.eVoting.Controllers
 {
     public class VotesController : Controller
     {
         private readonly IVoteService _voteService;
+        private readonly IPositionService _positionService;
         private readonly IMemberService _memberService;
         private readonly IElectionService _electionService;
+        private readonly IConfiguration _configuration;
 
-        public VotesController(IVoteService voteService, IMemberService memberService, IElectionService electionService)
+        public VotesController(IVoteService voteService, IPositionService positionService, IMemberService memberService, IElectionService electionService, IConfiguration configuration)
         {
             _voteService = voteService;
+            _positionService = positionService;
             _memberService = memberService;
             _electionService = electionService;
+            _configuration = configuration;
+        }
+
+        // GET: Votes
+        public async Task<IActionResult> Vote()
+        {
+            return View(await _positionService.GetByAllByElectionIdAsync(Guid.Parse(_configuration["ElectionID"])));
         }
 
         // GET: Votes
