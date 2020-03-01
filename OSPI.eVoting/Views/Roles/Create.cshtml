@@ -35,16 +35,9 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="row">
-                    <div class="col-sm-4"> <h4> Positions Detail List</h4></div>
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2">
-
-                        <button data-toggle="modal" data-target="#AddPositionModal" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Create New</button>
-
-                    </div>
+                    <div class="col-sm-4"> <h4>Claims</h4></div>
+                    <div class="col-sm-8"></div>
                 </div>
-
             </div>
             <div class="panel-body">
                 <div class="dataTable_wrapper table-responsive">
@@ -52,31 +45,49 @@
                         <thead>
                             <tr>
                                 <th>
-                                   @* @Html.DisplayNameFor(Modelitem => Model.Positions.First().PositionName)*@
+                                    @Html.DisplayNameFor(Modelitem => Model.RoleAccesses.First().ModuleName)
                                 </th>
                                 <th>
-                                   @* @Html.DisplayNameFor(Modelitem => Model.Positions.First().RequiredCandidates)*@
+                                    @Html.DisplayNameFor(Modelitem => Model.RoleAccesses.First().CanAdd)
                                 </th>
                                 <th>
-                                   @* @Html.DisplayNameFor(Modelitem => Model.Positions.First().Qualifications)*@
+                                    @Html.DisplayNameFor(Modelitem => Model.RoleAccesses.First().CanEdit)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(Modelitem => Model.RoleAccesses.First().CanView)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(Modelitem => Model.RoleAccesses.First().CanPrint)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(Modelitem => Model.RoleAccesses.First().CanDelete)
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            @*@foreach (var item in Model.Positions)
+                            @foreach (var item in Model.RoleAccesses)
                             {
-                                <tr class="odd gradeX">
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PositionName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.RequiredCandidates)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Qualifications)
-                                    </td>
-                                </tr>
-                            }*@
+                            <tr class="odd gradeX">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ModuleName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CanAdd)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CanEdit)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CanView)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CanPrint)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CanDelete)
+                                </td>
+                            </tr>
+                            }
                         </tbody>
                     </table>
                 </div>

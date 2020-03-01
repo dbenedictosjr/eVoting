@@ -32,11 +32,12 @@ namespace OSPI.Infrastructure.Services
             await _roleRepository.SaveAsync();
         }
 
-        public async Task<IEnumerable<RoleModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<RoleModel>>(await _roleRepository.GetAllAsync());
+        public async Task<IEnumerable<RoleModel>> GetAllAsync() => _mapper.Map<IEnumerable<RoleModel>>(await _roleRepository.GetAllAsync());
 
         public async Task<RoleModel> GetByIdAsync(Guid? id)
-            => _mapper.Map<RoleModel>(await _roleRepository.GetByIdAsync(id));
+        {
+            return _mapper.Map<RoleModel>(await _roleRepository.GetByIdAsync(id));
+        }
 
         public async Task UpdateAsync(RoleModel role)
         {

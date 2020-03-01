@@ -23,5 +23,13 @@ namespace OSPI.Domain.Repositories
             .Where(a => a.RoleId == id)
             .ToListAsync();
         }
+
+        public override async Task<IEnumerable<RoleAccessEntity>> GetAllAsync()
+        {
+            return await _context.Set<RoleAccessEntity>()
+            .Include(a => a.Role)
+            .Include(a => a.Module)
+            .ToListAsync();
+        }
     }
 }

@@ -19,7 +19,9 @@ namespace OSPI.Infrastructure.Mapper
                 .ForMember(d => d.RoleName, map => map.MapFrom(s => s.RoleName))
                 .ForMember(d => d.Description, map => map.MapFrom(s => s.Description))
                 .ForMember(d => d.RowVersion, map => map.MapFrom(s => s.RowVersion))
-                .ReverseMap();
+                .ForMember(d => d.RoleAccesses, map => map.MapFrom(s => s.RoleAccesses))
+                .ReverseMap()
+                .ForPath(s => s.RoleAccesses, map => map.Ignore());
 
             CreateMap<RoleAccessEntity, RoleAccessModel>()
                 .ForMember(d => d.RoleAccessId, map => map.MapFrom(s => s.RoleAccessId))

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,8 +11,13 @@ namespace OSPI.eVoting.Controllers
     public class RolesController : Controller
     {
         private readonly IRoleService _roleService;
+        private readonly IModuleService _moduleService;
 
-        public RolesController(IRoleService roleService) => _roleService = roleService;
+        public RolesController(IRoleService roleService, IModuleService moduleService)
+        {
+            _roleService = roleService;
+            _moduleService = moduleService;
+        }
 
         // GET: Roles
         public async Task<IActionResult> Index() => View(await _roleService.GetAllAsync());
@@ -34,9 +40,29 @@ namespace OSPI.eVoting.Controllers
         }
 
         // GET: Roles/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
-            return View();
+            RoleModel role = new RoleModel
+            {
+                RoleId = Guid.NewGuid(),
+                RoleAccesses = new List<RoleAccessModel>()
+            };
+
+            IEnumerable<ModuleModel> modules = await _moduleService.GetAllAsync();
+
+            foreach (ModuleModel module in modules)
+            {
+                role.RoleAccesses.Add(
+                    new RoleAccessModel
+                    {
+                        RoleId = role.RoleId,
+                        ModuleId = module.ModuleId,
+                        ModuleName = module.ModuleName
+                    }
+                    );
+            }
+
+            return View(role);
         }
 
         // POST: Roles/Create
