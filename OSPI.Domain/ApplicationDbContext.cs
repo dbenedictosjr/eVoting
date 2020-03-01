@@ -9,6 +9,9 @@ namespace OSPI.Domain
 {
     public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext(DbContextOptions options) : base(options)
+        { }
+
         public Guid CurrentUserId { get; set; }
 
         public DbSet<ModuleEntity> Modules { get; set; }
@@ -19,18 +22,16 @@ namespace OSPI.Domain
 
         public DbSet<MemberEntity> Members { get; set; }
 
-        public DbSet<ElectionEntity> Elections { get; set; }
+        public DbSet<BallotEntity> Ballots { get; set; }
 
         public DbSet<PositionEntity> Positions { get; set; }
 
         public DbSet<CandidateEntity> Candidates { get; set; }
 
-        public DbSet<VoteEntity> Votes { get; set; }
+        public DbSet<ElectionEntity> Elections { get; set; }
 
-        public DbSet<VoteDetailEntity> VoteDetails { get; set; }
+        public DbSet<ElectionDetailEntity> ElectionDetails { get; set; }
 
-        public ApplicationDbContext(DbContextOptions options) : base(options)
-        { }
         public async Task<int> SaveChangesAsync()
         {
             UpdateAuditEntities();

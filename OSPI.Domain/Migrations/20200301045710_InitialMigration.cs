@@ -3,15 +3,15 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace OSPI.Domain.Migrations
 {
-    public partial class InitialDBEntities : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Elections",
+                name: "Ballots",
                 columns: table => new
                 {
-                    ElectionId = table.Column<Guid>(nullable: false),
+                    BallotId = table.Column<Guid>(nullable: false),
                     RefCode = table.Column<string>(type: "VARCHAR(10)", nullable: true),
                     Description = table.Column<string>(type: "VARCHAR(30)", nullable: true),
                     RegStartDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
@@ -26,7 +26,7 @@ namespace OSPI.Domain.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Elections", x => x.ElectionId);
+                    table.PrimaryKey("PK_Ballots", x => x.BallotId);
                 });
 
             migrationBuilder.CreateTable(
@@ -70,9 +70,10 @@ namespace OSPI.Domain.Migrations
                 {
                     PositionId = table.Column<Guid>(nullable: false),
                     PositionName = table.Column<string>(type: "VARCHAR(30)", nullable: true),
-                    RequiredCandidates = table.Column<int>(type: "INT", nullable: false),
+                    MinimumRequiredVotes = table.Column<int>(type: "INT", nullable: false),
+                    MaximumRequiredVotes = table.Column<int>(type: "INT", nullable: false),
                     Qualifications = table.Column<string>(type: "VARCHAR(MAX)", nullable: true),
-                    ElectionId = table.Column<Guid>(nullable: false),
+                    BallotId = table.Column<Guid>(nullable: false),
                     CreatedBy = table.Column<Guid>(nullable: false),
                     CreatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
                     UpdatedBy = table.Column<Guid>(nullable: false),
@@ -83,10 +84,10 @@ namespace OSPI.Domain.Migrations
                 {
                     table.PrimaryKey("PK_Positions", x => x.PositionId);
                     table.ForeignKey(
-                        name: "FK_Positions_Elections_ElectionId",
-                        column: x => x.ElectionId,
-                        principalTable: "Elections",
-                        principalColumn: "ElectionId",
+                        name: "FK_Positions_Ballots_BallotId",
+                        column: x => x.BallotId,
+                        principalTable: "Ballots",
+                        principalColumn: "BallotId",
                         onDelete: ReferentialAction.NoAction);
                 });
 
@@ -204,6 +205,67 @@ namespace OSPI.Domain.Migrations
                         onDelete: ReferentialAction.NoAction);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Elections",
+                columns: table => new
+                {
+                    ElectionId = table.Column<Guid>(nullable: false),
+                    DateElectiond = table.Column<DateTime>(type: "DATETIME", nullable: false),
+                    MemberId = table.Column<Guid>(nullable: false),
+                    BallotId = table.Column<Guid>(nullable: false),
+                    CreatedBy = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
+                    UpdatedBy = table.Column<Guid>(nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
+                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Elections", x => x.ElectionId);
+                    table.ForeignKey(
+                        name: "FK_Elections_Ballots_BallotId",
+                        column: x => x.BallotId,
+                        principalTable: "Ballots",
+                        principalColumn: "BallotId",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_Elections_Members_MemberId",
+                        column: x => x.MemberId,
+                        principalTable: "Members",
+                        principalColumn: "MemberId",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ElectionDetails",
+                columns: table => new
+                {
+                    ElectionDetailId = table.Column<Guid>(nullable: false),
+                    ElectionId = table.Column<Guid>(nullable: false),
+                    CandidateId = table.Column<Guid>(nullable: false),
+                    CreatedBy = table.Column<Guid>(nullable: false),
+                    CreatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
+                    UpdatedBy = table.Column<Guid>(nullable: false),
+                    UpdatedDate = table.Column<DateTime>(type: "DATETIME", nullable: false),
+                    RowVersion = table.Column<byte[]>(rowVersion: true, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ElectionDetails", x => x.ElectionDetailId);
+                    table.ForeignKey(
+                        name: "FK_ElectionDetails_Candidates_CandidateId",
+                        column: x => x.CandidateId,
+                        principalTable: "Candidates",
+                        principalColumn: "CandidateId",
+                        onDelete: ReferentialAction.NoAction);
+                    table.ForeignKey(
+                        name: "FK_ElectionDetails_Elections_ElectionId",
+                        column: x => x.ElectionId,
+                        principalTable: "Elections",
+                        principalColumn: "ElectionId",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Candidates_CandidateMemberId",
                 table: "Candidates",
@@ -220,14 +282,34 @@ namespace OSPI.Domain.Migrations
                 column: "PositionId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ElectionDetails_CandidateId",
+                table: "ElectionDetails",
+                column: "CandidateId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ElectionDetails_ElectionId",
+                table: "ElectionDetails",
+                column: "ElectionId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Elections_BallotId",
+                table: "Elections",
+                column: "BallotId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Elections_MemberId",
+                table: "Elections",
+                column: "MemberId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Members_RoleId",
                 table: "Members",
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Positions_ElectionId",
+                name: "IX_Positions_BallotId",
                 table: "Positions",
-                column: "ElectionId");
+                column: "BallotId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoleAccesses_ModuleId",
@@ -243,25 +325,31 @@ namespace OSPI.Domain.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Candidates");
+                name: "ElectionDetails");
 
             migrationBuilder.DropTable(
                 name: "RoleAccesses");
 
             migrationBuilder.DropTable(
-                name: "Members");
+                name: "Candidates");
 
             migrationBuilder.DropTable(
-                name: "Positions");
+                name: "Elections");
 
             migrationBuilder.DropTable(
                 name: "Modules");
 
             migrationBuilder.DropTable(
-                name: "Roles");
+                name: "Positions");
 
             migrationBuilder.DropTable(
-                name: "Elections");
+                name: "Members");
+
+            migrationBuilder.DropTable(
+                name: "Ballots");
+
+            migrationBuilder.DropTable(
+                name: "Roles");
         }
     }
 }

@@ -10,11 +10,6 @@
     <None Include="Views\Candidates\Details.cshtml" />
     <None Include="Views\Candidates\Edit.cshtml" />
     <None Include="Views\Candidates\Index.cshtml" />
-    <None Include="Views\Positions\Create.cshtml" />
-    <None Include="Views\Positions\Delete.cshtml" />
-    <None Include="Views\Positions\Details.cshtml" />
-    <None Include="Views\Positions\Edit.cshtml" />
-    <None Include="Views\Positions\Index.cshtml" />
     <None Include="wwwroot\js\site.js" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.css.map" />
     <None Include="wwwroot\lib\bootstrap\dist\css\bootstrap-grid.min.css.map" />
