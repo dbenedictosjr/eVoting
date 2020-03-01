@@ -65,7 +65,7 @@
                             <!-- /input-group -->
                         </li>
                         @if (UserClaimsHelper.CanDoAnyActions(User, "Roles") ||
-                        UserClaimsHelper.CanDoAnyActions(User, "Members"))
+                    UserClaimsHelper.CanDoAnyActions(User, "Members"))
                         {
                             <li>
                                 <a href=""><i class="fa fa-dashboard fa-fw"></i>Tools <span class="fa arrow"></span></a>
@@ -86,20 +86,47 @@
                             </li>
                         }
                         <li>
-                            <a href=""><i class="fa fa-dashboard fa-fw"></i>eVoting <span class="fa arrow"></span></a>
+                            <a href=""><i class="fa fa-dashboard fa-fw"></i>Online Voting <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                @if (UserClaimsHelper.CanDoAnyActions(User, "Election Settings"))
+                                {
+                                    <li>
+                                        <a asp-controller="Settings" asp-action="index">Settings </a>
+                                    </li>
+                                }
+                                @if (UserClaimsHelper.CanDoAnyActions(User, "Ballots"))
+                                {
+                                    <li>
+                                        <a asp-controller="Ballots" asp-action="index">Ballot </a>
+                                    </li>
+                                }
+                                @if (UserClaimsHelper.CanDoAnyActions(User, "Voters"))
+                                {
+                                    <li>
+                                        <a asp-controller="Members" asp-action="index">Voters </a>
+                                    </li>
+                                }
+                                @if (UserClaimsHelper.CanDoAnyActions(User, "Nominations"))
+                                {
+                                    <li>
+                                        <a asp-controller="Candidates" asp-action="index">Nominations </a>
+                                    </li>
+                                }
+                                @if (UserClaimsHelper.CanDoAnyActions(User, "Candidates"))
+                                {
+                                    <li>
+                                        <a asp-controller="Candidates" asp-action="index">Candidates </a>
+                                    </li>
+                                }
                                 <li>
-                                    <a asp-controller="Elections" asp-action="index">eBallot </a>
+                                    <a asp-controller="Elections" asp-action="index">Election </a>
                                 </li>
-                                <li>
-                                    <a asp-controller="Candidates" asp-action="index">Nominations </a>
-                                </li>
-                                <li>
-                                    <a asp-controller="Candidates" asp-action="index">Candidates </a>
-                                </li>
-                                <li>
-                                    <a asp-controller="Votes" asp-action="index">Voting </a>
-                                </li>
+                                @if (UserClaimsHelper.CanDoAnyActions(User, "Election Results"))
+                                {
+                                    <li>
+                                        <a asp-controller="ElectionResults" asp-action="index">Election Results </a>
+                                    </li>
+                                }
                             </ul>
                         </li>
                         <li>

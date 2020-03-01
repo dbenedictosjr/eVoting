@@ -7,6 +7,6 @@ namespace OSPI.Domain.Interfaces
 {
     public interface IPositionRepository : IRepository<PositionEntity>
     {
-        Task<IEnumerable<PositionEntity>> GetAllByElectionIdAsync(Guid? id);
+        Task<IEnumerable<PositionEntity>> GetAllByBallotIdAsync(Guid? id);
     }
 }

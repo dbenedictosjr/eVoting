@@ -32,8 +32,8 @@ namespace OSPI.Infrastructure.Services
             await _positionRepository.SaveAsync();
         }
 
-        public async Task<IEnumerable<PositionModel>> GetByAllByElectionIdAsync(Guid? id)
-            => _mapper.Map<IEnumerable<PositionModel>>(await _positionRepository.GetAllByElectionIdAsync(id));
+        public async Task<IEnumerable<PositionModel>> GetByAllByBallotIdAsync(Guid? id)
+            => _mapper.Map<IEnumerable<PositionModel>>(await _positionRepository.GetAllByBallotIdAsync(id));
 
         public async Task<IEnumerable<PositionModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<PositionModel>>(await _positionRepository.GetAllAsync());

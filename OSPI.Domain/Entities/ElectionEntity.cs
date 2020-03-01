@@ -3,7 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Text;
 
 namespace OSPI.Domain.Entities
 {
@@ -12,23 +11,12 @@ namespace OSPI.Domain.Entities
         [Key]
         public Guid ElectionId { get; set; }
 
-        [Column(TypeName = "VARCHAR(10)")]
-        public string RefCode { get; set; }
-
-        [Column(TypeName = "VARCHAR(30)")]
-        public string Description { get; set; }
-
         [Column(TypeName = "DATETIME")]
-        public DateTime RegStartDate { get; set; }
+        public DateTime DateElectiond { get; set; }
+        
+        public Guid MemberId { get; set; }
 
-        [Column(TypeName = "DATETIME")]
-        public DateTime RegEndDate { get; set; }
-
-        [Column(TypeName = "DATETIME")]
-        public DateTime VotingStartDate { get; set; }
-
-        [Column(TypeName = "DATETIME")]
-        public DateTime VotingEndDate { get; set; }
+        public Guid BallotId { get; set; }
 
         public Guid CreatedBy { get; set; }
 
@@ -43,6 +31,10 @@ namespace OSPI.Domain.Entities
         [Timestamp()]
         public byte[] RowVersion { get; set; }
 
-        public virtual ICollection<PositionEntity> Positions { get; set; }
+        [ForeignKey("MemberId")]
+        public virtual MemberEntity Member { get; set; }
+
+        [ForeignKey("BallotId")]
+        public virtual BallotEntity Ballot { get; set; }
     }
 }

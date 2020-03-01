@@ -14,15 +14,19 @@ namespace OSPI.Infrastructure.Models
         public string PositionName { get; set; }
 
         [Required]
-        [Display(Name = "Slots")]
-        public int RequiredCandidates { get; set; }
+        [Display(Name = "Minumum Votes")]
+        public int MinimumRequiredVotes { get; set; }
+
+        [Required]
+        [Display(Name = "Maximum Votes")]
+        public int MaximumRequiredVotes { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
         public string Qualifications { get; set; }
 
         [Required]
-        public Guid ElectionId { get; set; }
+        public Guid BallotId { get; set; }
 
         [Display(Name = "Ref. No.")]
         public string RefCode { get; set; }
@@ -52,7 +56,9 @@ namespace OSPI.Infrastructure.Models
     {
         public string PositionName { get; set; }
 
-        public int RequiredCandidates { get; set; }
+        public int MinimumRequiredVotes { get; set; }
+
+        public int MaximumRequiredVotes { get; set; }
 
         public string Qualifications { get; set; }
     }

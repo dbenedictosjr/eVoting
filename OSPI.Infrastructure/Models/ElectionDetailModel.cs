@@ -3,12 +3,12 @@ using System.ComponentModel.DataAnnotations;
 
 namespace OSPI.Infrastructure.Models
 {
-   public class VoteDetailModel
+   public class ElectionDetailModel
     {
         [Required]
-        public Guid VoteDetailId { get; set; }
+        public Guid ElectionDetailId { get; set; }
 
-        public Guid VoteId { get; set; }
+        public Guid ElectionId { get; set; }
 
         [Display(Name = "Election")]
         public string Description { get; set; }

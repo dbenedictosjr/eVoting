@@ -61,9 +61,9 @@ namespace OSPI.eVoting
             services.AddScoped<IMemberRepository, MemberRepository>();
             services.AddScoped<IMemberService, MemberService>();
 
-            //Election
-            services.AddScoped<IElectionRepository, ElectionRepository>();
-            services.AddScoped<IElectionService, ElectionService>();
+            //Ballot
+            services.AddScoped<IBallotRepository, BallotRepository>();
+            services.AddScoped<IBallotService, BallotService>();
 
             //Position
             services.AddScoped<IPositionRepository, PositionRepository>();
@@ -73,13 +73,13 @@ namespace OSPI.eVoting
             services.AddScoped<ICandidateRepository, CandidateRepository>();
             services.AddScoped<ICandidateService, CandidateService>();
 
-            //Vote
-            services.AddScoped<IVoteRepository, VoteRepository>();
-            services.AddScoped<IVoteService, VoteService>();
+            //Election
+            services.AddScoped<IElectionRepository, ElectionRepository>();
+            services.AddScoped<IElectionService, ElectionService>();
 
-            //VoteDetail
-            services.AddScoped<IVoteDetailRepository, VoteDetailRepository>();
-            services.AddScoped<IVoteDetailService, VoteDetailService>();
+            //ElectionDetail
+            services.AddScoped<IElectionDetailRepository, ElectionDetailRepository>();
+            services.AddScoped<IElectionDetailService, ElectionDetailService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

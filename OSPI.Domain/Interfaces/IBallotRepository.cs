@@ -2,7 +2,7 @@
 
 namespace OSPI.Domain.Interfaces
 {
-    public interface IVoteDetailRepository : IRepository<VoteDetailEntity>
+    public interface IBallotRepository : IRepository<BallotEntity>
     {
     }
 }

@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using OSPI.Domain;
 using OSPI.Domain.Entities;
 using OSPI.Domain.Interfaces;
 using OSPI.Infrastructure.Interfaces;
@@ -7,57 +6,24 @@ using OSPI.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Transactions;
 
 namespace OSPI.Infrastructure.Services
 {
     public class ElectionService : IElectionService
     {
-        private readonly ApplicationDbContext _context; 
         private readonly IElectionRepository _electionRepository;
-        private readonly IPositionRepository _positionRepository;
         private readonly IMapper _mapper;
 
-        public ElectionService(ApplicationDbContext context, IElectionRepository electionRepository, IPositionRepository positionRepository, IMapper mapper)
+        public ElectionService(IElectionRepository electionRepository, IMapper mapper)
         {
-            _context = context;
             _electionRepository = electionRepository;
-            _positionRepository = positionRepository;
             _mapper = mapper;
         }
 
         public async Task CreateAsync(ElectionModel election)
         {
-            //using (var transaction = _context.Database.BeginTransaction())
-            using (var transaction = new TransactionScope())
-            {
-                try
-                {
-                    _electionRepository.Create(_mapper.Map<ElectionEntity>(election));
-                    _electionRepository.SaveAsync().ConfigureAwait(false);
-
-                    foreach (var item in election.JPositions)
-                    {
-                        PositionEntity positionEntity = new PositionEntity
-                        {
-                            PositionId = Guid.NewGuid(),
-                            PositionName = item.PositionName,
-                            RequiredCandidates = item.RequiredCandidates,
-                            Qualifications = item.Qualifications,
-                            ElectionId = election.ElectionId
-                        };
-
-                        _positionRepository.Create(positionEntity);
-                        _positionRepository.SaveAsync().ConfigureAwait(false);
-                    }
-                    //transaction.Commit();
-                    transaction.Complete();
-                }
-                catch (Exception)
-                {
-                    //transaction.Rollback();
-                }
-            }
+            _electionRepository.Create(_mapper.Map<ElectionEntity>(election));
+            await _electionRepository.SaveAsync();
         }
 
         public async Task DeleteAsync(ElectionModel election)
@@ -74,36 +40,8 @@ namespace OSPI.Infrastructure.Services
 
         public async Task UpdateAsync(ElectionModel election)
         {
-            using (var transaction = _context.Database.BeginTransaction())
-            //using (var transaction = new TransactionScope())
-            {
-                try
-                {
-                    _electionRepository.Update(_mapper.Map<ElectionEntity>(election));
-                    _electionRepository.SaveAsync();
-
-                    foreach (var item in election.JPositions)
-                    {
-                        PositionEntity positionEntity = new PositionEntity
-                        {
-                            PositionId = Guid.NewGuid(),
-                            PositionName = item.PositionName,
-                            RequiredCandidates = item.RequiredCandidates,
-                            Qualifications = item.Qualifications,
-                            ElectionId = election.ElectionId
-                        };
-
-                        _positionRepository.Create(positionEntity);
-                        _positionRepository.SaveAsync().ConfigureAwait(false);
-                    }
-                    transaction.Commit();
-                    //transaction.Complete();
-                }
-                catch (Exception)
-                {
-                    transaction.Rollback();
-                }
-            }
+            _electionRepository.Update(_mapper.Map<ElectionEntity>(election));
+            await _electionRepository.SaveAsync();
         }
     }
 }

@@ -1,241 +1,47 @@
-﻿@model OSPI.Infrastructure.Models.ElectionModel 
+﻿@model OSPI.Infrastructure.Models.ElectionModel
+
 @{
     ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
+     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
 
-<br />
+<h1>Create</h1>
 
+<h4>ElectionEntity</h4>
+<hr />
 <div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-sm-4"> <h4>Create eBallot</h4></div>
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2">
-                        <div class="row">
-
-                            <i class="fa fa-arrow-circle-left"></i>  <a asp-action="index">Back to  eBallots List</a>
-                        </div>
-                    </div>
-                </div>
-
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <select asp-for="BallotId" class="form-control"
+                        asp-items="ViewBag.Ballots">
+                    <option>Select Ballot</option>
+                </select>
+                <span asp-validation-for="BallotId" class="text-danger"></span>
             </div>
-            <div class="panel-body">
-                <form id="frmCashReceiptJournal">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <div class="form-group">
-
-                                <label asp-for="RefCode" class="control-label"></label>
-                                <input asp-for="RefCode" class="form-control" />
-                                <span asp-validation-for="RefCode" class="text-danger" id="spn_CashReceiptNo"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label asp-for="Description" class="control-label"></label>
-                                <input asp-for="Description" class="form-control" />
-                                <span asp-validation-for="Description" class="text-danger" id="spn_Payee"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <div class="form-group">
-                                <label asp-for="RegStartDate" class="control-label"></label>
-                                <input type="text" asp-for="RegStartDate" class="form-control datepicker" />
-                                <span asp-validation-for="RegStartDate" class="text-danger" id="spn_TransactionDate"></span>
-                            </div>
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label asp-for="RegEndDate" class="control-label"></label>
-                                <input type="text" asp-for="RegEndDate" class="form-control datepicker" />
-                                <span asp-validation-for="RegEndDate" class="text-danger" id="spn_Particular"></span>
-
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <div class="form-group">
-                                <label asp-for="VotingStartDate" class="control-label"></label>
-                                <input type="text" asp-for="VotingStartDate" class="form-control datepicker" />
-                                <span asp-validation-for="VotingStartDate" class="text-danger" id="spn_MainAmount"></span>
-
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label asp-for="VotingEndDate" class="control-label"></label>
-                                <input type="text" asp-for="VotingEndDate" class="form-control datepicker" />
-                                <span asp-validation-for="VotingEndDate" class="text-danger" id="spn_status"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <div class="form-group">
-
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <input type="button" id="btncreate" value="Save" class="btn btn-primary pull-right" />
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                    </div>
-                </form>
+            <div class="form-group">
+                <label asp-for="DateElectiond" class="control-label"></label>
+                <input asp-for="DateElectiond" class="form-control" />
+                <span asp-validation-for="DateElectiond" class="text-danger"></span>
             </div>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
+            <div class="form-group">
+                <label asp-for="FullName" class="control-label"></label>
+                <select asp-for="MemberId" class="form-control"
+                        asp-items="ViewBag.Members">
+                    <option>Select Member</option>
+                </select>
+                <span asp-validation-for="MemberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
     </div>
-    <!-- /.col-lg-12 -->
 </div>
 
-<br />
-
-<div class="row">
-    <div class="col-lg-12">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <div class="row">
-                    <div class="col-sm-4"> <h4> Positions Detail List</h4></div>
-                    <div class="col-sm-4"></div>
-                    <div class="col-sm-2"></div>
-                    <div class="col-sm-2">
-
-                        <button data-toggle="modal" data-target="#AddPositionModal" class="btn btn-primary pull-right"><i class="fa fa-plus"></i> Create New</button>
-
-                    </div>
-                </div>
-
-            </div>
-            <div class="panel-body">
-                <div class="dataTable_wrapper table-responsive">
-                    <table id="tbl_Positions" class="table table-striped table-bordered table-hover  display nowrap">
-                        <thead>
-                            <tr>
-                                <th>
-                                    @Html.DisplayNameFor(Modelitem => Model.Positions.First().PositionName)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(Modelitem => Model.Positions.First().RequiredCandidates)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(Modelitem => Model.Positions.First().Qualifications)
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.Positions)
-                            {
-                                <tr class="odd gradeX">
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.PositionName)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.RequiredCandidates)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.Qualifications)
-                                    </td>
-                                </tr>
-                            }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.panel -->
-    </div>
-    <!-- /.col-lg-12 -->
+<div>
+    <a asp-action="Index">Back to List</a>
 </div>
 
-<div class="modal fade" id="AddPositionModal" role="dialog">
-
-    <!-- Begin Modal Dialog-->
-    <div class="modal-dialog">
-
-        <!-- Begin Modal Content-->
-        <div class="modal-content">
-
-            <!-- Begin Modal Header-->
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4>Add New Position</h4>
-            </div>
-            <!-- End Modal Header-->
-            <!-- Begin Modal Body-->
-            <div class="modal-body">
-                <form role="form">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="PositionName">Position Name</label>
-                                <input type="text" class="form-control" id="txtPosition" placeholder="Position">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label for="RequiredCandidates">Required Candidates</label>
-                                <input class="form-control" id="txtCandidates" placeholder="Candidates" type="number">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="Qualifications">Qualifications</label>
-                                <input type="text" class="form-control" id="txtQualifications" placeholder="Qualifications">
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <!-- End Modal Body-->
-            <!-- Start Modal Footer-->
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cancel</button>
-                <button type="button" id="btnsave" class="btn btn-success pull-right">Save</button>
-            </div>
-            <!-- End Modal Footer-->
-
-        </div>
-        <!-- End Modal Content-->
-
-    </div>
-    <!-- End Modal Dialog-->
-
-</div>
-<script src="~/js/election.js"></script>

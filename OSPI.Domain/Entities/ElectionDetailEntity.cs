@@ -6,17 +6,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OSPI.Domain.Entities
 {
-    public class VoteEntity : IAuditableEntity
+    public class ElectionDetailEntity : IAuditableEntity
     {
         [Key]
-        public Guid VoteId { get; set; }
-
-        [Column(TypeName = "DATETIME")]
-        public DateTime DateVoted { get; set; }
-        
-        public Guid MemberId { get; set; }
+        public Guid ElectionDetailId { get; set; }
 
         public Guid ElectionId { get; set; }
+
+        public Guid CandidateId { get; set; }
 
         public Guid CreatedBy { get; set; }
 
@@ -31,10 +28,10 @@ namespace OSPI.Domain.Entities
         [Timestamp()]
         public byte[] RowVersion { get; set; }
 
-        [ForeignKey("MemberId")]
-        public virtual MemberEntity Member { get; set; }
-
         [ForeignKey("ElectionId")]
         public virtual ElectionEntity Election { get; set; }
+
+        [ForeignKey("CandidateId")]
+        public virtual CandidateEntity Candidate { get; set; }
     }
 }

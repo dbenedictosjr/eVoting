@@ -15,12 +15,15 @@ namespace OSPI.Domain.Entities
         public string PositionName { get; set; }
 
         [Column(TypeName = "INT")]
-        public int RequiredCandidates { get; set; }
+        public int MinimumRequiredVotes { get; set; }
+
+        [Column(TypeName = "INT")]
+        public int MaximumRequiredVotes { get; set; }
 
         [Column(TypeName = "VARCHAR(MAX)")]
         public string Qualifications { get; set; }
 
-        public Guid ElectionId { get; set; }
+        public Guid BallotId { get; set; }
 
         public Guid CreatedBy { get; set; }
 
@@ -35,7 +38,7 @@ namespace OSPI.Domain.Entities
         [Timestamp()]
         public byte[] RowVersion { get; set; }
 
-        [ForeignKey("ElectionId")]
-        public virtual ElectionEntity Election { get; set; }
+        [ForeignKey("BallotId")]
+        public virtual BallotEntity Ballot { get; set; }
     }
 }
