@@ -197,14 +197,6 @@ G:\2020\25-02-2020 New Project\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting
 G:\2020\25-02-2020 New Project\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.csproj.CopyComplete
 G:\2020\25-02-2020 New Project\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.dll
 G:\2020\25-02-2020 New Project\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.pdb
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.csprojAssemblyReference.cache
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\staticwebassets\OSPI.eVoting.StaticWebAssets.Manifest.cache
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\staticwebassets\OSPI.eVoting.StaticWebAssets.xml
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.MvcApplicationPartsAssemblyInfo.cache
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.RazorAssemblyInfo.cache
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.RazorAssemblyInfo.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.AssemblyInfoInputs.cache
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.AssemblyInfo.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
@@ -346,6 +338,14 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\bin\Debug\netcoreapp3.1\OSPI.Do
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\bin\Debug\netcoreapp3.1\OSPI.Infrastructure.dll
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\bin\Debug\netcoreapp3.1\OSPI.Infrastructure.pdb
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\bin\Debug\netcoreapp3.1\OSPI.Domain.pdb
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.csprojAssemblyReference.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\staticwebassets\OSPI.eVoting.StaticWebAssets.Manifest.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\staticwebassets\OSPI.eVoting.StaticWebAssets.xml
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.RazorAssemblyInfo.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.RazorAssemblyInfo.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.AssemblyInfoInputs.cache
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.AssemblyInfo.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.TagHelpers.input.cache
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.TagHelpers.output.cache
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.RazorCoreGenerate.cache
@@ -359,6 +359,12 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\V
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Details.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Edit.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Index.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Create.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Delete.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Details.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Edit.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Index.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Vote.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Members\Create.cshtml.g.cs
@@ -386,9 +392,3 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eV
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.csproj.CopyComplete
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.dll
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.pdb
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Create.cshtml.g.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Delete.cshtml.g.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Details.cshtml.g.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Edit.cshtml.g.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Index.cshtml.g.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Vote.cshtml.g.cs
