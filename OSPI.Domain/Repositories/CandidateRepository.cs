@@ -45,6 +45,7 @@ namespace OSPI.Domain.Repositories
             .Include(a => a.CandidateMember)
             .Include(a => a.NomineeMember)
             .Where(a => a.Status == status)
+            .OrderBy(a=>a.PositionId)
             .ToListAsync();
         }
     }
