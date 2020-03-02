@@ -46,6 +46,60 @@ $(function() {
             { "orderable": false, "targets": 0 }
         ]
     });
+
+    function format(d) {
+        // `d` is the original data object for the row
+        return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+            '<tr>' +
+            '<td>' + "<input type ='checkbox'>" + '</td>' +
+            '<td>' + "<img src='/images/MemberImage/01301302.jpg' style='width:70px'>" + '</td>' +
+            '<td>' + d[0].candidateFullName + '</td>' +
+            '</tr>' +
+            '</table>';
+    }
+    //Serer Side datatable
+    var tableDemo = $('#tbl_test').DataTable({
+        responsive: {
+            details: {
+                type: 'column',
+                target: 'tr'
+            }
+        },
+        columnDefs: [{
+            className: 'details-control',
+            orderable: false,
+            bSortable: false,
+            bSearchable: false,
+            targets: 0
+        }
+        ],
+        order: [1, 'asc']
+    });
+    $('#tbl_test tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = tableDemo.row(tr);
+
+        if (row.child.isShown()) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            $.get("/Elections/Test?PositionId=" + this.id, function (result) {
+
+                if (result && result !== 'undefined') {
+                    row.child(format(result)).show();
+                    tr.addClass('shown');
+                }
+                else {
+                    if ($('chk_' + id).is(":checked")) {
+                        $(this).removeAttr("checked");
+                    }
+                }
+            });
+            // 
+        }
+    });
     
 });
 $(function () {

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
 using Microsoft.Extensions.Configuration;
+using System.Collections.Generic;
 
 namespace OSPI.eVoting.Controllers
 {
@@ -16,14 +17,16 @@ namespace OSPI.eVoting.Controllers
         private readonly IMemberService _memberService;
         private readonly IBallotService _ballotService;
         private readonly IConfiguration _configuration;
+        private readonly ICandidateService _candidateService;
 
-        public ElectionsController(IElectionService electionService, IPositionService positionService, IMemberService memberService, IBallotService ballotService, IConfiguration configuration)
+        public ElectionsController(IElectionService electionService, IPositionService positionService, IMemberService memberService, IBallotService ballotService, IConfiguration configuration, ICandidateService candidateService)
         {
             _electionService = electionService;
             _positionService = positionService;
             _memberService = memberService;
             _ballotService = ballotService;
             _configuration = configuration;
+            _candidateService = candidateService;
         }
 
         // GET: Elections
@@ -33,7 +36,7 @@ namespace OSPI.eVoting.Controllers
         }
 
         // GET: Elections
-        public async Task<IActionResult> Index() => View(await _electionService.GetAllAsync());
+        public async Task<IActionResult> Index() => View(await _positionService.GetAllAsync());
 
         // GET: Elections/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -154,6 +157,12 @@ namespace OSPI.eVoting.Controllers
             var election = await _electionService.GetByIdAsync(id);
             await _electionService.DeleteAsync(election);
             return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> Test(string PositionId)
+        {
+            IEnumerable<CandidateModel> candidateModel = await _candidateService.GetAllAsync();
+            return Json(candidateModel);
         }
     }
 }

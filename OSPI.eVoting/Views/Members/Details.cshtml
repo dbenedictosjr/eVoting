@@ -2,120 +2,240 @@
 
 @{
     ViewData["Title"] = "Details";
-     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
+    Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-4"> <h4>  Member Details</h4></div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-2">
 
-<h1>Details</h1>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="row">
 
-<div>
-    <h4>MemberEntity</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MemberNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MemberNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RegistrationDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RegistrationDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirstName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirstName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MiddleName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MiddleName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LastName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LastName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HomeAddress)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HomeAddress)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EmailAddress)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EmailAddress)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PhoneNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PhoneNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MobileNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MobileNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BirthDate)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BirthDate)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Capital)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Capital)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MemberStatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MemberStatus)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CreditStatus)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CreditStatus)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DateHired)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DateHired)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Salary)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Salary)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AccountNo)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AccountNo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RoleName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RoleName)
-        </dd>
-    </dl>
+                            <i class="fa fa-arrow-circle-left"></i>  <a asp-action="index">Back to  Members List</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-body">
+
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.MemberNo):
+                            </b>
+                            @Html.DisplayFor(model => model.MemberNo)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.RegistrationDate):
+                            </b>
+                            @Html.DisplayFor(model => model.RegistrationDate)
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.FirstName):
+                            </b>
+                            @Html.DisplayFor(model => model.FirstName)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.MiddleName):
+                            </b>
+                            @Html.DisplayFor(model => model.MiddleName)
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.LastName):
+                            </b>
+                            @Html.DisplayFor(model => model.LastName)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.HomeAddress):
+                            </b>
+                            @Html.DisplayFor(model => model.HomeAddress)
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.EmailAddress):
+                            </b>
+                            @Html.DisplayFor(model => model.EmailAddress)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.PhoneNo):
+                            </b>
+                            @Html.DisplayFor(model => model.PhoneNo)
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.MobileNo):
+                            </b>
+                            @Html.DisplayFor(model => model.MobileNo)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.BirthDate):
+                            </b>
+                            @Html.DisplayFor(model => model.BirthDate)
+
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.Capital):
+                            </b>
+                            @Html.DisplayFor(model => model.Capital)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.MemberStatus):
+                            </b>
+                            @Html.DisplayFor(model => model.MemberStatus)
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.CreditStatus):
+                            </b>
+                            @Html.DisplayFor(model => model.CreditStatus)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.DateHired):
+                            </b>
+                            @Html.DisplayFor(model => model.DateHired)
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.Salary):
+                            </b>
+                            @Html.DisplayFor(model => model.Salary)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.AccountNo):
+                            </b>
+                            @Html.DisplayFor(model => model.AccountNo)
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.RoleName):
+                            </b>
+                            @Html.DisplayFor(model => model.RoleName)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-2">
+                                <a class="btn btn-danger pull-right" onclick="confirmDelete('@Url.Action("Delete", "Members", new { id = @Model.MemberId })')" href="javascript:void(0)"><i class="fa fa-trash" aria-hidden="true"></i>  Delete</a>
+                            </div>
+                            <div class="col-lg-2">
+                                <a asp-action="Edit" class="btn btn-primary pull-right" asp-route-id="@Model.MemberId"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.MemberId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+<script>
+    function confirmDelete(url) {
+        var res = confirm("Do you really want to delete this Member?");
+        if (res == true) {
+            window.location.href = url;
+        }
+    }
+</script>
+ 

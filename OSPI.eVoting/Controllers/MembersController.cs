@@ -8,6 +8,8 @@ using OSPI.Infrastructure.Models;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace OSPI.eVoting.Controllers
 {
@@ -61,12 +63,31 @@ namespace OSPI.eVoting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MemberId,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleId")] MemberModel member)
+        public async Task<IActionResult> Create([Bind("MemberId,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleId")] MemberModel member, IFormFile file)
         {
+            string fileName = string.Empty;
+            string fileExt = string.Empty;
+
             if (ModelState.IsValid)
             {
                 member.MemberId = Guid.NewGuid();
                 await _memberService.CreateAsync(member);
+                #region "File Upload"
+                if (file != null || file.Length > 0)
+                {
+                    fileExt = Path.GetExtension(file.FileName);
+                    fileName = member.MemberNo + "" + fileExt;
+
+
+                }
+                var path = Path.Combine(
+                 Directory.GetCurrentDirectory(), "wwwroot/images/MemberImage", fileName);
+
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                #endregion "End File Upload"
                 return RedirectToAction(nameof(Index));
             }
             ViewBag.MemberStatus = new[] { "Member", "Non Member" };
@@ -171,7 +192,7 @@ namespace OSPI.eVoting.Controllers
 
             var roleAccesses = (await _roleAccessService.GetAllByRoleIdAsync(member.RoleId));
 
-            if(roleAccesses == null)
+            if (roleAccesses == null)
             {
                 ModelState.AddModelError("", "Member not found");
                 model.Password = "";
