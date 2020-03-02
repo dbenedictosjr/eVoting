@@ -17,6 +17,8 @@ namespace OSPI.Infrastructure.Models
         [Required]
         public Guid CandidateMemberId { get; set; }
 
+        public string CandidateMemberNo { get; set; }
+
         public string CandidateFirstName { get; set; }
 
         public string CandidateLastName { get; set; }
