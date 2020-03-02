@@ -354,11 +354,13 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\V
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Ballots\Details.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Ballots\Edit.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Ballots\Index.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Candidates.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Create.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Delete.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Details.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Edit.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Index.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Nomination.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Create.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Delete.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Details.cshtml.g.cs
@@ -373,6 +375,7 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\V
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Members\Edit.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Members\Index.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Members\LogIn.cshtml.g.cs
+C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Members\Voters.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Create.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Delete.cshtml.g.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Roles\Details.cshtml.g.cs
@@ -392,6 +395,3 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eV
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.csproj.CopyComplete
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.dll
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.pdb
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Members\Voters.cshtml.g.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Nomination.cshtml.g.cs
-C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Candidates.cshtml.g.cs

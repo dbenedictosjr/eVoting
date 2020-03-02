@@ -11,7 +11,7 @@ namespace OSPI.Infrastructure.Models
         [Required]
         [Display(Name = "Date Electiond")]
         [DataType(DataType.Date)]
-        public DateTime DateElectiond { get; set; }
+        public DateTime DateVoted { get; set; }
 
         [Required]
         public Guid MemberId { get; set; }

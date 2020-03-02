@@ -16,4 +16,3 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Dom
 C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.AssemblyInfo.cs
 C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.dll
 C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.pdb
-C:\Projects\OSPI-Integrated-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.csprojAssemblyReference.cache

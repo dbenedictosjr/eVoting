@@ -121,7 +121,7 @@ namespace OSPI.Infrastructure.Mapper
 
             CreateMap<ElectionEntity, ElectionModel>()
                 .ForMember(d => d.ElectionId, map => map.MapFrom(s => s.ElectionId))
-                .ForMember(d => d.DateElectiond, map => map.MapFrom(s => s.DateElectiond))
+                .ForMember(d => d.DateVoted, map => map.MapFrom(s => s.DateVoted))
                 .ForMember(d => d.MemberId, map => map.MapFrom(s => s.MemberId))
                 .ForMember(d => d.FirstName, map => map.MapFrom(s => s.Member.FirstName))
                 .ForMember(d => d.LastName, map => map.MapFrom(s => s.Member.LastName))

@@ -12,7 +12,7 @@ namespace OSPI.Domain.Entities
         public Guid ElectionId { get; set; }
 
         [Column(TypeName = "DATETIME")]
-        public DateTime DateElectiond { get; set; }
+        public DateTime DateVoted { get; set; }
         
         public Guid MemberId { get; set; }
 
