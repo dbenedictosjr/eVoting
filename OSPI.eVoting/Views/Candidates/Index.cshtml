@@ -5,11 +5,8 @@
      Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
 
-<h1>Index</h1>
+<h1>List of candidates</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
@@ -31,22 +28,23 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PositionName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CandidateFullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.NomineeFullName)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.CandidateId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.CandidateId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.CandidateId">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PositionName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CandidateFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomineeFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.CandidateId">Edit</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

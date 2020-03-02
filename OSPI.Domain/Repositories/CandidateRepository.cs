@@ -10,7 +10,7 @@ namespace OSPI.Domain.Repositories
 {
     public class CandidateRepository : Repository<CandidateEntity>, ICandidateRepository
     {
-        public CandidateRepository(ApplicationDbContext context) 
+        public CandidateRepository(ApplicationDbContext context)
             : base(context)
         {
         }
@@ -36,6 +36,15 @@ namespace OSPI.Domain.Repositories
             .Include(a => a.CandidateMember)
             .Include(a => a.NomineeMember)
             .Where(a => a.NomineeMemberId == id)
+            .ToListAsync();
+        }
+        public async Task<IEnumerable<CandidateEntity>> GetAllCandidatesAsync(string status)
+        {
+            return await _context.Set<CandidateEntity>()
+            .Include(a => a.Position)
+            .Include(a => a.CandidateMember)
+            .Include(a => a.NomineeMember)
+            .Where(a => a.Status == status)
             .ToListAsync();
         }
     }

@@ -103,19 +103,19 @@
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Voters"))
                                 {
                                     <li>
-                                        <a asp-controller="Members" asp-action="index">Voters </a>
+                                        <a asp-controller="Members" asp-action="voters">Voters </a>
                                     </li>
                                 }
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Nominations"))
                                 {
                                     <li>
-                                        <a asp-controller="Candidates" asp-action="index">Nominations </a>
+                                        <a asp-controller="Candidates" asp-action="Nomination">Nominations </a>
                                     </li>
                                 }
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Candidates"))
                                 {
                                     <li>
-                                        <a asp-controller="Candidates" asp-action="index">Candidates </a>
+                                        <a asp-controller="Candidates" asp-action="Candidates">Candidates </a>
                                     </li>
                                 }
                                 <li>

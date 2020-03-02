@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OSPI.Domain;
 
 namespace OSPI.Domain.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200301175324_AddedIsVoted")]
+    partial class AddedIsVoted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -229,6 +231,9 @@ namespace OSPI.Domain.Migrations
                     b.Property<string>("HomeAddress")
                         .HasColumnType("VARCHAR(150)");
 
+                    b.Property<bool>("IsVoted")
+                        .HasColumnType("bit");
+
                     b.Property<string>("LastName")
                         .HasColumnType("CHAR(30)");
 
@@ -269,9 +274,6 @@ namespace OSPI.Domain.Migrations
 
                     b.Property<DateTime>("UpdatedDate")
                         .HasColumnType("DATETIME");
-
-                    b.Property<bool>("Voted")
-                        .HasColumnType("bit");
 
                     b.HasKey("MemberId");
 

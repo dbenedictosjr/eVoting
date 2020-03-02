@@ -27,6 +27,9 @@ namespace OSPI.eVoting.Controllers
         // GET: Members
         public async Task<IActionResult> Index() => View(await _memberService.GetAllAsync());
 
+        // GET: Members
+        public async Task<IActionResult> Voters() => View(await _memberService.GetAllVotersAsync());
+
         // GET: Members/Details/5
         public async Task<IActionResult> Details(Guid? id)
         {
@@ -108,12 +111,12 @@ namespace OSPI.eVoting.Controllers
                 try
                 {
                     await _memberService.UpdateAsync(member);
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
                     ViewBag.Message = "Record has been modified by someone else.";
                 }
-                return RedirectToAction(nameof(Index));
             }
             ViewBag.MemberStatus = new[] { "Member", "Non Member" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };

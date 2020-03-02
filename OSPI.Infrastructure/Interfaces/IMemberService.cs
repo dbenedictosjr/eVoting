@@ -12,6 +12,7 @@ namespace OSPI.Infrastructure.Interfaces
         Task<MemberModel> GetByIdAsync(Guid? id);
         Task<MemberModel> GetByCodeAsync(string code);
         Task<IEnumerable<MemberModel>> GetAllAsync();
+        Task<IEnumerable<MemberModel>> GetAllVotersAsync();
 
         Task UpdateAsync(MemberModel member);
 

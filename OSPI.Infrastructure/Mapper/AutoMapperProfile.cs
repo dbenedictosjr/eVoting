@@ -59,6 +59,7 @@ namespace OSPI.Infrastructure.Mapper
                 .ForMember(d => d.Salary, map => map.MapFrom(s => s.Salary))
                 .ForMember(d => d.AccountNo, map => map.MapFrom(s => s.AccountNo))
                 .ForMember(d => d.RoleId, map => map.MapFrom(s => s.RoleId))
+                .ForMember(d => d.Voted, map => map.MapFrom(s => s.Voted))
                 .ForMember(d => d.RoleName, map => map.MapFrom(s => s.Role.RoleName))
                 .ForMember(d => d.RowVersion, map => map.MapFrom(s => s.RowVersion))
                 .ReverseMap()

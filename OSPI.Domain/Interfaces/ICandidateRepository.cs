@@ -8,5 +8,6 @@ namespace OSPI.Domain.Interfaces
     public interface ICandidateRepository : IRepository<CandidateEntity>
     {
         Task<IEnumerable<CandidateEntity>> GetAllByNomineeIdAsync(Guid? id);
+        Task<IEnumerable<CandidateEntity>> GetAllCandidatesAsync(string status);
     }
 }

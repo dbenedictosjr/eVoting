@@ -65,6 +65,8 @@ namespace OSPI.Domain.Entities
 
         public Guid RoleId { get; set; }
 
+        public bool Voted { get; set; }
+
         public Guid CreatedBy { get; set; }
 
         [Column(TypeName = "DATETIME")]

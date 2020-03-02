@@ -2,45 +2,43 @@
 
 @{
     ViewData["Title"] = "Edit";
-     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
+    Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
 
-<h1>Edit</h1>
-
-<h4>CandidateEntity</h4>
+<h4>Nominated details</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.PositionName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.PositionName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.CandidateFullName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.CandidateFullName)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.NomineeFullName)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.NomineeFullName)
+            </dd>
+        </dl>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CandidateId" />
-            <div class="form-group">
-                <label asp-for="PositionName" class="control-label"></label>
-                <select asp-for="PositionId" class="form-control"
-                        asp-items="ViewBag.Positions">
-                    <option>Select Position</option>
-                </select>
-                <span asp-validation-for="PositionId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CandidateFullName" class="control-label"></label>
-                <select asp-for="CandidateMemberId" class="form-control"
-                        asp-items="ViewBag.Members">
-                    <option>Select Candidate</option>
-                </select>
-                <span asp-validation-for="CandidateMemberId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NomineeFullName" class="control-label"></label>
-                <select asp-for="NomineeMemberId" class="form-control"
-                        asp-items="ViewBag.Members">
-                    <option>Select Nominee</option>
-                </select>
-                <span asp-validation-for="NomineeMemberId" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="PositionId" />
+            <input type="hidden" asp-for="CandidateMemberId" />
+            <input type="hidden" asp-for="NomineeMemberId" />
+            <input type="hidden" asp-for="RowVersion" />
             <div class="form-group">
                 <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
+                @Html.DropDownListFor(model => model.Status, new SelectList(ViewBag.Status), "Select Status")
                 <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -50,9 +48,15 @@
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+<script>
+    function confirmQualified(url) {
+        var res = confirm("Qualified this Candidate?");
+        alert(url);
+        if (res == true) {
+            window.location.href = url;
+        }
+    }
+</script>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

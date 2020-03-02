@@ -39,6 +39,8 @@ namespace OSPI.Infrastructure.Services
             => _mapper.Map<MemberModel>(await _memberRepository.GetByCodeAsync(code));
         public async Task<IEnumerable<MemberModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<MemberModel>>(await _memberRepository.GetAllAsync());
+        public async Task<IEnumerable<MemberModel>> GetAllVotersAsync()
+            => _mapper.Map<IEnumerable<MemberModel>>(await _memberRepository.GetAllVotersAsync());
 
         public async Task UpdateAsync(MemberModel model)
         {

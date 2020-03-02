@@ -14,29 +14,28 @@ namespace OSPI.Infrastructure.Services
     public class BallotService : IBallotService
     {
         private readonly ApplicationDbContext _context; 
-        private readonly IBallotRepository _electionRepository;
+        private readonly IBallotRepository _ballotRepository;
         private readonly IPositionRepository _positionRepository;
         private readonly IMapper _mapper;
 
-        public BallotService(ApplicationDbContext context, IBallotRepository electionRepository, IPositionRepository positionRepository, IMapper mapper)
+        public BallotService(ApplicationDbContext context, IBallotRepository ballotRepository, IPositionRepository positionRepository, IMapper mapper)
         {
             _context = context;
-            _electionRepository = electionRepository;
+            _ballotRepository = ballotRepository;
             _positionRepository = positionRepository;
             _mapper = mapper;
         }
 
-        public async Task CreateAsync(BallotModel election)
+        public async Task CreateAsync(BallotModel ballot)
         {
-            //using (var transaction = _context.Database.BeginTransaction())
-            using (var transaction = new TransactionScope())
+            using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {
-                    _electionRepository.Create(_mapper.Map<BallotEntity>(election));
-                    _electionRepository.SaveAsync().ConfigureAwait(false);
+                    _ballotRepository.Create(_mapper.Map<BallotEntity>(ballot));
+                    _ballotRepository.SaveAsync();
 
-                    foreach (var item in election.JPositions)
+                    foreach (var item in ballot.JPositions)
                     {
                         PositionEntity positionEntity = new PositionEntity
                         {
@@ -45,45 +44,43 @@ namespace OSPI.Infrastructure.Services
                             MinimumRequiredVotes = item.MinimumRequiredVotes,
                             MaximumRequiredVotes = item.MaximumRequiredVotes,
                             Qualifications = item.Qualifications,
-                            BallotId = election.BallotId
+                            BallotId = ballot.BallotId
                         };
 
                         _positionRepository.Create(positionEntity);
-                        _positionRepository.SaveAsync().ConfigureAwait(false);
+                        _positionRepository.SaveAsync();
                     }
-                    //transaction.Commit();
-                    transaction.Complete();
+                    transaction.Commit();
                 }
                 catch (Exception)
                 {
-                    //transaction.Rollback();
+                    transaction.Rollback();
                 }
             }
         }
 
-        public async Task DeleteAsync(BallotModel election)
+        public async Task DeleteAsync(BallotModel ballot)
         {
-            this._electionRepository.Delete(await _electionRepository.GetByIdAsync(election.BallotId));
-            await _electionRepository.SaveAsync();
+            this._ballotRepository.Delete(await _ballotRepository.GetByIdAsync(ballot.BallotId));
+            await _ballotRepository.SaveAsync();
         }
 
         public async Task<IEnumerable<BallotModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<BallotModel>>(await _electionRepository.GetAllAsync());
+            => _mapper.Map<IEnumerable<BallotModel>>(await _ballotRepository.GetAllAsync());
 
         public async Task<BallotModel> GetByIdAsync(Guid? id)
-            => _mapper.Map<BallotModel>(await _electionRepository.GetByIdAsync(id));
+            => _mapper.Map<BallotModel>(await _ballotRepository.GetByIdAsync(id));
 
-        public async Task UpdateAsync(BallotModel election)
+        public async Task UpdateAsync(BallotModel ballot)
         {
             using (var transaction = _context.Database.BeginTransaction())
-            //using (var transaction = new TransactionScope())
             {
                 try
                 {
-                    _electionRepository.Update(_mapper.Map<BallotEntity>(election));
-                    _electionRepository.SaveAsync();
+                    _ballotRepository.Update(_mapper.Map<BallotEntity>(ballot));
+                    _ballotRepository.SaveAsync();
 
-                    foreach (var item in election.JPositions)
+                    foreach (var item in ballot.JPositions)
                     {
                         PositionEntity positionEntity = new PositionEntity
                         {
@@ -92,14 +89,13 @@ namespace OSPI.Infrastructure.Services
                             MinimumRequiredVotes = item.MinimumRequiredVotes,
                             MaximumRequiredVotes = item.MaximumRequiredVotes,
                             Qualifications = item.Qualifications,
-                            BallotId = election.BallotId
+                            BallotId = ballot.BallotId
                         };
 
                         _positionRepository.Create(positionEntity);
-                        _positionRepository.SaveAsync().ConfigureAwait(false);
+                        _positionRepository.SaveAsync();
                     }
                     transaction.Commit();
-                    //transaction.Complete();
                 }
                 catch (Exception)
                 {

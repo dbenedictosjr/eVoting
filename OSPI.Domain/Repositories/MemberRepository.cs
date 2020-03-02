@@ -3,6 +3,7 @@ using OSPI.Domain.Entities;
 using OSPI.Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OSPI.Domain.Repositories
@@ -18,6 +19,14 @@ namespace OSPI.Domain.Repositories
         {
             return await _context.Set<MemberEntity>()
             .Include(a => a.Role)
+            .ToListAsync();
+        }
+
+        public async Task<IEnumerable<MemberEntity>> GetAllVotersAsync()
+        {
+            return await _context.Set<MemberEntity>()
+            .Include(a => a.Role)
+            .Where(a => a.MemberStatus == "Member")
             .ToListAsync();
         }
 

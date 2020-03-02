@@ -1,24 +1,34 @@
 ﻿$(function () {
     $("#txtMinimumVotes").change(function () {
-        var _val = $(this).val();
-        if (!(/^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/.test(_val))) {
+        var _min = $(this).val();
+        var _max = $("#txtMaximumVotes").val();
+        if (!(/^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/.test(_min))) {
             $("#spn_minimumvotes").html('Invalid value(Please enter only Numeric and Decimal value)');
             return false;
         }
-        if (_val != "" && _val != 0) {
+        if (_max > 0 && _min > _max) {
+            $("#spn_minimumvotes").html('Minimum votes should be less than maximum votes');
+            return false;
+        }
+        if ((_min != "" && _min != 0) && (_min <= _max)) {
             $("#spn_minimumvotes").html(" ");
+            $("#spn_maximumvotes").html(" ");
         }
     })
 
-
-
     $("#txtMaximumVotes").change(function () {
-        var _val = $(this).val();
-        if (!(/^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/.test(_val))) {
+        var _max = $(this).val();
+        var _min = $("#txtMinimumVotes").val();
+        if (!(/^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/.test(_max))) {
             $("#spn_maximumvotes").html('Invalid value(Please enter only Numeric and Decimal value)');
             return false;
         }
-        if (_val != "" && _val != 0) {
+        if (_max > 0 && _min > _max) {
+            $("#spn_maximumvotes").html('Maximum votes should greater than minimum votes');
+            return false;
+        }
+        if ((_max != "" && _max != 0) && (_min <= _max)) {
+            $("#spn_minimumvotes").html(" ");
             $("#spn_maximumvotes").html(" ");
         }
     })
@@ -42,21 +52,21 @@
         var qualifications = $("#txtQualifications").val();
 
         //Validation for minimum required votes
-        if (!(/^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/.test(candidates))) {
+        if (!(/^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/.test(minimumvotes))) {
             $("#spn_minimumvotes").html('Invalid value(Please enter only Numeric value)');
             return false;
         }
-        if (candidates == "" || candidates == 0) {
+        if (minimumvotes == "" || minimumvotes == 0) {
             $("#spn_minimumvotes").html("Minimum votes is required.")
             return false;
         }
 
         //Validation for maximum votes
-        if (!(/^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/.test(candidates))) {
+        if (!(/^\s*(?=.*[1-9])\d*(?:\.\d{1,2})?\s*$/.test(maximumvotes))) {
             $("#spn_maximumvotes").html('Invalid value(Please enter only Numeric value)');
             return false;
         }
-        if (candidates == "" || candidates == 0) {
+        if (maximumvotes == "" || maximumvotes == 0) {
             $("#spn_maximumvotes").html("Maximum votes is required.")
             return false;
         }
@@ -68,7 +78,7 @@
             'Qualifications': qualifications
         });
 
-        _data.row.add([positionname, candidates, qualifications, '<a onclick="Delete(this)" data-id="new"> <i class="fa fa-trash" aria-hidden="true"></i></a>'])
+        _data.row.add([positionname, minimumvotes, maximumvotes, qualifications, '<a onclick="Delete(this)" data-id="new"> <i class="fa fa-trash" aria-hidden="true"></i></a>'])
             .draw()
             .node();
         $("#AddPositionModal").modal("hide");
@@ -85,7 +95,7 @@
         var regenddate = $("#RegEndDate").datepicker("getDate");
         var votingstartdate = $("#VotingStartDate").datepicker("getDate");
         var votingenddate = $("#VotingEndDate").datepicker("getDate");
-        var election = {
+        var ballot = {
             'RefCode': refcode,
             'Description': description,
             'RegStartDate': regstartdate,
@@ -99,12 +109,12 @@
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            url: '/Elections/Create',
-            data: JSON.stringify(election),
+            url: '/Ballots/Create',
+            data: JSON.stringify(ballot),
 
             success: function (data) {
                 alert("Record has been inserted successfully.");
-                location.href = "/Elections/Index";
+                location.href = "/Ballots/Index";
             },
             error: function (data) {
                 alert(data.responseText);
@@ -123,10 +133,10 @@
         var regenddate = $("#RegEndDate").datepicker("getDate");
         var votingstartdate = $("#VotingStartDate").datepicker("getDate");
         var votingenddate = $("#VotingEndDate").datepicker("getDate");
-        var electionid = $("#ElectionId").val();
+        var ballotid = $("#BallotId").val();
         var rowversion = $("#RowVersion").val();
-        var election = {
-            'ElectionId': electionid,
+        var ballot = {
+            'BallotId': ballotid,
             'RefCode': refcode,
             'Description': description,
             'RegStartDate': regstartdate,
@@ -141,12 +151,12 @@
             type: 'POST',
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
-            url: '/Elections/Edit',
-            data: JSON.stringify(election),
+            url: '/Ballots/Edit',
+            data: JSON.stringify(ballot),
 
             success: function (data) {
                 alert("Record has been edited successfully.");
-                location.href = "/Elections/Index";
+                location.href = "/Ballots/Index";
             },
             error: function (data) {
                 alert(data.responseText);
@@ -169,7 +179,7 @@ function Delete(e) {
                 type: 'GET',
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
-                url: '/Elections/Delete',
+                url: '/Ballots/Delete',
                 data: { 'id': id },
 
                 success: function (data) {

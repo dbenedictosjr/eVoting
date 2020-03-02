@@ -19,7 +19,7 @@ namespace OSPI.Infrastructure.Models
         public DateTime RegistrationDate { get; set; }
 
         [Required]
-        [Display(Name = "Firs tName")]
+        [Display(Name = "First Name")]
         [StringLength(30, ErrorMessage = "Limit First Name to 30 characters.")]
         public string FirstName { get; set; }
 
@@ -32,6 +32,7 @@ namespace OSPI.Infrastructure.Models
         [StringLength(30, ErrorMessage = "Limit Last Name to 30 characters.")]
         public string LastName { get; set; }
 
+        [Display(Name = "Full Name")]
         public string MemberFullName { get { return this.FirstName + ' ' + this.LastName; } }
 
         [Required]
@@ -86,6 +87,12 @@ namespace OSPI.Infrastructure.Models
 
         [Required]
         public Guid RoleId { get; set; }
+
+        public bool Voted { get; set; }
+
+        [Display(Name = "Is Voted")]
+        public string IsVoted { get { return this.Voted ? "Yes" : "No"; } }
+
 
         [Display(Name = "Role")]
         public string RoleName { get; set; }
