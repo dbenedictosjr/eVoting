@@ -9,5 +9,6 @@ namespace OSPI.Domain.Interfaces
     {
         Task<IEnumerable<CandidateEntity>> GetAllByNomineeIdAsync(Guid? id);
         Task<IEnumerable<CandidateEntity>> GetAllCandidatesAsync(string status);
+        Task<IEnumerable<CandidateEntity>> GetAllByPositionIdAsync(Guid? id, string status);
     }
 }

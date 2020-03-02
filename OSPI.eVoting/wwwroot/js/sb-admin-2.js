@@ -1,5 +1,5 @@
 $(function() {
-
+    
     $('#side-menu').metisMenu(); 
 
     $('#tbl_eBallots').dataTable({
@@ -47,13 +47,13 @@ $(function() {
         ]
     });
 
-    function format(d) {
+    function format(d) { 
         // `d` is the original data object for the row
         return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
             '<tr>' +
-            '<td>' + "<input type ='checkbox'>" + '</td>' +
+            '<td>' + "<input type ='checkbox' class='checkcount'>" + '</td>' +
             '<td>' + "<img src='/images/MemberImage/01301302.jpg' style='width:70px'>" + '</td>' +
-            '<td>' + d[0].candidateFullName + '</td>' +
+            '<td>' + d.candidateFullName + '</td>' +
             '</tr>' +
             '</table>';
     }
@@ -75,6 +75,8 @@ $(function() {
         ],
         order: [1, 'asc']
     });
+
+   
     $('#tbl_test tbody').on('click', 'td.details-control', function () {
         var tr = $(this).closest('tr');
         var row = tableDemo.row(tr);
@@ -86,15 +88,23 @@ $(function() {
         }
         else {
             $.get("/Elections/Test?PositionId=" + this.id, function (result) {
+                if (result.length > 0) {
+                    if (result && result !== 'undefined') {
+                        $.each(result, function (k, v) {
+                            row.child(format(v)).show();
+                            tr.addClass('shown');
+                        });
 
-                if (result && result !== 'undefined') {
-                    row.child(format(result)).show();
-                    tr.addClass('shown');
-                }
-                else {
-                    if ($('chk_' + id).is(":checked")) {
-                        $(this).removeAttr("checked");
                     }
+                    else {
+                        if ($('chk_' + id).is(":checked")) {
+                            $(this).removeAttr("checked");
+                        }
+                    }
+                }
+                else
+                {
+                    alert("No data found");
                 }
             });
             // 

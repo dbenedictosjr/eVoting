@@ -7,6 +7,7 @@ using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
+using System.IO;
 
 namespace OSPI.eVoting.Controllers
 {
@@ -161,7 +162,7 @@ namespace OSPI.eVoting.Controllers
 
         public async Task<IActionResult> Test(string PositionId)
         {
-            IEnumerable<CandidateModel> candidateModel = await _candidateService.GetAllAsync();
+             IEnumerable<CandidateModel> candidateModel = await _candidateService.GetAllByPositionIdAsync(Guid.Parse(PositionId), "Qualified"); 
             return Json(candidateModel);
         }
     }

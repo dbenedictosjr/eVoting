@@ -45,7 +45,19 @@ namespace OSPI.Domain.Repositories
             .Include(a => a.CandidateMember)
             .Include(a => a.NomineeMember)
             .Where(a => a.Status == status)
-            .OrderBy(a=>a.PositionId)
+            .OrderBy(a => a.PositionId)
+            .ToListAsync();
+        }
+
+        public async Task<IEnumerable<CandidateEntity>> GetAllByPositionIdAsync(Guid? id, string status)
+        {
+            return await _context.Set<CandidateEntity>()
+            .Include(a => a.Position)
+            .Include(a => a.CandidateMember)
+            .Include(a => a.NomineeMember)
+            .Where(a => a.Status == status)
+            .Where(a => a.PositionId == id)
+            .OrderBy(a => a.PositionId)
             .ToListAsync();
         }
     }

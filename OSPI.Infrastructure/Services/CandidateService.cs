@@ -38,6 +38,8 @@ namespace OSPI.Infrastructure.Services
             => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByNomineeIdAsync(id));
         public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(string status)
             => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllCandidatesAsync(status));
+        public async Task<IEnumerable<CandidateModel>> GetAllByPositionIdAsync(Guid? id, string status)
+            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByPositionIdAsync(id, status));
         public async Task<IEnumerable<CandidateModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllAsync());
 
