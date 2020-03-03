@@ -162,8 +162,31 @@ namespace OSPI.eVoting.Controllers
 
         public async Task<IActionResult> Test(string PositionId)
         {
-             IEnumerable<CandidateModel> candidateModel = await _candidateService.GetAllByPositionIdAsync(Guid.Parse(PositionId), "Qualified"); 
-            return Json(candidateModel);
+            List<CandidateModel> List = new List<CandidateModel>();
+            var rootpath = _configuration["RootMemberImagePath"];
+            IEnumerable<CandidateModel> candidateModel = await _candidateService.GetAllByPositionIdAsync(Guid.Parse(PositionId), "Qualified");
+            foreach (var item in candidateModel)
+            {
+                CandidateModel model = new CandidateModel();
+                model.CandidateFirstName = item.CandidateFullName;
+                string PNGfilePath = rootpath + "/" + item.CandidateMemberNo + "" + ".png";
+                string JpgfilePath = rootpath + "/" + item.CandidateMemberNo + "" + ".jpg";
+                if (System.IO.File.Exists(PNGfilePath))
+                {
+
+                    model.CandidateMemberNo = _configuration["MemberImagePath"] + "/" + item.CandidateMemberNo + "" + ".png";
+                }
+                else if (System.IO.File.Exists(JpgfilePath))
+                {
+                    model.CandidateMemberNo = _configuration["MemberImagePath"] + "/" + item.CandidateMemberNo + "" + ".jpg";
+                }
+                else
+                {
+                    model.CandidateMemberNo = _configuration["MemberImagePath"] + "/" + "default.png";
+                }
+                List.Add(model);
+            }
+            return Json(List);
         }
     }
 }

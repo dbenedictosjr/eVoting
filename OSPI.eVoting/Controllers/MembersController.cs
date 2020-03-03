@@ -80,9 +80,13 @@ namespace OSPI.eVoting.Controllers
 
 
                 }
+                var rootpath = "wwwroot/images/MemberImage";
                 var path = Path.Combine(
-                 Directory.GetCurrentDirectory(), "wwwroot/images/MemberImage", fileName);
-
+                 Directory.GetCurrentDirectory(), rootpath, fileName);
+                if (!(Directory.Exists(rootpath)))
+                {
+                    Directory.CreateDirectory(rootpath);
+                }
                 using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);

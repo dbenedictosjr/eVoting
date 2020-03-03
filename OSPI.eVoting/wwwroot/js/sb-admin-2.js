@@ -46,15 +46,21 @@ $(function() {
             { "orderable": false, "targets": 0 }
         ]
     });
+ 
+    function format(d) {
+       
+        var tableTR = '';
+        $.each(d, function (i, v) {
 
-    function format(d) { 
-        // `d` is the original data object for the row
+            tableTR += '<tr>' +
+                '<td>' + "<input type ='checkbox' class='checkcount'>" + '</td>' +
+                '<td>' + "<img src='" + v.candidateMemberNo + "' style='width:70px'>" + '</td>' +
+                '<td>' +v.candidateFirstName + '</td>' +
+                '</tr>'
+
+        });
         return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
-            '<tr>' +
-            '<td>' + "<input type ='checkbox' class='checkcount'>" + '</td>' +
-            '<td>' + "<img src='/images/MemberImage/01301302.jpg' style='width:70px'>" + '</td>' +
-            '<td>' + d.candidateFullName + '</td>' +
-            '</tr>' +
+            (tableTR === '' ? "<tr><td>NA</td></tr>" : tableTR) +
             '</table>';
     }
     //Serer Side datatable
@@ -90,10 +96,10 @@ $(function() {
             $.get("/Elections/Test?PositionId=" + this.id, function (result) {
                 if (result.length > 0) {
                     if (result && result !== 'undefined') {
-                        $.each(result, function (k, v) {
-                            row.child(format(v)).show();
+                        
+                        row.child(format(result)).show();
                             tr.addClass('shown');
-                        });
+                        
 
                     }
                     else {
