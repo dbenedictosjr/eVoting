@@ -16,7 +16,7 @@
                     <div class="col-sm-4"></div>
                     <div class="col-sm-2"></div>
                     <div class="col-sm-2">
-                        <div class="row"> 
+                        <div class="row">
                             <i class="fa fa-arrow-circle-left"></i>  <a asp-action="index">Back to  Member List</a>
                         </div>
                     </div>
@@ -26,6 +26,7 @@
             <div class="panel-body">
                 <form asp-action="Create" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
                     <div class="row">
                         <div class="col-lg-6">
 
@@ -38,11 +39,12 @@
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                         <div class="col-lg-6">
+
                             <div class="form-group">
                                 <label>File input</label>
                                 <input type="file" name="file" class="form-control">
                             </div>
-                           
+
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                     </div>
@@ -55,7 +57,9 @@
                                 <input type="text" asp-for="FirstName" class="form-control " />
                                 <span asp-validation-for="FirstName" class="text-danger"></span>
                             </div>
+
                         </div>
+
                         <!-- /.col-lg-6 (nested) -->
                         <div class="col-lg-6">
                             <div class="form-group">
@@ -68,8 +72,6 @@
                         <!-- /.col-lg-6 (nested) -->
                     </div>
 
-
-
                     <div class="row">
                         <div class="col-lg-6">
 
@@ -80,8 +82,23 @@
                             </div>
 
                         </div>
+
                         <!-- /.col-lg-6 (nested) -->
                         <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="BirthDate" class="control-label"></label>
+                                <input asp-for="BirthDate" class="form-control " />
+                                <span asp-validation-for="BirthDate" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
                             <div class="form-group">
                                 <label asp-for="HomeAddress" class="control-label"></label>
                                 <input type="text" asp-for="HomeAddress" class="form-control" />
@@ -89,9 +106,8 @@
                             </div>
 
                         </div>
+
                         <!-- /.col-lg-6 (nested) -->
-                    </div>
-                    <div class="row">
                         <div class="col-lg-6">
 
                             <div class="form-group">
@@ -102,7 +118,12 @@
 
                         </div>
                         <!-- /.col-lg-6 (nested) -->
+
+                    </div>
+
+                    <div class="row">
                         <div class="col-lg-6">
+
                             <div class="form-group">
                                 <label asp-for="PhoneNo" class="control-label"></label>
                                 <input type="text" asp-for="PhoneNo" class="form-control " />
@@ -111,14 +132,25 @@
 
                         </div>
                         <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="AccountNo" class="control-label"></label>
+                                <input type="text" asp-for="AccountNo" class="form-control " />
+                                <span asp-validation-for="AccountNo" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
                     </div>
+
                     <div class="row">
                         <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label asp-for="Capital" class="control-label"></label>
-                                <input type="text" asp-for="Capital" class="form-control " />
-                                <span asp-validation-for="Capital" class="text-danger"></span>
+                                <label asp-for="CreditStatus" class="control-label"></label>
+                                @Html.DropDownListFor(model => model.CreditStatus, new SelectList(ViewBag.CreditStatus), "Select Credit Status", new { @class = "form-control" })
+                                <span asp-validation-for="CreditStatus" class="text-danger"></span>
                             </div>
 
                         </div>
@@ -133,13 +165,63 @@
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                     </div>
+
                     <div class="row">
                         <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label asp-for="CreditStatus" class="control-label"></label>
-                                @Html.DropDownListFor(model => model.CreditStatus, new SelectList(ViewBag.CreditStatus), "Select Credit Status", new { @class = "form-control" })
-                                <span asp-validation-for="CreditStatus" class="text-danger"></span>
+                                <label asp-for="RegistrationDate" class="control-label"></label>
+                                <input asp-for="RegistrationDate" class="form-control " />
+                                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="DateHired" class="control-label"></label>
+                                <input asp-for="DateHired" class="form-control " />
+                                <span asp-validation-for="DateHired" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="Salary" class="control-label"></label>
+                                <input type="text" asp-for="Salary" class="form-control " />
+                                <span asp-validation-for="Salary" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="Capital" class="control-label"></label>
+                                <input type="text" asp-for="Capital" class="form-control " />
+                                <span asp-validation-for="Capital" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="RoleName" class="control-label"></label>
+                                <select asp-for="RoleId" class="form-control"
+                                        asp-items="ViewBag.Roles">
+                                    <option>Select Role</option>
+                                </select>
+                                <span asp-validation-for="RoleId" class="text-danger"></span>
                             </div>
 
                         </div>
@@ -160,89 +242,21 @@
                         <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label asp-for="DateHired" class="control-label"></label>
-                                <input asp-for="DateHired" class="form-control " />
-                                <span asp-validation-for="DateHired" class="text-danger"></span>
+
                             </div>
 
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                         <div class="col-lg-6">
-
                             <div class="form-group">
-                                <label asp-for="Salary" class="control-label"></label>
-                                <input type="text" asp-for="Salary" class="form-control " />
-                                <span asp-validation-for="Salary" class="text-danger"></span>
+                                <input type="submit" value="Save" class="btn btn-primary pull-right" />
                             </div>
 
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6">
 
-                            <div class="form-group">
-                                <label asp-for="AccountNo" class="control-label"></label>
-                                <input type="text" asp-for="AccountNo" class="form-control " />
-                                <span asp-validation-for="AccountNo" class="text-danger"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                        <div class="col-lg-6">
-
-                            <div class="form-group">
-                                <label asp-for="RoleName" class="control-label"></label>
-                                <select asp-for="RoleId" class="form-control"
-                                        asp-items="ViewBag.Roles">
-                                    <option>Select Role</option>
-                                </select>
-                                <span asp-validation-for="RoleId" class="text-danger"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <div class="form-group">
-                                <label asp-for="RegistrationDate" class="control-label"></label>
-                                <input asp-for="RegistrationDate" class="form-control " />
-                                <span asp-validation-for="RegistrationDate" class="text-danger"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                        <div class="col-lg-6">
-                            <div class="form-group">
-
-
-                            </div>
-                            <!-- /.col-lg-6 (nested) -->
-                        </div>
-                    </div>
-                        <div class="row">
-                            <div class="col-lg-6">
-
-                                <div class="form-group">
-
-                                </div>
-
-                            </div>
-                            <!-- /.col-lg-6 (nested) -->
-                            <div class="col-lg-6">
-                                <div class="form-group">
-                                    <input type="submit" value="Save" class="btn btn-primary pull-right" />
-                                </div>
-
-                            </div>
-                            <!-- /.col-lg-6 (nested) -->
-                        </div>
-
-
-
-</form>
+                </form>
             </div>
             <!-- /.panel-body -->
         </div>
@@ -251,7 +265,7 @@
     <!-- /.col-lg-12 -->
 </div>
 
- 
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
