@@ -5,8 +5,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
+using Microsoft.Extensions.Configuration;
 using System.Linq;
-using System.Collections.Generic;
 
 namespace OSPI.eVoting.Controllers
 {
@@ -15,12 +15,14 @@ namespace OSPI.eVoting.Controllers
         private readonly ICandidateService _candidateService;
         private readonly IMemberService _memberService;
         private readonly IPositionService _positionService;
+        private readonly IConfiguration _configuration;
 
-        public CandidatesController(ICandidateService candidateService, IMemberService memberService, IPositionService positionService)
+        public CandidatesController(ICandidateService candidateService, IMemberService memberService, IPositionService positionService, IConfiguration configuration)
         {
             _candidateService = candidateService;
             _memberService = memberService;
             _positionService = positionService;
+            _configuration = configuration;
         }
 
         // GET: Candidates
@@ -35,10 +37,7 @@ namespace OSPI.eVoting.Controllers
                 return View(await _candidateService.GetAllByNomineeIdAsync(ViewBag.UserID));
         }
 
-        public async Task<IActionResult> Candidates()
-        {
-            return View(await _candidateService.GetAllCandidatesAsync("Qualified"));
-        }
+        public async Task<IActionResult> Candidates() => View(await _candidateService.GetAllCandidatesAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
 
         // GET: Candidates/Details/5
         public async Task<IActionResult> Details(Guid? id)

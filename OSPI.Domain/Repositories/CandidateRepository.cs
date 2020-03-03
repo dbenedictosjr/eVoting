@@ -38,12 +38,13 @@ namespace OSPI.Domain.Repositories
             .Where(a => a.NomineeMemberId == id)
             .ToListAsync();
         }
-        public async Task<IEnumerable<CandidateEntity>> GetAllCandidatesAsync(string status)
+        public async Task<IEnumerable<CandidateEntity>> GetAllCandidatesAsync(Guid? id, string status)
         {
             return await _context.Set<CandidateEntity>()
             .Include(a => a.Position)
             .Include(a => a.CandidateMember)
             .Include(a => a.NomineeMember)
+            .Where(a => a.Position.BallotId == id)
             .Where(a => a.Status == status)
             .OrderBy(a => a.PositionId)
             .ToListAsync();
