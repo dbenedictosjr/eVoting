@@ -786,3 +786,5 @@ C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eV
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.csproj.CopyComplete
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.dll
 C:\Projects\OSPI-Integrated-Systems\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.pdb
+G:\2020\Diego Project\V7\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\ElectionResult.cshtml.g.cs
+G:\2020\Diego Project\V7\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Members\Voters.cshtml.g.cs
