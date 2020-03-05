@@ -4956,11 +4956,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\OSPI.Domain.csproj",
+      "projectUniqueName": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj",
       "projectName": "OSPI.Domain",
-      "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\OSPI.Domain.csproj",
+      "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\obj\\",
+      "outputPath": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",

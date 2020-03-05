@@ -2,49 +2,78 @@
 
 @{
     ViewData["Title"] = "Index";
-     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
+    Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
+<br />
 
-<h1>List of candidates</h1>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-4"> <h4>Candidate Dashboard</h4></div>
+                    <div class="col-sm-6"></div>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.PositionName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CandidateFullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NomineeFullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PositionName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CandidateFullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NomineeFullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CandidateId">Edit</a>
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
+                    <div class="col-sm-2">
+                        <a asp-action="Create" role="button" class="btn btn-primary pull-right"><i class="fa fa-plus"> </i> Create New</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-body">
+                <div class="dataTable_wrapper table-responsive">
+                    <table id="tbl_Candidate" class="table table-striped table-bordered table-hover  display nowrap">
+                        <thead>
+                            <tr>
+                                <th class="text-center">
+                                    <input type="checkbox" value="1" id="chkCandidate_all">
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PositionName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.CandidateFullName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NomineeFullName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+                            <tr class="odd gradeX">
+                                <td class="text-center">
+                                    <input type="checkbox" value="1">
+                                </td>
+
+                                <th>
+                                    @Html.ActionLink("" + item.PositionName + "", "Details", "Candidates", new { id = item.CandidateId }, null)
+                                </th>
+                                 
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.CandidateFullName)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.NomineeFullName)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </th>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+ 

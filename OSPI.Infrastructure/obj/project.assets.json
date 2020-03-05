@@ -4962,11 +4962,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+      "projectUniqueName": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
       "projectName": "OSPI.Infrastructure",
-      "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+      "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\obj\\",
+      "outputPath": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -4987,8 +4987,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\OSPI.Domain.csproj": {
-              "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\OSPI.Domain.csproj"
+            "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj": {
+              "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj"
             }
           }
         }

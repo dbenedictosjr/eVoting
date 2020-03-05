@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\2020\\Diego Project\\V7\\OSPI.eVoting\\OSPI.eVoting.csproj": {}
+    "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj": {}
   },
   "projects": {
-    "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\OSPI.Domain.csproj": {
+    "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\OSPI.Domain.csproj",
+        "projectUniqueName": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj",
         "projectName": "OSPI.Domain",
-        "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\OSPI.Domain.csproj",
+        "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\obj\\",
+        "outputPath": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -73,14 +73,14 @@
         }
       }
     },
-    "G:\\2020\\Diego Project\\V7\\OSPI.eVoting\\OSPI.eVoting.csproj": {
+    "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\2020\\Diego Project\\V7\\OSPI.eVoting\\OSPI.eVoting.csproj",
+        "projectUniqueName": "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj",
         "projectName": "OSPI.eVoting",
-        "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.eVoting\\OSPI.eVoting.csproj",
+        "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "G:\\2020\\Diego Project\\V7\\OSPI.eVoting\\obj\\",
+        "outputPath": "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -101,8 +101,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
-                "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj"
+              "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
+                "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj"
               }
             }
           }
@@ -165,14 +165,14 @@
         }
       }
     },
-    "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
+    "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+        "projectUniqueName": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
         "projectName": "OSPI.Infrastructure",
-        "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+        "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\obj\\",
+        "outputPath": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -193,8 +193,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\OSPI.Domain.csproj": {
-                "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.Domain\\OSPI.Domain.csproj"
+              "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj": {
+                "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj"
               }
             }
           }

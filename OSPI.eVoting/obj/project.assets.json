@@ -8628,11 +8628,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\2020\\Diego Project\\V7\\OSPI.eVoting\\OSPI.eVoting.csproj",
+      "projectUniqueName": "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj",
       "projectName": "OSPI.eVoting",
-      "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.eVoting\\OSPI.eVoting.csproj",
+      "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj",
       "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-      "outputPath": "G:\\2020\\Diego Project\\V7\\OSPI.eVoting\\obj\\",
+      "outputPath": "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -8653,8 +8653,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
-              "projectPath": "G:\\2020\\Diego Project\\V7\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj"
+            "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
+              "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj"
             }
           }
         }

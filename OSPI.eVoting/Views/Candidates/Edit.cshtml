@@ -5,59 +5,106 @@
     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
 
-<h4>Nominated details</h4>
-<hr />
+<br />
+
 <div class="row">
-    <div class="col-md-4">
-        <dl class="row">
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.PositionName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.PositionName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.CandidateFullName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.CandidateFullName)
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.NomineeFullName)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(model => model.NomineeFullName)
-            </dd>
-        </dl>
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="CandidateId" />
-            <input type="hidden" asp-for="PositionId" />
-            <input type="hidden" asp-for="CandidateMemberId" />
-            <input type="hidden" asp-for="NomineeMemberId" />
-            <input type="hidden" asp-for="RowVersion" />
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                @Html.DropDownListFor(model => model.Status, new SelectList(ViewBag.Status), "Select Status")
-                <span asp-validation-for="Status" class="text-danger"></span>
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-4"> <h4>Edit Candidate</h4></div>
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-2">
+                        <div class="row">
+
+                            <i class="fa fa-arrow-circle-left"></i>  <a asp-action="index">Back to  Candidate List</a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="panel-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="CandidateId" />
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="PositionName" class="control-label"></label>
+                                <select asp-for="PositionId" class="form-control"
+                                        asp-items="ViewBag.Positions">
+                                    <option>Select Position</option>
+                                </select>
+                                <span asp-validation-for="PositionId" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="CandidateFullName" class="control-label"></label>
+                                <select asp-for="CandidateMemberId" class="form-control"
+                                        asp-items="ViewBag.Members">
+                                    <option>Select Candidate</option>
+                                </select>
+                                <span asp-validation-for="CandidateMemberId" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+                                <label asp-for="NomineeFullName" class="control-label"></label>
+                                <select asp-for="NomineeMemberId" class="form-control"
+                                        asp-items="ViewBag.Members">
+                                    <option>Select Nominee</option>
+                                </select>
+                                <span asp-validation-for="NomineeMemberId" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="Status" class="control-label"></label>
+                                <input asp-for="Status" class="form-control" />
+                                <span asp-validation-for="Status" class="text-danger"></span>
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+
+                            <div class="form-group">
+
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary pull-right" />
+                            </div>
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+                </form>
             </div>
-        </form>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
     </div>
+    <!-- /.col-lg-12 -->
 </div>
-
-<script>
-    function confirmQualified(url) {
-        var res = confirm("Qualified this Candidate?");
-        alert(url);
-        if (res == true) {
-            window.location.href = url;
-        }
-    }
-</script>
-
+ 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
