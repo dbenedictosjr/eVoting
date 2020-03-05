@@ -164,6 +164,7 @@ namespace OSPI.eVoting.Controllers
         {
             List<CandidateModel> List = new List<CandidateModel>();
             var rootpath = _configuration["RootMemberImagePath"];
+
             IEnumerable<CandidateModel> candidateModel = await _candidateService.GetAllByPositionIdAsync(Guid.Parse(PositionId), "Qualified");
             foreach (var item in candidateModel)
             {
@@ -188,11 +189,12 @@ namespace OSPI.eVoting.Controllers
             }
             return Json(List);
         }
-        public async Task<IActionResult> ElectionResult(string PositionId)
+        public async Task<IActionResult> ElectionResult()
         {
             
             List<CandidateModel> List = new List<CandidateModel>();
             var rootpath = _configuration["RootMemberImagePath"];
+            var result =await _memberService.GetAllVotersAsync();
             IEnumerable<CandidateModel> candidateModel = await _candidateService.GetAllAsync();
             foreach (var item in candidateModel)
             {

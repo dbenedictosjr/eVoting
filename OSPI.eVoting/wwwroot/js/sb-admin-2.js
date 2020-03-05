@@ -1,5 +1,6 @@
 $(function() {
-    
+  
+ 
     $('#side-menu').metisMenu(); 
 
     $('#tbl_eBallots').dataTable({
@@ -26,6 +27,12 @@ $(function() {
 
     $("#chkMembers_all").click(function () {
         $('#tbl_Members tbody input[type="checkbox"]').prop('checked', this.checked);
+    });
+    $('#tbl_Roles').dataTable({
+        responsive: true,
+        "columnDefs": [
+            { "orderable": false, "targets": 0 }
+        ]
     });
     
     $('.datepicker').datepicker({

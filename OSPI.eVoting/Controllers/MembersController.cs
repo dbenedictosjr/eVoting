@@ -223,5 +223,10 @@ namespace OSPI.eVoting.Controllers
 
             return RedirectToAction("Index", "Members");
         }
+
+        public  IActionResult Setting()
+        {
+            return View();
+        }
     }
 }

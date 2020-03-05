@@ -986,3 +986,5 @@ G:\2020\Diego Project\V10\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.View
 G:\2020\Diego Project\V10\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.csproj.CopyComplete
 G:\2020\Diego Project\V10\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.dll
 G:\2020\Diego Project\V10\OSPI.eVoting\obj\Debug\netcoreapp3.1\OSPI.eVoting.pdb
+G:\2020\Diego Project\V10\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Members\Setting.cshtml.g.cs
+G:\2020\Diego Project\V10\OSPI.eVoting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\Nomination.cshtml.g.cs

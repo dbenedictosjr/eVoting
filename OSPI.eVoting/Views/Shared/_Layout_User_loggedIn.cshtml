@@ -91,7 +91,7 @@
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Election Settings"))
                                 {
                                     <li>
-                                        <a asp-controller="Settings" asp-action="index">Settings </a>
+                                        <a asp-controller="Members" asp-action="setting">Settings </a>
                                     </li>
                                 }
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Ballots"))
