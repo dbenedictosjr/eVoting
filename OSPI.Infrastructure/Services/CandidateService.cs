@@ -36,10 +36,12 @@ namespace OSPI.Infrastructure.Services
             => _mapper.Map<CandidateModel>(await _candidateRepository.GetByIdAsync(id));
         public async Task<IEnumerable<CandidateModel>> GetAllByNomineeIdAsync(Guid? id)
             => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByNomineeIdAsync(id));
-        public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? id, string status)
-            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllCandidatesAsync(id, status));
-        public async Task<IEnumerable<CandidateModel>> GetAllByPositionIdAsync(Guid? id, string status)
-            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByPositionIdAsync(id, status));
+        public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, string status)
+            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllCandidatesAsync(ballotId, status));
+        public async Task<IEnumerable<CandidateModel>> GetAllByPositionIdAsync(Guid? positionId, string status)
+            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByPositionIdAsync(positionId, status));
+        public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, Guid? positionId, string status)
+            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllCandidatesAsync(ballotId, positionId, status));
         public async Task<IEnumerable<CandidateModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllAsync());
 

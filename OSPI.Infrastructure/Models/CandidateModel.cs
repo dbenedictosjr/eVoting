@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace OSPI.Infrastructure.Models
@@ -40,5 +41,9 @@ namespace OSPI.Infrastructure.Models
         public string Status { get; set; }
 
         public byte[] RowVersion { get; set; }
+
+        public ICollection<ElectionDetailModel> Votes { get; set; }
+
+        public int TotalVotes { get { return Votes.Count; } }
     }
 }

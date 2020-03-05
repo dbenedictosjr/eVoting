@@ -11,8 +11,9 @@ namespace OSPI.Infrastructure.Interfaces
 
         Task<CandidateModel> GetByIdAsync(Guid? id);
         Task<IEnumerable<CandidateModel>> GetAllByNomineeIdAsync(Guid? id);
-        Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? id, string status);
-        Task<IEnumerable<CandidateModel>> GetAllByPositionIdAsync(Guid? id, string status);
+        Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, string status);
+        Task<IEnumerable<CandidateModel>> GetAllByPositionIdAsync(Guid? positionId, string status);
+        Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, Guid? positionId, string status);
 
         Task<IEnumerable<CandidateModel>> GetAllAsync();
 

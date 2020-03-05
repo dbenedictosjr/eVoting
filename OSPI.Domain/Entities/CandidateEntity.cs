@@ -1,5 +1,6 @@
 ﻿using OSPI.Domain.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -43,5 +44,7 @@ namespace OSPI.Domain.Entities
 
         [ForeignKey("NomineeMemberId")]
         public virtual MemberEntity NomineeMember { get; set; }
+
+        public virtual ICollection<ElectionDetailEntity> Votes { get; set; }
     }
 }

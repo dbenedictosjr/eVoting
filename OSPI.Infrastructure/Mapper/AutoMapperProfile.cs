@@ -112,6 +112,7 @@ namespace OSPI.Infrastructure.Mapper
                 .ForMember(d => d.NomineeFirstName, map => map.MapFrom(s => s.NomineeMember.FirstName))
                 .ForMember(d => d.NomineeLastName, map => map.MapFrom(s => s.NomineeMember.LastName))
                 .ForMember(d => d.PositionName, map => map.MapFrom(s => s.Position.PositionName))
+                .ForMember(d => d.Votes, map => map.MapFrom(s => s.Votes))
                 .ForMember(d => d.RowVersion, map => map.MapFrom(s => s.RowVersion))
                 .ReverseMap()
                 .ForPath(s => s.CandidateMember.MemberNo, map => map.Ignore())
@@ -119,7 +120,8 @@ namespace OSPI.Infrastructure.Mapper
                 .ForPath(s => s.CandidateMember.LastName, map => map.Ignore())
                 .ForPath(s => s.NomineeMember.FirstName, map => map.Ignore())
                 .ForPath(s => s.NomineeMember.LastName, map => map.Ignore())
-                .ForPath(s => s.Position.PositionName, map => map.Ignore());
+                .ForPath(s => s.Position.PositionName, map => map.Ignore())
+                .ForPath(s => s.Votes, map => map.Ignore());
 
             CreateMap<ElectionEntity, ElectionModel>()
                 .ForMember(d => d.ElectionId, map => map.MapFrom(s => s.ElectionId))
