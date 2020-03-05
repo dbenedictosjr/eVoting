@@ -224,6 +224,13 @@ namespace OSPI.eVoting.Controllers
             return RedirectToAction("Index", "Members");
         }
 
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            return RedirectToAction("Login", "Members");
+        }
+
         public  IActionResult Setting()
         {
             return View();

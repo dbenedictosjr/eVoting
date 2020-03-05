@@ -1,26 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj": {}
+    "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.eVoting\\OSPI.eVoting.csproj": {}
   },
   "projects": {
-    "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj": {
+    "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj",
+        "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj",
         "projectName": "OSPI.Domain",
-        "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\obj\\",
+        "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj",
+        "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\d.t.benedictos.jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -69,27 +67,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj": {
+    "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.eVoting\\OSPI.eVoting.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj",
+        "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.eVoting\\OSPI.eVoting.csproj",
         "projectName": "OSPI.eVoting",
-        "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\OSPI.eVoting.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "G:\\2020\\Diego Project\\V10\\OSPI.eVoting\\obj\\",
+        "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.eVoting\\OSPI.eVoting.csproj",
+        "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.eVoting\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\d.t.benedictos.jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -101,8 +97,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
-                "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj"
+              "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
+                "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj"
               }
             }
           }
@@ -161,27 +157,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
+    "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+        "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
         "projectName": "OSPI.Infrastructure",
-        "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\hp\\.nuget\\packages\\",
-        "outputPath": "G:\\2020\\Diego Project\\V10\\OSPI.Infrastructure\\obj\\",
+        "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
+        "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\",
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\hp\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\d.t.benedictos.jr\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -193,8 +187,8 @@
         "frameworks": {
           "netcoreapp3.1": {
             "projectReferences": {
-              "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj": {
-                "projectPath": "G:\\2020\\Diego Project\\V10\\OSPI.Domain\\OSPI.Domain.csproj"
+              "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj": {
+                "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj"
               }
             }
           }
@@ -232,7 +226,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
