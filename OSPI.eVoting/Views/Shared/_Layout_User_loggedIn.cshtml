@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - OSPI Integrated System</title>
+    <title>@ViewData["Title"] - OSPI Voting System</title>
     <script src="https://kit.fontawesome.com/7dc7f2dcec.js" crossorigin="anonymous"></script>
     <link href="~/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/metisMenu.min.css" rel="stylesheet" />
@@ -19,15 +19,16 @@
     <div id="wrapper">
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
+            @*<div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <img src="~/images/logo.png" />
                 <a class="navbar-brand" href="index.html">Your Logo</a>
-            </div>
+            </div>*@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
@@ -88,12 +89,12 @@
                         <li>
                             <a href=""><i class="fa fa-dashboard fa-fw"></i>Online Voting <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                @if (UserClaimsHelper.CanDoAnyActions(User, "Election Settings"))
+                                @*@if (UserClaimsHelper.CanDoAnyActions(User, "Election Settings"))
                                 {
                                     <li>
                                         <a asp-controller="Members" asp-action="setting">Settings </a>
                                     </li>
-                                }
+                                }*@
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Ballots"))
                                 {
                                     <li>

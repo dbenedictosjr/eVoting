@@ -12,13 +12,13 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="row">
-                    <div class="col-sm-4"> <h4>Create Candidate</h4></div>
+                    <div class="col-sm-4"> <h4>Nominate Candidate</h4></div>
                     <div class="col-sm-4"></div>
                     <div class="col-sm-2"></div>
                     <div class="col-sm-2">
                         <div class="row">
 
-                            <i class="fa fa-arrow-circle-left"></i>  <a asp-action="index">Back to  Candidate List</a>
+                            <i class="fa fa-arrow-circle-left"></i>  <a asp-action="Nomination">Back to Nomination Dashboard</a>
                         </div>
                     </div>
                 </div>
@@ -42,6 +42,14 @@
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                         <div class="col-lg-6">
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6">
+
                             <div class="form-group">
                                 <label asp-for="CandidateFullName" class="control-label"></label>
                                 <select asp-for="CandidateMemberId" class="form-control"
@@ -53,7 +61,13 @@
 
                         </div>
                         <!-- /.col-lg-6 (nested) -->
+                        <div class="col-lg-6">
+
+                        </div>
+                        <!-- /.col-lg-6 (nested) -->
                     </div>
+
+
                     <div class="row">
                         <div class="col-lg-6">
 

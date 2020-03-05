@@ -43,6 +43,10 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <b>
                                 @Html.DisplayNameFor(model => model.Description):
@@ -50,6 +54,8 @@
                             @Html.DisplayFor(model => model.Description)
 
                         </div>
+                    </div>
+                    <div class="col-lg-6">
                     </div>
                 </div>
 
@@ -65,7 +71,8 @@
                         <div class="form-group">
                             <div class="col-lg-8"></div>
                             <div class="col-lg-2">
-                                <a class="btn btn-danger pull-right" onclick="confirmDelete('@Url.Action("Delete", "Roles", new { id = @Model.RoleId })')" href="javascript:void(0)"><i class="fa fa-trash" aria-hidden="true"></i>  Delete</a>
+                                @*<a class="btn btn-danger pull-right" onclick="confirmDelete('@Url.Action("Delete", "Roles", new { id = @Model.RoleId })')" href="javascript:void(0)"><i class="fa fa-trash" aria-hidden="true"></i>  Delete</a>*@
+                                <a asp-action="Delete" class="btn btn-danger pull-right" asp-route-id="@Model.RoleId"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
                             </div>
                             <div class="col-lg-2">
                                 <a asp-action="Edit" class="btn btn-primary pull-right" asp-route-id="@Model.RoleId"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>

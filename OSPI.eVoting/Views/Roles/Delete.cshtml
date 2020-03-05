@@ -26,8 +26,6 @@
             </div>
             <div class="panel-body">
 
-
-
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="form-group">
@@ -39,6 +37,11 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
                         <div class="form-group">
                             <b>
                                 @Html.DisplayNameFor(model => model.Description):
@@ -47,8 +50,9 @@
 
                         </div>
                     </div>
+                    <div class="col-lg-6">
+                    </div>
                 </div>
-
 
 
                 <div class="row">
@@ -61,20 +65,20 @@
                         <div class="form-group">
                             <div class="col-lg-8"></div>
                             <div class="col-lg-2">
-                               
+
                             </div>
                             <div class="col-lg-2">
                                 <form asp-action="Delete">
                                     <input type="hidden" asp-for="RoleId" />
-                                    <input type="submit" value="Delete" class="btn btn-danger pull-right" />  
-                                    
+                                    <input type="submit" value="Delete" class="btn btn-danger pull-right" />
+
                                 </form>
-                                
+
                             </div>
                         </div>
                     </div>
                 </div>
- 
+
 
             </div>
         </div>

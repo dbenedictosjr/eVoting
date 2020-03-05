@@ -44,6 +44,11 @@ namespace OSPI.Infrastructure.Models
 
         public ICollection<ElectionDetailModel> Votes { get; set; }
 
-        public int TotalVotes { get { return Votes.Count; } }
+        public int TotalVotes { get {
+                if (Votes != null)
+                    return Votes.Count;
+                else
+                    return 0;
+            } }
     }
 }

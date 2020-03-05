@@ -20,6 +20,7 @@ namespace OSPI.Domain.Repositories
             .Include(a => a.Position)
             .Include(a => a.CandidateMember)
             .Include(a => a.NomineeMember)
+            .Include(a => a.Votes)
             .ToListAsync();
         }
 
@@ -27,6 +28,7 @@ namespace OSPI.Domain.Repositories
             .Include(a => a.Position)
             .Include(a => a.CandidateMember)
             .Include(a => a.NomineeMember)
+            .Include(a => a.Votes)
             .FirstOrDefaultAsync(a => a.CandidateId == id);
 
         public async Task<IEnumerable<CandidateEntity>> GetAllByNomineeIdAsync(Guid? id)
@@ -36,6 +38,7 @@ namespace OSPI.Domain.Repositories
             .Include(a => a.CandidateMember)
             .Include(a => a.NomineeMember)
             .Where(a => a.NomineeMemberId == id)
+            .Include(a => a.Votes)
             .ToListAsync();
         }
         public async Task<IEnumerable<CandidateEntity>> GetAllCandidatesAsync(Guid? ballotId, string status)
