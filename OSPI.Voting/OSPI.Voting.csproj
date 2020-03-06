@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>OSPI.Voting</AssemblyName>
+    <ApplicationIcon>App.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>

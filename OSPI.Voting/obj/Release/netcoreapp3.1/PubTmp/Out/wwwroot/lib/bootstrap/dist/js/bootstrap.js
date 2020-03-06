@@ -82,7 +82,7 @@
      * ------------------------------------------------------------------------
      */
     var TRANSITION_END = 'transitionend';
-    var MAX_UID = 1000000;
+    var MAX_UId = 1000000;
     var MILLISECONDS_MULTIPLIER = 1000; // Shoutout AngusCroll (https://goo.gl/pxwQGp)
 
     function toType(obj) {
@@ -131,10 +131,10 @@
 
     var Util = {
       TRANSITION_END: 'bsTransitionEnd',
-      getUID: function getUID(prefix) {
+      getUId: function getUId(prefix) {
         do {
           // eslint-disable-next-line no-bitwise
-          prefix += ~~(Math.random() * MAX_UID); // "~~" acts like a faster Math.floor() here
+          prefix += ~~(Math.random() * MAX_UId); // "~~" acts like a faster Math.floor() here
         } while (document.getElementById(prefix));
 
         return prefix;
@@ -585,8 +585,8 @@
       RIGHT: 'right'
     };
     var Event = {
-      SLIDE: "slide" + EVENT_KEY,
-      SLID: "slid" + EVENT_KEY,
+      SLIdE: "slide" + EVENT_KEY,
+      SLId: "slid" + EVENT_KEY,
       KEYDOWN: "keydown" + EVENT_KEY,
       MOUSEENTER: "mouseenter" + EVENT_KEY,
       MOUSELEAVE: "mouseleave" + EVENT_KEY,
@@ -597,7 +597,7 @@
     var ClassName = {
       CAROUSEL: 'carousel',
       ACTIVE: 'active',
-      SLIDE: 'slide',
+      SLIdE: 'slide',
       RIGHT: 'carousel-item-right',
       LEFT: 'carousel-item-left',
       NEXT: 'carousel-item-next',
@@ -610,8 +610,8 @@
       ITEM: '.carousel-item',
       NEXT_PREV: '.carousel-item-next, .carousel-item-prev',
       INDICATORS: '.carousel-indicators',
-      DATA_SLIDE: '[data-slide], [data-slide-to]',
-      DATA_RIDE: '[data-ride="carousel"]'
+      DATA_SLIdE: '[data-slide], [data-slide-to]',
+      DATA_RIdE: '[data-ride="carousel"]'
       /**
        * ------------------------------------------------------------------------
        * Class Definition
@@ -702,7 +702,7 @@
         }
 
         if (this._isSliding) {
-          $$$1(this._element).one(Event.SLID, function () {
+          $$$1(this._element).one(Event.SLId, function () {
             return _this.to(index);
           });
           return;
@@ -826,7 +826,7 @@
 
         var fromIndex = this._getItemIndex(this._element.querySelector(Selector.ACTIVE_ITEM));
 
-        var slideEvent = $$$1.Event(Event.SLIDE, {
+        var slideEvent = $$$1.Event(Event.SLIdE, {
           relatedTarget: relatedTarget,
           direction: eventDirectionName,
           from: fromIndex,
@@ -899,14 +899,14 @@
 
         this._setActiveIndicatorElement(nextElement);
 
-        var slidEvent = $$$1.Event(Event.SLID, {
+        var slidEvent = $$$1.Event(Event.SLId, {
           relatedTarget: nextElement,
           direction: eventDirectionName,
           from: activeElementIndex,
           to: nextElementIndex
         });
 
-        if ($$$1(this._element).hasClass(ClassName.SLIDE)) {
+        if ($$$1(this._element).hasClass(ClassName.SLIdE)) {
           $$$1(nextElement).addClass(orderClassName);
           Util.reflow(nextElement);
           $$$1(activeElement).addClass(directionalClassName);
@@ -1016,9 +1016,9 @@
      */
 
 
-    $$$1(document).on(Event.CLICK_DATA_API, Selector.DATA_SLIDE, Carousel._dataApiClickHandler);
+    $$$1(document).on(Event.CLICK_DATA_API, Selector.DATA_SLIdE, Carousel._dataApiClickHandler);
     $$$1(window).on(Event.LOAD_DATA_API, function () {
-      var carousels = [].slice.call(document.querySelectorAll(Selector.DATA_RIDE));
+      var carousels = [].slice.call(document.querySelectorAll(Selector.DATA_RIdE));
 
       for (var i = 0, len = carousels.length; i < len; i++) {
         var $carousel = $$$1(carousels[i]);
@@ -1073,8 +1073,8 @@
     var Event = {
       SHOW: "show" + EVENT_KEY,
       SHOWN: "shown" + EVENT_KEY,
-      HIDE: "hide" + EVENT_KEY,
-      HIDDEN: "hidden" + EVENT_KEY,
+      HIdE: "hide" + EVENT_KEY,
+      HIdDEN: "hidden" + EVENT_KEY,
       CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
     };
     var ClassName = {
@@ -1084,7 +1084,7 @@
       COLLAPSED: 'collapsed'
     };
     var Dimension = {
-      WIDTH: 'width',
+      WIdTH: 'width',
       HEIGHT: 'height'
     };
     var Selector = {
@@ -1222,7 +1222,7 @@
           return;
         }
 
-        var startEvent = $$$1.Event(Event.HIDE);
+        var startEvent = $$$1.Event(Event.HIdE);
         $$$1(this._element).trigger(startEvent);
 
         if (startEvent.isDefaultPrevented()) {
@@ -1256,7 +1256,7 @@
         var complete = function complete() {
           _this2.setTransitioning(false);
 
-          $$$1(_this2._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).trigger(Event.HIDDEN);
+          $$$1(_this2._element).removeClass(ClassName.COLLAPSING).addClass(ClassName.COLLAPSE).trigger(Event.HIdDEN);
         };
 
         this._element.style[dimension] = '';
@@ -1287,8 +1287,8 @@
       };
 
       _proto._getDimension = function _getDimension() {
-        var hasWidth = $$$1(this._element).hasClass(Dimension.WIDTH);
-        return hasWidth ? Dimension.WIDTH : Dimension.HEIGHT;
+        var hasWidth = $$$1(this._element).hasClass(Dimension.WIdTH);
+        return hasWidth ? Dimension.WIdTH : Dimension.HEIGHT;
       };
 
       _proto._getParent = function _getParent() {
@@ -1444,8 +1444,8 @@
 
     var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEYCODE + "|" + ARROW_DOWN_KEYCODE + "|" + ESCAPE_KEYCODE);
     var Event = {
-      HIDE: "hide" + EVENT_KEY,
-      HIDDEN: "hidden" + EVENT_KEY,
+      HIdE: "hide" + EVENT_KEY,
+      HIdDEN: "hidden" + EVENT_KEY,
       SHOW: "show" + EVENT_KEY,
       SHOWN: "shown" + EVENT_KEY,
       CLICK: "click" + EVENT_KEY,
@@ -1759,7 +1759,7 @@
             continue;
           }
 
-          var hideEvent = $$$1.Event(Event.HIDE, relatedTarget);
+          var hideEvent = $$$1.Event(Event.HIdE, relatedTarget);
           $$$1(parent).trigger(hideEvent);
 
           if (hideEvent.isDefaultPrevented()) {
@@ -1774,7 +1774,7 @@
 
           toggles[i].setAttribute('aria-expanded', 'false');
           $$$1(dropdownMenu).removeClass(ClassName.SHOW);
-          $$$1(parent).removeClass(ClassName.SHOW).trigger($$$1.Event(Event.HIDDEN, relatedTarget));
+          $$$1(parent).removeClass(ClassName.SHOW).trigger($$$1.Event(Event.HIdDEN, relatedTarget));
         }
       };
 
@@ -1933,8 +1933,8 @@
       show: 'boolean'
     };
     var Event = {
-      HIDE: "hide" + EVENT_KEY,
-      HIDDEN: "hidden" + EVENT_KEY,
+      HIdE: "hide" + EVENT_KEY,
+      HIdDEN: "hidden" + EVENT_KEY,
       SHOW: "show" + EVENT_KEY,
       SHOWN: "shown" + EVENT_KEY,
       FOCUSIN: "focusin" + EVENT_KEY,
@@ -2049,7 +2049,7 @@
           return;
         }
 
-        var hideEvent = $$$1.Event(Event.HIDE);
+        var hideEvent = $$$1.Event(Event.HIdE);
         $$$1(this._element).trigger(hideEvent);
 
         if (!this._isShown || hideEvent.isDefaultPrevented()) {
@@ -2208,7 +2208,7 @@
 
           _this7._resetScrollbar();
 
-          $$$1(_this7._element).trigger(Event.HIDDEN);
+          $$$1(_this7._element).trigger(Event.HIdDEN);
         });
       };
 
@@ -2444,7 +2444,7 @@
           return;
         }
 
-        $target.one(Event.HIDDEN, function () {
+        $target.one(Event.HIdDEN, function () {
           if ($$$1(_this10).is(':visible')) {
             _this10.focus();
           }
@@ -2530,8 +2530,8 @@
       OUT: 'out'
     };
     var Event = {
-      HIDE: "hide" + EVENT_KEY,
-      HIDDEN: "hidden" + EVENT_KEY,
+      HIdE: "hide" + EVENT_KEY,
+      HIdDEN: "hidden" + EVENT_KEY,
       SHOW: "show" + EVENT_KEY,
       SHOWN: "shown" + EVENT_KEY,
       INSERTED: "inserted" + EVENT_KEY,
@@ -2680,7 +2680,7 @@
           }
 
           var tip = this.getTipElement();
-          var tipId = Util.getUID(this.constructor.NAME);
+          var tipId = Util.getUId(this.constructor.NAME);
           tip.setAttribute('id', tipId);
           this.element.setAttribute('aria-describedby', tipId);
           this.setContent();
@@ -2763,7 +2763,7 @@
         var _this2 = this;
 
         var tip = this.getTipElement();
-        var hideEvent = $$$1.Event(this.constructor.Event.HIDE);
+        var hideEvent = $$$1.Event(this.constructor.Event.HIdE);
 
         var complete = function complete() {
           if (_this2._hoverState !== HoverState.SHOW && tip.parentNode) {
@@ -2774,7 +2774,7 @@
 
           _this2.element.removeAttribute('aria-describedby');
 
-          $$$1(_this2.element).trigger(_this2.constructor.Event.HIDDEN);
+          $$$1(_this2.element).trigger(_this2.constructor.Event.HIdDEN);
 
           if (_this2._popper !== null) {
             _this2._popper.destroy();
@@ -3181,8 +3181,8 @@
       CONTENT: '.popover-body'
     };
     var Event = {
-      HIDE: "hide" + EVENT_KEY,
-      HIDDEN: "hidden" + EVENT_KEY,
+      HIdE: "hide" + EVENT_KEY,
+      HIdDEN: "hidden" + EVENT_KEY,
       SHOW: "show" + EVENT_KEY,
       SHOWN: "shown" + EVENT_KEY,
       INSERTED: "inserted" + EVENT_KEY,
@@ -3484,7 +3484,7 @@
           var id = $$$1(config.target).attr('id');
 
           if (!id) {
-            id = Util.getUID(NAME);
+            id = Util.getUId(NAME);
             $$$1(config.target).attr('id', id);
           }
 
@@ -3673,8 +3673,8 @@
     var DATA_API_KEY = '.data-api';
     var JQUERY_NO_CONFLICT = $$$1.fn[NAME];
     var Event = {
-      HIDE: "hide" + EVENT_KEY,
-      HIDDEN: "hidden" + EVENT_KEY,
+      HIdE: "hide" + EVENT_KEY,
+      HIdDEN: "hidden" + EVENT_KEY,
       SHOW: "show" + EVENT_KEY,
       SHOWN: "shown" + EVENT_KEY,
       CLICK_DATA_API: "click" + EVENT_KEY + DATA_API_KEY
@@ -3731,7 +3731,7 @@
           previous = previous[previous.length - 1];
         }
 
-        var hideEvent = $$$1.Event(Event.HIDE, {
+        var hideEvent = $$$1.Event(Event.HIdE, {
           relatedTarget: this._element
         });
         var showEvent = $$$1.Event(Event.SHOW, {
@@ -3755,7 +3755,7 @@
         this._activate(this._element, listElement);
 
         var complete = function complete() {
-          var hiddenEvent = $$$1.Event(Event.HIDDEN, {
+          var hiddenEvent = $$$1.Event(Event.HIdDEN, {
             relatedTarget: _this._element
           });
           var shownEvent = $$$1.Event(Event.SHOWN, {

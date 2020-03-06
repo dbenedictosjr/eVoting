@@ -1,5 +1,5 @@
 $(function() {
-
+ 
     $('#side-menu').metisMenu(); 
 
     $('#tbl_eBallots').dataTable({
@@ -13,38 +13,24 @@ $(function() {
     });
     $("#tbl_eBallots").find("thead th").removeClass("sorting_asc");
 
-    $("#chkaccounttype_all").click(function () {
-        $('#tbl_accounttype tbody input[type="checkbox"]').prop('checked', this.checked);
-    });
-    $('#tbl_accounttype').dataTable({
+    $('#tbl_Members').dataTable({
         responsive: true,
         "columnDefs": [
             { "orderable": false, "targets": 0 }
         ]
     });
-    $("#tbl_accounttype").find("thead th").removeClass("sorting_asc");
+  
+    $("#tbl_Members").find("thead th").removeClass("sorting_asc");
 
-    $('#tbl_company').dataTable({
+    $("#chkMembers_all").click(function () {
+        $('#tbl_Members tbody input[type="checkbox"]').prop('checked', this.checked);
+    });
+
+    $('#tbl_Roles').dataTable({
         responsive: true,
         "columnDefs": [
             { "orderable": false, "targets": 0 }
         ]
-    });
-    $("#tbl_company").find("thead th").removeClass("sorting_asc");
-
-    $('#tbl_CofAccount').dataTable({
-        responsive: true,
-        "columnDefs": [
-            { "orderable": false, "targets": 0 }
-        ]
-    });
-    $("#tbl_CofAccount").find("thead th").removeClass("sorting_asc");
-
-    $("#chkcompany_all").click(function () {
-        $('#tbl_company tbody input[type="checkbox"]').prop('checked', this.checked);
-    });
-    $("#chkCofAccount_all").click(function () {
-        $('#tbl_CofAccount tbody input[type="checkbox"]').prop('checked', this.checked);
     });
     
     $('.datepicker').datepicker({
@@ -53,18 +39,7 @@ $(function() {
         startDate: '0d'
     });
     $(".datepicker").datepicker().datepicker("setDate", new Date());
-
-    $('#tbl_profitcenteraccount').dataTable({
-        responsive: true,
-        "columnDefs": [
-            { "orderable": false, "targets": 0 }
-        ]
-    });
-    $("#tbl_profitcenteraccount").find("thead th").removeClass("sorting_asc");
-    $("#chkprofitcenteraccount_all").click(function () {
-        $('#tbl_profitcenteraccount tbody input[type="checkbox"]').prop('checked', this.checked);
-    });
-
+ 
     $("#tbl_Positions").find("thead th").removeClass("sorting_asc");
 
     $("#chktbl_Positions_all").click(function () {
@@ -75,6 +50,76 @@ $(function() {
         "columnDefs": [
             { "orderable": false, "targets": 0 }
         ]
+    });
+ 
+    function format(d) {
+       
+        var tableTR = '';
+        $.each(d, function (i, v) {
+
+            tableTR += '<tr>' +
+                '<td>' + "<input type ='checkbox' class='checkcount'>" + '</td>' +
+                '<td>' + "<img src='" + v.candidateMemberNo + "' style='width:70px'>" + '</td>' +
+                '<td>' +v.candidateFirstName + '</td>' +
+                '</tr>'
+
+        });
+        return '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">' +
+            (tableTR === '' ? "<tr><td>NA</td></tr>" : tableTR) +
+            '</table>';
+    }
+    //Serer Side datatable
+    var tableDemo = $('#tbl_test').DataTable({
+        responsive: {
+            details: {
+                type: 'column',
+                target: 'tr'
+            }
+        },
+        columnDefs: [{
+            className: 'details-control',
+            orderable: false,
+            bSortable: false,
+            bSearchable: false,
+            targets: 0
+        }
+        ],
+        order: [1, 'asc']
+    });
+
+   
+    $('#tbl_test tbody').on('click', 'td.details-control', function () {
+        var tr = $(this).closest('tr');
+        var row = tableDemo.row(tr);
+
+        if (row.child.isShown()) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+        }
+        else {
+            $.get("/Elections/Test?PositionId=" + this.id, function (result) {
+                if (result.length > 0) {
+                    if (result && result !== 'undefined') {
+                        
+                        row.child(format(result)).show();
+                            tr.addClass('shown');
+                        
+
+                    }
+                    else {
+                        if ($('chk_' + id).is(":checked")) {
+                            $(this).removeAttr("checked");
+                        }
+                    }
+                }
+                else
+                {
+                    alert("No data found");
+                }
+            });
+            // 
+        }
     });
     
 });
