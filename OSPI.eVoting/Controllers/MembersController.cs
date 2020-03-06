@@ -221,7 +221,7 @@ namespace OSPI.eVoting.Controllers
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-            return RedirectToAction("Index", "Members");
+            return RedirectToAction("Index", "Candidates");
         }
 
         public async Task<IActionResult> Logout()

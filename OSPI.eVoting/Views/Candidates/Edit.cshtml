@@ -25,65 +25,61 @@
 
             </div>
             <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.CandidateFullName):
+                            </b>
+                            @Html.DisplayFor(model => model.CandidateFullName)
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.NomineeFullName):
+                            </b>
+                            @Html.DisplayFor(model => model.NomineeFullName)
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.PositionName):
+                            </b>
+                            @Html.DisplayFor(model => model.PositionName)
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>
+                                @Html.DisplayNameFor(model => model.Status):
+                            </b>
+                            @Html.DisplayFor(model => model.Status)
+
+                        </div>
+                    </div>
+                </div>
+
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="hidden" asp-for="CandidateId" />
+                    <input type="hidden" asp-for="CandidateMemberId" />
+                    <input type="hidden" asp-for="PositionId" />
+                    <input type="hidden" asp-for="NomineeMemberId" />
+                    <input type="hidden" asp-for="RowVersion" />
+
                     <div class="row">
                         <div class="col-lg-6">
 
                             <div class="form-group">
-                                <label asp-for="PositionName" class="control-label"></label>
-                                <select asp-for="PositionId" class="form-control"
-                                        asp-items="ViewBag.Positions">
-                                    <option>Select Position</option>
-                                </select>
-                                <span asp-validation-for="PositionId" class="text-danger"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label asp-for="CandidateFullName" class="control-label"></label>
-                                <select asp-for="CandidateMemberId" class="form-control"
-                                        asp-items="ViewBag.Members">
-                                    <option>Select Candidate</option>
-                                </select>
-                                <span asp-validation-for="CandidateMemberId" class="text-danger"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <div class="form-group">
-                                <label asp-for="NomineeFullName" class="control-label"></label>
-                                <select asp-for="NomineeMemberId" class="form-control"
-                                        asp-items="ViewBag.Members">
-                                    <option>Select Nominee</option>
-                                </select>
-                                <span asp-validation-for="NomineeMemberId" class="text-danger"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                        <div class="col-lg-6">
-                            <div class="form-group">
-                                <label asp-for="Status" class="control-label"></label>
-                                <input asp-for="Status" class="form-control" />
+                                @Html.DropDownListFor(model => model.Status, new SelectList(ViewBag.Status), new { @class = "form-control" })
                                 <span asp-validation-for="Status" class="text-danger"></span>
-                            </div>
-
-                        </div>
-                        <!-- /.col-lg-6 (nested) -->
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-
-                            <div class="form-group">
-
                             </div>
 
                         </div>

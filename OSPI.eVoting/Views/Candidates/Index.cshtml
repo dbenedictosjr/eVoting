@@ -46,25 +46,25 @@
 
                             @foreach (var item in Model)
                             {
-                            <tr class="odd gradeX">
-                                <td class="text-center">
-                                    <input type="checkbox" value="1">
-                                </td>
+                                <tr class="odd gradeX">
+                                    <td class="text-center">
+                                        <input type="checkbox" value="1">
+                                    </td>
 
-                                <th>
-                                    @Html.ActionLink("" + item.PositionName + "", "Details", "Candidates", new { id = item.CandidateId }, null)
-                                </th>
-                                 
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.CandidateFullName)
-                                </th>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.NomineeFullName)
-                                </th>
-                                <th>
-                                    @Html.DisplayFor(modelItem => item.Status)
-                                </th>
-                            </tr>
+                                    <th>
+                                        @Html.ActionLink("" + item.PositionName + "", "Details", "Candidates", new { id = item.CandidateId }, null)
+                                    </th>
+
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.CandidateFullName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.NomineeFullName)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </th>
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -76,4 +76,3 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
- 

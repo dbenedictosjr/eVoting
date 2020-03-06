@@ -20,30 +20,30 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             @*<div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <img src="~/images/logo.png" />
-                <a class="navbar-brand" href="index.html">Your Logo</a>
-            </div>*@
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="~/images/logo.png" />
+                    <a class="navbar-brand" href="index.html">Your Logo</a>
+                </div>*@
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 @*<li class="current">
-                    <a href="/"><span class="sr-only">(current)</span>Home</a>
-                </li>
-                <li class="">
-                    <a href="/#aboutus">About</a>
-                </li>
-                <li class="">
-                    <a href="/#focus">Services</a>
-                </li>
-                <li class="">
-                    <a href="/#team">Board and Officers</a>
-                </li>*@
+                        <a href="/"><span class="sr-only">(current)</span>Home</a>
+                    </li>
+                    <li class="">
+                        <a href="/#aboutus">About</a>
+                    </li>
+                    <li class="">
+                        <a href="/#focus">Services</a>
+                    </li>
+                    <li class="">
+                        <a href="/#team">Board and Officers</a>
+                    </li>*@
                 @{
                     await Html.RenderPartialAsync("_LoginPartial");
                 }
@@ -66,7 +66,7 @@
                             <!-- /input-group -->
                         </li>
                         @if (UserClaimsHelper.CanDoAnyActions(User, "Roles") ||
-                    UserClaimsHelper.CanDoAnyActions(User, "Members"))
+                   UserClaimsHelper.CanDoAnyActions(User, "Members"))
                         {
                             <li>
                                 <a href=""><i class="fa fa-dashboard fa-fw"></i>Tools <span class="fa arrow"></span></a>
@@ -90,11 +90,11 @@
                             <a href=""><i class="fa fa-dashboard fa-fw"></i>Online Voting <span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 @*@if (UserClaimsHelper.CanDoAnyActions(User, "Election Settings"))
-                                {
-                                    <li>
-                                        <a asp-controller="Members" asp-action="setting">Settings </a>
-                                    </li>
-                                }*@
+                                    {
+                                        <li>
+                                            <a asp-controller="Members" asp-action="setting">Settings </a>
+                                        </li>
+                                    }*@
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Ballots"))
                                 {
                                     <li>
@@ -110,7 +110,7 @@
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Nominations"))
                                 {
                                     <li>
-                                        <a asp-controller="Candidates" asp-action="Nomination">Nominations </a>
+                                        <a asp-controller="Candidates" asp-action="Index">Nominations </a>
                                     </li>
                                 }
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Candidates"))
@@ -119,10 +119,13 @@
                                         <a asp-controller="Candidates" asp-action="index">Candidates </a>
                                     </li>
                                 }
-                                <li>
-                                    <a asp-controller="Elections" asp-action="index">Election </a>
-                                </li>
-                                @if (UserClaimsHelper.CanDoAnyActions(User, "Election Results"))
+                                @if (UserClaimsHelper.CanDoAnyActions(User, "Election"))
+                                {
+                                    <li>
+                                        <a asp-controller="Elections" asp-action="index">Election </a>
+                                    </li>
+                                }
+                                @if (UserClaimsHelper.CanDoAnyActions(User, "Election"))
                                 {
                                     <li>
                                         <a asp-controller="Elections" asp-action="ElectionResult">Election Results </a>
@@ -131,18 +134,18 @@
                             </ul>
                         </li>
                         @*<li>
-                            <a asp-controller="Members" asp-action="index"><i class="fa fa-money-check"></i>Cash Receipt </a>
-                        </li>
+                                <a asp-controller="Members" asp-action="index"><i class="fa fa-money-check"></i>Cash Receipt </a>
+                            </li>
 
-                        <li>
-                            <a asp-controller="Members" asp-action="index"><i class="fa fa-landmark"></i> Cash Disbursement </a>
-                        </li>
-                        <li>
-                            <a asp-controller="Members" asp-action="index"><i class="fa fa-shopping-cart"></i>Journal Voucher</a>
-                        </li>
-                        <li>
-                            <a asp-controller="Members" asp-action="index"><i class="fa fa-shopping-cart"></i>Petty Cash </a>
-                        </li>*@
+                            <li>
+                                <a asp-controller="Members" asp-action="index"><i class="fa fa-landmark"></i> Cash Disbursement </a>
+                            </li>
+                            <li>
+                                <a asp-controller="Members" asp-action="index"><i class="fa fa-shopping-cart"></i>Journal Voucher</a>
+                            </li>
+                            <li>
+                                <a asp-controller="Members" asp-action="index"><i class="fa fa-shopping-cart"></i>Petty Cash </a>
+                            </li>*@
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

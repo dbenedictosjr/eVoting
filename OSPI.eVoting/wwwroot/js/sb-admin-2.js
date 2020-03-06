@@ -1,5 +1,4 @@
 $(function() {
-  
  
     $('#side-menu').metisMenu(); 
 
@@ -14,8 +13,6 @@ $(function() {
     });
     $("#tbl_eBallots").find("thead th").removeClass("sorting_asc");
 
-    
-
     $('#tbl_Members').dataTable({
         responsive: true,
         "columnDefs": [
@@ -28,6 +25,7 @@ $(function() {
     $("#chkMembers_all").click(function () {
         $('#tbl_Members tbody input[type="checkbox"]').prop('checked', this.checked);
     });
+
     $('#tbl_Roles').dataTable({
         responsive: true,
         "columnDefs": [

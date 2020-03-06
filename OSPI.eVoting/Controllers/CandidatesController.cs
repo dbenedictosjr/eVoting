@@ -7,6 +7,7 @@ using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
 using Microsoft.Extensions.Configuration;
 using System.Linq;
+using OSPI.eVoting.Helpers;
 
 namespace OSPI.eVoting.Controllers
 {
@@ -26,15 +27,12 @@ namespace OSPI.eVoting.Controllers
         }
 
         // GET: Candidates
-        public async Task<IActionResult> Index() => View(await _candidateService.GetAllAsync());
-
-        public async Task<IActionResult> Nomination()
+        public async Task<IActionResult> Index()
         {
-            ViewBag.UserID = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value);
-            if (User.Claims.FirstOrDefault(x => x.Type == "Role").Value.ToUpper() == "82D0B260-E01D-4FB8-A4A6-4A6E0AB9E008")
+            if(UserClaimsHelper.CanDoAction(User, "Nominations"+UserClaims.CanEdit))
                 return View(await _candidateService.GetAllAsync());
             else
-                return View(await _candidateService.GetAllByNomineeIdAsync(ViewBag.UserID));
+                return View(await _candidateService.GetAllByNomineeIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value)));
         }
 
         public async Task<IActionResult> Candidates() => View(await _candidateService.GetAllCandidatesAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
@@ -53,8 +51,7 @@ namespace OSPI.eVoting.Controllers
                 return NotFound();
             }
 
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
-            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
+            ViewBag.UserID = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value);
             return View(candidate);
         }
 
@@ -79,7 +76,7 @@ namespace OSPI.eVoting.Controllers
                 candidate.NomineeMemberId = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value);
                 candidate.Status = "For Approval";
                 await _candidateService.CreateAsync(candidate);
-                return RedirectToAction(nameof(Nomination));
+                return RedirectToAction(nameof(Index));
             }
             else
             {
@@ -103,6 +100,8 @@ namespace OSPI.eVoting.Controllers
             {
                 return NotFound();
             }
+            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
             ViewBag.Status = new[] { "Qualified", "Not qualified" };
             return View(candidate);
         }
@@ -124,7 +123,7 @@ namespace OSPI.eVoting.Controllers
                 try
                 {
                     await _candidateService.UpdateAsync(candidate);
-                    return RedirectToAction(nameof(Nomination));
+                    return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
                 {
