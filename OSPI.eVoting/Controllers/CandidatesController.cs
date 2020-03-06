@@ -158,7 +158,7 @@ namespace OSPI.eVoting.Controllers
         {
             var candidate = await _candidateService.GetByIdAsync(id);
             await _candidateService.DeleteAsync(candidate);
-            return RedirectToAction(nameof(Nomination));
+            return RedirectToAction(nameof(Index));
         }
     }
 }
