@@ -4955,11 +4955,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj",
+      "projectUniqueName": "C:\\Projects\\OSPI-Systems\\OSPI.Domain\\OSPI.Domain.csproj",
       "projectName": "OSPI.Domain",
-      "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj",
+      "projectPath": "C:\\Projects\\OSPI-Systems\\OSPI.Domain\\OSPI.Domain.csproj",
       "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\obj\\",
+      "outputPath": "C:\\Projects\\OSPI-Systems\\OSPI.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

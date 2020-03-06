@@ -8627,11 +8627,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.eVoting\\OSPI.eVoting.csproj",
+      "projectUniqueName": "C:\\Projects\\OSPI-Systems\\OSPI.eVoting\\OSPI.eVoting.csproj",
       "projectName": "OSPI.eVoting",
-      "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.eVoting\\OSPI.eVoting.csproj",
+      "projectPath": "C:\\Projects\\OSPI-Systems\\OSPI.eVoting\\OSPI.eVoting.csproj",
       "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.eVoting\\obj\\",
+      "outputPath": "C:\\Projects\\OSPI-Systems\\OSPI.eVoting\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8650,8 +8650,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
-              "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj"
+            "C:\\Projects\\OSPI-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj": {
+              "projectPath": "C:\\Projects\\OSPI-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj"
             }
           }
         }

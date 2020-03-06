@@ -4961,11 +4961,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Projects\\OSPI-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
       "projectName": "OSPI.Infrastructure",
-      "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
+      "projectPath": "C:\\Projects\\OSPI-Systems\\OSPI.Infrastructure\\OSPI.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\d.t.benedictos.jr\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Infrastructure\\obj\\",
+      "outputPath": "C:\\Projects\\OSPI-Systems\\OSPI.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -4984,8 +4984,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj": {
-              "projectPath": "C:\\Projects\\OSPI-Integrated-Systems\\OSPI.Domain\\OSPI.Domain.csproj"
+            "C:\\Projects\\OSPI-Systems\\OSPI.Domain\\OSPI.Domain.csproj": {
+              "projectPath": "C:\\Projects\\OSPI-Systems\\OSPI.Domain\\OSPI.Domain.csproj"
             }
           }
         }
