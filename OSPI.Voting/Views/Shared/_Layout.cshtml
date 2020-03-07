@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.Extensions.Configuration
+@inject IConfiguration Configuration
+@{
+    string company = Configuration["Company"];
+    string address = Configuration["Address"];
+    string contact = Configuration["Contact"];
+    string website = Configuration["website"];
+    string email = Configuration["email"];
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -35,9 +44,9 @@
                 <nav class="navbar-collapse collapse" role="navigation" id="bs-navbar-collapse">
                     <ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
                         @*<li class="current"><a href="/">Home</a></li>
-                        <li class=""><a href="/#aboutus">About</a></li>
-                        <li class=""><a href="/#focus">Services</a></li>
-                        <li class=""><a href="/#team">Board and Officers</a></li>*@
+                            <li class=""><a href="/#aboutus">About</a></li>
+                            <li class=""><a href="/#focus">Services</a></li>
+                            <li class=""><a href="/#team">Board and Officers</a></li>*@
                         @{
                             await Html.RenderPartialAsync("_LoginPartial");
                         }
@@ -62,7 +71,9 @@
                 <div class="icon-top red-text">
                     <i class="icon-fontawesome-webfont-302"></i>
                 </div>
-                PO Box 16122 Collins Street West, Victoria 8007 Australia
+                @company
+                <br />
+                @address
             </div>
 
             <!-- COMPANY EMAIL-->
@@ -70,7 +81,9 @@
                 <div class="icon-top green-text">
                     <i class="icon-fontawesome-webfont-329"></i>
                 </div>
-                contact
+                @website
+                <br />
+                @email
             </div>
 
             <!-- COMPANY PHONE NUMBER -->
@@ -78,17 +91,15 @@
                 <div class="icon-top blue-text">
                     <i class="icon-fontawesome-webfont-101"></i>
                 </div>
-                +613 0000 0000
+                @contact
             </div>
 
             <!-- SOCIAL ICON AND COPYRIGHT -->
             <div class="col-lg-3 col-sm-3 copyright">
                 <ul class="social">
-                    <li><a href=""><i class="icon-facebook"></i></a></li>
-                    <li><a href=""><i class="icon-twitter-alt"></i></a></li>
-                    <li><a href=""><i class="icon-linkedin"></i></a></li>
-                    <li><a href=""><i class="icon-behance"></i></a></li>
-                    <li><a href=""><i class="icon-dribbble"></i></a></li>
+                    <li><a href="https://www.facebook.com/pages/On-Semiconductor-Carmona-Cavite-Philippines/110691645670542"><i class="fa fa-facebook" style="font-size:36px"></i></a></li>
+                    <li><a href=""><i class="fa fa-twitter" style="font-size:36px"></i></a></li>
+                    <li><a href=""><i class="fa fa-linkedin" style="font-size:36px"></i></a></li>
                 </ul>
             </div>
         </div> <!-- / END CONTAINER -->

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace OSPI.Infrastructure.Models
@@ -61,5 +62,18 @@ namespace OSPI.Infrastructure.Models
         public int MaximumRequiredVotes { get; set; }
 
         public string Qualifications { get; set; }
+    }
+
+    public class CPositionModel
+    {
+        public Guid PositionId { get; set; }
+
+        public string PositionName { get; set; }
+
+        public int MinimumVotes { get; set; }
+
+        public int MaximumVotes { get; set; }
+
+        public ICollection<CCandidateModel> Candidates { get; set; }
     }
 }

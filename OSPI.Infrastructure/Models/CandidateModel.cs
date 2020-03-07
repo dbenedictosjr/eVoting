@@ -51,4 +51,12 @@ namespace OSPI.Infrastructure.Models
                     return 0;
             } }
     }
+
+    public class CCandidateModel
+    {
+        public Guid CandidateId { get; set; }
+
+        public string CandidateName { get; set; }
+    }
+
 }

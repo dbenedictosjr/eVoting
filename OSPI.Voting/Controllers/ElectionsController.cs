@@ -191,7 +191,6 @@ namespace OSPI.Voting.Controllers
         }
         public async Task<IActionResult> ElectionResult()
         {
-            
             List<CandidateModel> List = new List<CandidateModel>();
             var rootpath = _configuration["RootMemberImagePath"];
             var result =await _memberService.GetAllVotersAsync();
@@ -204,7 +203,6 @@ namespace OSPI.Voting.Controllers
                 string JpgfilePath = rootpath + "/" + item.CandidateMemberNo + "" + ".jpg";
                 if (System.IO.File.Exists(PNGfilePath))
                 {
-
                     model.CandidateMemberNo = _configuration["MemberImagePath"] + "/" + item.CandidateMemberNo + "" + ".png";
                 }
                 else if (System.IO.File.Exists(JpgfilePath))

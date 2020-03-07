@@ -12,11 +12,13 @@ namespace OSPI.Infrastructure.Services
     public class CandidateService : ICandidateService
     {
         private readonly ICandidateRepository _candidateRepository;
+        private readonly IPositionRepository _positionRepository;
         private readonly IMapper _mapper;
 
-        public CandidateService(ICandidateRepository candidateRepository, IMapper mapper)
+        public CandidateService(ICandidateRepository candidateRepository, IPositionRepository positionRepository, IMapper mapper)
         {
             _candidateRepository = candidateRepository;
+            _positionRepository = positionRepository;
             _mapper = mapper;
         }
 
@@ -36,8 +38,8 @@ namespace OSPI.Infrastructure.Services
             => _mapper.Map<CandidateModel>(await _candidateRepository.GetByIdAsync(id));
         public async Task<IEnumerable<CandidateModel>> GetAllByNomineeIdAsync(Guid? id)
             => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByNomineeIdAsync(id));
-        public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, string status)
-            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllCandidatesAsync(ballotId, status));
+        public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, string status) => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllCandidatesAsync(ballotId, status));
+
         public async Task<IEnumerable<CandidateModel>> GetAllByPositionIdAsync(Guid? positionId, string status)
             => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByPositionIdAsync(positionId, status));
         public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, Guid? positionId, string status)
@@ -49,6 +51,36 @@ namespace OSPI.Infrastructure.Services
         {
             _candidateRepository.Update(_mapper.Map<CandidateEntity>(candidate));
             await _candidateRepository.SaveAsync();
+        }
+        public async Task<List<CPositionModel>> GetAllPositionAsync(Guid? ballotId, string status)
+        {
+            List<CPositionModel> positions = new List<CPositionModel>();
+            IEnumerable<CandidateEntity> ccandidates;
+            IEnumerable<PositionEntity> cpositions = await _positionRepository.GetAllByBallotIdAsync(ballotId);
+            foreach (PositionEntity position in cpositions)
+            {
+                CPositionModel cPositionModel = new CPositionModel
+                {
+                    PositionId = position.PositionId,
+                    PositionName = position.PositionName,
+                    MinimumVotes = position.MinimumRequiredVotes,
+                    MaximumVotes = position.MaximumRequiredVotes,
+                };
+
+                ccandidates = await _candidateRepository.GetAllByPositionIdAsync(position.PositionId, status);
+
+                foreach (CandidateEntity candidate in ccandidates)
+                {
+                    cPositionModel.Candidates.Add(new CCandidateModel {
+                        CandidateId=candidate.CandidateId,
+                        CandidateName=candidate.CandidateMember.FirstName +  " " + candidate.CandidateMember.LastName
+                    });
+                }
+
+                positions.Add(cPositionModel);
+            }
+
+            return positions;
         }
     }
 }
