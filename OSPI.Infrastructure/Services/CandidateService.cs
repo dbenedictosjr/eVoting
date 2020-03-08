@@ -61,6 +61,7 @@ namespace OSPI.Infrastructure.Services
             IEnumerable<CandidateEntity> ccandidates;
             IEnumerable<PositionEntity> cpositions = await _positionRepository.GetAllByBallotIdAsync(ballotId);
             var rootpath = _configuration["RootMemberImagePath"];
+            var displaypath = _configuration["MemberImagePath"];
 
             foreach (PositionEntity position in cpositions)
             {
@@ -89,11 +90,11 @@ namespace OSPI.Infrastructure.Services
                     if (System.IO.File.Exists(PNGfilePath))
                     {
 
-                        cCandidateModel.MemberNumber = PNGfilePath;
+                        cCandidateModel.MemberNumber = displaypath + "/" + candidateEntity.CandidateMember.MemberNo + "" + ".png";
                     }
                     else if (System.IO.File.Exists(JpgfilePath))
                     {
-                        cCandidateModel.MemberNumber = JpgfilePath;
+                        cCandidateModel.MemberNumber = displaypath + "/" + candidateEntity.CandidateMember.MemberNo + "" + ".jpg";
                     }
                     else
                     {
