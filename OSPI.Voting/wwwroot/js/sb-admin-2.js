@@ -1,5 +1,5 @@
 $(function() {
- 
+   
     $('#side-menu').metisMenu(); 
 
     $('#tbl_eBallots').dataTable({
