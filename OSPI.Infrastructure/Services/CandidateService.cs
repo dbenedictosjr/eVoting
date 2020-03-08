@@ -65,6 +65,7 @@ namespace OSPI.Infrastructure.Services
                     PositionName = position.PositionName,
                     MinimumVotes = position.MinimumRequiredVotes,
                     MaximumVotes = position.MaximumRequiredVotes,
+                    Candidates = new List<CCandidateModel>()
                 };
 
                 ccandidates = await _candidateRepository.GetAllByPositionIdAsync(position.PositionId, status);

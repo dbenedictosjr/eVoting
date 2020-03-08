@@ -81,7 +81,6 @@ namespace OSPI.Voting.Controllers
             }
 
             var ballot = await _ballotService.GetByIdAsync(id);
-            //ballot.Positions = _positionService.GetAllAsync();
             if (ballot == null)
             {
                 return NotFound();

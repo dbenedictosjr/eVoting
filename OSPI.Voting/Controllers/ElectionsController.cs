@@ -37,7 +37,11 @@ namespace OSPI.Voting.Controllers
         }
 
         // GET: Elections
-        public async Task<IActionResult> Index() => View(await _positionService.GetAllAsync());
+        public async Task<IActionResult> Index()
+        {
+            List<CPositionModel> lPositions = await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified");
+            return View(lPositions);
+        }
 
         // GET: Elections/Details/5
         public async Task<IActionResult> Details(Guid? id)
