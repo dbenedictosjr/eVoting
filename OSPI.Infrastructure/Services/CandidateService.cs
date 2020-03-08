@@ -69,13 +69,15 @@ namespace OSPI.Infrastructure.Services
                 };
 
                 ccandidates = await _candidateRepository.GetAllByPositionIdAsync(position.PositionId, status);
-
+                 
                 foreach (CandidateEntity candidate in ccandidates)
                 {
-                    cPositionModel.Candidates.Add(new CCandidateModel {
-                        CandidateId=candidate.CandidateId,
-                        CandidateName=candidate.CandidateMember.FirstName +  " " + candidate.CandidateMember.LastName
-                    });
+                    cPositionModel.Candidates.Add(new CCandidateModel
+                    {
+                        CandidateId = candidate.CandidateId,
+                        CandidateName = candidate.CandidateMember.FirstName + " " + candidate.CandidateMember.LastName,
+                        MemberNumber = candidate.CandidateMember.MemberNo
+                    }) ;
                 }
 
                 positions.Add(cPositionModel);

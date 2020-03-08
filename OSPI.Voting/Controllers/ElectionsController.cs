@@ -39,36 +39,45 @@ namespace OSPI.Voting.Controllers
         // GET: Elections
         public async Task<IActionResult> Index()
         {
-            List<Company> comps = new List<Company> {
-                new Company { ID = 1, CompanyName = "ECOM", Emp =
-                    new List<EMP>
+            
+            List<CCandidateModel> _List = new List<CCandidateModel>();
+            List<CPositionModel> List = new List<CPositionModel>();
+            var rootpath = _configuration["RootMemberImagePath"];
+
+            List<CPositionModel> candidateModel = await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"); 
+            foreach (var item in candidateModel)
+            {
+                CPositionModel model = new CPositionModel();
+                model.PositionName = item.PositionName;
+                model.PositionId = item.PositionId;
+                foreach (var result in item.Candidates)
+                {
+                    CCandidateModel cCandidateModel = new CCandidateModel();
+                    string PNGfilePath = rootpath + "/" + result.MemberNumber + "" + ".png";
+                    string JpgfilePath = rootpath + "/" + result.MemberNumber + "" + ".jpg";
+                    if (System.IO.File.Exists(PNGfilePath))
                     {
-                        new EMP { id = 1, Name = "Can 1 " },
-                        new EMP { id = 2, Name = "Can 2" },
-                        new EMP { id = 3, Name = "Can 3" },
-                        new EMP { id = 4, Name = "Can 4" },
-                        new EMP { id = 5, Name = "Can 5" },
-                        new EMP { id = 6, Name = "Can 6" }
+
+                        cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + result.MemberNumber + "" + ".png";
                     }
-                },
-                new Company { ID = 2, CompanyName = "BOD",Emp =
-                   new List<EMP>
-                        {
-                            new EMP { id = 1, Name = "Can 1" },
-                            new EMP { id = 2, Name = "Can 2" },
-                            new EMP { id = 3, Name = "Can 3" },
-                            new EMP { id = 4, Name = "Can 4" },
-                            new EMP { id = 5, Name = "Can 5" },
-                             new EMP { id = 6, Name = "Can 6" }
-                        }
-                    },
-               
-            };
+                    else if (System.IO.File.Exists(JpgfilePath))
+                    {
+                        cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + result.MemberNumber + "" + ".jpg";
+                    }
+                    else
+                    {
+                        cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + "default.png";
+                    }
+                    cCandidateModel.CandidateName = result.CandidateName;
+                    cCandidateModel.CandidateId = result.CandidateId;
+                    _List.Add(cCandidateModel);
+                }
+                model.Candidates = _List;
+                List.Add(model);
 
-            // List<EMP> emps = new List<EMP> { new EMP { id = 1, Name = "A", Number = new List<string> { "111", "1212" } }, new EMP { id = 2, Name = "B", Number = new List<string> { "2222", "23232" } } };
-            //ViewBag.Data = emps;
 
-            return View(comps);
+            } 
+            return View(List);
         }
        // => View(await _candidateService.GetAllCandidatesAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
 
