@@ -39,47 +39,48 @@ namespace OSPI.Voting.Controllers
         // GET: Elections
         public async Task<IActionResult> Index()
         {
-            
-            List<CCandidateModel> _List = new List<CCandidateModel>();
-            List<CPositionModel> List = new List<CPositionModel>();
-            var rootpath = _configuration["RootMemberImagePath"];
 
-            List<CPositionModel> candidateModel = await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"); 
-            foreach (var item in candidateModel)
-            {
-                CPositionModel model = new CPositionModel();
-                model.PositionName = item.PositionName;
-                model.PositionId = item.PositionId;
-                foreach (var result in item.Candidates)
-                {
-                    CCandidateModel cCandidateModel = new CCandidateModel();
-                    string PNGfilePath = rootpath + "/" + result.MemberNumber + "" + ".png";
-                    string JpgfilePath = rootpath + "/" + result.MemberNumber + "" + ".jpg";
-                    if (System.IO.File.Exists(PNGfilePath))
-                    {
+            //List<CCandidateModel> _List = new List<CCandidateModel>();
+            //List<CPositionModel> List = new List<CPositionModel>();
+            //var rootpath = _configuration["RootMemberImagePath"];
 
-                        cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + result.MemberNumber + "" + ".png";
-                    }
-                    else if (System.IO.File.Exists(JpgfilePath))
-                    {
-                        cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + result.MemberNumber + "" + ".jpg";
-                    }
-                    else
-                    {
-                        cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + "default.png";
-                    }
-                    cCandidateModel.CandidateName = result.CandidateName;
-                    cCandidateModel.CandidateId = result.CandidateId;
-                    _List.Add(cCandidateModel);
-                }
-                model.Candidates = _List;
-                List.Add(model);
+            //List<CPositionModel> candidateModel = await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified");
+            //foreach (var item in candidateModel)
+            //{
+            //    CPositionModel model = new CPositionModel();
+            //    model.PositionName = item.PositionName;
+            //    model.PositionId = item.PositionId;
+            //    foreach (var result in item.Candidates)
+            //    {
+            //        CCandidateModel cCandidateModel = new CCandidateModel();
+            //        string PNGfilePath = rootpath + "/" + result.MemberNumber + "" + ".png";
+            //        string JpgfilePath = rootpath + "/" + result.MemberNumber + "" + ".jpg";
+            //        if (System.IO.File.Exists(PNGfilePath))
+            //        {
+
+            //            cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + result.MemberNumber + "" + ".png";
+            //        }
+            //        else if (System.IO.File.Exists(JpgfilePath))
+            //        {
+            //            cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + result.MemberNumber + "" + ".jpg";
+            //        }
+            //        else
+            //        {
+            //            cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + "default.png";
+            //        }
+            //        cCandidateModel.CandidateName = result.CandidateName;
+            //        cCandidateModel.CandidateId = result.CandidateId;
+            //        _List.Add(cCandidateModel);
+            //    }
+            //    model.Candidates = _List;
+            //    List.Add(model);
 
 
-            } 
-            return View(List);
+            //}
+            return View(await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
+            //return View(List);
         }
-       // => View(await _candidateService.GetAllCandidatesAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
+        // => View(await _candidateService.GetAllCandidatesAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
 
         // GET: Elections/Details/5
         public async Task<IActionResult> Details(Guid? id)

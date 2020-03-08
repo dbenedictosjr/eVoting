@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using OSPI.Domain.Entities;
 using OSPI.Domain.Interfaces;
 using OSPI.Infrastructure.Interfaces;
@@ -13,12 +14,14 @@ namespace OSPI.Infrastructure.Services
     {
         private readonly ICandidateRepository _candidateRepository;
         private readonly IPositionRepository _positionRepository;
+        private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
 
-        public CandidateService(ICandidateRepository candidateRepository, IPositionRepository positionRepository, IMapper mapper)
+        public CandidateService(ICandidateRepository candidateRepository, IPositionRepository positionRepository, IConfiguration configuration, IMapper mapper)
         {
             _candidateRepository = candidateRepository;
             _positionRepository = positionRepository;
+            _configuration = configuration;
             _mapper = mapper;
         }
 
@@ -57,6 +60,8 @@ namespace OSPI.Infrastructure.Services
             List<CPositionModel> positions = new List<CPositionModel>();
             IEnumerable<CandidateEntity> ccandidates;
             IEnumerable<PositionEntity> cpositions = await _positionRepository.GetAllByBallotIdAsync(ballotId);
+            var rootpath = _configuration["RootMemberImagePath"];
+
             foreach (PositionEntity position in cpositions)
             {
                 CPositionModel cPositionModel = new CPositionModel
@@ -70,14 +75,32 @@ namespace OSPI.Infrastructure.Services
 
                 ccandidates = await _candidateRepository.GetAllByPositionIdAsync(position.PositionId, status);
                  
-                foreach (CandidateEntity candidate in ccandidates)
+                foreach (CandidateEntity candidateEntity in ccandidates)
                 {
-                    cPositionModel.Candidates.Add(new CCandidateModel
+                    CCandidateModel cCandidateModel = new CCandidateModel
                     {
-                        CandidateId = candidate.CandidateId,
-                        CandidateName = candidate.CandidateMember.FirstName + " " + candidate.CandidateMember.LastName,
-                        MemberNumber = candidate.CandidateMember.MemberNo
-                    }) ;
+                        CandidateId = candidateEntity.CandidateId,
+                        CandidateName = candidateEntity.CandidateMember.FirstName + " " + candidateEntity.CandidateMember.LastName,
+                    };
+
+                    string PNGfilePath = rootpath + "/" + candidateEntity.CandidateMember.MemberNo + "" + ".png";
+                    string JpgfilePath = rootpath + "/" + candidateEntity.CandidateMember.MemberNo + "" + ".jpg";
+
+                    if (System.IO.File.Exists(PNGfilePath))
+                    {
+
+                        cCandidateModel.MemberNumber = PNGfilePath;
+                    }
+                    else if (System.IO.File.Exists(JpgfilePath))
+                    {
+                        cCandidateModel.MemberNumber = JpgfilePath;
+                    }
+                    else
+                    {
+                        cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + "default.png";
+                    }
+
+                    cPositionModel.Candidates.Add(cCandidateModel) ;
                 }
 
                 positions.Add(cPositionModel);
