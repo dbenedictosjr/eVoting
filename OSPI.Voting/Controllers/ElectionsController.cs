@@ -39,9 +39,38 @@ namespace OSPI.Voting.Controllers
         // GET: Elections
         public async Task<IActionResult> Index()
         {
-            List<CPositionModel> lPositions = await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified");
-            return View(lPositions);
+            List<Company> comps = new List<Company> {
+                new Company { ID = 1, CompanyName = "ECOM", Emp =
+                    new List<EMP>
+                    {
+                        new EMP { id = 1, Name = "Can 1 " },
+                        new EMP { id = 2, Name = "Can 2" },
+                        new EMP { id = 3, Name = "Can 3" },
+                        new EMP { id = 4, Name = "Can 4" },
+                        new EMP { id = 5, Name = "Can 5" },
+                        new EMP { id = 6, Name = "Can 6" }
+                    }
+                },
+                new Company { ID = 2, CompanyName = "BOD",Emp =
+                   new List<EMP>
+                        {
+                            new EMP { id = 1, Name = "Can 1" },
+                            new EMP { id = 2, Name = "Can 2" },
+                            new EMP { id = 3, Name = "Can 3" },
+                            new EMP { id = 4, Name = "Can 4" },
+                            new EMP { id = 5, Name = "Can 5" },
+                             new EMP { id = 6, Name = "Can 6" }
+                        }
+                    },
+               
+            };
+
+            // List<EMP> emps = new List<EMP> { new EMP { id = 1, Name = "A", Number = new List<string> { "111", "1212" } }, new EMP { id = 2, Name = "B", Number = new List<string> { "2222", "23232" } } };
+            //ViewBag.Data = emps;
+
+            return View(comps);
         }
+       // => View(await _candidateService.GetAllCandidatesAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
 
         // GET: Elections/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -221,5 +250,17 @@ namespace OSPI.Voting.Controllers
             }
             return View(List);
         }
+    }
+    public class EMP
+    {
+        public int id { get; set; }
+        public string Name { get; set; }
+
+    }
+    public class Company
+    {
+        public int ID { get; set; }
+        public string CompanyName { get; set; }
+        public List<EMP> Emp { get; set; }
     }
 }

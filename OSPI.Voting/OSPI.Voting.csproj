@@ -68,10 +68,6 @@
     <ProjectReference Include="..\OSPI.Infrastructure\OSPI.Infrastructure.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="wwwroot\images\MemberImage\" />
-  </ItemGroup>
-
 
 
 </Project>
