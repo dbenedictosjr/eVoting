@@ -39,46 +39,8 @@ namespace OSPI.Voting.Controllers
         // GET: Elections
         public async Task<IActionResult> Index()
         {
-
-            //List<CCandidateModel> _List = new List<CCandidateModel>();
-            //List<CPositionModel> List = new List<CPositionModel>();
-            //var rootpath = _configuration["RootMemberImagePath"];
-
-            //List<CPositionModel> candidateModel = await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified");
-            //foreach (var item in candidateModel)
-            //{
-            //    CPositionModel model = new CPositionModel();
-            //    model.PositionName = item.PositionName;
-            //    model.PositionId = item.PositionId;
-            //    foreach (var result in item.Candidates)
-            //    {
-            //        CCandidateModel cCandidateModel = new CCandidateModel();
-            //        string PNGfilePath = rootpath + "/" + result.MemberNumber + "" + ".png";
-            //        string JpgfilePath = rootpath + "/" + result.MemberNumber + "" + ".jpg";
-            //        if (System.IO.File.Exists(PNGfilePath))
-            //        {
-
-            //            cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + result.MemberNumber + "" + ".png";
-            //        }
-            //        else if (System.IO.File.Exists(JpgfilePath))
-            //        {
-            //            cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + result.MemberNumber + "" + ".jpg";
-            //        }
-            //        else
-            //        {
-            //            cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + "default.png";
-            //        }
-            //        cCandidateModel.CandidateName = result.CandidateName;
-            //        cCandidateModel.CandidateId = result.CandidateId;
-            //        _List.Add(cCandidateModel);
-            //    }
-            //    model.Candidates = _List;
-            //    List.Add(model);
-
-
-            //}
             return View(await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
-            //return View(List);
+            
         }
         // => View(await _candidateService.GetAllCandidatesAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
 
@@ -100,6 +62,14 @@ namespace OSPI.Voting.Controllers
             ViewData["Ballots"] = new SelectList(await _ballotService.GetAllAsync(), "BallotId", "Description");
             return View(election);
         }
+
+        #region "Start Region for Save Election Data
+        [HttpPost]
+        public IActionResult CompanyEmployees([FromBody] List<Company> data)
+        {
+            return Json(data);
+        } 
+        #endregion "End Region of Save Election Data."
 
         // GET: Elections/Create
         public async Task<IActionResult> Create()
@@ -263,13 +233,13 @@ namespace OSPI.Voting.Controllers
     }
     public class EMP
     {
-        public int id { get; set; }
+        public string id { get; set; }
         public string Name { get; set; }
 
     }
     public class Company
     {
-        public int ID { get; set; }
+        public string ID { get; set; }
         public string CompanyName { get; set; }
         public List<EMP> Emp { get; set; }
     }

@@ -58,6 +58,7 @@ namespace OSPI.Infrastructure.Models
 
         public string CandidateName { get; set; }
         public string MemberNumber { get; set; }
+        public string MemberId { get; set; }
     }
 
 }

@@ -61,8 +61,7 @@ namespace OSPI.Infrastructure.Services
             IEnumerable<CandidateEntity> ccandidates;
             IEnumerable<PositionEntity> cpositions = await _positionRepository.GetAllByBallotIdAsync(ballotId);
             var rootpath = _configuration["RootMemberImagePath"];
-            var displaypath = _configuration["MemberImagePath"];
-
+            var displaypath = _configuration["MemberImagePath"]; 
             foreach (PositionEntity position in cpositions)
             {
                 CPositionModel cPositionModel = new CPositionModel
@@ -82,6 +81,7 @@ namespace OSPI.Infrastructure.Services
                     {
                         CandidateId = candidateEntity.CandidateId,
                         CandidateName = candidateEntity.CandidateMember.FirstName + " " + candidateEntity.CandidateMember.LastName,
+                        MemberId = candidateEntity.CandidateMemberId.ToString()
                     };
 
                     string PNGfilePath = rootpath + "/" + candidateEntity.CandidateMember.MemberNo + "" + ".png";

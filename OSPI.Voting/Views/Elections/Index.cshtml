@@ -1,75 +1,113 @@
 ﻿@model List<OSPI.Infrastructure.Models.CPositionModel>
-    @{
-        ViewData["Title"] = "Index";
-        Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
-    }
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
+}
 
 
-    <br />
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-sm-4"> <h4>Elections Dashboard</h4></div>
-                        <div class="col-sm-6"></div>
+<br />
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-sm-4"> <h4>Elections Dashboard</h4></div>
+                    <div class="col-sm-6"></div>
+
+                    <div class="col-sm-2">
+                        <a role="button" id="btnSave" class="btn btn-primary pull-right"> Save</a>
                     </div>
-
                 </div>
-                <div class="panel-body">
 
-                    @foreach (var item in Model)
-                    {
-                        <div class="section">
-                            <h5><b>INSTRUCTIONS:</b> Select between <label id="chkCount" class="countermin">0</label>  and <label class="countermax">5</label> options from the list below. <label style="color:red">* Required</label></h5>
+
+
+            </div>
+            <div class="panel-body">
+
+                @foreach (var item in Model)
+                {
+                    <div class="section" id="@item.PositionName">
+                        <h5><b>INSTRUCTIONS:</b> Select between <label id="chkCount" class="countermin" data-countermin="@item.MinimumVotes">@item.MinimumVotes</label>  and <label class="countermax" data-countermax="@item.MaximumVotes">@item.MaximumVotes</label> options from the list below. <label style="color:red">* Required</label></h5>
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <h5><b>@Html.DisplayFor(modelItem => item.PositionName)</b></h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        @foreach (var emp in item.Candidates)
+                        {
 
                             <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <h5><b>@Html.DisplayFor(modelItem => item.PositionName)</b></h5>
+                                <div class="col-lg-8">
+                                    <div class="row">
+                                        <div class="col-sm-1"><input type="checkbox" class="chk_@item.PositionName.Trim()" data-cid="@emp.CandidateId"></div>
+
+                                        <div class="col-sm-2"> <img src="@emp.MemberNumber" style="width:70px"></div>
+                                        <div class="col-sm-6">@emp.CandidateName </div>
                                     </div>
                                 </div>
                             </div>
+                            <br />
+                        }
 
-                            @foreach (var emp in item.Candidates)
-                            {
-
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <div class="row">
-                                            <div class="col-sm-1"><input type="checkbox" class="chk_@item.PositionName.Trim()"></div>
-
-                                            <div class="col-sm-2"> <img src="@emp.MemberNumber" style="width:70px"></div>
-                                            <div class="col-sm-6">@emp.CandidateName </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <br />
-                            }
-
-                        </div>
-                    }
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-
-    <script>
-        $(function () {
-            $('input[type="checkbox"]').click(function () {
-
-                var className = this.className;
-                var tolatCheckbox = $('.' + className + ':checked').length;
-                if (tolatCheckbox > 5) {
-                    alert('Select only five candidate.');
-                    return false;
-                } else {
-
-                    $(this).closest(".section").find('#chkCount').html(tolatCheckbox);
+                    </div>
                 }
-            })
-        })
-    </script>
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+
+<script>
+    $(function () {
+        $('#btnSave').click(function () {
+            debugger;
+            var test = [];
+            var data = [];
+            var flag = true;
+            $(".section").each(function (e, v) {
+                var counterMin = $(this).find('.countermin').attr('data-countermin');
+                var counterMax = $(this).find('.countermax').attr('data-countermax');
+
+                var selectedCB = [];
+                var secctionId = $('#' + v.id + " input[type='checkbox']:checked");
+
+                if (secctionId.length >= parseInt(counterMin) && secctionId.length <= parseInt(counterMax)) {
+                    $.each(secctionId, function () {
+                        selectedCB.push('{"id":' + $(this).attr('data-cid') + '}');
+                    });
+                    data.push('{"ID":' + v.id + ',"Emp":[' + selectedCB.join(", ") + ']}')
+                } else {
+                    alert('Please check limit of ' + v.id + '.')
+                    flag = false;
+                }
+
+            });
+
+            if (flag) {
+                data = '[' + data.join(", ") + ']';
+
+                //alert(data);
+                //var comps = '['+test.join(", ")+']';
+
+                //alert(comps);
+
+                //var m = JSON.stringify([{ ID: 1 }, { ID: 2 }]);
+                //alert(m);
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/Elections/CompanyEmployees',
+                    data:  JSON.stringify(data),
+                    contentType: "application/json",
+                    success: function (data) { alert('data: ' + data); }
+                });
+            }
+        });
+    })
+</script>
