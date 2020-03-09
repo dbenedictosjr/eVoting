@@ -82,6 +82,7 @@ namespace OSPI.Infrastructure.Services
 
                     foreach (var item in ballot.JPositions)
                     {
+
                         PositionEntity positionEntity = new PositionEntity
                         {
                             PositionId = Guid.NewGuid(),
