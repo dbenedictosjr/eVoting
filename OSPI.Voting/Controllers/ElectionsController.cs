@@ -65,7 +65,7 @@ namespace OSPI.Voting.Controllers
 
         #region "Start Region for Save Election Data
         [HttpPost]
-        public IActionResult CompanyEmployees([FromBody] List<Company> data)
+        public IActionResult CompanyEmployees([FromBody] List<ElecctioDataModel> data)
         {
             return Json(data);
         } 
@@ -234,7 +234,7 @@ namespace OSPI.Voting.Controllers
     public class EMP
     {
         public string id { get; set; }
-        public string Name { get; set; }
+       // public string Name { get; set; }
 
     }
     public class Company

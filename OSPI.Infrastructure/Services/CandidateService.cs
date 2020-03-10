@@ -79,7 +79,7 @@ namespace OSPI.Infrastructure.Services
                 {
                     CCandidateModel cCandidateModel = new CCandidateModel
                     {
-                        CandidateId = candidateEntity.CandidateId,
+                        CandidateId =candidateEntity.CandidateId,
                         CandidateName = candidateEntity.CandidateMember.FirstName + " " + candidateEntity.CandidateMember.LastName,
                         MemberId = candidateEntity.CandidateMemberId.ToString()
                     };

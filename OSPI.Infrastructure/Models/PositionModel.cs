@@ -62,6 +62,7 @@ namespace OSPI.Infrastructure.Models
         public int MaximumRequiredVotes { get; set; }
 
         public string Qualifications { get; set; }
+
     }
 
     public class CPositionModel
@@ -75,5 +76,19 @@ namespace OSPI.Infrastructure.Models
         public int MaximumVotes { get; set; }
 
         public ICollection<CCandidateModel> Candidates { get; set; }
+    }
+    public class ElecctioDataModel
+    {
+        public string PositionName { get; set; }
+        public string PositionId { get; set; } 
+        public ICollection<CandidateDataModel> Candidates { get; set; }
+    }
+    public class CandidateDataModel
+    {
+        public string CandidateId { get; set; }
+
+        public string CandidateName { get; set; }
+        public string MemberNumber { get; set; }
+        public string MemberId { get; set; }
     }
 }
