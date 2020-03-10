@@ -88,7 +88,7 @@
 
                 if (secctionId.length >= parseInt(counterMin) && secctionId.length <= parseInt(counterMax)) {
                     $.each(secctionId, function () {
-                        selectedCB.push('{"CandidateId":"' + $(this).attr('data-cid') + '"}');
+                        selectedCB.push('{"CandidateId":"' + $(this).attr('data-cid') + '","MemberId":"' + $(this).attr('data-mid') + '"}');
                     });
                     data.push('{"PositionId":"' + v.id + '","Candidates":[' + selectedCB.join(", ") + ']}')
                 }
@@ -107,7 +107,7 @@
                     url: '/Elections/CompanyEmployees',
                     data: data,
                     contentType: "application/json",
-                    success: function (data) {alert(Record has been successfully inserted. ) }
+                    success: function (data) {alert("Record has been successfully inserted.") }
                 });
             }
         });
