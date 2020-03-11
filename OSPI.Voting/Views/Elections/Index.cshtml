@@ -26,7 +26,7 @@
 
                 @foreach (var item in Model)
                 {
-                    <div class="section" id="@item.PositionName">
+                    <div class="section" id="@item.PositionId">
                         <h5><b>INSTRUCTIONS:</b> Select between <label id="chkCount" class="countermin" data-countermin="@item.MinimumVotes">@item.MinimumVotes</label>  and <label class="countermax" data-countermax="@item.MaximumVotes">@item.MaximumVotes</label> options from the list below. <label style="color:red">* Required</label></h5>
                         <p><span class="spncounter">0</span> of  <span>@item.MaximumVotes</span> Selected</p>
                         <div class="row">
@@ -43,7 +43,7 @@
                             <div class="row">
                                 <div class="col-lg-8">
                                     <div class="row">
-                                        <div class="col-sm-1"><input type="checkbox" class="chk_@item.PositionName.Trim()" data-cid="@emp.CandidateId" data-mid="@emp.MemberId"></div>
+                                        <div class="col-sm-1"><input type="checkbox" class="chk_@item.PositionId" data-cid="@emp.CandidateId" data-mid="@emp.MemberId"></div>
 
                                         <div class="col-sm-2"> <img src="@emp.MemberNumber" style="width:70px"></div>
                                         <div class="col-sm-6">@emp.CandidateName </div>
@@ -65,6 +65,7 @@
 
 <script>
     $(function () {
+        debugger
         $('input[type="checkbox"]').click(function () {
             var mainSection = $(this).closest(".section");
             var className = this.className;
