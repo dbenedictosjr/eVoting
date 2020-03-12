@@ -81,66 +81,8 @@ namespace OSPI.Voting.Controllers
                 
         public async Task<IActionResult> ElectionResult()
         {
-            List<CandidateModel> List = new List<CandidateModel>();
-            var rootpath = _configuration["RootMemberImagePath"];
-            var result =await _memberService.GetAllVotersAsync();
-            IEnumerable<CandidateModel> candidateModel = await _candidateService.GetAllAsync();
-            foreach (var item in candidateModel)
-            {
-                CandidateModel model = new CandidateModel();
-                model.CandidateFirstName = item.CandidateFullName;
-                string PNGfilePath = rootpath + "/" + item.CandidateMemberNo + "" + ".png";
-                string JpgfilePath = rootpath + "/" + item.CandidateMemberNo + "" + ".jpg";
-                if (System.IO.File.Exists(PNGfilePath))
-                {
-                    model.CandidateMemberNo = _configuration["MemberImagePath"] + "/" + item.CandidateMemberNo + "" + ".png";
-                }
-                else if (System.IO.File.Exists(JpgfilePath))
-                {
-                    model.CandidateMemberNo = _configuration["MemberImagePath"] + "/" + item.CandidateMemberNo + "" + ".jpg";
-                }
-                else
-                {
-                    model.CandidateMemberNo = _configuration["MemberImagePath"] + "/" + "default.png";
-                }
-                List.Add(model);
-            }
-            ElecctioResultModel edata = new ElecctioResultModel
-            {
-                Name = new List<CNameModel>(),
-                Count = new List<CCountModel>()
-            };
-            CNameModel dname;
-            CCountModel dcount;
-            dname = new CNameModel { CandidateName = "Diego" };
-            dcount = new CCountModel { CandidateCount = 25 };
-            edata.Name.Add(dname);
-            edata.Count.Add(dcount);
-            dname = new CNameModel { CandidateName = "Joy" };
-            dcount = new CCountModel { CandidateCount = 35 };
-            edata.Name.Add(dname);
-            edata.Count.Add(dcount);
-            dname = new CNameModel { CandidateName = "Wilhelm" };
-            dcount = new CCountModel { CandidateCount = 40 };
-            edata.Name.Add(dname);
-            edata.Count.Add(dcount);
-
-            ViewData["Results"] = edata;
+            List<CPositionModel> List = new List<CPositionModel>();
             return View(List);
         }
     }
-}
-public class ElecctioResultModel
-{
-    public List<CNameModel> Name { get; set; }
-    public List<CCountModel> Count { get; set; }
-}
-public class CNameModel
-{
-    public string CandidateName { get; set; }
-}
-
-public class CCountModel
-{
-    public int CandidateCount { get; set; }
 }

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.Extensions.Configuration;
 using OSPI.Domain;
 using OSPI.Domain.Entities;
 using OSPI.Domain.Interfaces;
@@ -15,15 +16,21 @@ namespace OSPI.Infrastructure.Services
         private readonly ApplicationDbContext _context;
         private readonly IElectionRepository _electionRepository;
         private readonly IElectionDetailRepository _electionDetailRepository;
+        private readonly ICandidateRepository _candidateRepository;
         private readonly IMemberRepository _memberRepository;
+        private readonly IPositionRepository _positionRepository;
+        private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
 
-        public ElectionService(ApplicationDbContext context, IElectionRepository electionRepository, IElectionDetailRepository electionDetailRepository, IMemberRepository memberRepository, IMapper mapper)
+        public ElectionService(ApplicationDbContext context, IElectionRepository electionRepository, IElectionDetailRepository electionDetailRepository, ICandidateRepository candidateRepository, IMemberRepository memberRepository, IPositionRepository positionRepository, IConfiguration configuration, IMapper mapper)
         {
             _context = context;
             _electionRepository = electionRepository;
             _electionDetailRepository = electionDetailRepository;
+            _candidateRepository = candidateRepository;
             _memberRepository = memberRepository;
+            _positionRepository = positionRepository;
+            _configuration = configuration;
             _mapper = mapper;
         }
 
@@ -86,6 +93,71 @@ namespace OSPI.Infrastructure.Services
                     transaction.Rollback(); 
                 }
             }
+        }
+
+        public async Task<List<CPositionModel>> GetAllPositionAsync(Guid? ballotId, string status)
+        {
+            List<CPositionModel> positions = new List<CPositionModel>();
+            IEnumerable<CandidateEntity> ccandidates;
+            IEnumerable<PositionEntity> cpositions = await _positionRepository.GetAllByBallotIdAsync(ballotId);
+            var rootpath = _configuration["RootMemberImagePath"];
+            var displaypath = _configuration["MemberImagePath"];
+            foreach (PositionEntity position in cpositions)
+            {
+                CPositionModel cPositionModel = new CPositionModel
+                {
+                    PositionId = position.PositionId,
+                    PositionName = position.PositionName,
+                    MinimumVotes = position.MinimumRequiredVotes,
+                    MaximumVotes = position.MaximumRequiredVotes,
+                    Candidates = new List<CCandidateModel>()
+                };
+
+                ccandidates = await _candidateRepository.GetAllByPositionIdAsync(position.PositionId, status);
+
+                int totalvotes = 0;
+
+                foreach (CandidateEntity candidateEntity in ccandidates)
+                {
+                    CCandidateModel cCandidateModel = new CCandidateModel
+                    {
+                        CandidateId = candidateEntity.CandidateId,
+                        CandidateName = candidateEntity.CandidateMember.FirstName + " " + candidateEntity.CandidateMember.LastName,
+                        MemberId = candidateEntity.CandidateMemberId.ToString(),
+                        TotalVotes = (candidateEntity.Votes == null ? 0 : candidateEntity.Votes.Count)
+                    };
+
+                    totalvotes += cCandidateModel.TotalVotes;
+
+                    string PNGfilePath = rootpath + "/" + candidateEntity.CandidateMember.MemberNo + "" + ".png";
+                    string JpgfilePath = rootpath + "/" + candidateEntity.CandidateMember.MemberNo + "" + ".jpg";
+
+                    if (System.IO.File.Exists(PNGfilePath))
+                    {
+
+                        cCandidateModel.MemberNumber = displaypath + "/" + candidateEntity.CandidateMember.MemberNo + "" + ".png";
+                    }
+                    else if (System.IO.File.Exists(JpgfilePath))
+                    {
+                        cCandidateModel.MemberNumber = displaypath + "/" + candidateEntity.CandidateMember.MemberNo + "" + ".jpg";
+                    }
+                    else
+                    {
+                        cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + "default.png";
+                    }
+
+                    cPositionModel.Candidates.Add(cCandidateModel);
+                }
+
+                foreach (CCandidateModel cCandidateModel in cPositionModel.Candidates)
+                {
+                    cCandidateModel.Percentage = cCandidateModel.TotalVotes / totalvotes;
+                }
+
+                positions.Add(cPositionModel);
+            }
+
+            return positions;
         }
     }
 }
