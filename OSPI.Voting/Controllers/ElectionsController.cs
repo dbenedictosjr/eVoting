@@ -105,7 +105,42 @@ namespace OSPI.Voting.Controllers
                 }
                 List.Add(model);
             }
+            ElecctioResultModel edata = new ElecctioResultModel
+            {
+                Name = new List<CNameModel>(),
+                Count = new List<CCountModel>()
+            };
+            CNameModel dname;
+            CCountModel dcount;
+            dname = new CNameModel { CandidateName = "Diego" };
+            dcount = new CCountModel { CandidateCount = 25 };
+            edata.Name.Add(dname);
+            edata.Count.Add(dcount);
+            dname = new CNameModel { CandidateName = "Joy" };
+            dcount = new CCountModel { CandidateCount = 35 };
+            edata.Name.Add(dname);
+            edata.Count.Add(dcount);
+            dname = new CNameModel { CandidateName = "Wilhelm" };
+            dcount = new CCountModel { CandidateCount = 40 };
+            edata.Name.Add(dname);
+            edata.Count.Add(dcount);
+
+            ViewData["Results"] = edata;
             return View(List);
         }
     }
+}
+public class ElecctioResultModel
+{
+    public List<CNameModel> Name { get; set; }
+    public List<CCountModel> Count { get; set; }
+}
+public class CNameModel
+{
+    public string CandidateName { get; set; }
+}
+
+public class CCountModel
+{
+    public int CandidateCount { get; set; }
 }

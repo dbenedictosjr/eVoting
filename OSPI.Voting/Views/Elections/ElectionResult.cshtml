@@ -70,7 +70,6 @@
                                                 <img src="@item.CandidateMemberNo" class="rounded-circle" height="40" width="40" asp-append-version="true" />
                                                 @Html.DisplayFor(modelItem => item.CandidateFirstName)
 
-
                                             </td>
                                             <td>
                                                 5
@@ -108,13 +107,16 @@
 <script>
     $(function () {
         var chartDiv = $("#myChart");
+        var _data = ViewBag.Results;
         var myChart = new Chart(chartDiv, {
             type: 'pie',
             data: {
-                labels: ["Diego Jr Benedictos", "Joy Benedictos", "Ajay Gujjar", "Ram"],
+                //labels: ["Diego Jr Benedictos", "Joy Benedictos", "Ajay Gujjar", "Ram"],
+                labels: _data[0],
                 datasets: [
                     {
-                        data: [21, 39, 10, 14],
+                        //data: [21, 39, 10, 14],
+                        data: _data[1],
                         backgroundColor: [
                             "#FF6384",
                             "#4BC0C0",
