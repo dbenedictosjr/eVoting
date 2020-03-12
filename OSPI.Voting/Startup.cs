@@ -108,8 +108,8 @@ namespace OSPI.Voting
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
-                //pattern: "{controller=Members}/{action=Login}/{id?}");
+                //pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Members}/{action=Login}/{id?}");
             });
         }
     }

@@ -37,5 +37,8 @@ namespace OSPI.Domain.Repositories
         public async Task<MemberEntity> GetByCodeAsync(string code) => await _context.Set<MemberEntity>()
             .Include(a => a.Role)
             .FirstOrDefaultAsync(a => a.MemberNo == code);
+
+        public MemberEntity GetById(Guid? memberId) => _context.Set<MemberEntity>()
+            .FirstOrDefault(a => a.MemberId == memberId);
     }
 }

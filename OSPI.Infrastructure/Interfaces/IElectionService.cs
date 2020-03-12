@@ -16,5 +16,6 @@ namespace OSPI.Infrastructure.Interfaces
 
         Task DeleteAsync(ElectionModel election);
 
+        Task SaveElection(ElectionModel election, List<CPositionModel> positions);
     }
 }
