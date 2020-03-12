@@ -17,5 +17,7 @@ namespace OSPI.Infrastructure.Interfaces
         Task DeleteAsync(ElectionModel election);
 
         Task SaveElection(ElectionModel election, List<CPositionModel> positions);
+
+        Task<List<CPositionModel>> GetAllPositionAsync(Guid? ballotId, string status);
     }
 }

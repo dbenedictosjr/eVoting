@@ -32,7 +32,7 @@ namespace OSPI.Voting.Controllers
         {
             MemberModel member = await _memberService.GetByIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value));
             if (member.Voted)
-                return RedirectToAction("ElectionResult", "Elections");
+                return RedirectToAction("Results", "Elections");
             else
                 return View(await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
         }
@@ -79,10 +79,9 @@ namespace OSPI.Voting.Controllers
         }
         #endregion "End Region of Save Election Data."
                 
-        public async Task<IActionResult> ElectionResult()
+        public async Task<IActionResult> Results()
         {
-            List<CPositionModel> List = new List<CPositionModel>();
-            return View(List);
+            return View(await _electionService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
         }
     }
 }

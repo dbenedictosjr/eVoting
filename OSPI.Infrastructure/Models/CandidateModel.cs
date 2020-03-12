@@ -60,7 +60,7 @@ namespace OSPI.Infrastructure.Models
         public string MemberNumber { get; set; }
         public string MemberId { get; set; }
         public int TotalVotes { get; set; }
-        public int Percentage { get; set; }
+        public string Percentage { get; set; }
     }
 
 }

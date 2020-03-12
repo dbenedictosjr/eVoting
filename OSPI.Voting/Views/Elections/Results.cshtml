@@ -1,0 +1,64 @@
+﻿@model List<OSPI.Infrastructure.Models.CPositionModel>
+
+@{
+    ViewData["Title"] = "Results";
+    Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
+}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="row">
+                        <div class="col-sm-4"> <h4>Elections Results</h4></div>
+                        <div class="col-sm-6"></div>
+                    </div>
+                </div>
+                <div class="panel-body">
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-sm-2">>Images</div>
+                                <div class="col-sm-4">Candidate Name</div>
+                                <div class="col-sm-1">Total Votes</div>
+                                <div class="col-sm-1">Percentage </div>
+                            </div>
+                        </div>
+                    </div>
+                    @foreach (var item in Model)
+                    {
+                        <div class="section" id="@item.PositionId">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <h5><b>@Html.DisplayFor(modelItem => item.PositionName)</b></h5>
+                                    </div>
+                                </div>
+                            </div>
+
+                            @foreach (var emp in item.Candidates)
+                            {
+
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-sm-2"> <img src="@emp.MemberNumber" style="width:70px"></div>
+                                            <div class="col-sm-4">@emp.CandidateName </div>
+                                            <div class="col-sm-1">@emp.TotalVotes </div>
+                                            <div class="col-sm-1">@emp.Percentage </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                            }
+
+                        </div>
+                    }
+                </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+        <!-- /.col-lg-12 -->
+    </div>
