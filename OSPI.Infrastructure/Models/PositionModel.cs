@@ -67,7 +67,7 @@ namespace OSPI.Infrastructure.Models
 
     public class CPositionModel
     {
-        public Guid PositionId { get; set; }
+        public string PositionId { get; set; }
 
         public string PositionName { get; set; }
 

@@ -66,7 +66,7 @@ namespace OSPI.Infrastructure.Services
             {
                 CPositionModel cPositionModel = new CPositionModel
                 {
-                    PositionId = position.PositionId,
+                    PositionId = position.PositionId.ToString(),
                     PositionName = position.PositionName,
                     MinimumVotes = position.MinimumRequiredVotes,
                     MaximumVotes = position.MaximumRequiredVotes,

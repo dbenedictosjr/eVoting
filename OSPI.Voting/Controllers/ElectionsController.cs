@@ -31,9 +31,9 @@ namespace OSPI.Voting.Controllers
         public async Task<IActionResult> Index()
         {
             MemberModel member = await _memberService.GetByIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value));
-            if (member.Voted)
-                return RedirectToAction("Results", "Elections");
-            else
+            //if (member.Voted)
+            //    return RedirectToAction("Results", "Elections");
+            //else
                 return View(await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
         }
 
@@ -78,10 +78,36 @@ namespace OSPI.Voting.Controllers
             }
         }
         #endregion "End Region of Save Election Data."
-                
-        public async Task<IActionResult> Results()
+
+        public async Task<IActionResult> Results(string id, string ButtonType)
         {
-            return View(await _electionService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
+            List<CPositionModel> _result = new List<CPositionModel>();
+            _result = await _electionService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified");
+            int i = _result.FindIndex(x => x.PositionId == id);
+            if (ButtonType == null && i == -1)
+            {
+                i = 0;
+            }
+            else if (ButtonType.Trim() == ">")
+            {
+                i = (i < _result.Count - 1) ? i + 1 : 0;
+            }
+            else if (ButtonType.Trim() == "<")
+            {
+                i = i > 0 ? i - 1 : _result.Count - 1;
+            }
+            var _list = _result[i];
+            List<string> canditateNameList = new List<string>();
+            List<string> PercentageList = new List<string>();
+            foreach (var item in _list.Candidates)
+            {
+                canditateNameList.Add(item.CandidateName);
+                PercentageList.Add(item.Percentage);
+            }
+            ViewData["canditateNameList"] = canditateNameList;
+            ViewData["PercentageList"] = PercentageList;
+            return View(_result[i]);
         }
+
     }
 }

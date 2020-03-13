@@ -15,7 +15,7 @@
                     <div class="col-sm-6"></div>
 
                     <div class="col-sm-2">
-                        <a role="button" id="btnSave" class="btn btn-primary pull-right"> Save</a>
+                        <a role="button" id="btnconfirm" class="btn btn-primary pull-right"> Save</a>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                             <div class="row">
                                 <div class="col-lg-8">
                                     <div class="row">
-                                        <div class="col-sm-1"><input type="checkbox" class="chk_@item.PositionId" data-cid="@emp.CandidateId" data-mid="@emp.MemberId"></div>
+                                        <div class="col-sm-1"><input type="checkbox" class="chk_@item.PositionId" data-cid="@emp.CandidateId" data-mid="@emp.MemberId" data-cname="@emp.CandidateName" data-pname="@item.PositionName"></div>
 
                                         <div class="col-sm-2"> <img src="@emp.MemberNumber" style="width:70px"></div>
                                         <div class="col-sm-6">@emp.CandidateName </div>
@@ -59,34 +59,75 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-3">
+
+                    </div>
+                    <div class="col-lg-7">
+                        <p><b>Do you want to submit your  votes now ?</b></p>
+                    </div>
+                   
+                </div>
+                
+
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-lg-3">
+
+                    </div>
+                    <div class="col-lg-4">
+                        <button type="button" id="btnSave" class="btn btn-info">Yes</button>
+                        <button type="button" id="btnNo" class="btn  btn-danger" data-dismiss="modal">No</button>
+
+                    </div>
+                    
+                </div>
+               
+
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
     $(function () {
+        var test = [];
+
+        var pdata = [];
+        var flag = true;
         $('input[type="checkbox"]').click(function () {
             var mainSection = $(this).closest(".section");
             var className = this.className;
             var counterMin = mainSection.find('.countermin').attr('data-countermin');
             var counterMax = mainSection.find('.countermax').attr('data-countermax');
-            var tolatCheckbox = $('.' + className + ':checked').length; 
+            var tolatCheckbox = $('.' + className + ':checked').length;
             mainSection.find('.spncounter').html(tolatCheckbox);
 
         });
-        $('#btnSave').click(function () {
-            var test = [];
+        $('#btnconfirm').click(function () {           
             var data = [];
-            var flag = true;
-            $(".section").each(function (e, v) {
+            $(".section").each(function (e, v) {              
                 var counterMin = $(this).find('.countermin').attr('data-countermin');
                 var counterMax = $(this).find('.countermax').attr('data-countermax');
 
                 var selectedCB = [];
+                var pselectedCB = [];
                 var secctionId = $('#' + v.id + " input[type='checkbox']:checked");
 
                 if (secctionId.length >= parseInt(counterMin) && secctionId.length <= parseInt(counterMax)) {
                     $.each(secctionId, function () {
                         selectedCB.push('{"CandidateId":"' + $(this).attr('data-cid') + '","MemberId":"' + $(this).attr('data-mid') + '"}');
+                        //pselectedCB.push('{"CandidateName":"' + $(this).attr('data-cname') + '"}');
                     });
                     data.push('{"PositionId":"' + v.id + '","Candidates":[' + selectedCB.join(", ") + ']}')
+                    flag = true;
+                    //pdata.push('{"PositionId":"' + v.id + '","CandidatesList":[' + pselectedCB.join(", ") + ']}')
                 }
                 else {
                     alert('Please check limit of ' + v.id + '.')
@@ -94,21 +135,46 @@
                 }
 
             });
-
             if (flag) {
                 data = '[' + data.join(", ") + ']';
+                test = data;
+                $("#myModal").modal("show");
+                //pdata = '[' + pdata.join(", ") + ']';
+                //var pdatas = pdata;
+                //var i;
+                //for (i in pdatas.CandidatesList) {
+                //    var data= pdatas.CandidatesList[i] + "<br>";
+                //}
 
-                $.ajax({
+                //$("#myModal").modal("show");
+                //$.ajax({
+                //    type: 'POST',
+                //    url: '/Elections/SaveVotes',
+                //    data: data,
+                //    contentType: "application/json",
+                //    success: function (data) {
+                //        alert("Record has been successfully inserted.");
+                //        location.href = "/Elections/Results";
+                //    }
+                //});
+            }
+
+        });
+        $('#btnSave').click(function () {
+            var model =test;
+               $.ajax({
                     type: 'POST',
                     url: '/Elections/SaveVotes',
-                    data: data,
+                    data: model,
                     contentType: "application/json",
-                    success: function (data) {
+                    success: function (model) {
                         alert("Record has been successfully inserted.");
                         location.href = "/Elections/Results";
                     }
                 });
-            }
+        });
+        $('#btnNo').click(function () {
+            $("#myModal").modal("hide");
         });
     })
 </script>
