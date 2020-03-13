@@ -43,6 +43,9 @@ namespace OSPI.Voting
             b => b.MigrationsAssembly("OSPI.Domain"))
             .UseInternalServiceProvider(serviceProvider));
 
+            // Sending email
+            services.AddScoped<IEmailSender, EmailSender>();
+
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             //Module

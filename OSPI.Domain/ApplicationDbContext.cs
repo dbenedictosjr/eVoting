@@ -38,6 +38,12 @@ namespace OSPI.Domain
             return await base.SaveChangesAsync();
         }
 
+        public int Save()
+        {
+            UpdateAuditEntities();
+            return base.SaveChanges();
+        }
+
         private void UpdateAuditEntities()
         {
             var modifiedEntries = ChangeTracker.Entries()

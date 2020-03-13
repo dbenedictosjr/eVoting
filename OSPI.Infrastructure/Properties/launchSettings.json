@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "OSPI.Infrastructure": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

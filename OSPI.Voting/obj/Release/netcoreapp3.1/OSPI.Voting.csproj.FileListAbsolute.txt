@@ -165,7 +165,6 @@ C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elect
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elections\Delete.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elections\Details.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elections\Edit.cshtml.g.cs
-C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elections\Election.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elections\ElectionResult.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elections\Index.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elections\Vote.cshtml.g.cs
@@ -197,3 +196,4 @@ C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\OSPI.Voting.Views
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\OSPI.Voting.csproj.CopyComplete
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\OSPI.Voting.dll
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\OSPI.Voting.pdb
+C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elections\Results.cshtml.g.cs

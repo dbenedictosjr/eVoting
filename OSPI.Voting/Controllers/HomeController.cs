@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using OSPI.Infrastructure.Interfaces;
 using OSPI.Voting.Models;
 
 namespace OSPI.Voting.Controllers
@@ -33,5 +34,18 @@ namespace OSPI.Voting.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        //[HttpPost]
+
+        //public IActionResult SendEmail()
+        //{
+        //    //var toAddress = HttpContext.Request.Form["toAddress"].FirstOrDefault();
+        //    //var subject = HttpContext.Request.Form["subject"].FirstOrDefault();
+        //    //var body = HttpContext.Request.Form["body"].FirstOrDefault();
+
+        //    //IEmailSender.Send(toAddress, subject, body);
+
+        //    //return RedirectToAction("Index");
+        //}
     }
 }

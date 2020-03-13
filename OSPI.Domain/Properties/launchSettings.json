@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "OSPI.Domain": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}

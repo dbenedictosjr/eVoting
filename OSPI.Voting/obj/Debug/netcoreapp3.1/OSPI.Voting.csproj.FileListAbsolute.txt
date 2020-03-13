@@ -341,7 +341,6 @@ C:\Projects\OSPI-Systems\OSPI.Voting\bin\Debug\netcoreapp3.1\OSPI.Domain.pdb
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.csprojAssemblyReference.cache
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\staticwebassets\OSPI.Voting.StaticWebAssets.Manifest.cache
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\staticwebassets\OSPI.Voting.StaticWebAssets.xml
-C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.MvcApplicationPartsAssemblyInfo.cache
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.RazorAssemblyInfo.cache
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.RazorAssemblyInfo.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.AssemblyInfoInputs.cache
@@ -364,7 +363,6 @@ C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Electio
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Delete.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Details.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Edit.cshtml.g.cs
-C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Election.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\ElectionResult.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Index.cshtml.g.cs
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Vote.cshtml.g.cs
@@ -595,3 +593,9 @@ G:\2020\Diego Project\V16\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.Views.
 G:\2020\Diego Project\V16\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.csproj.CopyComplete
 G:\2020\Diego Project\V16\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.dll
 G:\2020\Diego Project\V16\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.pdb
+C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Elections\Results.cshtml.g.cs
+C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.MvcApplicationPartsAssemblyInfo.cache
+C:\Projects\OSPI-Systems\OSPI.Voting\bin\Debug\netcoreapp3.1\MailKit.dll
+C:\Projects\OSPI-Systems\OSPI.Voting\bin\Debug\netcoreapp3.1\MimeKit.dll
+C:\Projects\OSPI-Systems\OSPI.Voting\bin\Debug\netcoreapp3.1\NETCore.MailKit.dll
+C:\Projects\OSPI-Systems\OSPI.Voting\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll

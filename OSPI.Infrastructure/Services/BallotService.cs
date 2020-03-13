@@ -13,7 +13,7 @@ namespace OSPI.Infrastructure.Services
 {
     public class BallotService : IBallotService
     {
-        private readonly ApplicationDbContext _context; 
+        private readonly ApplicationDbContext _context;
         private readonly IBallotRepository _ballotRepository;
         private readonly IPositionRepository _positionRepository;
         private readonly IMapper _mapper;
@@ -73,12 +73,43 @@ namespace OSPI.Infrastructure.Services
 
         public async Task UpdateAsync(BallotModel ballot)
         {
+            //using (var transaction = _context.Database.BeginTransaction())
+            //{
+            //    try
+            //    {
+            //        _ballotRepository.Update(_mapper.Map<BallotEntity>(ballot));
+            //        _ballotRepository.SaveAsync();
+
+            //        foreach (var item in ballot.JPositions)
+            //        {
+
+            //            PositionEntity positionEntity = new PositionEntity
+            //            {
+            //                PositionId = Guid.NewGuid(),
+            //                PositionName = item.PositionName,
+            //                MinimumRequiredVotes = item.MinimumRequiredVotes,
+            //                MaximumRequiredVotes = item.MaximumRequiredVotes,
+            //                Qualifications = item.Qualifications,
+            //                BallotId = ballot.BallotId
+            //            };
+
+            //            _positionRepository.Create(positionEntity);
+            //            _positionRepository.SaveAsync();
+            //        }
+            //        transaction.Commit();
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        transaction.Rollback();
+            //    }
+            //}
+
             using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {
-                    _ballotRepository.Update(_mapper.Map<BallotEntity>(ballot));
-                    _ballotRepository.SaveAsync();
+                    _context.Ballots.Update(_mapper.Map<BallotEntity>(ballot));
+                    _context.Save();
 
                     foreach (var item in ballot.JPositions)
                     {
@@ -93,12 +124,13 @@ namespace OSPI.Infrastructure.Services
                             BallotId = ballot.BallotId
                         };
 
-                        _positionRepository.Create(positionEntity);
-                        _positionRepository.SaveAsync();
+                        _context.Positions.Add(positionEntity);
+                        _context.Save();
                     }
+
                     transaction.Commit();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
                     transaction.Rollback();
                 }

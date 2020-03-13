@@ -17,13 +17,15 @@ namespace OSPI.Voting.Controllers
         private readonly IMemberService _memberService;
         private readonly IPositionService _positionService;
         private readonly IConfiguration _configuration;
+        private readonly IEmailSender _emailSender;
 
-        public CandidatesController(ICandidateService candidateService, IMemberService memberService, IPositionService positionService, IConfiguration configuration)
+        public CandidatesController(ICandidateService candidateService, IMemberService memberService, IPositionService positionService, IConfiguration configuration, IEmailSender emailSender)
         {
             _candidateService = candidateService;
             _memberService = memberService;
             _positionService = positionService;
             _configuration = configuration;
+            _emailSender = emailSender;
         }
 
         // GET: Candidates
@@ -76,6 +78,14 @@ namespace OSPI.Voting.Controllers
                 candidate.NomineeMemberId = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value);
                 candidate.Status = "For Approval";
                 await _candidateService.CreateAsync(candidate);
+
+                //Send Email
+                //var toAddress = "diego.benedictos.jr@gmail.com";
+                //var subject = "Nominated for BOD";
+                //var body = "You are nominated as a candidate for Board of Director";
+
+                //_emailSender.Send(toAddress, subject, body);
+
                 return RedirectToAction(nameof(Index));
             }
             else
