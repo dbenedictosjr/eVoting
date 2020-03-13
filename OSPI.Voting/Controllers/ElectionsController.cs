@@ -31,9 +31,9 @@ namespace OSPI.Voting.Controllers
         public async Task<IActionResult> Index()
         {
             MemberModel member = await _memberService.GetByIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value));
-            //if (member.Voted)
-            //    return RedirectToAction("Results", "Elections");
-            //else
+            if (member.Voted)
+                return RedirectToAction("Results", "Elections");
+            else
                 return View(await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
         }
 
