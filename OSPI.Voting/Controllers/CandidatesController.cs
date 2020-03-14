@@ -77,14 +77,18 @@ namespace OSPI.Voting.Controllers
                 candidate.CandidateId = Guid.NewGuid();
                 candidate.NomineeMemberId = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value);
                 candidate.Status = "For Approval";
-                await _candidateService.CreateAsync(candidate);
-
+                 await _candidateService.CreateAsync(candidate);
+                var candidatedetails = await _candidateService.GetByIdAsync(candidate.CandidateId);
                 //Send Email
-                //var toAddress = "diego.benedictos.jr@gmail.com";
-                //var subject = "Nominated for BOD";
-                //var body = "You are nominated as a candidate for Board of Director";
-
-                //_emailSender.Send(toAddress, subject, body);
+                var toAddress = "";//Candidate Email
+                var subject = "Nominated for BOD";
+                string Url = _configuration["SiteUrl"] + "Candidates/Vericifation?id="+candidate.CandidateId+ "&Status=Accept";
+                string DeclineUrl = _configuration["SiteUrl"] + "Candidates/Vericifation?id="+candidate.CandidateId+ "&Status=Decline";
+                 var body = "You have been nominated for the position of Board of Director by "+ candidatedetails.CandidateFullName + "";
+                   body += "<br/ >Kindly select between the link below:"; 
+                 body += "<br/>\n <a href = '" + Url + "'>Accept</a> if you wish to progress with the nomination.";
+                 body += "<br/>\n <a href = '" + DeclineUrl + "'>Decline</a> if you feel that you are not ready for the position.";
+                 _emailSender.Send(toAddress, subject, body);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -103,8 +107,7 @@ namespace OSPI.Voting.Controllers
             if (id == null)
             {
                 return NotFound();
-            }
-
+            } 
             var candidate = await _candidateService.GetByIdAsync(id);
             if (candidate == null)
             {
@@ -161,7 +164,7 @@ namespace OSPI.Voting.Controllers
             return View(candidate);
         }
 
-        // POST: Candidates/Delete/5
+        // POST: Candidates/Delete/56
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Guid id)
@@ -169,6 +172,19 @@ namespace OSPI.Voting.Controllers
             var candidate = await _candidateService.GetByIdAsync(id);
             await _candidateService.DeleteAsync(candidate);
             return RedirectToAction(nameof(Index));
+        }
+ 
+        public async Task<IActionResult> Vericifation(Guid id,string Status)
+        {
+            CandidateModel candidate = new CandidateModel();
+            candidate.CandidateId = id;
+            candidate.Status = Status;
+            await _candidateService.UpdateAsync(candidate); 
+            return RedirectToAction("StatusVericifation");
+        }
+        public async Task<IActionResult> StatusVericifation()
+        {   
+            return View();
         }
     }
 }

@@ -36,16 +36,13 @@ namespace OSPI.Infrastructure.Services
             var mimeMessage = new MimeMessage(); // MIME : Multipurpose Internet Mail Extension
             mimeMessage.From.Add(new MailboxAddress(_fromAddressTitle, _fromAddress));
             mimeMessage.To.Add(new MailboxAddress(toAddress));
-
-            mimeMessage.Subject = subject;
-
-            var bodyBuilder = new MimeKit.BodyBuilder
-
+                       mimeMessage.Subject = subject;
+            var bodyBuilder = new MimeKit.BodyBuilder 
             {
                 HtmlBody = body
 
             };
-
+          
             mimeMessage.Body = bodyBuilder.ToMessageBody();
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())

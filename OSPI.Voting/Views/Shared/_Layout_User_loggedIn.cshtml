@@ -119,12 +119,12 @@
                                         <a asp-controller="Candidates" asp-action="Candidates">Candidates </a>
                                     </li>
                                 }
-                                @*@if (UserClaimsHelper.CanDoAnyActions(User, "Election"))
-                                {*@
+                                @if (UserClaimsHelper.CanDoAnyActions(User, "Election"))
+                                {
                                     <li>
                                         <a asp-controller="Elections" asp-action="index">Election </a>
                                     </li>
-                                @*}*@
+                                }
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Election"))
                                 {
                                     <li>
