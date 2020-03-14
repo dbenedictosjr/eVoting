@@ -1,0 +1,193 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <style>
+        * {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        .dynamicSubsForm {
+            width: 275px;
+            margin: auto;
+            margin-top: 100px;
+            border: 2px solid #C7C7C7;
+            padding: 15px;
+            border-radius: 10px;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+            font-size: 14px;
+        }
+
+        .m-t-0 {
+            margin-top: 0px;
+        }
+
+        .h3, h3 {
+            font-size: 24px;
+        }
+
+        .clearfix {
+            clear: both;
+        }
+
+        p {
+            margin: 0 0 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+
+        .form-control {
+            display: block;
+            width: 100%;
+            height: 34px;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.42857143;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+            -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 6px 12px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -ms-touch-action: manipulation;
+            touch-action: manipulation;
+            cursor: pointer;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .btn-info {
+            color: #fff;
+            background-color: #5bc0de;
+            border-color: #46b8da;
+        }
+
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+
+        .thankYou {
+            width: 500px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+            z-index: 4545445;
+            height: 110px
+        }
+
+
+
+        .bg-black {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            background: #000;
+            background: rgba(0,0,0,0.7);
+            z-index: 999999;
+        }
+
+        .popupSubsForm {
+            padding: 15px;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .popup-inner {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            height: 100%;
+            width: 100%;
+            overflow: auto;
+        }
+
+        .popupForm {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            right: 0px;
+            bottom: 0px;
+            margin: auto;
+            width: 300px;
+            background: #fff;
+            border-radius: 10px;
+            height: 200px;
+            border: 2px solid #C7C7C7;
+        }
+
+        .close-popup {
+            font-family: sans-serif;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+            .close-popup:hover {
+                color: #31b0d5;
+            }
+
+        .custom-popup {
+            display: none;
+        }
+
+
+        @@media screen and (max-width:767px) {
+            .thankYou {
+                width: 90%;
+            }
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>thank</title>
+</head>
+<body>
+    <div class="dynamicSubsForm thankYou" id="thankConfirmation">
+        <div class="form_top_portion">
+            <h3 class="m-t-0">Thank you</h3>
+            <div class="clearfix"></div>
+            <p class="show_editor">Thank you! You have successfully update your staus.</p>
+        </div>
+    </div>
+</body>
+</html>
