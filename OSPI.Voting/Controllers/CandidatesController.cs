@@ -181,8 +181,7 @@ namespace OSPI.Voting.Controllers
  
         public async Task<IActionResult> Vericifation(Guid id,string Status)
         {
-            CandidateModel candidate = new CandidateModel();
-            candidate.CandidateId = id;
+            CandidateModel candidate = await _candidateService.GetByIdAsync(id);
             candidate.Status = Status;
             await _candidateService.UpdateAsync(candidate); 
             return RedirectToAction("StatusVericifation");
