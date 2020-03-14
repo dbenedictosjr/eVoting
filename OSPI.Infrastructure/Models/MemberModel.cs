@@ -33,7 +33,7 @@ namespace OSPI.Infrastructure.Models
         public string LastName { get; set; }
 
         [Display(Name = "Full Name")]
-        public string MemberFullName { get { return this.FirstName + ' ' + this.LastName; } }
+        public string MemberFullName { get { return this.FirstName.Trim() + ' ' + this.LastName.Trim(); } }
 
         [Required]
         [Display(Name = "Home Address")]

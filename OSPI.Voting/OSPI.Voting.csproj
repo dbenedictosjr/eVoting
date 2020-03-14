@@ -69,6 +69,8 @@
     <ProjectReference Include="..\OSPI.Infrastructure\OSPI.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="http://json.schemastore.org/backportrc" /></VisualStudio></ProjectExtensions>
+
 
 
 </Project>

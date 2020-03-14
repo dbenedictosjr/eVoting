@@ -78,17 +78,22 @@ namespace OSPI.Voting.Controllers
                 candidate.NomineeMemberId = Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value);
                 candidate.Status = "For Approval";
                  await _candidateService.CreateAsync(candidate);
-                var candidatedetails = await _candidateService.GetByIdAsync(candidate.CandidateId);
-                //Send Email
-                var toAddress = "";//Candidate Email
-                var subject = "Nominated for BOD";
-                string Url = _configuration["SiteUrl"] + "Candidates/Vericifation?id="+candidate.CandidateId+ "&Status=Accept";
-                string DeclineUrl = _configuration["SiteUrl"] + "Candidates/Vericifation?id="+candidate.CandidateId+ "&Status=Decline";
-                 var body = "You have been nominated for the position of Board of Director by "+ candidatedetails.CandidateFullName + "";
-                   body += "<br/ >Kindly select between the link below:"; 
-                 body += "<br/>\n <a href = '" + Url + "'>Accept</a> if you wish to progress with the nomination.";
-                 body += "<br/>\n <a href = '" + DeclineUrl + "'>Decline</a> if you feel that you are not ready for the position.";
-                 _emailSender.Send(toAddress, subject, body);
+
+                var memberDetails = await _memberService.GetByIdAsync(candidate.CandidateMemberId);
+                var Positiondetails = await _positionService.GetByIdAsync(candidate.PositionId);
+                if (memberDetails != null && Positiondetails != null)
+                {
+                    //Send Email
+                    var toAddress = memberDetails.EmailAddress.Trim();
+                    var subject = "Nominated for " + Positiondetails.PositionName.Trim();
+                    string Url = _configuration["SiteUrl"] + "Candidates/Vericifation?id=" + candidate.CandidateId + "&Status=Accept";
+                    string DeclineUrl = _configuration["SiteUrl"] + "Candidates/Vericifation?id=" + candidate.CandidateId + "&Status=Decline";
+                    var body = "You have been nominated for the position of " + Positiondetails.PositionName.Trim() + " by " + User.Identity.Name.Trim();
+                    body += "<br/ >Kindly select between the link below:";
+                    body += "<br/>\n <a href = '" + Url + "'>Accept</a> if you wish to progress with the nomination.";
+                    body += "<br/>\n <a href = '" + DeclineUrl + "'>Decline</a> if you feel that you are not ready for the position.";
+                    _emailSender.Send(toAddress, subject, body);
+                }
 
                 return RedirectToAction(nameof(Index));
             }

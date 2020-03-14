@@ -27,6 +27,8 @@ namespace OSPI.Infrastructure.Models
         [Display(Name = "Candidate")]
         public string CandidateFullName { get { return this.CandidateFirstName + ' ' + this.CandidateLastName; } }
 
+        public string CandidateEmail { get; }
+
         public Guid NomineeMemberId { get; set; }
 
         public string NomineeFirstName { get; set; }

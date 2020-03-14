@@ -803,3 +803,4 @@ G:\2020\Diego Project\V21\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.RazorT
 G:\2020\Diego Project\V21\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.Views.pdb
 G:\2020\Diego Project\V21\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.csproj.CopyComplete
 G:\2020\Diego Project\V21\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\StatusVericifation.cshtml.g.cs
+C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Candidates\StatusVericifation.cshtml.g.cs
