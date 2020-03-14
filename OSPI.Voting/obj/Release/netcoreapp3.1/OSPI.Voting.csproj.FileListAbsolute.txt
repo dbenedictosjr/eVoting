@@ -197,3 +197,8 @@ C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\OSPI.Voting.cspro
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\OSPI.Voting.dll
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\OSPI.Voting.pdb
 C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Elections\Results.cshtml.g.cs
+C:\Projects\OSPI-Systems\OSPI.Voting\bin\Release\netcoreapp3.1\MailKit.dll
+C:\Projects\OSPI-Systems\OSPI.Voting\bin\Release\netcoreapp3.1\MimeKit.dll
+C:\Projects\OSPI-Systems\OSPI.Voting\bin\Release\netcoreapp3.1\NETCore.MailKit.dll
+C:\Projects\OSPI-Systems\OSPI.Voting\bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll
+C:\Projects\OSPI-Systems\OSPI.Voting\obj\Release\netcoreapp3.1\Razor\Views\Candidates\StatusVericifation.cshtml.g.cs
