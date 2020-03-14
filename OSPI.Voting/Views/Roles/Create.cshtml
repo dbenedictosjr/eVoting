@@ -91,7 +91,7 @@
                             </div>
                             <div class="panel-body">
                                 <div class="dataTable_wrapper table-responsive">
-                                    <table id="tbl_Positions" class="table table-striped table-bordered table-hover  display nowrap">
+                                    <table id="tbl_AddRoles" class="table table-striped table-bordered table-hover  display">
                                         <thead>
                                             <tr>
                                                 <th>
@@ -117,24 +117,24 @@
                                         <tbody>
                                             @foreach (var item in Model.RoleAccesses)
                                             {
-                                                <tr class="odd gradeX">
+                                                <tr class="">
                                                     <td>
                                                         @Html.DisplayFor(modelItem => item.ModuleName)
                                                     </td>
                                                     <td>
-                                                        @Html.DisplayFor(modelItem => item.CanAdd)
+                                                        @Html.EditorFor(modelItem => item.CanAdd)
                                                     </td>
                                                     <td>
-                                                        @Html.DisplayFor(modelItem => item.CanEdit)
+                                                        @Html.EditorFor(modelItem => item.CanEdit)
                                                     </td>
                                                     <td>
-                                                        @Html.DisplayFor(modelItem => item.CanView)
+                                                        @Html.EditorFor(modelItem => item.CanView)
                                                     </td>
                                                     <td>
-                                                        @Html.DisplayFor(modelItem => item.CanPrint)
+                                                        @Html.EditorFor(modelItem => item.CanPrint)
                                                     </td>
                                                     <td>
-                                                        @Html.DisplayFor(modelItem => item.CanDelete)
+                                                        @Html.EditorFor(modelItem => item.CanDelete)
                                                     </td>
                                                 </tr>
                                             }
