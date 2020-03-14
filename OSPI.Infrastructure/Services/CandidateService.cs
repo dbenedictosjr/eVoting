@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.Extensions.Configuration;
+using OSPI.Domain;
 using OSPI.Domain.Entities;
 using OSPI.Domain.Interfaces;
 using OSPI.Infrastructure.Interfaces;
@@ -16,13 +17,15 @@ namespace OSPI.Infrastructure.Services
         private readonly IPositionRepository _positionRepository;
         private readonly IConfiguration _configuration;
         private readonly IMapper _mapper;
+        private readonly ApplicationDbContext _context;
 
-        public CandidateService(ICandidateRepository candidateRepository, IPositionRepository positionRepository, IConfiguration configuration, IMapper mapper)
+        public CandidateService(ICandidateRepository candidateRepository, IPositionRepository positionRepository, IConfiguration configuration, IMapper mapper, ApplicationDbContext context)
         {
             _candidateRepository = candidateRepository;
             _positionRepository = positionRepository;
             _configuration = configuration;
             _mapper = mapper;
+            _context = context;
         }
 
         public async Task CreateAsync(CandidateModel candidate)
@@ -52,8 +55,33 @@ namespace OSPI.Infrastructure.Services
 
         public async Task UpdateAsync(CandidateModel candidate)
         {
-            _candidateRepository.Update(_mapper.Map<CandidateEntity>(candidate));
-            await _candidateRepository.SaveAsync();
+            try
+            {
+                _candidateRepository.Update(_mapper.Map<CandidateEntity>(candidate));
+                await _candidateRepository.SaveAsync();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            
+        }
+        public async Task UpdateStatusAsync(Guid id,string status)
+        {
+            try
+            {
+                var entry = await _context.Candidates.FindAsync(id);
+                entry.Status = status;
+                _context.Candidates.Update(_mapper.Map<CandidateEntity>(entry));
+                _context.Save();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
         }
         public async Task<List<CPositionModel>> GetAllPositionAsync(Guid? ballotId, string status)
         {

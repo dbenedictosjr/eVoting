@@ -21,5 +21,6 @@ namespace OSPI.Infrastructure.Interfaces
         Task UpdateAsync(CandidateModel candidate);
 
         Task DeleteAsync(CandidateModel candidate);
+        Task UpdateStatusAsync(Guid id, string status);
     }
 }

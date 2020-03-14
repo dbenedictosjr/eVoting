@@ -116,35 +116,38 @@
 </div>
 <script>
     $(function () {
-        var chartDiv = $("#myChart");
+        //var chartDiv = $("#myChart");
+        debugger
+        var UserName = '@Html.Raw(this.ViewData["canditateNameList"])';
+        var rew = JSON.parse('@ViewData["canditateNameList"]');
+       // var rew2 = JSON.parse(@ViewData["canditateNameList"]);
+         //var myChart = new Chart(chartDiv, {
+        //    type: 'pie',
+        //    data: {
+        //    //   labels: ["Diego Jr Benedictos", "Joy Benedictos", "Ajay Gujjar", "Ram"],
+              
+        //        datasets: [
+        //            {
+                       
+        //                //data: _data[1],
+        //                backgroundColor: [
+        //                    "#FF6384",
+        //                    "#4BC0C0",
+        //                    "#FFCE56",
+        //                    "#E7E9ED"
 
-        var myChart = new Chart(chartDiv, {
-            type: 'pie',
-            data: {
-            //   labels: ["Diego Jr Benedictos", "Joy Benedictos", "Ajay Gujjar", "Ram"],
-                labels:JSON.parse('@Html.Raw(ViewData["canditateNameList"])'),
-                datasets: [
-                    {
-                        data: JSON.parse('@Html.Raw(ViewData["PercentageList"])'),
-                        //data: _data[1],
-                        backgroundColor: [
-                            "#FF6384",
-                            "#4BC0C0",
-                            "#FFCE56",
-                            "#E7E9ED"
-
-                        ]
-                    }]
-            },
-            options: {
-                title: {
-                    display: true,
-                    text: 'Election Result Chart'
-                },
-                responsive: true,
-                maintainAspectRatio: false,
-            }
-        });
+        //                ]
+        //            }]
+        //    },
+        //    options: {
+        //        title: {
+        //            display: true,
+        //            text: 'Election Result Chart'
+        //        },
+        //        responsive: true,
+        //        maintainAspectRatio: false,
+        //    }
+        //});
     });
 </script>
 
