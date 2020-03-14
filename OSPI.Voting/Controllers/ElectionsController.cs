@@ -7,6 +7,8 @@ using OSPI.Infrastructure.Models;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace OSPI.Voting.Controllers
 {
@@ -31,9 +33,9 @@ namespace OSPI.Voting.Controllers
         public async Task<IActionResult> Index()
         {
             MemberModel member = await _memberService.GetByIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value));
-            if (member.Voted)
-                return RedirectToAction("Results", "Elections");
-            else
+            //if (member.Voted)
+            //    return RedirectToAction("Results", "Elections");
+            //else
                 return View(await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
         }
 
@@ -101,11 +103,14 @@ namespace OSPI.Voting.Controllers
             List<string> PercentageList = new List<string>();
             foreach (var item in _list.Candidates)
             {
-                canditateNameList.Add(item.CandidateName);
+                //var CandidateName = Regex.Replace(item.CandidateName, @"\s+", ""); 
+                string CandidateName = Regex.Replace(item.CandidateName, " {2,}", " ");
+                canditateNameList.Add(CandidateName);
                 PercentageList.Add(item.Percentage);
             }
-            ViewData["canditateNameList"] = canditateNameList;
-            ViewData["PercentageList"] = PercentageList;
+            //ViewData["canditateNameList"] = canditateNameList.ToArray();
+            ViewBag.canditateNameList = JsonConvert.SerializeObject(canditateNameList.ToList());
+            ViewBag.PercentageList = JsonConvert.SerializeObject(PercentageList.ToList());
             return View(_result[i]);
         }
 

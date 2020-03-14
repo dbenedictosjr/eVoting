@@ -23,7 +23,7 @@
 
                 @foreach (var item in Model)
                 {
-                    <div class="section" id="@item.PositionId">
+                    <div class="section" id="@item.PositionId" data-pn="@item.PositionName">
                         <h5><b>INSTRUCTIONS:</b> Select between <label id="chkCount" class="countermin" data-countermin="@item.MinimumVotes">@item.MinimumVotes</label>  and <label class="countermax" data-countermax="@item.MaximumVotes">@item.MaximumVotes</label> options from the list below. <label style="color:red">* Required</label></h5>
                         <p><span class="spncounter">0</span> of  <span>@item.MaximumVotes</span> Selected</p>
                         <div class="row">
@@ -62,36 +62,38 @@
 <div id="myModal" class="modal fade">
     <div class="modal-dialog modal-confirm">
         <div class="modal-content">
-            
+            <div class="modal-header">
+                <b>Do you want to submit your  votes now ?</b>
+            </div>
             <div class="modal-body">
                 <div class="row">
-                    <div class="col-lg-3">
+
+                    <div id="divtxt">
 
                     </div>
-                    <div class="col-lg-7">
-                        <p><b>Do you want to submit your  votes now ?</b></p>
-                    </div>
-                   
                 </div>
-                
 
-            </div>
-            <div class="modal-footer">
-                <div class="row">
-                    <div class="col-lg-3">
 
-                    </div>
-                    <div class="col-lg-4">
-                        <button type="button" id="btnSave" class="btn btn-info">Yes</button>
-                        <button type="button" id="btnNo" class="btn  btn-danger" data-dismiss="modal">No</button>
-
-                    </div>
-                    
                 </div>
-               
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="col-lg-4">
 
+                        </div>
+                        <div class="col-lg-4">
+
+                        </div>
+                        <div class="col-lg-4">
+                            <button type="button" id="btnSave" class="btn btn-info">Yes</button>
+                            <button type="button" id="btnNo" class="btn  btn-danger" data-dismiss="modal">No</button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
             </div>
-        </div>
     </div>
 </div>
 
@@ -99,7 +101,7 @@
     $(function () {
         var test = [];
 
-        var pdata = [];
+        
         var flag = true;
         $('input[type="checkbox"]').click(function () {
             var mainSection = $(this).closest(".section");
@@ -112,22 +114,24 @@
         });
         $('#btnconfirm').click(function () {           
             var data = [];
-            $(".section").each(function (e, v) {              
+            var pdata = [];
+            $(".section").each(function (e, v) {     
+                debugger
                 var counterMin = $(this).find('.countermin').attr('data-countermin');
                 var counterMax = $(this).find('.countermax').attr('data-countermax');
 
                 var selectedCB = [];
                 var pselectedCB = [];
                 var secctionId = $('#' + v.id + " input[type='checkbox']:checked");
-
+              var pn=  $(this).attr('data-pn');
                 if (secctionId.length >= parseInt(counterMin) && secctionId.length <= parseInt(counterMax)) {
                     $.each(secctionId, function () {
                         selectedCB.push('{"CandidateId":"' + $(this).attr('data-cid') + '","MemberId":"' + $(this).attr('data-mid') + '"}');
-                        //pselectedCB.push('{"CandidateName":"' + $(this).attr('data-cname') + '"}');
+                         pselectedCB.push('{"CandidateName":"' + $(this).attr('data-cname') + '"}');
                     });
                     data.push('{"PositionId":"' + v.id + '","Candidates":[' + selectedCB.join(", ") + ']}')
                     flag = true;
-                    //pdata.push('{"PositionId":"' + v.id + '","CandidatesList":[' + pselectedCB.join(", ") + ']}')
+                     pdata.push('{"PositionId":"' + pn + '","CandidatesList":[' + pselectedCB.join(", ") + ']}')
                 }
                 else {
                     alert('Please check limit of ' + v.id + '.')
@@ -137,7 +141,30 @@
             });
             if (flag) {
                 data = '[' + data.join(", ") + ']';
-                test = data;
+                test = data; 
+               pdata = '[' + pdata.join(", ") + ']';
+                var jsonObj = JSON.parse(pdata);
+                $('#divtxt').html("");
+                var  table_body = " ";
+
+                $.each(jsonObj, function (i, p) { 
+                    table_body += "<div class='col-md-12'>";
+                     table_body += '<b>';
+                    table_body += '<p>' + p.PositionId + '</p>';
+                    table_body += "</b>";
+                     table_body += "</div>";
+                 
+                    $.each(p.CandidatesList, function (i, c) { 
+                       table_body+="<div class='col-md-12'>";
+                    table_body += '<p>' + c.CandidateName + '</p>';
+                     table_body += "</div>";
+                })
+                    //table_body += "</div>";
+                   
+                   
+                });
+                 $('#divtxt').html(table_body);
+                
                 $("#myModal").modal("show");
                 //pdata = '[' + pdata.join(", ") + ']';
                 //var pdatas = pdata;

@@ -151,7 +151,7 @@ namespace OSPI.Infrastructure.Services
 
                 foreach (CCandidateModel cCandidateModel in cPositionModel.Candidates)
                 {
-                    cCandidateModel.Percentage = Math.Round(cCandidateModel.TotalVotes / (decimal)totalvotes, 2).ToString() + "%";
+                    cCandidateModel.Percentage = Math.Round(cCandidateModel.TotalVotes / (decimal)totalvotes, 2).ToString();
                 }
 
                 positions.Add(cPositionModel);
