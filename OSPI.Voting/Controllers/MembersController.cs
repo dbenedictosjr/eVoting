@@ -74,24 +74,24 @@ namespace OSPI.Voting.Controllers
                 member.MemberId = Guid.NewGuid();
                 await _memberService.CreateAsync(member);
                 #region "File Upload"
-                if (file != null || file.Length > 0)
+                if (file != null)
                 {
                     fileExt = Path.GetExtension(file.FileName);
                     fileName = member.MemberNo + "" + fileExt;
+                    var rootpath = "wwwroot/images/MemberImage";
+                    var path = Path.Combine(
+                     Directory.GetCurrentDirectory(), rootpath, fileName);
+                    if (!(Directory.Exists(rootpath)))
+                    {
+                        Directory.CreateDirectory(rootpath);
+                    }
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
 
-
                 }
-                var rootpath = "wwwroot/images/MemberImage";
-                var path = Path.Combine(
-                 Directory.GetCurrentDirectory(), rootpath, fileName);
-                if (!(Directory.Exists(rootpath)))
-                {
-                    Directory.CreateDirectory(rootpath);
-                }
-                using (var stream = new FileStream(path, FileMode.Create))
-                {
-                    await file.CopyToAsync(stream);
-                }
+                
                 #endregion "End File Upload"
                 return RedirectToAction(nameof(Index));
             }
@@ -140,22 +140,23 @@ namespace OSPI.Voting.Controllers
                 {
                     await _memberService.UpdateAsync(member);
                     #region "File Upload"
-                    if (file != null || file.Length > 0)
+                    if (file != null)
                     {
                         fileExt = Path.GetExtension(file.FileName);
                         fileName = member.MemberNo + "" + fileExt;
+                        var rootpath = "wwwroot/images/MemberImage";
+                        var path = Path.Combine(
+                         Directory.GetCurrentDirectory(), rootpath, fileName);
+                        if (!(Directory.Exists(rootpath)))
+                        {
+                            Directory.CreateDirectory(rootpath);
+                        }
+                        using (var stream = new FileStream(path, FileMode.Create))
+                        {
+                            await file.CopyToAsync(stream);
+                        }
                     }
-                    var rootpath = "wwwroot/images/MemberImage";
-                    var path = Path.Combine(
-                     Directory.GetCurrentDirectory(), rootpath, fileName);
-                    if (!(Directory.Exists(rootpath)))
-                    {
-                        Directory.CreateDirectory(rootpath);
-                    }
-                    using (var stream = new FileStream(path, FileMode.Create))
-                    {
-                        await file.CopyToAsync(stream);
-                    }
+                   
                     #endregion "End File Upload"
                     return RedirectToAction(nameof(Index));
                 }

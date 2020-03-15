@@ -130,11 +130,12 @@
                          pselectedCB.push('{"CandidateName":"' + $(this).attr('data-cname') + '"}');
                     });
                     data.push('{"PositionId":"' + v.id + '","Candidates":[' + selectedCB.join(", ") + ']}')
-                    flag = true;
-                     pdata.push('{"PositionId":"' + pn + '","CandidatesList":[' + pselectedCB.join(", ") + ']}')
+                   
+                    pdata.push('{"PositionId":"' + pn + '","CandidatesList":[' + pselectedCB.join(", ") + ']}')
+                     flag = true;
                 }
                 else {
-                    alert('Please check limit of ' + v.id + '.')
+                    alert('Please check limit of ' + pn + '.')
                     flag = false;
                 }
 
