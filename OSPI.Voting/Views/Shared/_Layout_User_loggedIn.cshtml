@@ -66,7 +66,7 @@
                             <!-- /input-group -->
                         </li>
                         @if (UserClaimsHelper.CanDoAnyActions(User, "Roles") ||
-                   UserClaimsHelper.CanDoAnyActions(User, "Members"))
+                              UserClaimsHelper.CanDoAnyActions(User, "Members"))
                         {
                             <li>
                                 <a href=""><i class="fa fa-dashboard fa-fw"></i>Tools <span class="fa arrow"></span></a>
@@ -113,12 +113,9 @@
                                         <a asp-controller="Candidates" asp-action="Index">Nominations </a>
                                     </li>
                                 }
-                                @if (UserClaimsHelper.CanDoAnyActions(User, "Candidates"))
-                                {
                                     <li>
                                         <a asp-controller="Candidates" asp-action="Candidates">Candidates </a>
                                     </li>
-                                }
                                 @if (UserClaimsHelper.CanDoAnyActions(User, "Election"))
                                 {
                                     <li>

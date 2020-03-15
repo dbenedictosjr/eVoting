@@ -35,7 +35,7 @@
                                     @Html.DisplayNameFor(model => model.RegistrationDate)
                                 </th>
                                 <th>
-                                    Name
+                                    @Html.DisplayNameFor(model => model.MemberFullName)
                                 </th>
                                 <th>
                                     @Html.DisplayNameFor(model => model.HomeAddress)
@@ -46,37 +46,42 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.CreditStatus)
                                 </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RoleName)
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
 
                             @foreach (var item in Model)
                             {
-                                <tr class="odd gradeX">
-                                    <td class="text-center">
-                                        <input type="checkbox" value="1">
-                                    </td>
+                            <tr class="odd gradeX">
+                                <td class="text-center">
+                                    <input type="checkbox" value="1">
+                                </td>
 
-                                    <th>
-                                        @Html.ActionLink("" + item.MemberNo + "", "Details", "Members", new { id = item.MemberId }, null)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayFor(modelItem => item.RegistrationDate)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayNameFor(model => model.MiddleName) @Html.DisplayFor(modelItem => item.LastName)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayFor(modelItem => item.HomeAddress)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayFor(modelItem => item.MemberStatus)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayFor(modelItem => item.CreditStatus)
-                                    </th>
-
-                                </tr>
+                                <th>
+                                    @Html.ActionLink("" + item.MemberNo + "", "Details", "Members", new { id = item.MemberId }, null)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.RegistrationDate)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.MemberFullName)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.HomeAddress)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.MemberStatus)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.CreditStatus)
+                                </th>
+                                <th>
+                                    @Html.DisplayFor(modelItem => item.RoleName)
+                                </th>
+                            </tr>
                             }
                         </tbody>
                     </table>

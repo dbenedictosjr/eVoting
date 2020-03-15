@@ -8,6 +8,7 @@ namespace OSPI.Infrastructure.Models
         [Required]
         public Guid RoleAccessId { get; set; }
 
+        [Required]
         public Guid RoleId { get; set; }
 
         [Display(Name = "Role")]
@@ -19,23 +20,18 @@ namespace OSPI.Infrastructure.Models
         [Display(Name = "Module")]
         public string ModuleName { get; set; }
 
-        [Required]
         [Display(Name = "Can Add")]
         public bool CanAdd { get; set; }
 
-        [Required]
         [Display(Name = "Can Edit")]
         public bool CanEdit { get; set; }
 
-        [Required]
         [Display(Name = "Can Delete")]
         public bool CanDelete { get; set; }
 
-        [Required]
         [Display(Name = "Can View")]
         public bool CanView { get; set; }
 
-        [Required]
         [Display(Name = "Can Print")]
         public bool CanPrint { get; set; }
 

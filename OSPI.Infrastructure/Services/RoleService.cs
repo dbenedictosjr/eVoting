@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using OSPI.Domain;
 using OSPI.Domain.Entities;
 using OSPI.Domain.Interfaces;
 using OSPI.Infrastructure.Interfaces;
@@ -11,19 +12,40 @@ namespace OSPI.Infrastructure.Services
 {
     public class RoleService : IRoleService
     {
+        private readonly ApplicationDbContext _context;
         private readonly IRoleRepository _roleRepository;
+        private readonly IRoleAccessRepository _roleAccessRepository;
         private readonly IMapper _mapper;
 
-        public RoleService(IRoleRepository roleRepository, IMapper mapper)
+        public RoleService(ApplicationDbContext context, IRoleRepository roleRepository, IRoleAccessRepository roleAccessRepository, IMapper mapper)
         {
+            _context = context;
             _roleRepository = roleRepository;
+            _roleAccessRepository = roleAccessRepository;
             _mapper = mapper;
         }
 
         public async Task CreateAsync(RoleModel role)
         {
-            _roleRepository.Create(_mapper.Map<RoleEntity>(role));
-            await _roleRepository.SaveAsync();
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    _context.Roles.Add(_mapper.Map<RoleEntity>(role));
+                    _context.Save();
+
+                    foreach (var item in role.RoleAccesses)
+                    {
+                        _context.RoleAccesses.Add(_mapper.Map<RoleAccessEntity>(item));
+                        _context.Save();
+                    }
+                    transaction.Commit();
+                }
+                catch (Exception)
+                {
+                    transaction.Rollback();
+                }
+            }
         }
 
         public async Task DeleteAsync(RoleModel role)
@@ -41,8 +63,26 @@ namespace OSPI.Infrastructure.Services
 
         public async Task UpdateAsync(RoleModel role)
         {
-            _roleRepository.Update(_mapper.Map<RoleEntity>(role));
-            await _roleRepository.SaveAsync();
+            using (var transaction = _context.Database.BeginTransaction())
+            {
+                try
+                {
+                    _context.Roles.Update(_mapper.Map<RoleEntity>(role));
+                    _context.Save();
+
+                    foreach (var item in role.RoleAccesses)
+                    {
+                        _context.RoleAccesses.Update(_mapper.Map<RoleAccessEntity>(item));
+                        _context.Save();
+                    }
+
+                    transaction.Commit();
+                }
+                catch (Exception ex)
+                {
+                    transaction.Rollback();
+                }
+            }
         }
     }
 }

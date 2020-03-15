@@ -25,7 +25,10 @@ $(function() {
     $("#chkMembers_all").click(function () {
         $('#tbl_Members tbody input[type="checkbox"]').prop('checked', this.checked);
     });
-
+    $('#tbl_AddRoles').dataTable({
+        responsive: true,
+        
+    });
     $('#tbl_Roles').dataTable({
         responsive: true,
         "columnDefs": [

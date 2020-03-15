@@ -55,9 +55,15 @@ namespace OSPI.Voting.Controllers
                 role.RoleAccesses.Add(
                     new RoleAccessModel
                     {
+                        RoleAccessId=Guid.NewGuid(),
                         RoleId = role.RoleId,
                         ModuleId = module.ModuleId,
-                        ModuleName = module.ModuleName
+                        ModuleName = module.ModuleName,
+                        CanAdd=false,
+                        CanEdit=false,
+                        CanDelete=false,
+                        CanView=false,
+                        CanPrint=false
                     }
                     );
             }
@@ -70,11 +76,10 @@ namespace OSPI.Voting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RoleId,RoleName,Description")] RoleModel role)
+        public async Task<IActionResult> Create([Bind("RoleId,RoleName,Description,RoleAccesses")] RoleModel role)
         {
             if (ModelState.IsValid)
             {
-                role.RoleId = Guid.NewGuid();
                 await _roleService.CreateAsync(role);
                 return RedirectToAction(nameof(Index));
             }
@@ -102,7 +107,7 @@ namespace OSPI.Voting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("RoleId,RoleName,Description,RowVersion")] RoleModel role)
+        public async Task<IActionResult> Edit(Guid id, [Bind("RoleId,RoleName,Description,RoleAccesses,RowVersion")] RoleModel role)
         {
             if (id != role.RoleId)
             {

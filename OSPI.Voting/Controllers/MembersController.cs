@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using System.Collections.Generic;
 
 namespace OSPI.Voting.Controllers
 {
@@ -52,7 +53,7 @@ namespace OSPI.Voting.Controllers
         // GET: Members/Create
         public async Task<IActionResult> Create()
         {
-            ViewBag.MemberStatus = new[] { "Member", "Non Member" };
+            ViewBag.MemberStatus = new[] { "Member", "Non Member", "Resigned" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
             ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleId", "RoleName");
             return View();
@@ -94,7 +95,7 @@ namespace OSPI.Voting.Controllers
                 #endregion "End File Upload"
                 return RedirectToAction(nameof(Index));
             }
-            ViewBag.MemberStatus = new[] { "Member", "Non Member" };
+            ViewBag.MemberStatus = new[] { "Member", "Non Member", "Resigned" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
             ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleId", "RoleName");
             return View(member);
@@ -114,7 +115,7 @@ namespace OSPI.Voting.Controllers
             {
                 return NotFound();
             }
-            ViewBag.MemberStatus = new[] { "Member", "Non Member" };
+            ViewBag.MemberStatus = new[] { "Member", "Non Member", "Resigned" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
             return View(member);
         }
@@ -143,7 +144,7 @@ namespace OSPI.Voting.Controllers
                     ViewBag.Message = "Record has been modified by someone else.";
                 }
             }
-            ViewBag.MemberStatus = new[] { "Member", "Non Member" };
+            ViewBag.MemberStatus = new[] { "Member", "Non Member", "Resigned" };
             ViewBag.CreditStatus = new[] { "Approved", "Disapproved" };
             ViewData["Roles"] = new SelectList(await _roleService.GetAllAsync(), "RoleId", "RoleName");
             return View(member);
@@ -189,16 +190,16 @@ namespace OSPI.Voting.Controllers
 
             if (member == null || member.Password.Trim() != model.Password.Trim())
             {
-                ModelState.AddModelError("", "Member not found");
+                ModelState.AddModelError("", "Invalid Username of Password");
                 model.Password = "";
                 return View(model);
             }
 
-            var roleAccesses = (await _roleAccessService.GetAllByRoleIdAsync(member.RoleId));
+            IEnumerable<RoleAccessModel> roleAccesses = await _roleAccessService.GetAllByRoleIdAsync(member.RoleId);
 
             if (roleAccesses == null)
             {
-                ModelState.AddModelError("", "Member not found");
+                ModelState.AddModelError("", "Invalid Username of Password");
                 model.Password = "";
                 return View(model);
             }
@@ -221,7 +222,7 @@ namespace OSPI.Voting.Controllers
             var principal = new ClaimsPrincipal(identity);
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
-            return RedirectToAction("Index", "Members");
+            return RedirectToAction("Candidates", "Candidates");
         }
 
         public async Task<IActionResult> Logout()
