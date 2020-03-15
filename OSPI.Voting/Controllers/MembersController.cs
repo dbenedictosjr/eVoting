@@ -125,8 +125,10 @@ namespace OSPI.Voting.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("MemberId,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleId,RowVersion")] MemberModel member)
+        public async Task<IActionResult> Edit(Guid id, [Bind("MemberId,MemberNo,RegistrationDate,FirstName,MiddleName,LastName,HomeAddress,EmailAddress,PhoneNo,MobileNo,BirthDate,Capital,MemberStatus,CreditStatus,Password,DateHired,Salary,AccountNo,RoleId,RowVersion")] MemberModel member,IFormFile file)
         {
+            string fileName = string.Empty;
+            string fileExt = string.Empty;
             if (id != member.MemberId)
             {
                 return NotFound();
@@ -137,6 +139,24 @@ namespace OSPI.Voting.Controllers
                 try
                 {
                     await _memberService.UpdateAsync(member);
+                    #region "File Upload"
+                    if (file != null || file.Length > 0)
+                    {
+                        fileExt = Path.GetExtension(file.FileName);
+                        fileName = member.MemberNo + "" + fileExt;
+                    }
+                    var rootpath = "wwwroot/images/MemberImage";
+                    var path = Path.Combine(
+                     Directory.GetCurrentDirectory(), rootpath, fileName);
+                    if (!(Directory.Exists(rootpath)))
+                    {
+                        Directory.CreateDirectory(rootpath);
+                    }
+                    using (var stream = new FileStream(path, FileMode.Create))
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                    #endregion "End File Upload"
                     return RedirectToAction(nameof(Index));
                 }
                 catch (DbUpdateConcurrencyException)
