@@ -115,6 +115,7 @@
         $('#btnconfirm').click(function () {           
             var data = [];
             var pdata = [];
+            flag = true;
             $(".section").each(function (e, v) {     
                 debugger
                 var counterMin = $(this).find('.countermin').attr('data-countermin');
@@ -132,11 +133,11 @@
                     data.push('{"PositionId":"' + v.id + '","Candidates":[' + selectedCB.join(", ") + ']}')
                    
                     pdata.push('{"PositionId":"' + pn + '","CandidatesList":[' + pselectedCB.join(", ") + ']}')
-                     flag = true;
+                    
                 }
                 else {
                     alert('Please check limit of ' + pn + '.')
-                    flag = false;
+                    flag = false;                    
                 }
 
             });
