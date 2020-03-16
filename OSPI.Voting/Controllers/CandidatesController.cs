@@ -15,14 +15,16 @@ namespace OSPI.Voting.Controllers
     {
         private readonly ICandidateService _candidateService;
         private readonly IMemberService _memberService;
+        private readonly IBallotService _ballotService;
         private readonly IPositionService _positionService;
         private readonly IConfiguration _configuration;
         private readonly IEmailSender _emailSender;
 
-        public CandidatesController(ICandidateService candidateService, IMemberService memberService, IPositionService positionService, IConfiguration configuration, IEmailSender emailSender)
+        public CandidatesController(ICandidateService candidateService, IMemberService memberService, IBallotService ballotService, IPositionService positionService, IConfiguration configuration, IEmailSender emailSender)
         {
             _candidateService = candidateService;
             _memberService = memberService;
+            _ballotService = ballotService;
             _positionService = positionService;
             _configuration = configuration;
             _emailSender = emailSender;
@@ -31,13 +33,39 @@ namespace OSPI.Voting.Controllers
         // GET: Candidates
         public async Task<IActionResult> Index()
         {
-            if(UserClaimsHelper.CanDoAction(User, "Nominations"+UserClaims.CanEdit))
+            BallotModel ballotModel = await _ballotService.GetByIdAsync(Guid.Parse(_configuration["BallotId"]));
+            if (DateTime.Now > ballotModel.RegEndDate)
+            {
+                ViewBag.Message = "Nomination has ended.";
+            }
+
+            if (UserClaimsHelper.CanDoAction(User, "Nominations" + UserClaims.CanEdit))
                 return View(await _candidateService.GetAllAsync());
             else
+            {
                 return View(await _candidateService.GetAllByNomineeIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value)));
+            }
         }
 
-        public async Task<IActionResult> Candidates() => View(await _candidateService.GetAllCandidatesAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
+        public async Task<IActionResult> Candidates()
+        {
+            BallotModel ballotModel = await _ballotService.GetByIdAsync(Guid.Parse(_configuration["BallotId"]));
+            if (DateTime.Now < ballotModel.VotingStartDate)
+            {
+                ViewBag.Message = " Election will be held soon. Watch out for more information.";
+            }
+
+            if (DateTime.Now > ballotModel.VotingEndDate)
+            {
+                ViewBag.Message = "Election has ended.";
+            }
+            MemberModel member = await _memberService.GetByIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value));
+            if (member.Voted)
+            {
+                ViewBag.Message = "This user has voted.";
+            }
+            return View(await _candidateService.GetAllCandidatesAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
+        }
 
         // GET: Candidates/Details/5
         public async Task<IActionResult> Details(Guid? id)
@@ -60,8 +88,16 @@ namespace OSPI.Voting.Controllers
         // GET: Candidates/Create
         public async Task<IActionResult> Create()
         {
-            ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
-            ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
+            BallotModel ballotModel = await _ballotService.GetByIdAsync(Guid.Parse(_configuration["BallotId"]));
+            if (ballotModel.RegStartDate >= DateTime.Now && ballotModel.RegEndDate <= DateTime.Now)
+            {
+                ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
+                ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");
+            }
+            else
+            {
+                return RedirectToAction(nameof(Index));
+            }
             return View();
         }
 

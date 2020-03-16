@@ -6,6 +6,12 @@
 }
 <br />
 
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <h3 style="color:rebeccapurple">@ViewBag.Message</h3>
+}
+
+
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">

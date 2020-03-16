@@ -33,10 +33,18 @@ namespace OSPI.Voting.Controllers
         public async Task<IActionResult> Index()
         {
             MemberModel member = await _memberService.GetByIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value));
-            //if (member.Voted)
-            //    return RedirectToAction("Results", "Elections");
-            //else
-                return View(await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
+            if (member.Voted)
+                return RedirectToAction("Candidates", "Candidates");
+            else
+            {
+                BallotModel ballotModel = await _ballotService.GetByIdAsync(Guid.Parse(_configuration["BallotId"]));
+                if (ballotModel.VotingStartDate >= DateTime.Now && ballotModel.VotingEndDate <= DateTime.Now)
+                {
+                    return View(await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
+                }
+                else
+                    return RedirectToAction("Candidates", "Candidates");
+            }
         }
 
         // GET: Elections/Details/5
