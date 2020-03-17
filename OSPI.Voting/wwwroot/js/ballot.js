@@ -1,4 +1,24 @@
-﻿$(function () {
+﻿$(function () { 
+    $('#txtRegStartDate').datetimepicker({
+        format: 'YYYY-MM-DD hh:mm',
+        autoclose: true,
+        numberOfMonths: [1, 1]
+    }); 
+    $('#txtRegEndDate').datetimepicker({
+        format: 'YYYY-MM-DD hh:mm',
+        autoclose: true,
+        numberOfMonths: [1, 1]
+    }); 
+    $('#txtVotingStartDate').datetimepicker({
+        format: 'YYYY-MM-DD hh:mm',
+        autoclose: true,
+        numberOfMonths: [1, 1]
+    }); 
+    $('#txtVotingEndDate').datetimepicker({
+        format: 'YYYY-MM-DD hh:mm',
+        autoclose: true,
+        numberOfMonths: [1, 1]
+    }); 
     $("#txtMinimumVotes").change(function () {
         var _min = $(this).val();
         var _max = $("#txtMaximumVotes").val();
@@ -187,12 +207,22 @@ function Delete(e) {
                     alert("Record has been deleted successfully.");
                 },
                 error: function (data) {
-
-                    alert(data.responseText);
+                    if (data.responseText.indexOf('FK_Candidates_Positions_PositionId') > 0) {
+                        alert('You can not Delete this Position  because this is assoicated with another Candidates.');
+                    }
+                    else {
+                        alert(data.responseText);
+                    }
+                    
                 },
                 failure: function (data) {
-
-                    alert(data.responseText);
+                    if (data.responseText.indexOf('FK_Candidates_Positions_PositionId') > 0) {
+                        alert('You can not Delete this Position  because this is assoicated with another Candidates.');
+                    }
+                    else {
+                        alert(data.responseText);
+                    }
+                    
                 },
             });
         }

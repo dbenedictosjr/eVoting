@@ -35,7 +35,14 @@ $(function() {
             { "orderable": false, "targets": 0 }
         ]
     });
+    $('.editdatepicker').datepicker({
+        format: 'mm/dd/yyyy ',
+        autoclose: true,
+        startDate: '0d'
+    });
     
+
+
     $('.datepicker').datepicker({
         format: 'mm/dd/yyyy ',
         autoclose: true,

@@ -46,6 +46,9 @@
                                 <th>
                                     @Html.DisplayNameFor(model => model.VotingEndDate)
                                 </th>
+                                <th>
+                                    Status
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -56,8 +59,8 @@
                                 <td class="text-center">
                                     <input type="checkbox" value="1">
                                 </td>
- 
-                                <th> 
+
+                                <th>
                                     @Html.ActionLink("" + item.RefCode + "", "Details", "Ballots", new { id = item.BallotId }, null)
                                 </th>
                                 <th>
@@ -75,7 +78,9 @@
                                 <th>
                                     @Html.DisplayFor(modelItem => item.VotingEndDate)
                                 </th>
-
+                                <th>
+                                   Open
+                                </th>
                             </tr>
                             }
                         </tbody>

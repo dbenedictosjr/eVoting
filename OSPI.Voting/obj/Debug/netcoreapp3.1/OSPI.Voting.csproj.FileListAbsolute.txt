@@ -1009,8 +1009,8 @@ G:\2020\Diego Project\V22\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.csproj
 G:\2020\Diego Project\V22\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.dll
 G:\2020\Diego Project\V22\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.pdb
 G:\2020\Diego Project\V23\OSPI.Voting\bin\Debug\netcoreapp3.1\appsettings.Development.json
-G:\2020\Diego Project\V23\OSPI.Voting\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 G:\2020\Diego Project\V23\OSPI.Voting\bin\Debug\netcoreapp3.1\appsettings.json
+G:\2020\Diego Project\V23\OSPI.Voting\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 G:\2020\Diego Project\V23\OSPI.Voting\bin\Debug\netcoreapp3.1\OSPI.Voting.exe
 G:\2020\Diego Project\V23\OSPI.Voting\bin\Debug\netcoreapp3.1\OSPI.Voting.deps.json
 G:\2020\Diego Project\V23\OSPI.Voting\bin\Debug\netcoreapp3.1\OSPI.Voting.runtimeconfig.json

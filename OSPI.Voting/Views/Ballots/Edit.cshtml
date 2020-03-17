@@ -4,6 +4,7 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet" />
 
 <br />
 
@@ -58,7 +59,7 @@
 
                             <div class="form-group">
                                 <label asp-for="RegStartDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.RegStartDate, new { @class = "form-control datepicker" })
+                                @Html.TextBoxFor(m => m.RegStartDate, new { @class = "form-control", id = "txtRegStartDate" })
                                 @*<input type="text" asp-for="RegStartDate" class="form-control datepicker" />*@
                                 <span asp-validation-for="RegStartDate" class="text-danger" id="spn_TransactionDate"></span>
                             </div>
@@ -67,7 +68,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label asp-for="RegEndDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.RegEndDate, new { @class = "form-control datepicker" })
+                                @Html.TextBoxFor(m => m.RegEndDate, new { @class = "form-control", id = "txtRegEndDate" })
                                 @*<input type="text" asp-for="RegEndDate" class="form-control datepicker" />*@
                                 <span asp-validation-for="RegEndDate" class="text-danger" id="spn_Particular"></span>
 
@@ -82,7 +83,7 @@
 
                             <div class="form-group">
                                 <label asp-for="VotingStartDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.VotingStartDate, new { @class = "form-control datepicker" })
+                                @Html.TextBoxFor(m => m.VotingStartDate, new { @class = "form-control", id = "txtVotingStartDate" })
                                 @*<input type="text" asp-for="VotingStartDate" class="form-control datepicker" />*@
                                 <span asp-validation-for="VotingStartDate" class="text-danger" id="spn_MainAmount"></span>
 
@@ -93,7 +94,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label asp-for="VotingEndDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.VotingEndDate, new { @class = "form-control datepicker" })
+                                @Html.TextBoxFor(m => m.VotingEndDate, new { @class = "form-control", id = "txtVotingEndDate" })
                                 @*<input type="text" asp-for="VotingEndDate" class="form-control datepicker" />*@
                                 <span asp-validation-for="VotingEndDate" class="text-danger" id="spn_status"></span>
                             </div>
@@ -169,23 +170,23 @@
                         <tbody>
                             @foreach (var item in Model.Positions)
                             {
-                            <tr class="odd gradeX">
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.PositionName)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.MinimumRequiredVotes)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.MaximumRequiredVotes)
-                                </td>
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.Qualifications)
-                                </td>
-                                <td>
-                                    <a class="btn_Delete" onclick="Delete(this)" data-id="@item.PositionId">   <i class="fa fa-trash" aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
+                                <tr class="odd gradeX">
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PositionName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MinimumRequiredVotes)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.MaximumRequiredVotes)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Qualifications)
+                                    </td>
+                                    <td>
+                                        <a class="btn_Delete" onclick="Delete(this)" data-id="@item.PositionId">   <i class="fa fa-trash" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
                             }
                         </tbody>
                     </table>
@@ -266,5 +267,9 @@
     <!-- End Modal Dialog-->
 
 </div>
-
-<script src="~/js/ballot.js"></script>
+@section Scripts
+{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="~/js/ballot.js"></script>
+}
