@@ -36,7 +36,7 @@ $(function() {
         ]
     });
     $('.editdatepicker').datepicker({
-        format: 'mm/dd/yyyy ',
+        format: 'mm/dd/yyyy',
         autoclose: true,
         startDate: '0d'
     });

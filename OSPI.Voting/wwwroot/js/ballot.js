@@ -1,21 +1,25 @@
 ﻿$(function () { 
-    $('#txtRegStartDate').datetimepicker({
-        format: 'YYYY-MM-DD hh:mm',
+    $('#RegStartDate').datetimepicker({
+       
+        format: 'DD-MM-YYYY hh:mm:ss',
         autoclose: true,
         numberOfMonths: [1, 1]
     }); 
-    $('#txtRegEndDate').datetimepicker({
-        format: 'YYYY-MM-DD hh:mm',
+    $('#RegEndDate').datetimepicker({
+        
+        format: 'DD/MM/YYYY h:mm:ss a',
         autoclose: true,
         numberOfMonths: [1, 1]
     }); 
-    $('#txtVotingStartDate').datetimepicker({
-        format: 'YYYY-MM-DD hh:mm',
+    $('#VotingStartDate').datetimepicker({
+       
+        format: 'DD/MM/YYYY h:mm:ss a',
         autoclose: true,
         numberOfMonths: [1, 1]
     }); 
-    $('#txtVotingEndDate').datetimepicker({
-        format: 'YYYY-MM-DD hh:mm',
+    $('#VotingEndDate').datetimepicker({
+        
+        format: 'DD/MM/YYYY h:mm:ss a',
         autoclose: true,
         numberOfMonths: [1, 1]
     }); 
@@ -118,10 +122,10 @@
         var ballot = {
             'RefCode': refcode,
             'Description': description,
-            'RegStartDate': regstartdate,
-            'RegEndDate': regenddate,
-            'VotingStartDate': votingstartdate,
-            'VotingEndDate': votingenddate,
+            'EditRegStartDate': regstartdate,
+            'EditRegEndDate': regenddate,
+            'EditVotingStartDate': votingstartdate,
+            'EditVotingEndDate': votingenddate,
             'JPositions': _gridData
         };
 
@@ -149,20 +153,22 @@
     $("#btnedit").click(function () {
         var refcode = $("#RefCode").val();
         var description = $("#Description").val();
-        var regstartdate = $("#RegStartDate").datepicker("getDate");
-        var regenddate = $("#RegEndDate").datepicker("getDate");
-        var votingstartdate = $("#VotingStartDate").datepicker("getDate");
-        var votingenddate = $("#VotingEndDate").datepicker("getDate");
+         
+        var regstartdate = $("#RegStartDate").val();
+       
+        var regenddate = $("#RegEndDate").val();
+        var votingstartdate = $("#VotingStartDate").val();
+        var votingenddate = $("#VotingEndDate").val();
         var ballotid = $("#BallotId").val();
         var rowversion = $("#RowVersion").val();
         var ballot = {
             'BallotId': ballotid,
             'RefCode': refcode,
-            'Description': description,
-            'RegStartDate': regstartdate,
-            'RegEndDate': regenddate,
-            'VotingStartDate': votingstartdate,
-            'VotingEndDate': votingenddate,
+            'Description': description, 
+            'EditRegStartDate': regstartdate,  
+             'EditRegEndDate': regenddate,
+             'EditVotingStartDate': votingstartdate,
+             'EditVotingEndDate': votingenddate,
             'RowVersion': rowversion,
             'JPositions': _gridData
         };

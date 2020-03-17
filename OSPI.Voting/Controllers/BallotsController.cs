@@ -63,6 +63,13 @@ namespace OSPI.Voting.Controllers
             try
             {
                 ballot.BallotId = Guid.NewGuid();
+                if (ballot != null)
+                {
+                    ballot.RegEndDate = Convert.ToDateTime(ballot.EditRegEndDate);
+                    ballot.RegStartDate = Convert.ToDateTime(ballot.EditRegStartDate);
+                    ballot.VotingStartDate = Convert.ToDateTime(ballot.EditVotingStartDate);
+                    ballot.VotingEndDate = Convert.ToDateTime(ballot.EditVotingEndDate);
+                }
                 _ballotService.CreateAsync(ballot);
                 return Json(true);
             }
@@ -96,6 +103,13 @@ namespace OSPI.Voting.Controllers
         {
             try
             {
+                if (ballot !=null)
+                {
+                    ballot.RegEndDate= Convert.ToDateTime(ballot.EditRegEndDate);
+                    ballot.RegStartDate= Convert.ToDateTime(ballot.EditRegStartDate);
+                    ballot.VotingStartDate= Convert.ToDateTime(ballot.EditVotingStartDate);
+                    ballot.VotingEndDate= Convert.ToDateTime(ballot.EditVotingEndDate);
+                }
                 _ballotService.UpdateAsync(ballot);
                 return Json(true);
             }

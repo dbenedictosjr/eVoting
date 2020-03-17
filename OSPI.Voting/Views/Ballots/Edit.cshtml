@@ -4,6 +4,7 @@
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
 }
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet" />
 
 <br />
@@ -59,7 +60,7 @@
 
                             <div class="form-group">
                                 <label asp-for="RegStartDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.RegStartDate, new { @class = "form-control", id = "txtRegStartDate" })
+                                @Html.TextBoxFor(m => m.RegStartDate, new { @class = "form-control"})
                                 @*<input type="text" asp-for="RegStartDate" class="form-control datepicker" />*@
                                 <span asp-validation-for="RegStartDate" class="text-danger" id="spn_TransactionDate"></span>
                             </div>
@@ -68,7 +69,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label asp-for="RegEndDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.RegEndDate, new { @class = "form-control", id = "txtRegEndDate" })
+                                @Html.TextBoxFor(m => m.RegEndDate, new { @class = "form-control"})
                                 @*<input type="text" asp-for="RegEndDate" class="form-control datepicker" />*@
                                 <span asp-validation-for="RegEndDate" class="text-danger" id="spn_Particular"></span>
 
@@ -83,7 +84,7 @@
 
                             <div class="form-group">
                                 <label asp-for="VotingStartDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.VotingStartDate, new { @class = "form-control", id = "txtVotingStartDate" })
+                                @Html.TextBoxFor(m => m.VotingStartDate, new { @class = "form-control" })
                                 @*<input type="text" asp-for="VotingStartDate" class="form-control datepicker" />*@
                                 <span asp-validation-for="VotingStartDate" class="text-danger" id="spn_MainAmount"></span>
 
@@ -94,7 +95,7 @@
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label asp-for="VotingEndDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.VotingEndDate, new { @class = "form-control", id = "txtVotingEndDate" })
+                                @Html.TextBoxFor(m => m.VotingEndDate, new { @class = "form-control" })
                                 @*<input type="text" asp-for="VotingEndDate" class="form-control datepicker" />*@
                                 <span asp-validation-for="VotingEndDate" class="text-danger" id="spn_status"></span>
                             </div>
