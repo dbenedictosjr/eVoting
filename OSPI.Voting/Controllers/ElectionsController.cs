@@ -121,6 +121,5 @@ namespace OSPI.Voting.Controllers
             ViewBag.PercentageList = JsonConvert.SerializeObject(PercentageList.ToList());
             return View(_result[i]);
         }
-
     }
 }

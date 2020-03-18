@@ -221,7 +221,7 @@ namespace OSPI.Voting.Controllers
             return RedirectToAction("StatusVericifation");
         }
         public async Task<IActionResult> StatusVericifation()
-        {   
+        {
             return View();
         }
     }

@@ -25,6 +25,13 @@ namespace OSPI.Infrastructure.Models
         [Display(Name = "Candidate")]
         public string FullName { get { return this.FirstName + ' ' + this.LastName; } }
 
+        public string VFirstName { get; set; }
+
+        public string VLastName { get; set; }
+
+        [Display(Name = "Voter")]
+        public string VFullName { get { return this.VFirstName + ' ' + this.VLastName; } }
+
         public string Plataforma { get; set; }
 
         public byte[] RowVersion { get; set; }

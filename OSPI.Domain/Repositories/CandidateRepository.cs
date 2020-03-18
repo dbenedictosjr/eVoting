@@ -28,7 +28,7 @@ namespace OSPI.Domain.Repositories
             .Include(a => a.Position)
             .Include(a => a.CandidateMember)
             .Include(a => a.NomineeMember)
-            .Include(a => a.Votes)
+            .Include(a => a.Votes).ThenInclude(a => a.Election).ThenInclude(a => a.Member)
             .FirstOrDefaultAsync(a => a.CandidateId == id);
 
         public async Task<IEnumerable<CandidateEntity>> GetAllByNomineeIdAsync(Guid? id)

@@ -147,6 +147,8 @@ namespace OSPI.Infrastructure.Mapper
                 .ForMember(d => d.PositionName, map => map.MapFrom(s => s.Candidate.Position.PositionName))
                 .ForMember(d => d.FirstName, map => map.MapFrom(s => s.Candidate.CandidateMember.FirstName))
                 .ForMember(d => d.LastName, map => map.MapFrom(s => s.Candidate.CandidateMember.LastName))
+                .ForMember(d => d.VFirstName, map => map.MapFrom(s => s.Election.Member.FirstName))
+                .ForMember(d => d.VLastName, map => map.MapFrom(s => s.Election.Member.LastName))
                 .ForMember(d => d.Plataforma, map => map.MapFrom(s => s.Candidate.Plataforma))
                 .ForMember(d => d.RowVersion, map => map.MapFrom(s => s.RowVersion))
                 .ReverseMap()
@@ -154,6 +156,8 @@ namespace OSPI.Infrastructure.Mapper
                 .ForPath(s => s.Candidate.Position.PositionName, map => map.Ignore())
                 .ForPath(s => s.Candidate.CandidateMember.FirstName, map => map.Ignore())
                 .ForPath(s => s.Candidate.CandidateMember.LastName, map => map.Ignore())
+                .ForPath(s => s.Election.Member.FirstName, map => map.Ignore())
+                .ForPath(s => s.Election.Member.LastName, map => map.Ignore())
                 .ForPath(s => s.Candidate.Plataforma, map => map.Ignore());
         }
     }
