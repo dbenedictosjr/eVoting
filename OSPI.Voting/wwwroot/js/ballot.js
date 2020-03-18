@@ -1,28 +1,28 @@
 ﻿$(function () { 
-    $('#RegStartDate').datetimepicker({
+    //$('#RegStartDate').datetimepicker({
        
-        format: 'DD-MM-YYYY hh:mm:ss',
-        autoclose: true,
-        numberOfMonths: [1, 1]
-    }); 
-    $('#RegEndDate').datetimepicker({
+    //    format: 'DD-MM-YYYY hh:mm:ss',
+    //    autoclose: true,
+    //    numberOfMonths: [1, 1]
+    //}); 
+    //$('#RegEndDate').datetimepicker({
         
-        format: 'DD/MM/YYYY h:mm:ss a',
-        autoclose: true,
-        numberOfMonths: [1, 1]
-    }); 
-    $('#VotingStartDate').datetimepicker({
+    //    format: 'DD/MM/YYYY h:mm:ss a',
+    //    autoclose: true,
+    //    numberOfMonths: [1, 1]
+    //}); 
+    //$('#VotingStartDate').datetimepicker({
        
-        format: 'DD/MM/YYYY h:mm:ss a',
-        autoclose: true,
-        numberOfMonths: [1, 1]
-    }); 
-    $('#VotingEndDate').datetimepicker({
+    //    format: 'DD/MM/YYYY h:mm:ss a',
+    //    autoclose: true,
+    //    numberOfMonths: [1, 1]
+    //}); 
+    //$('#VotingEndDate').datetimepicker({
         
-        format: 'DD/MM/YYYY h:mm:ss a',
-        autoclose: true,
-        numberOfMonths: [1, 1]
-    }); 
+    //    format: 'DD/MM/YYYY h:mm:ss a',
+    //    autoclose: true,
+    //    numberOfMonths: [1, 1]
+    //}); 
     $("#txtMinimumVotes").change(function () {
         var _min = $(this).val();
         var _max = $("#txtMaximumVotes").val();

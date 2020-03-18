@@ -211,7 +211,7 @@ namespace OSPI.Voting.Controllers
 
             if (member == null || member.Password.Trim() != model.Password.Trim())
             {
-                ModelState.AddModelError("", "Invalid Username of Password");
+                ModelState.AddModelError("", "Invalid Username or Password");
                 model.Password = "";
                 return View(model);
             }
@@ -220,7 +220,7 @@ namespace OSPI.Voting.Controllers
 
             if (roleAccesses == null)
             {
-                ModelState.AddModelError("", "Invalid Username of Password");
+                ModelState.AddModelError("", "Invalid Username or Password");
                 model.Password = "";
                 return View(model);
             }

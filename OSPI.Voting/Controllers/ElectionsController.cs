@@ -38,7 +38,7 @@ namespace OSPI.Voting.Controllers
             else
             {
                 BallotModel ballotModel = await _ballotService.GetByIdAsync(Guid.Parse(_configuration["BallotId"]));
-                if (ballotModel.VotingStartDate >= DateTime.Now && ballotModel.VotingEndDate <= DateTime.Now)
+                if (ballotModel.VotingStartDate <= DateTime.Now && ballotModel.VotingEndDate >= DateTime.Now)
                 {
                     return View(await _candidateService.GetAllPositionAsync(Guid.Parse(_configuration["BallotId"]), "Qualified"));
                 }

@@ -89,7 +89,7 @@ namespace OSPI.Voting.Controllers
         public async Task<IActionResult> Create()
         {
             BallotModel ballotModel = await _ballotService.GetByIdAsync(Guid.Parse(_configuration["BallotId"]));
-            if (ballotModel.RegStartDate >= DateTime.Now && ballotModel.RegEndDate <= DateTime.Now)
+            if (ballotModel.RegStartDate <= DateTime.Now && ballotModel.RegEndDate >= DateTime.Now)
             {
                 ViewData["Members"] = new SelectList(await _memberService.GetAllAsync(), "MemberId", "MemberFullName");
                 ViewData["Positions"] = new SelectList(await _positionService.GetAllAsync(), "PositionId", "PositionName");

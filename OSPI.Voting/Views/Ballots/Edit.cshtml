@@ -60,46 +60,65 @@
 
                             <div class="form-group">
                                 <label asp-for="RegStartDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.RegStartDate, new { @class = "form-control"})
-                                @*<input type="text" asp-for="RegStartDate" class="form-control datepicker" />*@
-                                <span asp-validation-for="RegStartDate" class="text-danger" id="spn_TransactionDate"></span>
+                                <input asp-for="RegStartDate" class="form-control " />
+                                <span asp-validation-for="RegStartDate" class="text-danger"></span>
                             </div>
+
+                            @*<div class="form-group">
+                                <label asp-for="RegStartDate" class="control-label"></label>
+                                @Html.TextBoxFor(m => m.RegStartDate, new { @class = "form-control"})
+                                <input type="text" asp-for="RegStartDate" class="form-control datepicker" />
+                                <span asp-validation-for="RegStartDate" class="text-danger" id="spn_TransactionDate"></span>
+                            </div>*@
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                         <div class="col-lg-6">
-                            <div class="form-group">
-                                <label asp-for="RegEndDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.RegEndDate, new { @class = "form-control"})
-                                @*<input type="text" asp-for="RegEndDate" class="form-control datepicker" />*@
-                                <span asp-validation-for="RegEndDate" class="text-danger" id="spn_Particular"></span>
 
+                            <div class="form-group">
+                                <label asp-for="VotingStartDate" class="control-label"></label>
+                                <input asp-for="VotingStartDate" class="form-control " />
+                                <span asp-validation-for="VotingStartDate" class="text-danger"></span>
                             </div>
 
+                            @*<div class="form-group">
+                                <label asp-for="VotingStartDate" class="control-label"></label>
+                                @Html.TextBoxFor(m => m.VotingStartDate, new { @class = "form-control" })
+                                <input type="text" asp-for="VotingStartDate" class="form-control datepicker" />
+                                <span asp-validation-for="VotingStartDate" class="text-danger" id="spn_MainAmount"></span>
+                            </div>*@
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                     </div>
 
                     <div class="row">
                         <div class="col-lg-6">
-
                             <div class="form-group">
-                                <label asp-for="VotingStartDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.VotingStartDate, new { @class = "form-control" })
-                                @*<input type="text" asp-for="VotingStartDate" class="form-control datepicker" />*@
-                                <span asp-validation-for="VotingStartDate" class="text-danger" id="spn_MainAmount"></span>
-
+                                <label asp-for="RegEndDate" class="control-label"></label>
+                                <input asp-for="RegEndDate" class="form-control " />
+                                <span asp-validation-for="RegEndDate" class="text-danger"></span>
                             </div>
 
+                            @*<div class="form-group">
+                                <label asp-for="RegEndDate" class="control-label"></label>
+                                @Html.TextBoxFor(m => m.RegEndDate, new { @class = "form-control" })
+                                <input type="text" asp-for="RegEndDate" class="form-control datepicker" />
+                                <span asp-validation-for="RegEndDate" class="text-danger" id="spn_Particular"></span>
+                            </div>*@
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                         <div class="col-lg-6">
                             <div class="form-group">
                                 <label asp-for="VotingEndDate" class="control-label"></label>
-                                @Html.TextBoxFor(m => m.VotingEndDate, new { @class = "form-control" })
-                                @*<input type="text" asp-for="VotingEndDate" class="form-control datepicker" />*@
-                                <span asp-validation-for="VotingEndDate" class="text-danger" id="spn_status"></span>
+                                <input asp-for="VotingEndDate" class="form-control " />
+                                <span asp-validation-for="VotingEndDate" class="text-danger"></span>
                             </div>
 
+                            @*<div class="form-group">
+                                <label asp-for="VotingEndDate" class="control-label"></label>
+                                @Html.TextBoxFor(m => m.VotingEndDate, new { @class = "form-control" })
+                                <input type="text" asp-for="VotingEndDate" class="form-control datepicker" />
+                                <span asp-validation-for="VotingEndDate" class="text-danger" id="spn_status"></span>
+                            </div>*@
                         </div>
                         <!-- /.col-lg-6 (nested) -->
                     </div>

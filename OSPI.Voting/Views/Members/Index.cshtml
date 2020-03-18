@@ -60,27 +60,27 @@
                                     <input type="checkbox" value="1">
                                 </td>
 
-                                <th>
+                                <td>
                                     @Html.ActionLink("" + item.MemberNo + "", "Details", "Members", new { id = item.MemberId }, null)
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                     @Html.DisplayFor(modelItem => item.RegistrationDate)
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                     @Html.DisplayFor(modelItem => item.MemberFullName)
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                     @Html.DisplayFor(modelItem => item.HomeAddress)
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                     @Html.DisplayFor(modelItem => item.MemberStatus)
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                     @Html.DisplayFor(modelItem => item.CreditStatus)
-                                </th>
-                                <th>
+                                </td>
+                                <td>
                                     @Html.DisplayFor(modelItem => item.RoleName)
-                                </th>
+                                </td>
                             </tr>
                             }
                         </tbody>
