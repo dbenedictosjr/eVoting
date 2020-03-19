@@ -124,5 +124,12 @@ namespace OSPI.Voting.Controllers
             ViewBag.PercentageList = JsonConvert.SerializeObject(PercentageList.ToList());
             return View(_result[i]);
         }
+        public async Task<IActionResult> GetAllCandidatesDetails(string Id)
+        {
+            var _result = await _candidateService.GetByIdAsync(Guid.Parse(Id));
+
+           return Json(_result);
+        }
+
     }
 }
