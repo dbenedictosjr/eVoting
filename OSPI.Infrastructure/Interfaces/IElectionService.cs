@@ -11,6 +11,7 @@ namespace OSPI.Infrastructure.Interfaces
 
         Task<ElectionModel> GetByIdAsync(Guid? id);
         Task<IEnumerable<ElectionModel>> GetAllAsync();
+        Task<List<CPositionModel>> GetByMemberIdAsync(Guid? ballotId, Guid? memberId);
 
         Task UpdateAsync(ElectionModel election);
 

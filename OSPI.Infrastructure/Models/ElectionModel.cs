@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -28,6 +29,9 @@ namespace OSPI.Infrastructure.Models
 
         [Display(Name = "Ballot")]
         public string Description { get; set; }
+
+        public ICollection<ElectionDetailModel> Votes { get; set; }
+
 
         public byte[] RowVersion { get; set; }
     }

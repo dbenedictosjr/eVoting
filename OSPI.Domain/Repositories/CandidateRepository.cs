@@ -66,19 +66,5 @@ namespace OSPI.Domain.Repositories
             .OrderBy(a => a.PositionId)
             .ToListAsync();
         }
-
-        public async Task<IEnumerable<CandidateEntity>> GetAllCandidatesAsync(Guid? ballotId, Guid? positionId, string status)
-        {
-            return await _context.Set<CandidateEntity>()
-            .Include(a => a.Position)
-            .Include(a => a.CandidateMember)
-            .Include(a => a.NomineeMember)
-            .Include(a => a.Votes)
-            .Where(a => a.Position.BallotId == ballotId)
-            .Where(a => a.PositionId == positionId)
-            .Where(a => a.Status == status)
-            .OrderBy(a => a.PositionId)
-            .ToListAsync();
-        }
     }
 }

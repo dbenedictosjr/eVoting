@@ -29,7 +29,10 @@ namespace OSPI.Voting.Controllers
             _candidateService = candidateService;
         }
 
-        // GET: Elections
+        /// <summary>
+        /// Voting/Election
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Index()
         {
             MemberModel member = await _memberService.GetByIdAsync(Guid.Parse(User.Claims.FirstOrDefault(x => x.Type == "UserGuid").Value));

@@ -36,5 +36,7 @@ namespace OSPI.Domain.Entities
 
         [ForeignKey("BallotId")]
         public virtual BallotEntity Ballot { get; set; }
+
+        public virtual ICollection<ElectionDetailEntity> ElectionDetails { get; set; }
     }
 }

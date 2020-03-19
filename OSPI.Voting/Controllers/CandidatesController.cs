@@ -47,6 +47,10 @@ namespace OSPI.Voting.Controllers
             }
         }
 
+        /// <summary>
+        /// List of Qualified Candidates
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> Candidates()
         {
             BallotModel ballotModel = await _ballotService.GetByIdAsync(Guid.Parse(_configuration["BallotId"]));

@@ -34,25 +34,6 @@ namespace OSPI.Infrastructure.Services
             await _candidateRepository.SaveAsync();
         }
 
-        public async Task DeleteAsync(CandidateModel candidate)
-        {
-            this._candidateRepository.Delete(await _candidateRepository.GetByIdAsync(candidate.CandidateId));
-            await _candidateRepository.SaveAsync();
-        }
-
-        public async Task<CandidateModel> GetByIdAsync(Guid? id)
-            => _mapper.Map<CandidateModel>(await _candidateRepository.GetByIdAsync(id));
-        public async Task<IEnumerable<CandidateModel>> GetAllByNomineeIdAsync(Guid? id)
-            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByNomineeIdAsync(id));
-        public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, string status) => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllCandidatesAsync(ballotId, status));
-
-        public async Task<IEnumerable<CandidateModel>> GetAllByPositionIdAsync(Guid? positionId, string status)
-            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByPositionIdAsync(positionId, status));
-        public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, Guid? positionId, string status)
-            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllCandidatesAsync(ballotId, positionId, status));
-        public async Task<IEnumerable<CandidateModel>> GetAllAsync()
-            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllAsync());
-
         public async Task UpdateAsync(CandidateModel candidate)
         {
             try
@@ -65,9 +46,9 @@ namespace OSPI.Infrastructure.Services
 
                 throw;
             }
-            
+
         }
-        public async Task UpdateStatusAsync(Guid id,string status)
+        public async Task UpdateStatusAsync(Guid id, string status)
         {
             try
             {
@@ -83,13 +64,27 @@ namespace OSPI.Infrastructure.Services
             }
 
         }
+
+        public async Task DeleteAsync(CandidateModel candidate)
+        {
+            this._candidateRepository.Delete(await _candidateRepository.GetByIdAsync(candidate.CandidateId));
+            await _candidateRepository.SaveAsync();
+        }
+
+        public async Task<CandidateModel> GetByIdAsync(Guid? id)
+            => _mapper.Map<CandidateModel>(await _candidateRepository.GetByIdAsync(id));
+        public async Task<IEnumerable<CandidateModel>> GetAllByNomineeIdAsync(Guid? id)
+            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByNomineeIdAsync(id));
+        public async Task<IEnumerable<CandidateModel>> GetAllCandidatesAsync(Guid? ballotId, string status) => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllCandidatesAsync(ballotId, status));
+        public async Task<IEnumerable<CandidateModel>> GetAllByPositionIdAsync(Guid? positionId, string status)
+            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllByPositionIdAsync(positionId, status));
         public async Task<List<CPositionModel>> GetAllPositionAsync(Guid? ballotId, string status)
         {
             List<CPositionModel> positions = new List<CPositionModel>();
             IEnumerable<CandidateEntity> ccandidates;
             IEnumerable<PositionEntity> cpositions = await _positionRepository.GetAllByBallotIdAsync(ballotId);
             var rootpath = _configuration["RootMemberImagePath"];
-            var displaypath = _configuration["MemberImagePath"]; 
+            var displaypath = _configuration["MemberImagePath"];
             foreach (PositionEntity position in cpositions)
             {
                 CPositionModel cPositionModel = new CPositionModel
@@ -102,12 +97,12 @@ namespace OSPI.Infrastructure.Services
                 };
 
                 ccandidates = await _candidateRepository.GetAllByPositionIdAsync(position.PositionId, status);
-                 
+
                 foreach (CandidateEntity candidateEntity in ccandidates)
                 {
                     CCandidateModel cCandidateModel = new CCandidateModel
                     {
-                        CandidateId =candidateEntity.CandidateId,
+                        CandidateId = candidateEntity.CandidateId,
                         CandidateName = candidateEntity.CandidateMember.FirstName + " " + candidateEntity.CandidateMember.LastName,
                         MemberId = candidateEntity.CandidateMemberId.ToString()
                     };
@@ -129,7 +124,7 @@ namespace OSPI.Infrastructure.Services
                         cCandidateModel.MemberNumber = _configuration["MemberImagePath"] + "/" + "default.png";
                     }
 
-                    cPositionModel.Candidates.Add(cCandidateModel) ;
+                    cPositionModel.Candidates.Add(cCandidateModel);
                 }
 
                 positions.Add(cPositionModel);
@@ -137,5 +132,14 @@ namespace OSPI.Infrastructure.Services
 
             return positions;
         }
+        public async Task<IEnumerable<CandidateModel>> GetAllAsync()
+            => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllAsync());
+
+
+
+
+
+
+
     }
 }

@@ -7,6 +7,7 @@ using OSPI.Infrastructure.Interfaces;
 using OSPI.Infrastructure.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace OSPI.Infrastructure.Services
@@ -51,6 +52,33 @@ namespace OSPI.Infrastructure.Services
 
         public async Task<ElectionModel> GetByIdAsync(Guid? id)
             => _mapper.Map<ElectionModel>(await _electionRepository.GetByIdAsync(id));
+
+        public async Task<List<CPositionModel>> GetByMemberIdAsync(Guid? ballotId, Guid? memberId)
+        {
+            List<CPositionModel> positions = new List<CPositionModel>();
+
+             ElectionEntity election = await _electionRepository.GetByMemberAndPositionAsync(ballotId, memberId);
+
+            IEnumerable<PositionEntity> cpositions = await _positionRepository.GetAllByBallotIdAsync(ballotId);
+            foreach (PositionEntity position in cpositions)
+            {
+                CPositionModel cPositionModel = new CPositionModel
+                {
+                    PositionId = position.PositionId.ToString(),
+                    PositionName = position.PositionName,
+                    Candidates = new List<CCandidateModel>()
+                };
+
+                foreach (ElectionDetailEntity electionDetail in election.ElectionDetails.Where(e => (e.Candidate.PositionId == position.PositionId)))
+                {
+                    cPositionModel.Candidates.Add(new CCandidateModel { CandidateName = electionDetail.Candidate.CandidateMember.FirstName.Trim() + " " + electionDetail.Candidate.CandidateMember.LastName.Trim() });
+                }
+
+                positions.Add(cPositionModel);
+            }
+
+            return positions;
+        }
 
         public async Task UpdateAsync(ElectionModel election)
         {
