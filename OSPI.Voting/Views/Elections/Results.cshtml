@@ -91,7 +91,8 @@
 
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.TotalVotes)
+                                                <label onclick="Details('@item.CandidateId')">@item.TotalVotes</label>
+                                                
                                             </td>
 
                                             <td>
@@ -131,7 +132,80 @@
     </div>
     <!-- /.col-lg-12 -->
 </div>
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog modal-confirm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <b>Voters Details</b>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div id="divtxt">
+
+                    </div>
+                </div>
+
+
+            </div>
+            <div class="modal-footer">
+                <div class="row">
+                    <div class="col-lg-4">
+
+                    </div>
+                    <div class="col-lg-4">
+
+                    </div>
+                    <div class="col-lg-4">
+
+                        <button type="button" class="btn  btn-danger" data-dismiss="modal">Close</button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
 <script>
+      function Details(id)
+      {
+          var _Id = id;
+          $.ajax({
+              type: 'Get',
+              contentType: 'application/json; charset=utf-8',
+              dataType: 'json',
+              url: '/Elections/GetAllCandidatesDetails',
+              data: { Id: _Id }, 
+              success: function (data) {
+               var jsonObj = data;
+                $('#divtxt').html("");
+                var  table_body = " ";
+
+              
+                    table_body += "<div class='col-md-12'>";
+                     table_body += '<b>';
+                    table_body += '<p>' + jsonObj.positionName + '</p>';
+                    table_body += "</b>";
+                     table_body += "</div>";
+                 
+                    $.each(jsonObj.votes, function (i, c) { 
+                       table_body+="<div class='col-md-6'>";
+                    table_body += '<p>' + c.vFullName + '</p>';
+                     table_body += "</div>";
+                })
+                  
+                   
+               
+                 $('#divtxt').html(table_body);
+               $("#myModal").modal("show");                
+            } 
+            
+        });
+             
+        } 
     $(function () {
        var chartDiv = $("#myChart");
           

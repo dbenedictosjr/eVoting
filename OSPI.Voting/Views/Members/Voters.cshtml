@@ -41,7 +41,8 @@
                             {
                                 <tr class="odd gradeX">
                                     <th>
-                                        @Html.ActionLink("" + item.MemberNo + "", "", "", new { id = item.MemberNo,@onclick = "Details()" }, null)
+                                        <label onclick="Details()">@item.MemberNo</label>
+                                        @*@Html.ActionLink("" + item.MemberNo + "", "", "", new { id = item.MemberNo,@onclick = "Details()" }, null)*@
                                        
                                     </th>
                                     <th>
@@ -103,12 +104,9 @@
     </div>
 </div>
 <script>
-    $(function ()
-    {
-        function Details()
+    function Details()
         {
-            alert();
-        }
-    })
+             $("#myModal").modal("show");
+        } 
 </script>
  
