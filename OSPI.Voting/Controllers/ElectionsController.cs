@@ -128,7 +128,7 @@ namespace OSPI.Voting.Controllers
         {
             var _result = await _candidateService.GetByIdAsync(Guid.Parse(Id));
 
-           return Json(_result);
+           return Json(JsonConvert.SerializeObject(_result));
         }
 
     }

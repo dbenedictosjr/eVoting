@@ -68,12 +68,13 @@ namespace OSPI.Infrastructure.Services
                     PositionName = position.PositionName,
                     Candidates = new List<CCandidateModel>()
                 };
-
-                foreach (ElectionDetailEntity electionDetail in election.ElectionDetails.Where(e => (e.Candidate.PositionId == position.PositionId)))
+                if (election != null)
                 {
-                    cPositionModel.Candidates.Add(new CCandidateModel { CandidateName = electionDetail.Candidate.CandidateMember.FirstName.Trim() + " " + electionDetail.Candidate.CandidateMember.LastName.Trim() });
+                    foreach (ElectionDetailEntity electionDetail in election.ElectionDetails.Where(e => (e.Candidate.PositionId == position.PositionId)))
+                    {
+                        cPositionModel.Candidates.Add(new CCandidateModel { CandidateName = electionDetail.Candidate.CandidateMember.FirstName.Trim() + " " + electionDetail.Candidate.CandidateMember.LastName.Trim() });
+                    }
                 }
-
                 positions.Add(cPositionModel);
             }
 
