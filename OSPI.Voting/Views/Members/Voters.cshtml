@@ -41,7 +41,7 @@
                             {
                                 <tr class="odd gradeX">
                                     <th>
-                                        <label onclick="Details()">@item.MemberNo</label>
+                                        <label style="cursor:pointer;color:#337ab7" onclick="Details('@item.MemberId')">@item.MemberNo</label>
                                         @*@Html.ActionLink("" + item.MemberNo + "", "", "", new { id = item.MemberNo,@onclick = "Details()" }, null)*@
                                        
                                     </th>
@@ -104,9 +104,46 @@
     </div>
 </div>
 <script>
-    function Details()
-        {
-             $("#myModal").modal("show");
+      function Details(id)
+      {
+          var _Id = id;
+          $.ajax({
+              type: 'Get',
+              contentType: 'application/json; charset=utf-8',
+              dataType: 'json',
+              url: '/Members/GetMemberDetails',
+              data: { Id: _Id }, 
+              success: function (data) {
+               var jsonObj = data;
+                $('#divtxt').html("");
+                var  table_body = " ";
+
+              
+                  $.each(jsonObj, function (i, p) { 
+                    table_body += "<div class='col-md-12'>";
+                     table_body += '<b>';
+                    table_body += '<p>' + p.positionName + '</p>';
+                    table_body += "</b>";
+                     table_body += "</div>";
+                 
+                    $.each(p.candidates, function (i, c) { 
+                       table_body+="<div class='col-md-12'>";
+                    table_body += '<p>' + c.candidateName + '</p>';
+                     table_body += "</div>";
+                })
+                    //table_body += "</div>";
+                   
+                   
+                });
+                  
+                   
+               
+                 $('#divtxt').html(table_body);
+               $("#myModal").modal("show");                
+            } 
+            
+        });
+             
         } 
 </script>
  

@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace OSPI.Voting.Controllers
 {
@@ -19,11 +20,15 @@ namespace OSPI.Voting.Controllers
         private readonly IMemberService _memberService;
         private readonly IRoleService _roleService;
         private readonly IRoleAccessService _roleAccessService;
+        private readonly IElectionService _electionService;
+        private readonly IConfiguration _configuration;
 
-        public MembersController(IMemberService memberService, IRoleService roleService, IRoleAccessService roleAccessService)
+        public MembersController(IElectionService electionService, IMemberService memberService, IRoleService roleService, IRoleAccessService roleAccessService, IConfiguration configuration)
         {
+            _electionService = electionService;
             _memberService = memberService;
             _roleService = roleService;
+            _configuration = configuration;
             _roleAccessService = roleAccessService;
         }
 
@@ -256,6 +261,22 @@ namespace OSPI.Voting.Controllers
         public  IActionResult Setting()
         {
             return View();
+        }
+        public async Task<IActionResult> GetMemberDetails(string Id)
+        {
+            var result = "";
+            try
+            {
+               var  _result = await _electionService.GetByMemberIdAsync(Guid.Parse(_configuration["BallotId"]), Guid.Parse(Id));
+
+                return Json(_result);
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+            return Json(result);
         }
     }
 }
