@@ -136,5 +136,22 @@ namespace OSPI.Infrastructure.Services
                 }
             }
         }
+
+        public async Task CloseNomination(Guid? id)
+        {
+            try
+            {
+                var entry = await _context.Ballots.FindAsync(id);
+                entry.RegEndDate = DateTime.Now;
+                _context.Ballots.Update(entry);
+                _context.Save();
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+        }
     }
 }

@@ -16,5 +16,6 @@ namespace OSPI.Infrastructure.Interfaces
 
         Task DeleteAsync(BallotModel ballot);
 
+        Task CloseNomination(Guid? id);
     }
 }

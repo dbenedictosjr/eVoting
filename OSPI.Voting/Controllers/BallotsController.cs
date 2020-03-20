@@ -44,7 +44,6 @@ namespace OSPI.Voting.Controllers
         {
             BallotModel ballot = new BallotModel
             {
-                BallotId = Guid.NewGuid(),
                 RegStartDate = DateTime.Now,
                 RegEndDate = DateTime.Now,
                 VotingStartDate = DateTime.Now,
@@ -63,6 +62,7 @@ namespace OSPI.Voting.Controllers
             try
             {
                 ballot.BallotId = Guid.NewGuid();
+                ballot.Status = "Open";
                 if (ballot != null)
                 {
                     ballot.RegEndDate = Convert.ToDateTime(ballot.EditRegEndDate);

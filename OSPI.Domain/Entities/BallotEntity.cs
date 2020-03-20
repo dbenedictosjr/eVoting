@@ -30,6 +30,9 @@ namespace OSPI.Domain.Entities
         [Column(TypeName = "DATETIME")]
         public DateTime VotingEndDate { get; set; }
 
+        [Column(TypeName = "VARCHAR(15)")]
+        public string Status { get; set; }
+
         public Guid CreatedBy { get; set; }
 
         [Column(TypeName = "DATETIME")]

@@ -25,38 +25,31 @@ namespace OSPI.Infrastructure.Models
         [StringLength(30, ErrorMessage = "Limit Description to 30 characters.")]
         public string Description { get; set; }
 
-
-
         [Display(Name = "Reg. Start Date")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm tt}")]
-        //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime RegStartDate { get; set; }
         public string EditRegStartDate { get; set; }
-
 
         [Display(Name = "Reg. End Date")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm tt}")]
-        //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime RegEndDate { get; set; }
         public string EditRegEndDate { get; set; }
-
 
         [Display(Name = "Voting Start Date")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm tt}")]
-        //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime VotingStartDate { get; set; }
         public string EditVotingStartDate { get; set; }
-
 
         [Display(Name = "Voting End Date")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm tt}")]
-        //[DisplayFormat(DataFormatString = "{0:MM/dd/yyyy hh:mm tt}", ApplyFormatInEditMode = true)]
         public DateTime VotingEndDate { get; set; }
         public string EditVotingEndDate { get; set; }
+
+        public string Status { get; set; }
 
         public byte[] RowVersion { get; set; }
 

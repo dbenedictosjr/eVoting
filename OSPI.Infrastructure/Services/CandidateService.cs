@@ -63,7 +63,6 @@ namespace OSPI.Infrastructure.Services
 
                 throw;
             }
-
         }
 
         public async Task DeleteAsync(CandidateModel candidate)
@@ -135,12 +134,5 @@ namespace OSPI.Infrastructure.Services
         }
         public async Task<IEnumerable<CandidateModel>> GetAllAsync()
             => _mapper.Map<IEnumerable<CandidateModel>>(await _candidateRepository.GetAllAsync());
-
-
-
-
-
-
-
     }
 }

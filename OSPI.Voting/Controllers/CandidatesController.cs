@@ -105,6 +105,16 @@ namespace OSPI.Voting.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Closes Nominations
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IActionResult> CloseNomination()
+        {
+            await _ballotService.CloseNomination(Guid.Parse(_configuration["BallotId"]));
+            return RedirectToAction(nameof(Index));
+        }
+
         // POST: Candidates/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

@@ -20,10 +20,16 @@
                     <div class="col-sm-4"> <h4>Nomination Dashboard</h4></div>
                     <div class="col-sm-4"></div>
                     <div class="col-sm-2">
-                        <a asp-action="Create" role="button" class="btn btn-danger pull-right"> Close Nomination</a>
+                        @if (User.Claims.FirstOrDefault(x => x.Type == "Role").Value.ToUpper() == "82D0B260-E01D-4FB8-A4A6-4A6E0AB9E008" && (String.IsNullOrEmpty(ViewBag.Message) || (!String.IsNullOrEmpty(ViewBag.Message) && ViewBag.Message != "Nomination has ended.")))
+                        {
+                            <a asp-action="CloseNomination" role="button" class="btn btn-danger pull-right"> Close Nomination</a>
+                        }
                     </div>
                     <div class="col-sm-2">
-                        <a asp-action="Create" role="button" class="btn btn-primary pull-right"><i class="fa fa-plus"> </i> Create New</a>
+                        @if (String.IsNullOrEmpty(ViewBag.Message) || (!String.IsNullOrEmpty(ViewBag.Message) && ViewBag.Message != "Nomination has ended."))
+                        {
+                            <a asp-action="Create" role="button" class="btn btn-primary pull-right"><i class="fa fa-plus"> </i> Create New</a>
+                        }
                     </div>
                 </div>
 
