@@ -130,3 +130,14 @@ C:\Projects\OSPI-Systems\OSPI.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Domain
 C:\Projects\OSPI-Systems\OSPI.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Infrastructure.csproj.CopyComplete
 C:\Projects\OSPI-Systems\OSPI.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Infrastructure.dll
 C:\Projects\OSPI-Systems\OSPI.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Infrastructure.pdb
+G:\2020\Diego Project\V25\OSPI.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Infrastructure.deps.json
+G:\2020\Diego Project\V25\OSPI.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Infrastructure.dll
+G:\2020\Diego Project\V25\OSPI.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Infrastructure.pdb
+G:\2020\Diego Project\V25\OSPI.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Domain.dll
+G:\2020\Diego Project\V25\OSPI.Infrastructure\bin\Debug\netcoreapp3.1\OSPI.Domain.pdb
+G:\2020\Diego Project\V25\OSPI.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Infrastructure.csprojAssemblyReference.cache
+G:\2020\Diego Project\V25\OSPI.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Infrastructure.AssemblyInfoInputs.cache
+G:\2020\Diego Project\V25\OSPI.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Infrastructure.AssemblyInfo.cs
+G:\2020\Diego Project\V25\OSPI.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Infrastructure.csproj.CopyComplete
+G:\2020\Diego Project\V25\OSPI.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Infrastructure.dll
+G:\2020\Diego Project\V25\OSPI.Infrastructure\obj\Debug\netcoreapp3.1\OSPI.Infrastructure.pdb

@@ -1,0 +1,60 @@
+﻿@using OSPI.Voting.Helpers
+@using OSPI.Infrastructure.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - OSPI Voting System</title>
+    <script src="https://kit.fontawesome.com/7dc7f2dcec.js" crossorigin="anonymous"></script>
+    <link href="~/css/outercss/bootstrap.min.css" rel="stylesheet" />
+    
+    <link href="~/css/metisMenu.min.css" rel="stylesh   eet" />
+    <link href="~/css/Custom.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
+    <script src="~/js/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <ul class="nav navbar-top-links navbar-left">
+                <li>
+                    <a href="@Url.Action("index", "Home")">Logo</a>
+                </li>
+
+            </ul>
+            <ul class="nav navbar-top-links navbar-right">
+
+                @{
+                    await Html.RenderPartialAsync("_LoginPartial");
+                }
+            </ul>
+
+        </nav>
+      
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="~/js/metisMenu.min.js"></script>
+    <script src="~/js/sb-admin-2.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- #region datatables files -->
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css" />
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
