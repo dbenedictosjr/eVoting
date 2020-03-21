@@ -1,0 +1,89 @@
+﻿@model OSPI.Infrastructure.Models.BulletinModel
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
+}
+
+<br />
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <div class="row">
+
+                    <div class="col-sm-4"> <h4>Bulletin Details</h4></div>
+
+                    <div class="col-sm-4"></div>
+
+                    <div class="col-sm-2"></div>
+
+                    <div class="col-sm-2">
+                        <div class="row">
+                            <a asp-action="index" class="pull-right" style="padding-right:12px"><i class="fa fa-arrow-circle-left"></i> Back to Bulletin List</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="form-group">
+                            <b>@Html.DisplayNameFor(model => model.Title):</b>
+                            @Html.DisplayFor(model => model.Title)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <b>@Html.DisplayNameFor(model => model.Description):</b>
+                            @Html.DisplayFor(model => model.Description)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-lg-6">
+                        <div class="form-group"></div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+
+                            <div class="col-lg-8"></div>
+
+                            <div class="col-lg-2">
+                                <a asp-action="Delete" class="btn btn-danger pull-right" asp-route-id="@Model.BulletinId"><i class="fa fa-trash" aria-hidden="true"></i> Delete</a>
+                            </div>
+
+                            <div class="col-lg-2">
+                                <a asp-action="Edit" class="btn btn-primary pull-right" asp-route-id="@Model.BulletinId"><i class="fa fa-edit" aria-hidden="true"></i> Edit</a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function confirmDelete(url) {
+        var res = confirm("Do you really want to delete this Bulletin?");
+        if (res == true) {
+            window.location.href = url;
+        }
+    }
+</script>

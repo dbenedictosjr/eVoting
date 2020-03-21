@@ -83,6 +83,10 @@ namespace OSPI.Voting
             //ElectionDetail
             services.AddScoped<IElectionDetailRepository, ElectionDetailRepository>();
             services.AddScoped<IElectionDetailService, ElectionDetailService>();
+
+            //BulletinDetail
+            services.AddScoped<IBulletinRepository, BulletinRepository>();
+            services.AddScoped<IBulletinService, BulletinService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -111,8 +115,8 @@ namespace OSPI.Voting
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                //pattern: "{controller=Home}/{action=Index}/{id?}");
-                pattern: "{controller=Members}/{action=Login}/{id?}");
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+                //pattern: "{controller=Members}/{action=Login}/{id?}");
             });
         }
     }

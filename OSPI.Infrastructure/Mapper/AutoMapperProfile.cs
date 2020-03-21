@@ -160,6 +160,21 @@ namespace OSPI.Infrastructure.Mapper
                 .ForPath(s => s.Election.Member.FirstName, map => map.Ignore())
                 .ForPath(s => s.Election.Member.LastName, map => map.Ignore())
                 .ForPath(s => s.Candidate.Plataforma, map => map.Ignore());
+
+            CreateMap<BulletinEntity, BulletinModel>()
+                .ForMember(d => d.BulletinId, map => map.MapFrom(s => s.BulletinId))
+                .ForMember(d => d.DatePosted, map => map.MapFrom(s => s.DatePosted))
+                .ForMember(d => d.Title, map => map.MapFrom(s => s.Title))
+                .ForMember(d => d.Description, map => map.MapFrom(s => s.Description))
+                .ForMember(d => d.ImageName, map => map.MapFrom(s => s.ImageName))
+                .ForMember(d => d.RowVersion, map => map.MapFrom(s => s.RowVersion))
+                .ForMember(d => d.MemberId, map => map.MapFrom(s => s.MemberId))
+                .ForMember(d => d.FirstName, map => map.MapFrom(s => s.Member.FirstName))
+                .ForMember(d => d.LastName, map => map.MapFrom(s => s.Member.LastName))
+                .ForMember(d => d.RowVersion, map => map.MapFrom(s => s.RowVersion))
+                .ReverseMap()
+                .ForPath(s => s.Member.FirstName, map => map.Ignore())
+                .ForPath(s => s.Member.LastName, map => map.Ignore());
         }
     }
 }

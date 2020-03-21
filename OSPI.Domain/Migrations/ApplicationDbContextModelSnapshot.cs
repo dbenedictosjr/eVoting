@@ -68,6 +68,51 @@ namespace OSPI.Domain.Migrations
                     b.ToTable("Ballots");
                 });
 
+            modelBuilder.Entity("OSPI.Domain.Entities.BulletinEntity", b =>
+                {
+                    b.Property<Guid>("BulletinId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("CreatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("DATETIME");
+
+                    b.Property<DateTime>("DatePosted")
+                        .HasColumnType("DATETIME");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("VARCHAR(100)");
+
+                    b.Property<string>("ImageName")
+                        .HasColumnType("VARCHAR(100)");
+
+                    b.Property<Guid>("MemberId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<byte[]>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
+                    b.Property<string>("Title")
+                        .HasColumnType("VARCHAR(30)");
+
+                    b.Property<Guid>("UpdatedBy")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("DATETIME");
+
+                    b.HasKey("BulletinId");
+
+                    b.HasIndex("MemberId");
+
+                    b.ToTable("Bulletins");
+                });
+
             modelBuilder.Entity("OSPI.Domain.Entities.CandidateEntity", b =>
                 {
                     b.Property<Guid>("CandidateId")
@@ -444,6 +489,15 @@ namespace OSPI.Domain.Migrations
                     b.HasKey("RoleId");
 
                     b.ToTable("Roles");
+                });
+
+            modelBuilder.Entity("OSPI.Domain.Entities.BulletinEntity", b =>
+                {
+                    b.HasOne("OSPI.Domain.Entities.MemberEntity", "Member")
+                        .WithMany()
+                        .HasForeignKey("MemberId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("OSPI.Domain.Entities.CandidateEntity", b =>

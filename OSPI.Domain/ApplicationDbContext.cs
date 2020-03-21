@@ -32,6 +32,8 @@ namespace OSPI.Domain
 
         public DbSet<ElectionDetailEntity> ElectionDetails { get; set; }
 
+        public DbSet<BulletinEntity> Bulletins { get; set; }
+
         public async Task<int> SaveChangesAsync()
         {
             UpdateAuditEntities();

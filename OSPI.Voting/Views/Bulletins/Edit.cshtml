@@ -1,0 +1,101 @@
+﻿@model OSPI.Infrastructure.Models.BulletinModel;
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout_User_loggedIn.cshtml";
+}
+
+
+@if (!String.IsNullOrEmpty(ViewBag.Message))
+{
+    <h3 style="color:rebeccapurple">@ViewBag.Message</h3>
+}
+
+<br />
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <div class="row">
+
+                    <div class="col-sm-4"> <h4>Edit Bulletin</h4></div>
+
+                    <div class="col-sm-4"></div>
+
+                    <div class="col-sm-2"></div>
+
+                    <div class="col-sm-2">
+                        <div class="row">
+                            <a asp-action="index" class="pull-right" style="padding-right:12px"><i class="fa fa-arrow-circle-left"></i> Back to Bulletin List</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="panel-body">
+                <form asp-action="Edit">
+
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                    <input type="hidden" asp-for="BulletinId" />
+
+                    <input type="hidden" asp-for="RowVersion" />
+
+                    <div class="row">
+
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label asp-for="Title" class="control-label"></label>
+                                <input type="text" asp-for="Title" class="form-control " />
+                                <span asp-validation-for="Title" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6"></div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label"></label>
+                                <input type="text" asp-for="Description" class="form-control " />
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group"></div>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-lg-6">
+                            <div class="form-group"></div>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <input type="submit" value="Save" class="btn btn-primary pull-right" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

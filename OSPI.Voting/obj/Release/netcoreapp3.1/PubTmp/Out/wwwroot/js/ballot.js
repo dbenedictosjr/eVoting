@@ -1,25 +1,25 @@
 ﻿$(function () { 
     $('#RegStartDate').datetimepicker({
        
-        format: 'MM/DD/YYYY h:mm:ss',
+        format: 'MM/DD/YYYY h:mm:ss a',
         autoclose: true,
         numberOfMonths: [1, 1]
     }); 
     $('#RegEndDate').datetimepicker({
         
-        format: 'MM/DD/YYYY h:mm:ss',
+        format: 'MM/DD/YYYY h:mm:ss a',
         autoclose: true,
         numberOfMonths: [1, 1]
     }); 
     $('#VotingStartDate').datetimepicker({
        
-        format: 'MM/DD/YYYY h:mm:ss',
+        format: 'MM/DD/YYYY h:mm:ss a',
         autoclose: true,
         numberOfMonths: [1, 1]
     }); 
     $('#VotingEndDate').datetimepicker({
         
-        format: 'MM/DD/YYYY h:mm:ss',
+        format: 'MM/DD/YYYY h:mm:ss a',
         autoclose: true,
         numberOfMonths: [1, 1]
     }); 

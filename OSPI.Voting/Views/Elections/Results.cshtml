@@ -19,51 +19,51 @@
                         <div class="col-sm-6">
                             <div class="col-sm-12">
                                 <div class="col-sm-5"></div>
-                                    <div class="col-sm-3">
-                                        <form action="Results" method="post">
-                                            <input type="hidden" value="@Model.PositionId" name="id" />
-                                            <input type="submit" class="btn btn-primary" value="<" id="btnPrev" name="ButtonType" />
-                                            <input type="submit" value=">" class="btn btn-primary" id="btnNext" name="ButtonType" />
-                                        </form>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <input type="button" value="Publish Result" class="btn btn-primary" />
-                                    </div>
+                                <div class="col-sm-3">
+                                    <form action="Results" method="post">
+                                        <input type="hidden" value="@Model.PositionId" name="id" />
+                                        <input type="submit" class="btn btn-primary" value="<" id="btnPrev" name="ButtonType" />
+                                        <input type="submit" value=">" class="btn btn-primary" id="btnNext" name="ButtonType" />
+                                    </form>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="button" value="Publish Result" class="btn btn-primary" />
                                 </div>
                             </div>
-
-                           
                         </div>
-                </div>
-                    @*<div class="row">
-            <div class="col-sm-4"> <h4>Election Result</h4></div>
-            <div class="col-sm-6">
 
-            </div>
 
-            <div class="col-sm-2">
-                <form action="" method="post">
-                    <input type="hidden" value=" " name="id" />
-                    <div class="col-sm-6">
-                        <input type="submit" value="<" id="btnPrev" name="ButtonType"class="btn-primary " />
                     </div>
-                    <div class="col-sm-6">
-                        <input type="submit" value=">" id="btnNext" name="ButtonType" class="btn-primary "  />
-                        </div>
-                </form>
-            </div>
-        </div>*@
                 </div>
+                @*<div class="row">
+                        <div class="col-sm-4"> <h4>Election Result</h4></div>
+                        <div class="col-sm-6">
+
+                        </div>
+
+                        <div class="col-sm-2">
+                            <form action="" method="post">
+                                <input type="hidden" value=" " name="id" />
+                                <div class="col-sm-6">
+                                    <input type="submit" value="<" id="btnPrev" name="ButtonType"class="btn-primary " />
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="submit" value=">" id="btnNext" name="ButtonType" class="btn-primary "  />
+                                    </div>
+                            </form>
+                        </div>
+                    </div>*@
+            </div>
             <div class="panel-body">
 
                 <div class="row">
                     <div class="col-lg-7">
                         <div class="dataTable_wrapper table-responsive">
                             <p><b>@Model.PositionName</b></p>
-                            <table id="" class="table table-striped table-bordered table-hover  display nowrap"  style="overflow-x:auto;">
+                            <table id="" class="table table-striped table-bordered table-hover  display nowrap" style="overflow-x:auto;">
                                 <thead>
                                     <tr>
-                                       
+
                                         <th>
                                             List of Canditates
                                         </th>
@@ -84,15 +84,15 @@
                                     @foreach (var item in Model.Candidates)
                                     {
                                         <tr class="odd gradeX">
-                                          
+
                                             <td>
                                                 <img src="@item.MemberNumber" class="rounded-circle" height="30" width="30" asp-append-version="true" />
                                                 @Html.DisplayFor(modelItem => item.CandidateName)
 
                                             </td>
                                             <td>
-                                                <label  style="cursor:pointer;color:#337ab7" onclick="Details('@item.CandidateId')">@item.TotalVotes</label>
-                                                
+                                                <label style="cursor:pointer;color:#337ab7" onclick="Details('@item.CandidateId')">@item.TotalVotes</label>
+
                                             </td>
 
                                             <td>
@@ -103,7 +103,7 @@
                                                     <option value="0">For Approval</option>
                                                     <option value="1">Accept</option>
                                                     <option value="2">Decline</option>
-                                                   
+
                                                 </select>
                                             </td>
 
@@ -178,35 +178,37 @@
               contentType: 'application/json; charset=utf-8',
               dataType: 'json',
               url: '/Elections/GetAllCandidatesDetails',
-              data: { Id: _Id }, 
+              data: { Id: _Id },
               success: function (data) {
                var jsonObj = data;
                 $('#divtxt').html("");
-                var  table_body = " "; 
+                var  table_body = " ";
+
+
                     table_body += "<div class='col-md-12'>";
                      table_body += '<b>';
                     table_body += '<p>' + jsonObj.positionName + '</p>';
                     table_body += "</b>";
                      table_body += "</div>";
-                 
-                    $.each(jsonObj.votes, function (i, c) { 
+
+                    $.each(jsonObj.votes, function (i, c) {
                        table_body+="<div class='col-md-6'>";
                     table_body += '<p>' + c.vFullName + '</p>';
                      table_body += "</div>";
                 })
-                  
-                   
-               
+
+
+
                  $('#divtxt').html(table_body);
-               $("#myModal").modal("show");                
-            } 
-            
+               $("#myModal").modal("show");
+            }
+
         });
-             
-        } 
+
+        }
     $(function () {
        var chartDiv = $("#myChart");
-          
+
 
          var myChart = new Chart(chartDiv, {
             type: 'pie',
@@ -216,7 +218,7 @@
                 datasets: [
                     {
 
-                    data: JSON.parse('@Html.Raw(ViewBag.PercentageList)'), 
+                    data: JSON.parse('@Html.Raw(ViewBag.PercentageList)'),
                         backgroundColor: [
                             "#FF6384",
                             "#4BC0C0",
@@ -237,6 +239,3 @@
         });
     });
 </script>
-
-
-
