@@ -123,3 +123,4 @@ G:\2020\Diego Project\V25\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.Assemb
 G:\2020\Diego Project\V25\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.dll
 G:\2020\Diego Project\V25\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.pdb
 G:\2020\Diego Project\V25\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.csprojAssemblyReference.cache
+C:\Projects\OSPI-Systems\OSPI.Domain\obj\Debug\netcoreapp3.1\OSPI.Domain.csprojAssemblyReference.cache

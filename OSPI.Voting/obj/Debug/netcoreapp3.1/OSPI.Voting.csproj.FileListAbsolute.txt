@@ -1631,3 +1631,4 @@ G:\2020\Diego Project\V25\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.Views.
 G:\2020\Diego Project\V25\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.csproj.CopyComplete
 G:\2020\Diego Project\V25\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.dll
 G:\2020\Diego Project\V25\OSPI.Voting\obj\Debug\netcoreapp3.1\OSPI.Voting.pdb
+C:\Projects\OSPI-Systems\OSPI.Voting\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_OuterLayout.cshtml.g.cs
